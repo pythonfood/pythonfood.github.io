@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2017-12-26T06:16:20.381Z</updated>
+  <updated>2017-12-25T07:31:56.646Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>markdown 常用命令</title>
-    <link href="http://pythonfood.github.io/2017/12/26/markdown-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://pythonfood.github.io/2017/12/26/markdown-常用命令/</id>
-    <published>2017-12-26T06:06:24.000Z</published>
-    <updated>2017-12-26T06:16:20.381Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title: Markdown 常用命令<br>date: 2017-12-26 12:35:15</p><h2 id="tags-markdown"><a href="#tags-markdown" class="headerlink" title="tags:markdown"></a>tags:markdown</h2><p>##粗体和斜体<br>    <strong>粗体</strong><br>    <strong><em>加粗斜体</em></strong><br>    <em>斜体</em>或<em>斜体</em><br>    <del>删除线</del></p><p>##分级标题</p><pre><code># 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题这是一个一级标题================这是一个二级标题----------------</code></pre><p>##列表</p><pre><code>+ 无    - 无     * 无+ 序    - 序     * 序+ 列    - 列     * 列+ 表    - 表     * 表1.有2.序3.列4.表</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;p&gt;title: Markdown 常用命令&lt;br&gt;date: 2017-12-26 12:35:15&lt;/p&gt;
-&lt;h2 id=&quot;tags-markdown&quot;&gt;&lt;a href=&quot;#tags-markdown&quot; class=&quot;headerlink&quot; title=&quot;tags
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
