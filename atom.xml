@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2017-12-26T06:06:53.520Z</updated>
+  <updated>2017-12-26T06:11:06.055Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>markdown 常用命令</title>
+    <title>markdown ��������</title>
     <link href="http://pythonfood.github.io/2017/12/26/markdown-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://pythonfood.github.io/2017/12/26/markdown-常用命令/</id>
     <published>2017-12-26T06:06:24.000Z</published>
-    <updated>2017-12-26T06:06:53.520Z</updated>
+    <updated>2017-12-26T06:11:06.055Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: Markdown ��������<br>date: 2017-12-26 12:35:15</p><h2 id="tags-markdown"><a href="#tags-markdown" class="headerlink" title="tags:markdown"></a>tags:markdown</h2><p>##�����б��<br>    <strong>����</strong><br>    <strong><em>�Ӵ�б��</em></strong><br>    <em>б��</em>��<em>б��</em><br>    <del>ɾ����</del></p><p>##�ּ�����</p><pre><code># һ������## ��������### ��������#### �ļ�����##### �弶����###### ������������һ��һ������================����һ����������----------------</code></pre><p>##�б�</p><pre><code>+ ��    - ��     * ��+ ��    - ��     * ��+ ��    - ��     * ��+ ��    - ��     * ��1.��2.��3.��4.��</code></pre><p>##����</p>]]></content>
+    <content type="html"><![CDATA[<hr><p>title: Markdown ��������<br>date: 2017-12-26 12:35:15</p><h2 id="tags-markdown"><a href="#tags-markdown" class="headerlink" title="tags:markdown"></a>tags:markdown</h2><p>##�����б��<br>    <strong>����</strong><br>    <strong><em>�Ӵ�б��</em></strong><br>    <em>б��</em>��<em>б��</em><br>    <del>ɾ����</del></p><p>##�ּ�����</p><pre><code># һ������## ��������### ��������#### �ļ�����##### �弶����###### ������������һ��һ������================����һ����������----------------</code></pre><p>##�б�</p><pre><code>+ ��    - ��     * ��+ ��    - ��     * ��+ ��    - ��     * ��+ ��    - ��     * ��1.��2.��3.��4.��</code></pre>]]></content>
     
     <summary type="html">
     
