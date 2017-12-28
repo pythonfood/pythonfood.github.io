@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2017-12-27T08:31:14.397Z</updated>
+  <updated>2017-12-28T10:13:22.601Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python初探</title>
+    <link href="http://pythonfood.github.io/2017/12/28/python%E5%88%9D%E6%8E%A2/"/>
+    <id>http://pythonfood.github.io/2017/12/28/python初探/</id>
+    <published>2017-12-28T10:11:57.000Z</published>
+    <updated>2017-12-28T10:13:22.601Z</updated>
+    
+    <content type="html"><![CDATA[<p>人生苦短，我用python。<br><a id="more"></a></p><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre><code>#!/usr/bin/python3# -*- coding: utf-8 -*-# 第一个注释# 第二个注释&apos;&apos;&apos;第三注释第四注释&apos;&apos;&apos;&quot;&quot;&quot;第五注释第六注释&quot;&quot;&quot;</code></pre><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><pre><code>第一个字符必须是字母表中字母或下划线&apos;_&apos;。标识符的其他的部分有字母、数字和下划线组成。标识符对大小写敏感。</code></pre><h3 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h3><pre><code>&gt;&gt;&gt; import keyword&gt;&gt;&gt; keyword.kwlist[&apos;False&apos;, &apos;None&apos;, &apos;True&apos;, &apos;and&apos;, &apos;as&apos;, &apos;assert&apos;, &apos;break&apos;, &apos;class&apos;, &apos;continue&apos;, &apos;def&apos;, &apos;del&apos;, &apos;elif&apos;, &apos;else&apos;, &apos;except&apos;, &apos;finally&apos;, &apos;for&apos;, &apos;from&apos;, &apos;global&apos;, &apos;if&apos;, &apos;import&apos;, &apos;in&apos;, &apos;is&apos;, &apos;lambda&apos;, &apos;nonlocal&apos;, &apos;not&apos;, &apos;or&apos;, &apos;pass&apos;, &apos;raise&apos;, &apos;return&apos;, &apos;try&apos;, &apos;while&apos;, &apos;with&apos;, &apos;yield&apos;]</code></pre><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><pre><code>print(&apos;hello world&apos;)input(&apos;\n\n按下 enter 键后退出&apos;)</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;人生苦短，我用python。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://pythonfood.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://pythonfood.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown</title>
     <link href="http://pythonfood.github.io/2017/12/27/markdown/"/>
     <id>http://pythonfood.github.io/2017/12/27/markdown/</id>
     <published>2017-12-27T04:48:25.000Z</published>
-    <updated>2017-12-27T08:31:14.397Z</updated>
+    <updated>2017-12-28T09:25:16.351Z</updated>
     
-    <content type="html"><![CDATA[<p>markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。markdown用于编写说明文档，并且以“README.MD”的文件名保存在软件的目录下面。<br><a id="more"></a></p><h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><pre><code>**粗体*****加粗斜体****斜体*_斜体_~~删除线~~    </code></pre><h3 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h3><pre><code># 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题这是一个一级标题================这是一个二级标题----------------</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><pre><code>+ 无    - 无     * 无+ 序    - 序     * 序+ 列    - 列     * 列+ 表    - 表     * 表1.有2.序3.列4.表</code></pre><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><pre><code>&gt;引用引用一段话</code></pre><h3 id="多层引用"><a href="#多层引用" class="headerlink" title="多层引用"></a>多层引用</h3><pre><code>&gt;&gt;&gt;多&gt;&gt;层&gt;引用</code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><pre><code>![图片Alt](图片地址 “图片Title”)</code></pre><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><pre><code>[连接文字](连接地址 “连接Title”)</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>`内行代码`两行```包夹多行代码1个tab或4个空格缩进，也可以写多行代码</code></pre><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><pre><code>2个tab键或8个空格键</code></pre><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code>|学号|姓名|分数||:---|:--:|---:||111|我|70||左对齐|居中|右对齐|</code></pre><h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><pre><code>**** * *******- - -_ _ _ _ _ _    </code></pre>]]></content>
+    <content type="html"><![CDATA[<p>markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。markdown用于编写说明文档，并且以“README.MD”的文件名保存在软件的目录下面。<br><a id="more"></a></p><h3 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h3><pre><code>**粗体*****加粗斜体****斜体*_斜体_~~删除线~~    </code></pre><h3 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h3><pre><code># 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题这是一个一级标题================这是一个二级标题----------------</code></pre><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><pre><code>+ 无    - 无     * 无+ 序    - 序     * 序+ 列    - 列     * 列+ 表    - 表     * 表1.有2.序3.列4.表</code></pre><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><pre><code>&gt;引用引用一段话</code></pre><h3 id="多层引用"><a href="#多层引用" class="headerlink" title="多层引用"></a>多层引用</h3><pre><code>&gt;&gt;&gt;多&gt;&gt;层&gt;引用</code></pre><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><pre><code>![图片Alt](图片地址 “图片Title”)</code></pre><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><pre><code>[连接文字](连接地址 “连接Title”)</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>`内行代码`两行```包夹多行代码1个tab或4个空格缩进，也可以写多行代码</code></pre><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><pre><code>2个tab键或8个空格键</code></pre><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code>|学号|姓名|分数||:---|:--:|---:||111|我|70||左对齐|居中|右对齐|</code></pre><h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><pre><code>**** * *******- - -_ _ _ _ _ _    </code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
     
     <summary type="html">
     
