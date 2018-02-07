@@ -61,6 +61,28 @@
   </entry>
   
   <entry>
+    <title>hexo</title>
+    <link href="http://pythonfood.github.io/2017/12/27/hexo/"/>
+    <id>http://pythonfood.github.io/2017/12/27/hexo/</id>
+    <published>2017-12-27T04:42:26.000Z</published>
+    <updated>2018-02-07T07:24:20.988Z</updated>
+    
+    <content type="html"><![CDATA[<p>hexo常用命令笔记<br><a id="more"></a></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install hexo -g </code></pre><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><pre><code>npm update hexo -g</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code>hexo init</code></pre><h3 id="显示Hexo版本号"><a href="#显示Hexo版本号" class="headerlink" title="显示Hexo版本号"></a>显示Hexo版本号</h3><pre><code>hexo version               </code></pre><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre><code>hexo n &quot;postName&quot;hexo new &quot;postName&quot;</code></pre><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><pre><code>hexo g hexo generate</code></pre><h3 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><pre><code>hexo shexo serverhexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定义 IP</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><pre><code>hexo d hexo deploy </code></pre><h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><pre><code>hexo phexo publish [layout] &lt;title&gt;</code></pre><h3 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h3><pre><code>hexo list &lt;type&gt;        </code></pre><h3 id="清除db-json和public"><a href="#清除db-json和public" class="headerlink" title="清除db.json和public"></a>清除db.json和public</h3><pre><code>hexo clean                  </code></pre><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><pre><code>hexo new page &quot;pageName&quot;</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hexo常用命令笔记&lt;br&gt;
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://pythonfood.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://pythonfood.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://pythonfood.github.io/2017/12/25/hello-world/"/>
     <id>http://pythonfood.github.io/2017/12/25/hello-world/</id>
