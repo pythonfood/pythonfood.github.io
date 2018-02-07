@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>python初探 | PythonFood</title>
+  <title>流程分析 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="人生苦短，我用python。">
-<meta name="keywords" content="python">
+  <meta name="description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
+<meta name="keywords" content="Test csae">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python初探">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python初探/index.html">
+<meta property="og:title" content="流程分析">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/流程分析/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="人生苦短，我用python。">
-<meta property="og:updated_time" content="2017-12-28T10:13:22.601Z">
+<meta property="og:description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
+<meta property="og:updated_time" content="2018-02-07T10:23:41.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python初探">
-<meta name="twitter:description" content="人生苦短，我用python。">
+<meta name="twitter:title" content="流程分析">
+<meta name="twitter:description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-python初探" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-流程分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      python初探
+      流程分析
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -118,12 +118,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/python/">python</a>
+                      <a href="/categories/Testcsae/">Test csae</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-12-28
+          <i class="fa fa-calendar"></i>  2017-12-27
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -139,35 +139,21 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>人生苦短，我用python。<br><a id="more"></a></p>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><pre><code>#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
-# 第一个注释
-# 第二个注释
-
-&apos;&apos;&apos;
-第三注释
-第四注释
-&apos;&apos;&apos;
-
-&quot;&quot;&quot;
-第五注释
-第六注释
-&quot;&quot;&quot;
-</code></pre><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><pre><code>第一个字符必须是字母表中字母或下划线&apos;_&apos;。
-标识符的其他的部分有字母、数字和下划线组成。
-标识符对大小写敏感。
-</code></pre><h3 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h3><pre><code>&gt;&gt;&gt; import keyword
-&gt;&gt;&gt; keyword.kwlist
-[&apos;False&apos;, &apos;None&apos;, &apos;True&apos;, &apos;and&apos;, &apos;as&apos;, &apos;assert&apos;, &apos;break&apos;, &apos;class&apos;, &apos;continue&apos;, &apos;def&apos;, &apos;del&apos;, &apos;elif&apos;, &apos;else&apos;, &apos;except&apos;, &apos;finally&apos;, &apos;for&apos;, &apos;from&apos;, &apos;global&apos;, &apos;if&apos;, &apos;import&apos;, &apos;in&apos;, &apos;is&apos;, &apos;lambda&apos;, &apos;nonlocal&apos;, &apos;not&apos;, &apos;or&apos;, &apos;pass&apos;, &apos;raise&apos;, &apos;return&apos;, &apos;try&apos;, &apos;while&apos;, &apos;with&apos;, &apos;yield&apos;]
-</code></pre><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><pre><code>print(&apos;hello world&apos;)
-input(&apos;\n\n按下 enter 键后退出&apos;)
-</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <p>现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。<br><a id="more"></a></p>
+<h3 id="场景设计法三个流程："><a href="#场景设计法三个流程：" class="headerlink" title="场景设计法三个流程："></a>场景设计法三个流程：</h3><blockquote>
+<p>1.基本流：通过业务流程输入都为正确的，能够最后到达目标的流程<br>2.备选流：通过实现业务流程时，因错误操作或异常输入，导致流程存在反复，但最终能够完成期望业务的流程。<br>3.异常流：通过实现业务流程时，因错误操作或异常输入，导致业务没有正确完成。</p>
+</blockquote>
+<h3 id="流程分析应用步骤："><a href="#流程分析应用步骤：" class="headerlink" title="流程分析应用步骤："></a>流程分析应用步骤：</h3><blockquote>
+<p>1.理解需求，确定业务流程（基本流、备选流、异常流）。<br>2.绘制流程图（再次明确流程路径）。<br>3.根据业务流程图，抽取测试路径（每次路径需包含一个从未走过的路径）。<br>4.细化路径设计测试用例。</p>
+</blockquote>
+<h3 id="流程分析法注意点："><a href="#流程分析法注意点：" class="headerlink" title="流程分析法注意点："></a>流程分析法注意点：</h3><blockquote>
+<p>需使用等价类、边界值、正交试验、判定表、因果图等方法保证单个功能的正确性。</p>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年12月28日 18:13</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/28/python初探/" title="python初探">http://pythonfood.github.io/2017/12/28/python初探/</a></p>
+        <p>最后更新： 2018年02月07日 18:23</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/27/流程分析/" title="流程分析">http://pythonfood.github.io/2017/12/27/流程分析/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -224,7 +210,7 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python初探/&title=《python初探》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/流程分析/&title=《流程分析》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -234,22 +220,22 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python初探/&title=《python初探》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/流程分析/&title=《流程分析》 — PythonFood&source=现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python初探/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/流程分析/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python初探》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python初探/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《流程分析》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/流程分析/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python初探/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/流程分析/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -259,7 +245,7 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python初探/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/流程分析/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -271,7 +257,7 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/python/" class="color2">python</a>
+    <a href="/tags/Testcsae/" class="color5">Test csae</a>
       
   </li>
 
@@ -284,16 +270,26 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注释"><span class="post-toc-text">注释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标识符"><span class="post-toc-text">标识符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保留字"><span class="post-toc-text">保留字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入输出"><span class="post-toc-text">输入输出</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#场景设计法三个流程："><span class="post-toc-text">场景设计法三个流程：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程分析应用步骤："><span class="post-toc-text">流程分析应用步骤：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程分析法注意点："><span class="post-toc-text">流程分析法注意点：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
+    <a href="/2017/12/28/python初探/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python初探
+        
+      </span>
+    </a>
   
-    <a href="/2017/12/27/流程分析/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">流程分析</span>
+  
+    <a href="/2017/12/27/状态迁移/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">状态迁移</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -302,7 +298,7 @@ input(&apos;\n\n按下 enter 键后退出&apos;)
 
 
     
-        <div id="SOHUCS" sid="python初探" ></div>
+        <div id="SOHUCS" sid="流程分析" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';

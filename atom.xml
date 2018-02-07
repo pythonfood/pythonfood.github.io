@@ -39,6 +39,160 @@
   </entry>
   
   <entry>
+    <title>流程分析</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/"/>
+    <id>http://pythonfood.github.io/2017/12/27/流程分析/</id>
+    <published>2017-12-27T09:10:07.000Z</published>
+    <updated>2018-02-07T10:23:41.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。<br><a id="more"></a></p><h3 id="场景设计法三个流程："><a href="#场景设计法三个流程：" class="headerlink" title="场景设计法三个流程："></a>场景设计法三个流程：</h3><blockquote><p>1.基本流：通过业务流程输入都为正确的，能够最后到达目标的流程<br>2.备选流：通过实现业务流程时，因错误操作或异常输入，导致流程存在反复，但最终能够完成期望业务的流程。<br>3.异常流：通过实现业务流程时，因错误操作或异常输入，导致业务没有正确完成。</p></blockquote><h3 id="流程分析应用步骤："><a href="#流程分析应用步骤：" class="headerlink" title="流程分析应用步骤："></a>流程分析应用步骤：</h3><blockquote><p>1.理解需求，确定业务流程（基本流、备选流、异常流）。<br>2.绘制流程图（再次明确流程路径）。<br>3.根据业务流程图，抽取测试路径（每次路径需包含一个从未走过的路径）。<br>4.细化路径设计测试用例。</p></blockquote><h3 id="流程分析法注意点："><a href="#流程分析法注意点：" class="headerlink" title="流程分析法注意点："></a>流程分析法注意点：</h3><blockquote><p>需使用等价类、边界值、正交试验、判定表、因果图等方法保证单个功能的正确性。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>状态迁移</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E7%8A%B6%E6%80%81%E8%BF%81%E7%A7%BB/"/>
+    <id>http://pythonfood.github.io/2017/12/27/状态迁移/</id>
+    <published>2017-12-27T09:10:06.000Z</published>
+    <updated>2018-02-07T10:20:34.305Z</updated>
+    
+    <content type="html"><![CDATA[<p>状态迁移关注被测对象的状态变化，在需求规格说明书中是否有不可达到的状态和非法的状态，是否产生非法的状态迁移。<br><a id="more"></a></p><h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><blockquote><p>被测对象在特定输入条件下所保持的响应形式</p></blockquote><h3 id="状态迁移应用步骤："><a href="#状态迁移应用步骤：" class="headerlink" title="状态迁移应用步骤："></a>状态迁移应用步骤：</h3><blockquote><p>1.根据需求明确状态节点。<br>2.绘制状态迁移图。<br>3.绘制状态迁移树。<br>4.抽取测试用例。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;状态迁移关注被测对象的状态变化，在需求规格说明书中是否有不可达到的状态和非法的状态，是否产生非法的状态迁移。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正交试验</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C/"/>
+    <id>http://pythonfood.github.io/2017/12/27/正交试验/</id>
+    <published>2017-12-27T09:10:05.000Z</published>
+    <updated>2018-02-07T10:09:58.877Z</updated>
+    
+    <content type="html"><![CDATA[<p>正交试验是研究多因素多水平的一种设计方法，它是根据正交性从全面试验中挑选出部分有代表性的点进行试验，这些有代表性的点具备了“均匀分散，齐整可比”的特点，正交试验设计是一种基于正交表的、高效率、快速、经济的试验。<br><a id="more"></a></p><h3 id="正交试验重要概念："><a href="#正交试验重要概念：" class="headerlink" title="正交试验重要概念："></a>正交试验重要概念：</h3><blockquote><p>1.因子：所有参与试验的影响试验结果的条件成为因子。<br>2.水平：影响试验因子的取值或输入称为水平。<br>3.整齐可比：在同一张正交表中，每个因子每个水平出现的次数完全相同。试验中，每个因子的每个水平与其他因子的水平参与试验的机率完全相同。<br>4.均匀分散：同一张正交表中，任意两列水平搭配是完全相同的。</p></blockquote><h3 id="正交试验应用步骤："><a href="#正交试验应用步骤：" class="headerlink" title="正交试验应用步骤："></a>正交试验应用步骤：</h3><blockquote><p>1.分析需求获取因子和水平。<br>2.根据因子和水平选择合适的正交表。<br>3.替换因子和水平，获取试验次数。<br>4.根据试验或其他因素补充试验次数。<br>5.细化输出获取测试用例。</p></blockquote><h3 id="正交试验注意点："><a href="#正交试验注意点：" class="headerlink" title="正交试验注意点："></a>正交试验注意点：</h3><blockquote><p>1.选择正交表的因子与水平恰好与正交表相同。<br>2.根据对象因子与正交表中的因子不同，选择正交表中因子稍大于被测对象因子数，且试验次数最少的，多余的因子弃用。<br>3.被测对象水平与正交表中的水平不同，可根据实际情况进行合并，然后拆分。<br>4.因子水平都不相同，则可选择因子，水平稍大于被测对象的，且实验次数最少的。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;正交试验是研究多因素多水平的一种设计方法，它是根据正交性从全面试验中挑选出部分有代表性的点进行试验，这些有代表性的点具备了“均匀分散，齐整可比”的特点，正交试验设计是一种基于正交表的、高效率、快速、经济的试验。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>因果图</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E5%9B%A0%E6%9E%9C%E5%9B%BE/"/>
+    <id>http://pythonfood.github.io/2017/12/27/因果图/</id>
+    <published>2017-12-27T09:10:04.000Z</published>
+    <updated>2018-02-07T09:59:37.227Z</updated>
+    
+    <content type="html"><![CDATA[<p>因果图是一种利用图解法分析输入的各种组合情况，从而设计测试用例的方法，它适合于检查程序输入条件的各种组合情况。<br><a id="more"></a></p><h3 id="输入与输出的关系："><a href="#输入与输出的关系：" class="headerlink" title="输入与输出的关系："></a>输入与输出的关系：</h3><blockquote><p>1.恒等：若ci是1，则ei也是1；否则ei为0。<br>2.非：若ci是1，则ei是0；否则ei是1。<br>3.或：若c1或c2或c3是1，则ei是1；否则ei为0。“或”可有任意个输入。<br>4.与：若c1和c2都是1，则ei为1；否则ei为0。“与”也可有任意个输入。</p></blockquote><h3 id="输入与输入的关系："><a href="#输入与输入的关系：" class="headerlink" title="输入与输入的关系："></a>输入与输入的关系：</h3><blockquote><p>1.E约束（异）：a和b中至多有一个可能为1，即a和b不能同时为1。<br>2.I约束（或）：a、b和c中至少有一个必须是1，即 a、b 和c不能同时为0。<br>3.O约束（唯一）；a和b必须有一个，且仅有1个为1。<br>4.R约束（要求）：a是1时，b必须是1，即不可能a是1时b是0。</p></blockquote><h3 id="输出与输出的关系："><a href="#输出与输出的关系：" class="headerlink" title="输出与输出的关系："></a>输出与输出的关系：</h3><blockquote><p>1.M(屏蔽)：a出现时，b必定不出现；a不出现时，b则不确定。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因果图是一种利用图解法分析输入的各种组合情况，从而设计测试用例的方法，它适合于检查程序输入条件的各种组合情况。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>判定表</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E5%88%A4%E5%AE%9A%E8%A1%A8/"/>
+    <id>http://pythonfood.github.io/2017/12/27/判定表/</id>
+    <published>2017-12-27T09:10:03.000Z</published>
+    <updated>2018-02-07T09:51:07.188Z</updated>
+    
+    <content type="html"><![CDATA[<p>判定表是分析和表达多逻辑条件下执行不同操作的情况的工具。（在遇到复杂业务逻辑时可以利用该表理清业务逻辑关系）<br><a id="more"></a></p><h3 id="判定表重要概念："><a href="#判定表重要概念：" class="headerlink" title="判定表重要概念："></a>判定表重要概念：</h3><blockquote><p>1.条件</p><blockquote><p>条件桩：列出了所有条件，通常认为列出条件的次序无关紧要。<br>条件项：列出了所有条件的取值组合，在所有可能情况下的真假值。</p></blockquote><p>2.动作</p><blockquote><p>动作桩：列出所有可能的操作，这些操作的排列顺序没有约束。<br>动作项：列出在条件项的各种取值情况下应该采取的动作。</p></blockquote><p>3.规则</p><blockquote><p>规则：任何一个条件组合的特定取值及其他相应要执行的操作称为规则。在判定表中贯穿条件项和动作项的一列就是一条规则。</p></blockquote></blockquote><h3 id="判定表应用步骤："><a href="#判定表应用步骤：" class="headerlink" title="判定表应用步骤："></a>判定表应用步骤：</h3><blockquote><p>1.理解需求，列出条件桩和动作桩。<br>2.设计及优化判定表。（2的n次方种）<br>3.填写动作项。<br>4.根据判定表中输出结果的表现，进行判定表的合并（非必须），简化判定表。<br>5.抽取测试用例。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;判定表是分析和表达多逻辑条件下执行不同操作的情况的工具。（在遇到复杂业务逻辑时可以利用该表理清业务逻辑关系）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>边界值</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E8%BE%B9%E7%95%8C%E5%80%BC/"/>
+    <id>http://pythonfood.github.io/2017/12/27/边界值/</id>
+    <published>2017-12-27T09:10:02.000Z</published>
+    <updated>2018-02-07T09:32:18.720Z</updated>
+    
+    <content type="html"><![CDATA[<p>边界值是对输入或输出的边界值进行测试的一种黑盒测试方法。通常边界值分析法是作为对等价类划分法的补充，这种情况下，其测试用例来自等价类的边界。<br><a id="more"></a></p><h3 id="边界值三点（边值点）："><a href="#边界值三点（边值点）：" class="headerlink" title="边界值三点（边值点）："></a>边界值三点（边值点）：</h3><blockquote><p>1.上点：边界上的点，闭内开外（闭指域的边界是封闭的，即闭区间；开指域的边界是开放的，即开区间）。<br>2.离点：离上点最近的点称为离点。开内闭外。（根据上点的精度确定）<br>3.内点：边界值有效范围内的任意一点。</p></blockquote><h3 id="边界值如何确定离点："><a href="#边界值如何确定离点：" class="headerlink" title="边界值如何确定离点："></a>边界值如何确定离点：</h3><blockquote><p>1.如果边界是闭区间，则离点在外。<br>2.如果边界是开区间，则离点在内。</p></blockquote><h3 id="边界值应用场景："><a href="#边界值应用场景：" class="headerlink" title="边界值应用场景："></a>边界值应用场景：</h3><blockquote><p>1.如果需求规定了取值范围或规定了取值个数时，可利用该范围的边界及边界附近的数据进行测试。<br>2.如果需求规定了取值的个数，则少于个数一个，或多余个数一个的值进行测试。<br>3.如果需求规定了一个有序集合的时候，可使用该集合的第一个和最后一个值进行测试。<br>4.如果程序中使用一个内部数据结构的话，则应该从这个数据结构的边界值进行考虑。</p></blockquote><h3 id="边界值应用步骤："><a href="#边界值应用步骤：" class="headerlink" title="边界值应用步骤："></a>边界值应用步骤：</h3><blockquote><p>1.根据等价类方法划分有效等价类和无效等价类，确定上点、离点及内点，每一个点统一编号。<br>2.设计一个新的测试用例，使其尽可能覆盖所有尚未覆盖的有效等价类，直到所有的有效等价类完全覆盖。<br>3.设计一个新的测试用例，使其仅覆盖一个无效等价类，直到所有的无效等价类完全覆盖。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;边界值是对输入或输出的边界值进行测试的一种黑盒测试方法。通常边界值分析法是作为对等价类划分法的补充，这种情况下，其测试用例来自等价类的边界。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>等价类</title>
+    <link href="http://pythonfood.github.io/2017/12/27/%E7%AD%89%E4%BB%B7%E7%B1%BB/"/>
+    <id>http://pythonfood.github.io/2017/12/27/等价类/</id>
+    <published>2017-12-27T09:10:01.000Z</published>
+    <updated>2018-02-07T09:25:23.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。<br><a id="more"></a></p><h3 id="等价类划分规则："><a href="#等价类划分规则：" class="headerlink" title="等价类划分规则："></a>等价类划分规则：</h3><blockquote><p>1.如果输入条件规定了一个取值范围，那么就应该确定一个有效等价类以及两个无效等价类。<br>如月份取值在1~12之间，由此可确定一个有效等价类即月份在1~12之间，和两个无效等价类，即月份取值小于1及月份取值大于12.<br>2.规定了输入条件必须如何的情况下可以确定一个有效等价类和一个无效等价类。<br>如输入值必须大于0，则有效等价类为输入值大于0 ，无效等价类为输入值小于或者等于0.<br>3.在输入数据是一个bool常量的情况下，可以确定一个有效等价类和一个无效等价类。<br>4.在规定了输入数据由n个值构成的情况下，并要求定其中的每个值进行测试时，可以确定n个有效等价类和一个无效等价类。<br>如交通工具类型为公共汽车、卡车、出租车、火车或者摩托车，那么就应该为每一个输入值确定一个有效等价类和一个无效等价类例如拖车。<br>5.在规定了输入数据冰箱最受的规则的情况下，可以确定一个有效等价类和若干个无效等价类（从不同角度违反规则）。<br>如输入值必须是数字类型的字符，则可确定一个有效等价类，及输入值为数字类型得字符，和多个无效等价类，即输入值为字母、为专用字符（如+、*、@等）以及为非打印字符（如回车、空格等）。<br>6.在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。<br>划分等价类之后，应建立等价类表，列出与每一个输入条件对于的有效等价类和无效等价类。</p></blockquote><h3 id="等价类设计测试用例："><a href="#等价类设计测试用例：" class="headerlink" title="等价类设计测试用例："></a>等价类设计测试用例：</h3><blockquote><p>1.根据需求，划分有效等价类和无效等价类，有效等价类统一编号，无效等价类统一编号。<br>2.设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止。<br>3.设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p></blockquote><h3 id="等价类四则运算法："><a href="#等价类四则运算法：" class="headerlink" title="等价类四则运算法："></a>等价类四则运算法：</h3><blockquote><p>1.不考虑需求其他子项，细致分解当期测试点及详细需求，做累加。<br>2.根据业务规则减少，排除相关不可能出现的规则，减少不可能出现的组合。<br>3.如果有效等价类中具有互斥条件的需求时，可运用乘得到用例个数。<br>4.排除所有具有重复特性的等价类，尽可能做到有效等价类之间交集为空。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/categories/Test-csae/"/>
+    
+    
+      <category term="Test csae" scheme="http://pythonfood.github.io/tags/Test-csae/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown</title>
     <link href="http://pythonfood.github.io/2017/12/27/markdown/"/>
     <id>http://pythonfood.github.io/2017/12/27/markdown/</id>
@@ -65,13 +219,13 @@
     <link href="http://pythonfood.github.io/2017/12/27/hexo/"/>
     <id>http://pythonfood.github.io/2017/12/27/hexo/</id>
     <published>2017-12-27T04:42:26.000Z</published>
-    <updated>2018-02-07T07:24:20.988Z</updated>
+    <updated>2018-02-07T09:10:12.186Z</updated>
     
-    <content type="html"><![CDATA[<p>hexo常用命令笔记<br><a id="more"></a></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install hexo -g </code></pre><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><pre><code>npm update hexo -g</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code>hexo init</code></pre><h3 id="显示Hexo版本号"><a href="#显示Hexo版本号" class="headerlink" title="显示Hexo版本号"></a>显示Hexo版本号</h3><pre><code>hexo version               </code></pre><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre><code>hexo n &quot;postName&quot;hexo new &quot;postName&quot;</code></pre><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><pre><code>hexo g hexo generate</code></pre><h3 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><pre><code>hexo shexo serverhexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定义 IP</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><pre><code>hexo d hexo deploy </code></pre><h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><pre><code>hexo phexo publish [layout] &lt;title&gt;</code></pre><h3 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h3><pre><code>hexo list &lt;type&gt;        </code></pre><h3 id="清除db-json和public"><a href="#清除db-json和public" class="headerlink" title="清除db.json和public"></a>清除db.json和public</h3><pre><code>hexo clean                  </code></pre><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><pre><code>hexo new page &quot;pageName&quot;</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    <content type="html"><![CDATA[<p>hexo常用命令笔记。<br><a id="more"></a></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install hexo -g </code></pre><h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><pre><code>npm update hexo -g</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code>hexo init</code></pre><h3 id="显示Hexo版本号"><a href="#显示Hexo版本号" class="headerlink" title="显示Hexo版本号"></a>显示Hexo版本号</h3><pre><code>hexo version               </code></pre><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><pre><code>hexo n &quot;postName&quot;hexo new &quot;postName&quot;</code></pre><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><pre><code>hexo g hexo generate</code></pre><h3 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><pre><code>hexo shexo serverhexo server -p 5000 #更改端口hexo server -i 192.168.1.1 #自定义 IP</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><pre><code>hexo d hexo deploy </code></pre><h3 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h3><pre><code>hexo phexo publish [layout] &lt;title&gt;</code></pre><h3 id="列出网站资料"><a href="#列出网站资料" class="headerlink" title="列出网站资料"></a>列出网站资料</h3><pre><code>hexo list &lt;type&gt;        </code></pre><h3 id="清除db-json和public"><a href="#清除db-json和public" class="headerlink" title="清除db.json和public"></a>清除db.json和public</h3><pre><code>hexo clean                  </code></pre><h3 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h3><pre><code>hexo new page &quot;pageName&quot;</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;hexo常用命令笔记&lt;br&gt;
+      &lt;p&gt;hexo常用命令笔记。&lt;br&gt;
     
     </summary>
     
