@@ -3,26 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>等价类 | PythonFood</title>
+  <title>monkey | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta name="keywords" content="测试用例">
+  <meta name="description" content="Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。">
+<meta name="keywords" content="monkey">
 <meta property="og:type" content="article">
-<meta property="og:title" content="等价类">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/等价类/index.html">
+<meta property="og:title" content="monkey">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/monkey/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png">
-<meta property="og:updated_time" content="2018-02-09T06:21:19.701Z">
+<meta property="og:description" content="Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。">
+<meta property="og:updated_time" content="2018-02-09T09:35:12.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等价类">
-<meta name="twitter:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
+<meta name="twitter:title" content="monkey">
+<meta name="twitter:description" content="Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -107,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-等价类" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-monkey" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      等价类
+      monkey
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -122,7 +118,7 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/测试用例/">测试用例</a>
+                      <a href="/categories/monkey/">monkey</a>
                   
               </li>
           
@@ -143,22 +139,31 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。<br><a id="more"></a></p>
-<h3 id="等价类划分规则："><a href="#等价类划分规则：" class="headerlink" title="等价类划分规则："></a>等价类划分规则：</h3><blockquote>
-<p>1.如果输入条件规定了一个取值范围，那么就应该确定一个有效等价类以及两个无效等价类。<br>如月份取值在1~12之间，由此可确定一个有效等价类即月份在1~12之间，和两个无效等价类，即月份取值小于1及月份取值大于12.<br>2.规定了输入条件必须如何的情况下可以确定一个有效等价类和一个无效等价类。<br>如输入值必须大于0，则有效等价类为输入值大于0 ，无效等价类为输入值小于或者等于0.<br>3.在输入数据是一个bool常量的情况下，可以确定一个有效等价类和一个无效等价类。<br>4.在规定了输入数据由n个值构成的情况下，并要求定其中的每个值进行测试时，可以确定n个有效等价类和一个无效等价类。<br>如交通工具类型为公共汽车、卡车、出租车、火车或者摩托车，那么就应该为每一个输入值确定一个有效等价类和一个无效等价类例如拖车。<br>5.在规定了输入数据冰箱最受的规则的情况下，可以确定一个有效等价类和若干个无效等价类（从不同角度违反规则）。<br>如输入值必须是数字类型的字符，则可确定一个有效等价类，及输入值为数字类型得字符，和多个无效等价类，即输入值为字母、为专用字符（如+、*、@等）以及为非打印字符（如回车、空格等）。<br>6.在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。<br>划分等价类之后，应建立等价类表，列出与每一个输入条件对于的有效等价类和无效等价类。</p>
+            <p>Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。<br><a id="more"></a></p>
+<h3 id="常用选项："><a href="#常用选项：" class="headerlink" title="常用选项："></a>常用选项：</h3><blockquote>
+<p><code>--help</code>：打印帮助信息<br><code>-v</code>：指定打印信息的详细级别，一个-v增加一个级别，默认级别为0。</p>
 </blockquote>
-<h3 id="等价类设计测试用例："><a href="#等价类设计测试用例：" class="headerlink" title="等价类设计测试用例："></a>等价类设计测试用例：</h3><blockquote>
-<p>1.根据需求，划分有效等价类和无效等价类，有效等价类统一编号，无效等价类统一编号。<br>2.设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止。<br>3.设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p>
+<h3 id="事件选项："><a href="#事件选项：" class="headerlink" title="事件选项："></a>事件选项：</h3><blockquote>
+<p><code>-s</code>：指定产生随机事件种子值，相同的种子值产生相同的事件序列。<br><code>--throttle</code>：每个事件结束后的间隔时间。<br><code>--pct-touch</code>：指定(触摸事件)的百分比<br><code>--pct-motion</code>：（滑动事件)<br><code>--pct-trackball</code>：(轨迹球事件)<br><code>--pct-nav</code>：（导航事件 up/down/left/right）<br><code>--pct-majornav</code>：(主要导航事件 back key 、 menu key)<br><code>--pct-syskeys</code>：(系统按键事件 Home 、Back 、startCall 、 endCall 、 volumeControl)<br><code>--pct-appswitch</code> ：（activity之间的切换）<br><code>--pct-anyevent</code> ：（任意事件）</p>
 </blockquote>
-<h3 id="等价类四则运算法："><a href="#等价类四则运算法：" class="headerlink" title="等价类四则运算法："></a>等价类四则运算法：</h3><blockquote>
-<p>1.不考虑需求其他子项，细致分解当期测试点及详细需求，做累加。<br>2.根据业务规则减少，排除相关不可能出现的规则，减少不可能出现的组合。<br>3.如果有效等价类中具有互斥条件的需求时，可运用乘得到用例个数。<br>4.排除所有具有重复特性的等价类，尽可能做到有效等价类之间交集为空。</p>
+<h3 id="约束选项："><a href="#约束选项：" class="headerlink" title="约束选项："></a>约束选项：</h3><blockquote>
+<p><code>-p</code>：指定有效的package（如不指定，则对系统中所有package有效），一个-p 对应一个有效package。<br><code>-c</code>：activity必须至少包含一个指定的category，才能被启动，否则启动不了。</p>
 </blockquote>
-<h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.有效等价类一条用例尽量覆盖所有有效等价类<br><img src="/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png" alt="1.有效等价类一条用例尽量覆盖所有有效等价类"><br>2.无效等价类一条用例覆盖一个无效等价类<br><img src="/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png" alt="2.无效等价类一条用例覆盖一个无效等价类"><br>3.根据覆盖条件编写等价类测试用例<br><img src="/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png" alt="3.根据覆盖条件编写等价类测试用例"></p>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h3 id="调试选项："><a href="#调试选项：" class="headerlink" title="调试选项："></a>调试选项：</h3><blockquote>
+<p><code>--dbg-no-events</code>：初始化启动的activity，但是不产生任何事件。<br><code>--hprof</code>：指定该项后在事件序列发送前后会立即生成分析报告  —— 一般建议指定该项。<br><code>--ignore-crashes</code>：忽略崩溃<br><code>--ignore-timeouts</code>：忽略超时<br><code>--ignore-security-exceptions</code>：忽略安全异常<br><code>--kill-process-after-error</code>：发生错误后直接杀掉进程<br><code>--monitor-native-crashes</code>：跟踪本地方法的崩溃问题<br><code>--wait-dbg</code>：知道连接了调试器才执行monkey测试。</p>
+</blockquote>
+<h3 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h3><pre><code>adb shell monkey -p（指定包名） com.hiveview.cloudscreen.py --throttle（操作延时ms） 1000 -s(指定seed值) 1500859116902 -v -v（信息反馈级别） 1000（执行次数）
+
+adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-majornav 50 --pct-nav 50 -v -v 1000 &gt;d:\monkey.txt
+
+adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --ignore-crashes --ignore-timeouts --monitor-native-crashes --pct-majornav 50 --pct-nav 50 -v -v 1000 &gt;d:\monkey_log.txt
+
+adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-nav 50 --pct-majornav 50 -v -v 1000 &gt;d:\monkey_log.txt
+</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 14:21</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/27/等价类/" title="等价类">http://pythonfood.github.io/2017/12/27/等价类/</a></p>
+        <p>最后更新： 2018年02月09日 17:35</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/27/monkey/" title="monkey">http://pythonfood.github.io/2017/12/27/monkey/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -215,7 +220,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/monkey/&title=《monkey》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -225,22 +230,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&source=等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/monkey/&title=《monkey》 — PythonFood&source=Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/monkey/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《等价类》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/等价类/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《monkey》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/monkey/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/monkey/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -250,7 +255,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/等价类/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/monkey/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -262,7 +267,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/测试用例/" class="color5">测试用例</a>
+    <a href="/tags/monkey/" class="color2">monkey</a>
       
   </li>
 
@@ -275,26 +280,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类划分规则："><span class="post-toc-text">等价类划分规则：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类设计测试用例："><span class="post-toc-text">等价类设计测试用例：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类四则运算法："><span class="post-toc-text">等价类四则运算法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用选项："><span class="post-toc-text">常用选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件选项："><span class="post-toc-text">事件选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#约束选项："><span class="post-toc-text">约束选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调试选项："><span class="post-toc-text">调试选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/边界值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/28/python初探/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          边界值
+          python初探
         
       </span>
     </a>
   
   
-    <a href="/2017/12/27/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">markdown</span>
+    <a href="/2017/12/27/安卓专项测试/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">安卓专项测试</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -303,7 +308,7 @@
 
 
     
-        <div id="SOHUCS" sid="等价类" ></div>
+        <div id="SOHUCS" sid="monkey" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
