@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2018-02-08T08:03:05.224Z</updated>
+  <updated>2018-02-23T05:53:07.305Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>selenium安装-windows</title>
+    <link href="http://pythonfood.github.io/2018/01/01/selenium%E5%AE%89%E8%A3%85-windows/"/>
+    <id>http://pythonfood.github.io/2018/01/01/selenium安装-windows/</id>
+    <published>2018-01-01T01:00:00.000Z</published>
+    <updated>2018-02-23T05:53:07.305Z</updated>
+    
+    <content type="html"><![CDATA[<p>Python3+selenium3环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。<br><a id="more"></a></p><h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1.安装Python"></a>1.<a href="https://pythonfood.github.io/2017/12/28/python安装-windows/#more">安装Python</a></h3><h3 id="2-安装pip"><a href="#2-安装pip" class="headerlink" title="2.安装pip"></a>2.安装pip</h3><blockquote><p>方法1：自动安装</p><blockquote><p>在第1步安装python时，已经安装了pip。</p></blockquote><p>方法2：手动安装</p><blockquote><p>(1)下载pip压缩包：<a href="https://pypi.python.org/pypi/pip#downloads" target="_blank" rel="noopener">https://pypi.python.org/pypi/pip#downloads</a><br>(2)解压后cmd进入解压目录，执行<code>python setup.py install</code>进行安装。</p></blockquote></blockquote><h3 id="3-安装selenium"><a href="#3-安装selenium" class="headerlink" title="3.安装selenium"></a>3.安装selenium</h3><blockquote><p>方法1：命令行安装</p><blockquote><p>进入cmd输入命令’pip install selenium’。</p></blockquote><p>方法2：下载whl包安装</p><blockquote><p>(1)下载selenium安装包：<a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="noopener">https://pypi.python.org/pypi/selenium</a> 或 <a href="https://www.seleniumhq.org/download/" target="_blank" rel="noopener">https://www.seleniumhq.org/download/</a><br>(2)下载完成后，进入cmd输入命令<code>pip install</code>，再直接将文件拖入cmd窗口，回车即可安装。</p></blockquote></blockquote><h3 id="4-安装浏览器驱动"><a href="#4-安装浏览器驱动" class="headerlink" title="4.安装浏览器驱动"></a>4.安装浏览器驱动</h3><blockquote><p>(1)下载浏览器驱动</p><blockquote><p>不同浏览器需下载不同驱动，不同版本浏览器对应不同版本驱动。这里只给出chrome和firefox的驱动下载地址：<br>1)chrome：<a href="http://npm.taobao.org/mirrors/chromedriver" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/chromedriver</a> 或 <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a><br>2)firefox：<a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></p></blockquote><p>(2)安装浏览器驱动</p><blockquote><p>下载完驱动后解压，将驱动放置在可执行路径下。这里给出三种路径：<br>1)将浏览器驱动放到python的Path路径下。<br>2)将浏览器驱动放到浏览器的Path路径下。<br>3)自定义路径，新建driver文件夹，将驱动放在driver文件下，最后将该路径添加到环境变量中。</p></blockquote></blockquote><h3 id="5-验证环境（小示例）"><a href="#5-验证环境（小示例）" class="headerlink" title="5.验证环境（小示例）"></a>5.验证环境（小示例）</h3><blockquote><p>(1)创建python文件selenium_python.py，内容如下：</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&apos;http://www.baidu.com/&apos;)</span><br></pre></td></tr></table></figure></blockquote><p>(2)cmd执行命令<code>python selenium_python.py</code>。<br>(3)脚本自动执行，结果如下：</p><blockquote><p><img src="/2018/01/01/selenium安装-windows/脚本执行结果.png" alt="脚本执行结果"></p></blockquote></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python3+selenium3环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="selenium" scheme="http://pythonfood.github.io/categories/selenium/"/>
+    
+    
+      <category term="selenium" scheme="http://pythonfood.github.io/tags/selenium/"/>
+    
+  </entry>
   
   <entry>
     <title>python初探</title>
