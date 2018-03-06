@@ -3,26 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>等价类 | PythonFood</title>
+  <title>安卓专项测试-cpu | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta name="keywords" content="测试用例">
+  <meta name="description" content="python脚本实现安卓app的cpu使用率测试。">
+<meta name="keywords" content="专项测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="等价类">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/等价类/index.html">
+<meta property="og:title" content="安卓专项测试-cpu">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png">
-<meta property="og:updated_time" content="2018-02-09T06:21:19.701Z">
+<meta property="og:description" content="python脚本实现安卓app的cpu使用率测试。">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/cpu使用率.png">
+<meta property="og:updated_time" content="2018-03-06T03:22:04.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等价类">
-<meta name="twitter:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
+<meta name="twitter:title" content="安卓专项测试-cpu">
+<meta name="twitter:description" content="python脚本实现安卓app的cpu使用率测试。">
+<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/cpu使用率.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -107,14 +105,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-等价类" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-安卓专项测试-cpu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      等价类
+      安卓专项测试-cpu
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -122,7 +120,7 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/测试用例/">测试用例</a>
+                      <a href="/categories/专项测试/">专项测试</a>
                   
               </li>
           
@@ -143,22 +141,19 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。<br><a id="more"></a></p>
-<h3 id="等价类划分规则："><a href="#等价类划分规则：" class="headerlink" title="等价类划分规则："></a>等价类划分规则：</h3><blockquote>
-<p>1.如果输入条件规定了一个取值范围，那么就应该确定一个有效等价类以及两个无效等价类。<br>如月份取值在1~12之间，由此可确定一个有效等价类即月份在1~12之间，和两个无效等价类，即月份取值小于1及月份取值大于12.<br>2.规定了输入条件必须如何的情况下可以确定一个有效等价类和一个无效等价类。<br>如输入值必须大于0，则有效等价类为输入值大于0 ，无效等价类为输入值小于或者等于0.<br>3.在输入数据是一个bool常量的情况下，可以确定一个有效等价类和一个无效等价类。<br>4.在规定了输入数据由n个值构成的情况下，并要求定其中的每个值进行测试时，可以确定n个有效等价类和一个无效等价类。<br>如交通工具类型为公共汽车、卡车、出租车、火车或者摩托车，那么就应该为每一个输入值确定一个有效等价类和一个无效等价类例如拖车。<br>5.在规定了输入数据冰箱最受的规则的情况下，可以确定一个有效等价类和若干个无效等价类（从不同角度违反规则）。<br>如输入值必须是数字类型的字符，则可确定一个有效等价类，及输入值为数字类型得字符，和多个无效等价类，即输入值为字母、为专用字符（如+、*、@等）以及为非打印字符（如回车、空格等）。<br>6.在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。<br>划分等价类之后，应建立等价类表，列出与每一个输入条件对于的有效等价类和无效等价类。</p>
+            <p>python脚本实现安卓app的cpu使用率测试。<br><a id="more"></a></p>
+<h3 id="1-用到的adb命令"><a href="#1-用到的adb命令" class="headerlink" title="1.用到的adb命令"></a>1.用到的adb命令</h3><p><code>adb shell &quot;dumpsys cpuinfo | grep packagename&quot;</code></p>
+<h3 id="2-脚本实现策略"><a href="#2-脚本实现策略" class="headerlink" title="2.脚本实现策略"></a>2.脚本实现策略</h3><p>(1)打开app进行测试(此处最好再写一个自动化测试的脚本)。<br>(2)执行脚本定时获取CPU使用状态。</p>
+<h3 id="3-测试数据分析"><a href="#3-测试数据分析" class="headerlink" title="3.测试数据分析"></a>3.测试数据分析</h3><p>曲线图分析：cpu使用率如果保持恒定并合理则正常；如果随着使用cpu使用率持续上升，接近100%可能存在问题。</p>
+<h3 id="4-代码实现示例"><a href="#4-代码实现示例" class="headerlink" title="4.代码实现示例"></a>4.代码实现示例</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">#coding=utf-8</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import time</span><br><span class="line">import csv    </span><br><span class="line"></span><br><span class="line">#控制类</span><br><span class="line">class Controller(object):</span><br><span class="line">    def __init__(self,count):</span><br><span class="line">        self.counter = count</span><br><span class="line">        self.allData = [(&apos;timestamp&apos;,&apos;cpustatus&apos;)]</span><br><span class="line">    </span><br><span class="line">    #单次查看CPU状态״̬</span><br><span class="line">    def CpuStatus(self):</span><br><span class="line">        cmd = &apos;adb shell &quot;dumpsys cpuinfo | grep com.android.calculator2&quot;&apos;</span><br><span class="line">        cpustatus = os.popen(cmd).readlines()</span><br><span class="line">        for line in cpustatus:</span><br><span class="line">            cpuvalue = line.split(&apos;%&apos;)[0].strip()  </span><br><span class="line">            break  </span><br><span class="line">            </span><br><span class="line">        currenttime = self.GetCurrentTime()</span><br><span class="line">        self.allData.append((currenttime, cpuvalue))</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    #多次查看CPU状态    </span><br><span class="line">    def run(self):</span><br><span class="line">        while self.counter&gt;0:</span><br><span class="line">            self.CpuStatus()</span><br><span class="line">            self.counter = self.counter-1</span><br><span class="line">            time.sleep(3)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    #获取当前时间戳         </span><br><span class="line">    def GetCurrentTime(self):</span><br><span class="line">        #时间格式如果写成%Y-%m-%d %H:%M:%S，写入csv时会被自定义格式隐藏秒</span><br><span class="line">        currentTime = time.strftime(&apos;%Y-%m-%d_%H:%M:%S&apos;, time.localtime()) </span><br><span class="line">        return currentTime</span><br><span class="line">    </span><br><span class="line">    #数据存储</span><br><span class="line">    def SaveDataToCSV(self):</span><br><span class="line">        with open(&apos;cpuStatus.csv&apos;, &apos;w&apos;, newline=&apos;&apos;) as csvfile:</span><br><span class="line">            writer = csv.writer(csvfile)</span><br><span class="line">            writer.writerows(self.allData)</span><br><span class="line">        </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    controller = Controller(10)</span><br><span class="line">    controller.run()</span><br><span class="line">    controller.SaveDataToCSV()</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="等价类设计测试用例："><a href="#等价类设计测试用例：" class="headerlink" title="等价类设计测试用例："></a>等价类设计测试用例：</h3><blockquote>
-<p>1.根据需求，划分有效等价类和无效等价类，有效等价类统一编号，无效等价类统一编号。<br>2.设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止。<br>3.设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p>
-</blockquote>
-<h3 id="等价类四则运算法："><a href="#等价类四则运算法：" class="headerlink" title="等价类四则运算法："></a>等价类四则运算法：</h3><blockquote>
-<p>1.不考虑需求其他子项，细致分解当期测试点及详细需求，做累加。<br>2.根据业务规则减少，排除相关不可能出现的规则，减少不可能出现的组合。<br>3.如果有效等价类中具有互斥条件的需求时，可运用乘得到用例个数。<br>4.排除所有具有重复特性的等价类，尽可能做到有效等价类之间交集为空。</p>
-</blockquote>
-<h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.有效等价类一条用例尽量覆盖所有有效等价类<br><img src="/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png" alt="1.有效等价类一条用例尽量覆盖所有有效等价类"><br>2.无效等价类一条用例覆盖一个无效等价类<br><img src="/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png" alt="2.无效等价类一条用例覆盖一个无效等价类"><br>3.根据覆盖条件编写等价类测试用例<br><img src="/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png" alt="3.根据覆盖条件编写等价类测试用例"></p>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h3 id="5-测试结果示例"><a href="#5-测试结果示例" class="headerlink" title="5.测试结果示例"></a>5.测试结果示例</h3><p><img src="/2017/12/27/安卓专项测试-cpu/cpu使用率.png" alt="cpu使用率"></p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 14:21</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/27/等价类/" title="等价类">http://pythonfood.github.io/2017/12/27/等价类/</a></p>
+        <p>最后更新： 2018年03月06日 11:22</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/27/安卓专项测试-cpu/" title="安卓专项测试-cpu">http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -215,7 +210,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/&title=《安卓专项测试-cpu》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -225,22 +220,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&source=等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/&title=《安卓专项测试-cpu》 — PythonFood&source=python脚本实现安卓app的cpu使用率测试。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《等价类》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/等价类/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安卓专项测试-cpu》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -250,7 +245,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/等价类/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/安卓专项测试-cpu/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -262,7 +257,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/测试用例/" class="color5">测试用例</a>
+    <a href="/tags/专项测试/" class="color5">专项测试</a>
       
   </li>
 
@@ -275,26 +270,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类划分规则："><span class="post-toc-text">等价类划分规则：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类设计测试用例："><span class="post-toc-text">等价类设计测试用例：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类四则运算法："><span class="post-toc-text">等价类四则运算法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-用到的adb命令"><span class="post-toc-text">1.用到的adb命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-脚本实现策略"><span class="post-toc-text">2.脚本实现策略</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-测试数据分析"><span class="post-toc-text">3.测试数据分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-代码实现示例"><span class="post-toc-text">4.代码实现示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-测试结果示例"><span class="post-toc-text">5.测试结果示例</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/边界值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/27/安卓专项测试-内存/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          边界值
+          安卓专项测试-内存
         
       </span>
     </a>
   
   
-    <a href="/2017/12/27/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">markdown</span>
+    <a href="/2017/12/27/安卓专项测试-启动时间/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">安卓专项测试-启动时间</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -303,7 +298,7 @@
 
 
     
-        <div id="SOHUCS" sid="等价类" ></div>
+        <div id="SOHUCS" sid="安卓专项测试-cpu" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';

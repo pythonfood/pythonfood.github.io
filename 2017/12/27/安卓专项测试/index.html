@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/27/安卓专项测试/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta property="og:updated_time" content="2018-02-09T06:04:16.112Z">
+<meta property="og:updated_time" content="2018-03-06T02:03:55.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓专项测试">
 <meta name="twitter:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
@@ -184,7 +184,7 @@
 <blockquote>
 <p>(1)通过Tcpdump抓包，然后用Wireshark分析。如果想更自动化，可以用FildderCore二次开发。<br>(2)查看Linux流量统计文件。</p>
 <blockquote>
-<p>小示例：<br>1)ps | grep com.peng.cloudp.tv （获取鹏云视讯的pid为9696）<br>2)cat /proc/9696/status （通过pid值获取uid为10035）<br>3)cat /proc/uid_stat/10035/tcp_snd （通过uid获取发送的流量byte,为15584）<br>4)cat /proc/uid_stat/10035/tcp_rcv （通过uid获取接收的流量byte,为16778）</p>
+<p>小示例：<br>1)ps | grep com.peng.cloudp.tv （获取的pid为9696）<br>2)cat /proc/9696/status （通过pid值获取uid为10035）<br>3)cat /proc/uid_stat/10035/tcp_snd （通过uid获取发送的流量byte,为15584）<br>4)cat /proc/uid_stat/10035/tcp_rcv （通过uid获取接收的流量byte,为16778）</p>
 </blockquote>
 <p>(3)利用类似DDMS的工具查看流量。（小白首选）<br>(4)通过Android API 的 TrafficStats类来统计。<br>(5)第三方工具或云测平台。</p>
 </blockquote>
@@ -195,6 +195,10 @@
 <p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt;&gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
 </blockquote>
 <p>2.monitor.bat进行测试</p>
+<p>3.打开【设置-开发者选项-GPU呈现模式分析-在屏幕上显示为条形图】，开启后点击应用，可以看到条形图。</p>
+<blockquote>
+<p>测试应用流畅度：<br>(1)条形图高于绿线，说明出现卡顿<br>(2)条形图低于绿线，说明比较流畅</p>
+</blockquote>
 </blockquote>
 <h3 id="过度渲染："><a href="#过度渲染：" class="headerlink" title="过度渲染："></a>过度渲染：</h3><blockquote>
 <p>1.打开【设置-开发者选项-调试GPU过度绘制-显示过度绘制区域】，开启后点击应用，可以看到各种颜色的区域。</p>
@@ -209,7 +213,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 14:04</p>
+        <p>最后更新： 2018年03月06日 10:03</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/安卓专项测试/" title="安卓专项测试">http://pythonfood.github.io/2017/12/27/安卓专项测试/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -334,12 +338,12 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/monkey/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/27/安卓专项测试-启动时间/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          monkey
+          安卓专项测试-启动时间
         
       </span>
     </a>
@@ -420,7 +424,7 @@
             <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/appium/" style="font-size: 16.67px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/selenium/" style="font-size: 13.33px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 10px;">专项测试</a> <a href="/tags/测试用例/" style="font-size: 20px;">测试用例</a>
+            <a href="/tags/appium/" style="font-size: 15px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 17.5px;">专项测试</a> <a href="/tags/测试用例/" style="font-size: 20px;">测试用例</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -453,7 +457,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/appium/" style="font-size: 16.67px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 13.33px;">python</a> <a href="/tags/selenium/" style="font-size: 13.33px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 10px;">专项测试</a> <a href="/tags/测试用例/" style="font-size: 20px;">测试用例</a>
+            <a href="/tags/appium/" style="font-size: 15px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/selenium/" style="font-size: 12.5px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 17.5px;">专项测试</a> <a href="/tags/测试用例/" style="font-size: 20px;">测试用例</a>
         </div>
     </div>
 </div>
