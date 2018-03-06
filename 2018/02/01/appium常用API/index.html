@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2018/02/01/appium常用API/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="appium常用API笔记。">
-<meta property="og:updated_time" content="2018-02-28T06:24:02.379Z">
+<meta property="og:updated_time" content="2018-03-06T10:08:56.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="appium常用API">
 <meta name="twitter:description" content="appium常用API笔记。">
@@ -217,9 +217,9 @@
 <blockquote>
 <p><code>find_element(By.ID,&quot;com.android.calculator2:id/digit8&quot;)</code></p>
 </blockquote>
-<h3 id="2-应用操作"><a href="#2-应用操作" class="headerlink" title="2.应用操作"></a>2.应用操作</h3><p>(1)安装应用<br><code>installApp()</code> #安装应用到设备中去。需要apk包的路径。</p>
+<h3 id="2-应用操作"><a href="#2-应用操作" class="headerlink" title="2.应用操作"></a>2.应用操作</h3><p>(1)安装应用<br><code>install_app()</code> #安装应用到设备中去。需要apk包的路径。</p>
 <blockquote>
-<p><code>driver.installApp(&quot;path/to/my.apk&quot;)</code><br><code>driver.installApp(&quot;D:\\android\\apk\\ContactManager.apk&quot;)</code></p>
+<p><code>driver.install_app(&quot;path/to/my.apk&quot;)</code><br><code>driver.install_app(&quot;D:\\android\\apk\\ContactManager.apk&quot;)</code></p>
 </blockquote>
 <p>(2)卸载应用<br><code>remove_app()</code> #从设备中删除一个应用。</p>
 <blockquote>
@@ -430,10 +430,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#返回element的x坐标, int类型</span><br><span class="line">driver.element.location.get(&apos;x&apos;)</span><br><span class="line">#返回element的y坐标, int类型</span><br><span class="line">driver.element.location.get(&apos;y&apos;)</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="12-unittest断言"><a href="#12-unittest断言" class="headerlink" title="12.unittest断言"></a>12.unittest断言</h3><p>在unittest单元测试框架中，TestCase类提供了一些方法来检查并报告故障：<br>(1)<code>assertEqual(first, second, msg=None)</code>#判断first和second的值是否相等，如果不相等则测试失败，msg用于定义失败后所抛出的异常信息。<br>(2)<code>assertNotEqual(first, second, msg=None)</code>#测试first和second不相等，如果相等，则测试失败。<br>(3)<code>assertTure(expr,msg=None)</code><br>(4)<code>assertFalse(expr,msg=None)</code>#测试expr为Ture（或为False）<br>(5)<code>assertIs(first, second, msg=None)</code><br>(6)<code>assertIsNot(first, second, msg=None)</code>#测试的first和second是（或不是）相同的对象。<br>(7)<code>assertIsNone(expr, msg=None)</code><br>(8)<code>assertIsNotNone(expr, msg=None)</code>#测试expr是（或不是）为None<br>(9)<code>assertIn(first, second, msg=None)</code><br>(10)<code>assertNotIn(first, second, msg=None)</code>#测试first是（或不是）在second中。second包含是否包含first。</p>
+<h3 id="13-脚本设计原则"><a href="#13-脚本设计原则" class="headerlink" title="13.脚本设计原则"></a>13.脚本设计原则</h3><p>(1)LOVE原则(NativeApp)：</p>
+<blockquote>
+<p>1)Locate定位元素<br>2)Operate操作元素<br>3)Verify验证结果<br>4)Exception异常处理</p>
+</blockquote>
+<p>(2)S-LOVE原则(HybridApp)：</p>
+<blockquote>
+<p>1)Switch切换上下文<br>2)Locate定位元素<br>3)Operate操作元素<br>4)Verify验证结果<br>5)Exception异常处理</p>
+</blockquote>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月28日 14:24</p>
+        <p>最后更新： 2018年03月06日 18:08</p>
         <p>原始链接： <a class="post-url" href="/2018/02/01/appium常用API/" title="appium常用API">http://pythonfood.github.io/2018/02/01/appium常用API/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -551,7 +559,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-元素定位"><span class="post-toc-text">1.元素定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-应用操作"><span class="post-toc-text">2.应用操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-键盘操作"><span class="post-toc-text">3.键盘操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-TouchAction操作"><span class="post-toc-text">4.TouchAction操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-上下文操作"><span class="post-toc-text">5.上下文操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-屏幕操作"><span class="post-toc-text">6.屏幕操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-网络设置"><span class="post-toc-text">7.网络设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-位置设置"><span class="post-toc-text">8.位置设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-文件操作"><span class="post-toc-text">9.文件操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-activity操作"><span class="post-toc-text">10.activity操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-其他操作"><span class="post-toc-text">11.其他操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-unittest断言"><span class="post-toc-text">12.unittest断言</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-元素定位"><span class="post-toc-text">1.元素定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-应用操作"><span class="post-toc-text">2.应用操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-键盘操作"><span class="post-toc-text">3.键盘操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-TouchAction操作"><span class="post-toc-text">4.TouchAction操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-上下文操作"><span class="post-toc-text">5.上下文操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-屏幕操作"><span class="post-toc-text">6.屏幕操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-网络设置"><span class="post-toc-text">7.网络设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-位置设置"><span class="post-toc-text">8.位置设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-文件操作"><span class="post-toc-text">9.文件操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-activity操作"><span class="post-toc-text">10.activity操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-其他操作"><span class="post-toc-text">11.其他操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-unittest断言"><span class="post-toc-text">12.unittest断言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-脚本设计原则"><span class="post-toc-text">13.脚本设计原则</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
