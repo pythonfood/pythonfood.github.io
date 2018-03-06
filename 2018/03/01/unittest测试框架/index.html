@@ -3,27 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>流程分析 | PythonFood</title>
+  <title>unittest测试框架 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
-<meta name="keywords" content="测试用例">
+  <meta name="description" content="unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。">
+<meta name="keywords" content="测试框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="流程分析">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/流程分析/index.html">
+<meta property="og:title" content="unittest测试框架">
+<meta property="og:url" content="http://pythonfood.github.io/2018/03/01/unittest测试框架/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/流程分析/流程图.jpg">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/流程分析/1.画出流程图.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/流程分析/2.流程图类需求.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/流程分析/3.根据需求画流程图，流程覆盖写用例.png">
-<meta property="og:updated_time" content="2018-02-09T06:21:30.081Z">
+<meta property="og:description" content="unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。">
+<meta property="og:updated_time" content="2018-03-06T08:09:01.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="流程分析">
-<meta name="twitter:description" content="现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。">
-<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/流程分析/流程图.jpg">
+<meta name="twitter:title" content="unittest测试框架">
+<meta name="twitter:description" content="unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -108,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-流程分析" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-unittest测试框架" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      流程分析
+      unittest测试框架
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -123,12 +118,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/测试用例/">测试用例</a>
+                      <a href="/categories/测试框架/">测试框架</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-12-27
+          <i class="fa fa-calendar"></i>  2018-03-01
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -144,23 +139,38 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。<br><a id="more"></a></p>
-<h3 id="场景设计法三个流程："><a href="#场景设计法三个流程：" class="headerlink" title="场景设计法三个流程："></a>场景设计法三个流程：</h3><blockquote>
-<p>1.基本流：通过业务流程输入都为正确的，能够最后到达目标的流程<br>2.备选流：通过实现业务流程时，因错误操作或异常输入，导致流程存在反复，但最终能够完成期望业务的流程。<br>3.异常流：通过实现业务流程时，因错误操作或异常输入，导致业务没有正确完成。</p>
+            <p>unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。<br><a id="more"></a></p>
+<h3 id="1-unittest框架"><a href="#1-unittest框架" class="headerlink" title="1.unittest框架"></a>1.unittest框架</h3><p>(1)Test Fixture</p>
+<ul>
+<li>setup()</li>
+<li>testcase()</li>
+<li>teardown()</li>
+</ul>
+<p>(2)Test Case<br>(3)Test Suite<br>(4)Test Runner</p>
+<h3 id="2-unittest小示例"><a href="#2-unittest小示例" class="headerlink" title="2.unittest小示例"></a>2.unittest小示例</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import unittestdemo1</span><br><span class="line">import unittestdemo2</span><br><span class="line">import unittest</span><br><span class="line">from appium import webdriver</span><br><span class="line"></span><br><span class="line">class MyTestCase(unittest.TestCase):</span><br><span class="line">	#初始化setup</span><br><span class="line">	def setUp(self):</span><br><span class="line">		desired_caps=&#123;&#125;</span><br><span class="line">        	desired_caps[&apos;platformName&apos;]=&apos;Android&apos;</span><br><span class="line">        	desired_caps[&apos;platformVersion&apos;]=&apos;5.1.1&apos;</span><br><span class="line">        	desired_caps[&apos;deviceName&apos;]=&apos;61f9c06a&apos;</span><br><span class="line">        	desired_caps[&apos;appPackage&apos;]=&apos;com.android.contacts&apos;</span><br><span class="line">        	desired_caps[&apos;appActivity&apos;]=&apos;com.android.contacts.DialtactsContactsEntryActivity&apos;</span><br><span class="line">        	desired_caps[&apos;unicodeKeyboard&apos;]=&apos;true&apos;</span><br><span class="line">        	desired_caps[&apos;resetKeyboard&apos;]=&apos;true&apos;</span><br><span class="line">        	self.driver = webdriver.Remote(&apos;http://127.0.0.1:4723/wd/hub&apos;, desired_caps)</span><br><span class="line">	</span><br><span class="line">	#测试用例1</span><br><span class="line">	def test_something(self):</span><br><span class="line">		self.assertEqual(False, True)</span><br><span class="line">		print(&apos;test_something&apos;)</span><br><span class="line">	#测试用例2</span><br><span class="line">	def test_anything(self):</span><br><span class="line">		self.assertEqual(True, True)</span><br><span class="line">		print(&apos;test_anything&apos;)</span><br><span class="line">	</span><br><span class="line">	#释放资源teardown</span><br><span class="line">	def tearDown(self):</span><br><span class="line">		self.driver.quit()</span><br><span class="line"></span><br><span class="line">if __name__ ==&quot;__main__&quot;:</span><br><span class="line">	#以类的形式添加测试用例</span><br><span class="line">	cases1 = unittest.TestLoader().loadTestsFromTestCase(unittestdemo1.MyTestCase)</span><br><span class="line">	cases2 = unittest.TestLoader().loadTestsFromTestCase(unittestdemo2.MyTestCase)</span><br><span class="line">	#定义suite</span><br><span class="line">	suite = unittest.TestSuite([cases1, cases2])</span><br><span class="line">	#以单条测试用例形式装载</span><br><span class="line">    	suite.addTest(MyTestCase(&apos;test_something&apos;))</span><br><span class="line">	suite.addTest(MyTestCase(&apos;test_anything&apos;))</span><br><span class="line">    </span><br><span class="line">	#定义runner</span><br><span class="line">    	runner = unittest.TextTestRunner(verbosity=2)</span><br><span class="line">	#用runner执行suite</span><br><span class="line">    	runner.run(suite)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p><img src="/2017/12/27/流程分析/流程图.jpg" alt="流程图"></p>
-<h3 id="流程分析应用步骤："><a href="#流程分析应用步骤：" class="headerlink" title="流程分析应用步骤："></a>流程分析应用步骤：</h3><blockquote>
-<p>1.理解需求，确定业务流程（基本流、备选流、异常流）。<br>2.绘制流程图（再次明确流程路径）。<br>3.根据业务流程图，抽取测试路径（每次路径需包含一个从未走过的路径）。<br>4.细化路径设计测试用例。</p>
+<h3 id="3-DDT数据驱动模式"><a href="#3-DDT数据驱动模式" class="headerlink" title="3.DDT数据驱动模式"></a>3.DDT数据驱动模式</h3><p>(1)官网下载安装：<a href="https://pypi.python.org/pypi/ddt" target="_blank" rel="noopener">https://pypi.python.org/pypi/ddt</a><br>(2)使用前导入模块<code>from ddt import ddt,data,unpack</code><br>(3)首先说明测试类使用的是ddt测试框架：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ddt</span><br><span class="line">class MyTestCase(unittest.TestCase)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="流程分析法注意点："><a href="#流程分析法注意点：" class="headerlink" title="流程分析法注意点："></a>流程分析法注意点：</h3><blockquote>
-<p>需使用等价类、边界值、正交试验、判定表、因果图等方法保证单个功能的正确性。</p>
+<p>(4)数据驱动主要是解决带参数的测试用例：<br>1）使用元组存放测试的数据，一个参数的情况：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@data(1,-3,2,0)</span><br><span class="line">def testcase(self, value):</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.画出流程图<br><img src="/2017/12/27/流程分析/1.画出流程图.png" alt="1.画出流程图"><br>2.流程图类需求<br><img src="/2017/12/27/流程分析/2.流程图类需求.png" alt="2.流程图类需求"><br>3.根据需求画流程图，流程覆盖写用例<br><img src="/2017/12/27/流程分析/3.根据需求画流程图，流程覆盖写用例.png" alt="3.根据需求画流程图，流程覆盖写用例"></p>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<p>2）使用元组存放测试的数据，多个参数的情况：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@data((3,2),(4,3),(5,3))</span><br><span class="line">@unpack</span><br><span class="line">def testcase(self, value1, value2):</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4-DDT小示例"><a href="#4-DDT小示例" class="headerlink" title="4.DDT小示例"></a>4.DDT小示例</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from ddt import ddt,data,unpack</span><br><span class="line"></span><br><span class="line">@ddt</span><br><span class="line">class MyTestCase(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">	@data(1,2,3)</span><br><span class="line">	def test_something(self, value):</span><br><span class="line">		print(value)</span><br><span class="line">		self.assertEqual(value, 2)</span><br><span class="line"></span><br><span class="line">	@data((1,2),(2,3))</span><br><span class="line">	@unpack</span><br><span class="line">	def test_anything(self, value1, value2):</span><br><span class="line">		print(value1,value2)</span><br><span class="line">		self.assertEqual(value2, value1+1)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	unittest.main()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>ps:使用ddt框架后，测试用例的名称会改变，所以装载Test Suite时不能使用单条测试用例装载了，尽量使用类的形式装载Test Suite。</p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 14:21</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/27/流程分析/" title="流程分析">http://pythonfood.github.io/2017/12/27/流程分析/</a></p>
+        <p>最后更新： 2018年03月06日 16:09</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/01/unittest测试框架/" title="unittest测试框架">http://pythonfood.github.io/2018/03/01/unittest测试框架/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -217,7 +227,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/流程分析/&title=《流程分析》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/03/01/unittest测试框架/&title=《unittest测试框架》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -227,22 +237,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/流程分析/&title=《流程分析》 — PythonFood&source=现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/03/01/unittest测试框架/&title=《unittest测试框架》 — PythonFood&source=unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/流程分析/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/03/01/unittest测试框架/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《流程分析》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/流程分析/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《unittest测试框架》 — PythonFood&url=http://pythonfood.github.io/2018/03/01/unittest测试框架/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/流程分析/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/03/01/unittest测试框架/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -252,7 +262,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/流程分析/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/03/01/unittest测试框架/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -264,7 +274,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/测试用例/" class="color5">测试用例</a>
+    <a href="/tags/测试框架/" class="color5">测试框架</a>
       
   </li>
 
@@ -277,26 +287,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#场景设计法三个流程："><span class="post-toc-text">场景设计法三个流程：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程分析应用步骤："><span class="post-toc-text">流程分析应用步骤：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程分析法注意点："><span class="post-toc-text">流程分析法注意点：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-unittest框架"><span class="post-toc-text">1.unittest框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-unittest小示例"><span class="post-toc-text">2.unittest小示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-DDT数据驱动模式"><span class="post-toc-text">3.DDT数据驱动模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-DDT小示例"><span class="post-toc-text">4.DDT小示例</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/安卓专项测试/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          安卓专项测试
-        
-      </span>
-    </a>
   
-  
-    <a href="/2017/12/27/状态迁移/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">状态迁移</span>
+    <a href="/2018/02/01/appium键值表/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">appium键值表</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -305,7 +305,7 @@
 
 
     
-        <div id="SOHUCS" sid="流程分析" ></div>
+        <div id="SOHUCS" sid="unittest测试框架" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
