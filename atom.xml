@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2018-03-06T08:09:01.697Z</updated>
+  <updated>2018-03-08T09:18:59.419Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -15,6 +15,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接口测试-python</title>
+    <link href="http://pythonfood.github.io/2018/03/03/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-python/"/>
+    <id>http://pythonfood.github.io/2018/03/03/接口测试-python/</id>
+    <published>2018-03-03T04:00:00.000Z</published>
+    <updated>2018-03-08T09:18:59.419Z</updated>
+    
+    <content type="html"><![CDATA[<p>接口测试python实现脚本测试笔记。<br><a id="more"></a></p><h3 id="1-requests模块"><a href="#1-requests模块" class="headerlink" title="1.requests模块"></a>1.requests模块</h3><p>(1)安装<code>pip install requests</code><br>(2)使用前导入<code>import requests</code></p><h3 id="2-GET请求ddt自动化"><a href="#2-GET请求ddt自动化" class="headerlink" title="2.GET请求ddt自动化"></a>2.GET请求ddt自动化</h3><p>(1)代码结构：</p><blockquote><p>1)构造Header<br>2)构造cookies<br>3)发送Get请求<br>4)获取返回值<br>5)对结果进行校验</p></blockquote><p>(2)代码示例：</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">#coding=utf-8</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line">import unittest</span><br><span class="line">import ddt</span><br><span class="line"></span><br><span class="line">@ddt.ddt</span><br><span class="line">class ApiTestClass(unittest.TestCase):</span><br><span class="line">    </span><br><span class="line">    @ddt.data(&apos;android&apos;,&apos;&apos;,&apos;ios&apos;)</span><br><span class="line">    def test_Get(self,os_phone):</span><br><span class="line">        #header部分配置</span><br><span class="line">        headers = &#123;&apos;User-Agent&apos;:&apos;Dalvik/1.6.0 (Linux; U; Android 4.3; Coolpad 8720L Build/JSS15Q)&apos;,</span><br><span class="line">                   &apos;Host&apos;:&apos;bdsp.x.jd.com&apos;,</span><br><span class="line">                   &apos;Connection&apos;:&apos;Keep-Alive&apos;,</span><br><span class="line">                   &apos;Accept-Encoding&apos;:&apos;gzip&apos;</span><br><span class="line">                   &#125;</span><br><span class="line">        </span><br><span class="line">        #cookies部分配置</span><br><span class="line">        cookies = dict(search_test = &apos;1&apos;)</span><br><span class="line">        </span><br><span class="line">        #get请求获得返回数据</span><br><span class="line">        res = requests.get(&apos;http://bdsp.x.jd.com/app/config?os=&apos;+os_phone+&apos;&amp;key=wx3ebc9e606b4f9242&amp;sdkv=5&apos;, </span><br><span class="line">                           headers = headers,</span><br><span class="line">                           cookies = cookies)</span><br><span class="line">        </span><br><span class="line">        print(res.text)</span><br><span class="line">        print(res.status_code)</span><br><span class="line">        </span><br><span class="line">        #测试点校验</span><br><span class="line">        self.assertTrue(&apos;15*1000&apos; in res.text)</span><br><span class="line">                      </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    cases = unittest.TestLoader().loadTestsFromTestCase(ApiTestClass)</span><br><span class="line">    suite = unittest.TestSuite([cases])</span><br><span class="line">    #suite.addTest(ApiTestClass(&apos;test_Get&apos;))</span><br><span class="line">    </span><br><span class="line">    runner = unittest.TextTestRunner()</span><br><span class="line">    runner.run(suite)</span><br></pre></td></tr></table></figure></blockquote><h3 id="3-POST请求ddt自动化"><a href="#3-POST请求ddt自动化" class="headerlink" title="3.POST请求ddt自动化"></a>3.POST请求ddt自动化</h3><p>(1)代码结构：</p><blockquote><p>1)构造Keyword(即request body)<br>2)构造Header<br>3)构造cookies<br>4)发送Get请求<br>5)获取返回值<br>6)对结果进行校验</p></blockquote><p>(2)代码示例：</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import unittest</span><br><span class="line">import ddt</span><br><span class="line"></span><br><span class="line">@ddt.ddt</span><br><span class="line">class ApiTestClass(unittest.TestCase):</span><br><span class="line">    </span><br><span class="line">    @ddt.data((&apos;60.206.137.140&apos;,&apos;hjfwp9VflXZU3FsuM3cu6PBV&apos;),</span><br><span class="line">              (&apos;&apos;,&apos;&apos;)</span><br><span class="line">              )</span><br><span class="line">    @ddt.unpack</span><br><span class="line">    def test_Post(self,m_host,m_accessToken):</span><br><span class="line">        #header部分配置</span><br><span class="line">        headers = &#123;&apos;Content-Type&apos;:&apos;application/x-www-form-urlencoded&apos;,</span><br><span class="line">                   &apos;Content-Length&apos;:&apos;36&apos;,</span><br><span class="line">                   &apos;Host&apos;:m_host,</span><br><span class="line">                   &apos;Connection&apos;:&apos;Keep-Alive&apos;,</span><br><span class="line">                   &apos;Accept-Encoding&apos;:&apos;gzip&apos;,</span><br><span class="line">                   &apos;User-Agent&apos;:&apos;okhttp/3.8.1&apos;</span><br><span class="line">                   &#125;</span><br><span class="line">        </span><br><span class="line">        #cookies部分配置</span><br><span class="line">        cookies = dict(search_test = &apos;1&apos;)</span><br><span class="line">        </span><br><span class="line">        #data部分配置</span><br><span class="line">        keyword = &#123;&apos;accessToken&apos;:m_accessToken&#125;</span><br><span class="line">        </span><br><span class="line">        #post请求获得返回数据</span><br><span class="line">        res = requests.post(&apos;http://60.206.137.140/iot_api/family/queryFamilyList.json&apos;, </span><br><span class="line">                           headers = headers,</span><br><span class="line">                           cookies = cookies,</span><br><span class="line">                           data = keyword</span><br><span class="line">                           )</span><br><span class="line">        </span><br><span class="line">        print(res.text)</span><br><span class="line">        print(res.status_code)</span><br><span class="line">        </span><br><span class="line">        #测试点校验</span><br><span class="line">        self.assertTrue(&apos;北京市北京市&apos; in res.text)</span><br><span class="line">                      </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    cases = unittest.TestLoader().loadTestsFromTestCase(ApiTestClass)</span><br><span class="line">    suite = unittest.TestSuite([cases])</span><br><span class="line">    #suite.addTest(ApiTestClass(&apos;test_Post&apos;))</span><br><span class="line">    </span><br><span class="line">    runner = unittest.TextTestRunner()</span><br><span class="line">    runner.run(suite)</span><br></pre></td></tr></table></figure></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接口测试python实现脚本测试笔记。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口测试-postman</title>
+    <link href="http://pythonfood.github.io/2018/03/03/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-postman/"/>
+    <id>http://pythonfood.github.io/2018/03/03/接口测试-postman/</id>
+    <published>2018-03-03T03:00:00.000Z</published>
+    <updated>2018-03-08T09:09:33.173Z</updated>
+    
+    <content type="html"><![CDATA[<p>接口测试postman工具使用笔记。<br><a id="more"></a></p><h3 id="1-适用范围"><a href="#1-适用范围" class="headerlink" title="1.适用范围"></a>1.适用范围</h3><ul><li>PC</li><li>WAP</li><li>APP</li></ul><h3 id="2-环境准备"><a href="#2-环境准备" class="headerlink" title="2.环境准备"></a>2.环境准备</h3><p>(1)下载安装:<a href="https://www.getpostman.com/apps" target="_blank" rel="noopener">https://www.getpostman.com/apps</a><br>(2)注册账户</p><h3 id="3-发送一条http-Get请求"><a href="#3-发送一条http-Get请求" class="headerlink" title="3.发送一条http Get请求"></a>3.发送一条http Get请求</h3><p>(1)GET请求输入URL(可以从fiddler复制)<br>(2)GET请求输入Headers(可以从fiddler复制)<br>(3)点击【Send】可以查看返回信息<br>(4)可以对返回值内容增加校验，GET请求的Tests里设置校验方法和校验字段<br>(5)点击【Send】可以查看返回信息和测试结果<br>(6)可以将以上测试步骤，点击【Save】保存到一个集合<br>(7)可以修改请求的测试参数，点击【Save as】保存到同一个集合<br>(8)以此类推形成一个自动化测试的集合<br>(9)点击该集合的【Run】弹出集合运行界面<br>(10)可以修改循环次数【iterations】、延迟【Delay】等参数<br>(11)点击【Run …】运行脚本，查看测试结果</p><h3 id="4-发送一条http-Post请求"><a href="#4-发送一条http-Post请求" class="headerlink" title="4.发送一条http Post请求"></a>4.发送一条http Post请求</h3><p>(1)POST请求输入URL(可以从fiddler复制)<br>(2)POST请求输入Headers(可以从fiddler复制)<br>(3)POST请求输入Body(可以从fiddler的WebForms里一项一项复制)<br>(4)点击【Send】可以查看返回信息<br>(5)可以对返回值内容增加校验，POST请求的Tests里设置校验方法和校验字段<br>(6)点击【Send】可以查看返回信息和测试结果<br>(7)可以将以上测试步骤，点击【Save】保存到一个集合<br>(8)可以修改请求的测试参数，点击【Save as】保存到同一个集合<br>(9)以此类推形成一个自动化测试的集合<br>(10)点击该集合的【Run】弹出集合运行界面<br>(11)可以修改循环次数【iterations】、延迟【Delay】等参数<br>(12)点击【Run …】运行脚本，查看测试结果</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接口测试postman工具使用笔记。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口测试-fiddler</title>
+    <link href="http://pythonfood.github.io/2018/03/03/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95-fiddler/"/>
+    <id>http://pythonfood.github.io/2018/03/03/接口测试-fiddler/</id>
+    <published>2018-03-03T02:00:00.000Z</published>
+    <updated>2018-03-08T09:07:58.801Z</updated>
+    
+    <content type="html"><![CDATA[<p>接口测试fiddler工具使用笔记。<br><a id="more"></a></p><h3 id="1-Fiddler-环境准备"><a href="#1-Fiddler-环境准备" class="headerlink" title="1.Fiddler 环境准备"></a>1.Fiddler 环境准备</h3><p>(1)官网下载安装:<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a><br>(2)相关设置:【Tools-options-HTTPS-Connections】,设置好之后退出再启动一次。</p><p><img src="/2018/03/03/接口测试-fiddler/HTTPS设置.png" alt="HTTPS设置"><br><img src="/2018/03/03/接口测试-fiddler/Connections设置.png" alt="Connections设置"></p><h3 id="2-Fiddler-工作原理"><a href="#2-Fiddler-工作原理" class="headerlink" title="2.Fiddler 工作原理"></a>2.Fiddler 工作原理</h3><p><img src="/2018/03/03/接口测试-fiddler/fiddler工作原理.png" alt="fiddler工作原理"></p><h3 id="3-Fiddler-基本界面"><a href="#3-Fiddler-基本界面" class="headerlink" title="3.Fiddler 基本界面"></a>3.Fiddler 基本界面</h3><p>(1)Session部分:</p><blockquote><ul><li>#:id</li><li>Result:服务器返回的状态码</li><li>Protocol:协议</li><li>Host:发送给服务器的host值</li><li>URL:</li></ul></blockquote><p>(2)Inspectors:<br>1)Request部分:</p><blockquote><ul><li>Headers:头部信息<blockquote><ul><li>User-Agent:用户的身份</li><li>Referer:请求的上一个请求来源</li><li>Host:当前的host</li></ul></blockquote></li><li>TextView:</li><li>WebForms:请求的参数值</li><li>HexView:16进制的view</li><li>Cookies:</li><li>Raw:最原始的所有的数据</li><li>JSON:json形式的请求</li><li>XML:xml形式的请求</li></ul></blockquote><p>2)Response部分:</p><blockquote><ul><li>TextView:可以看到整个返回的内容</li><li>Raw:返回所有的相关的内容</li><li>JSON:返回json形式的数据</li><li>XML:返回xml形式的数据</li><li>WebView:返回的html页面</li><li>ImageView:返回的图片内容</li></ul></blockquote><p>(3)Statistics:静态统计</p><p>(4)Composer:构造各种各样的请求发送给服务器</p><p>(5)AutoResponder:配置假数据模拟后端服务器返回的数据</p><h3 id="4-Fiddler-设置断点修改Request"><a href="#4-Fiddler-设置断点修改Request" class="headerlink" title="4.Fiddler 设置断点修改Request"></a>4.Fiddler 设置断点修改Request</h3><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p><blockquote><p>1)设置断点【Rules-Automatic Breakpoints-Before Request F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“fiddler”<br>4)fiddler对应的请求，点击【Response部分-Run to Completion】<br>5)fiddler新弹出的请求应该就是需要改参数的请求<br>6)fiddler需要修改参数的请求，点击【Request部分-WebForms】<br>7)修改对应的参数<br>8)点击【Repose部分-Run to Completion】<br>9)回到浏览器查看请求是否修改成功</p></blockquote><p>2)通过命令设置断点(可以拦截指定站点)</p><blockquote><p>1)session部分底部输入命令<code>bpu www.baidu.com</code>，其他操作同上。<br>2)清除拦截，输入命令<code>bpu</code></p></blockquote><h3 id="5-Fiddler-设置断点修改Response"><a href="#5-Fiddler-设置断点修改Response" class="headerlink" title="5.Fiddler 设置断点修改Response"></a>5.Fiddler 设置断点修改Response</h3><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p><blockquote><p>1)点击设置【Rules-Automatic Breakpoints-After Response Alt+F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“哈哈”<br>4)fiddler修改Response部分的参数<br>5)点击【Response部分-Run to Completion】<br>6)回到浏览器查看请求是否修改成功</p></blockquote><p>(2)通过命令设置断点(可以拦截指定站点)</p><blockquote><p>1)session部分底部输入命令<code>bpafter www.baidu.com</code>，其他操作同上。<br>2)清除拦截，输入命令<code>bpafter</code></p></blockquote><p>(3)AutoResponder设置</p><blockquote><p>1)浏览器进行百度搜索“哈哈”<br>2)fiddler对应的请求,点击【AutoResponder-Add Rule】<br>3)勾选【Enable reles】【Unmatched requests passthrough】【Enable Latency】<br>4)下边规则改为模糊匹配，例如改为：<code>regex:(?inx)^https://www.baidu.com/s?.+</code><br>5)下边下拉框返回状态码任意可选，例如选择:404_Plain.dat<br>6)点击【Save】按钮<br>7)回到浏览器重新百度搜索任意字符，看是否返回404<br>ps:可以通过下拉列表的“find a file”自定义规则，文件内容自定义。</p></blockquote><h3 id="6-Fiddler-小工具"><a href="#6-Fiddler-小工具" class="headerlink" title="6.Fiddler 小工具"></a>6.Fiddler 小工具</h3><p>(1)会话的过滤</p><blockquote><p>1)点击【Filters-Use Filters】<br>2)【No Host Filter】下拉框选择【Show only the following Hosts】<br>3)输入要过滤的站点，例如:www.baidu.com<br>4)点击【Actions-Run Filterset now】<br>5)此时session对话框只显示过滤站点请求</p></blockquote><p>(2)会话的比较<br>下载windiff:<a href="https://www.grigsoft.com/download-windiff.htm" target="_blank" rel="noopener">https://www.grigsoft.com/download-windiff.htm</a><br>解压后复制到fiddler安装路径即可</p><blockquote><p>1)选中两个要对比的请求<br>2)右键点击【Compare】<br>3)调起windiff工具进行对比</p></blockquote><p>(3)编码小工具</p><blockquote><p>1)点击【Tools-TextWizard】<br>2)上部分输入原始内容，下部分显示编解码内容<br>3)例如：上面输入(<a href="https://www.grigsoft.com/download-windiff.htm" target="_blank" rel="noopener">https://www.grigsoft.com/download-windiff.htm</a>) ，下面选择URLEecode,即可看到结果。</p></blockquote><h3 id="7-Fiddler-Host设置"><a href="#7-Fiddler-Host设置" class="headerlink" title="7.Fiddler Host设置"></a>7.Fiddler Host设置</h3><blockquote><p>1)点击【Tools-HOSTS…】<br>2)勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】<br>3)点击会话框底部【Import Windows Hosts File】，导入系统host<br>4)任意修改host,点击【Save】host即生效<br>5)不使用修改的host,只需要取消勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】</p></blockquote><h3 id="8-Fiddler-构造HTTP请求"><a href="#8-Fiddler-构造HTTP请求" class="headerlink" title="8.Fiddler 构造HTTP请求"></a>8.Fiddler 构造HTTP请求</h3><p>(1)构造Get请求</p><blockquote><p>1)选择一条Get请求，点击【Inspectors-Headers】<br>2)复制Headers的头部信息，粘贴到【Composer-Parsed】的对话框<br>3)首先删除掉复制信息的“Get”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)点击【Execute】发送请求<br>6)查看session界面请求是否发送<br>ps:可以任意修改URL进行接口测试</p></blockquote><p>(2)构造Post请求</p><blockquote><p>1)选择一条Post请求，点击【Inspectors-Raw】<br>2)复制所有信息，粘贴到【Composer-Parsed】的对话框，请求方式选择【POST】<br>3)首先删除掉复制信息的“Post”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)剪切空行以下的request body信息，粘贴到下面的输入框<br>6)点击【Execute】发送请求<br>7)查看session界面请求是否发送<br>ps:可以任意修改URL和request body信息进行接口测试</p></blockquote><h3 id="9-Fiddler-抓取手机包"><a href="#9-Fiddler-抓取手机包" class="headerlink" title="9.Fiddler 抓取手机包"></a>9.Fiddler 抓取手机包</h3><p>(1)配置Fiddler允许监听https<br>(2)配置Fiddler允许远程连接<br>(3)手机端设置代理服务</p><blockquote><p>1)设置【Tools-Options-HTTPS】<br>2)设置【Tools-Options-Connections】<br>3)手机当前连接wifi里设置代理:主机名填写电脑的ip地址，端口填写8888<br>4)手机操作应用，请求就会发送到fiddler,其他操作同PC端操作</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接口测试fiddler工具使用笔记。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>接口测试</title>
+    <link href="http://pythonfood.github.io/2018/03/03/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    <id>http://pythonfood.github.io/2018/03/03/接口测试/</id>
+    <published>2018-03-03T01:00:00.000Z</published>
+    <updated>2018-03-08T08:38:25.018Z</updated>
+    
+    <content type="html"><![CDATA[<p>接口测试是测试系统组件间接口的一种测试。接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。<br><a id="more"></a></p><h3 id="1-API种类"><a href="#1-API种类" class="headerlink" title="1.API种类"></a>1.API种类</h3><ul><li>面向对象语言的API</li><li>库与框架的API</li><li>API与协议</li><li>API与设备接口</li><li>Web API(HTTP API)</li></ul><h3 id="2-HTTP-API"><a href="#2-HTTP-API" class="headerlink" title="2.HTTP API"></a>2.HTTP API</h3><ul><li>GET</li><li>POST</li><li>PUT</li><li>DELETE</li><li>OPTIONS</li><li>HEAD</li><li>TRACE</li><li>CONNECT</li></ul><h3 id="3-接口测试流程"><a href="#3-接口测试流程" class="headerlink" title="3.接口测试流程"></a>3.接口测试流程</h3><p>(1)需求讨论<br>(2)需求评审<br>(3)场景设计<br>(4)用例设计<br>(5)数据准备<br>(6)执行</p><h3 id="4-接口用例设计"><a href="#4-接口用例设计" class="headerlink" title="4.接口用例设计"></a>4.接口用例设计</h3><p>(1)功能</p><blockquote><p>1)功能是否正常<br>2)功能是否按照接口文档实现</p></blockquote><p>(2)逻辑业务</p><blockquote><p>1)是否依赖业务</p></blockquote><p>(3)异常</p><blockquote><p>1)参数异常</p><ul><li>关键字参数</li><li>参数为空</li><li>多、少参数</li><li>错误参数</li></ul><p>2)数据异常</p><ul><li>关键字数据</li><li>数据为空</li><li>长度不一致</li><li>错误数据</li></ul></blockquote><p>(4)安全</p><blockquote><p>1)cookie<br>2)header<br>3)唯一识别码</p></blockquote><h3 id="5-接口测试三剑客"><a href="#5-接口测试三剑客" class="headerlink" title="5.接口测试三剑客"></a>5.接口测试三剑客</h3><p>(1)fiddler<br>(2)postman<br>(3)python</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接口测试是测试系统组件间接口的一种测试。接口测试主要用于检测外部系统与系统之间以及内部各个子系统之间的交互点。测试的重点是要检查数据的交换，传递和控制管理过程，以及系统间的相互逻辑依赖关系等。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="接口测试" scheme="http://pythonfood.github.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>unittest测试框架</title>
@@ -365,94 +453,6 @@
     
     
       <category term="专项测试" scheme="http://pythonfood.github.io/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>流程分析</title>
-    <link href="http://pythonfood.github.io/2017/12/27/%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/"/>
-    <id>http://pythonfood.github.io/2017/12/27/流程分析/</id>
-    <published>2017-12-27T09:10:07.000Z</published>
-    <updated>2018-02-09T06:21:30.081Z</updated>
-    
-    <content type="html"><![CDATA[<p>现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。<br><a id="more"></a></p><h3 id="场景设计法三个流程："><a href="#场景设计法三个流程：" class="headerlink" title="场景设计法三个流程："></a>场景设计法三个流程：</h3><blockquote><p>1.基本流：通过业务流程输入都为正确的，能够最后到达目标的流程<br>2.备选流：通过实现业务流程时，因错误操作或异常输入，导致流程存在反复，但最终能够完成期望业务的流程。<br>3.异常流：通过实现业务流程时，因错误操作或异常输入，导致业务没有正确完成。</p></blockquote><p><img src="/2017/12/27/流程分析/流程图.jpg" alt="流程图"></p><h3 id="流程分析应用步骤："><a href="#流程分析应用步骤：" class="headerlink" title="流程分析应用步骤："></a>流程分析应用步骤：</h3><blockquote><p>1.理解需求，确定业务流程（基本流、备选流、异常流）。<br>2.绘制流程图（再次明确流程路径）。<br>3.根据业务流程图，抽取测试路径（每次路径需包含一个从未走过的路径）。<br>4.细化路径设计测试用例。</p></blockquote><h3 id="流程分析法注意点："><a href="#流程分析法注意点：" class="headerlink" title="流程分析法注意点："></a>流程分析法注意点：</h3><blockquote><p>需使用等价类、边界值、正交试验、判定表、因果图等方法保证单个功能的正确性。</p></blockquote><h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.画出流程图<br><img src="/2017/12/27/流程分析/1.画出流程图.png" alt="1.画出流程图"><br>2.流程图类需求<br><img src="/2017/12/27/流程分析/2.流程图类需求.png" alt="2.流程图类需求"><br>3.根据需求画流程图，流程覆盖写用例<br><img src="/2017/12/27/流程分析/3.根据需求画流程图，流程覆盖写用例.png" alt="3.根据需求画流程图，流程覆盖写用例"></p><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;现在的软件几乎都是用事件触发来控制流程的，事件触发时的情景便形成了场景，而同一事件不同的触发顺序和处理结果就形成事件流。这种在软件设计方面的思想也可引入到软件测试中，可以比较生动地描绘出事件触发时的情景，有利于测试设用例场景用来描述流经用例的路径。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/categories/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>状态迁移</title>
-    <link href="http://pythonfood.github.io/2017/12/27/%E7%8A%B6%E6%80%81%E8%BF%81%E7%A7%BB/"/>
-    <id>http://pythonfood.github.io/2017/12/27/状态迁移/</id>
-    <published>2017-12-27T09:10:06.000Z</published>
-    <updated>2018-02-09T06:22:14.322Z</updated>
-    
-    <content type="html"><![CDATA[<p>状态迁移关注被测对象的状态变化，在需求规格说明书中是否有不可达到的状态和非法的状态，是否产生非法的状态迁移。<br><a id="more"></a></p><h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><blockquote><p>被测对象在特定输入条件下所保持的响应形式</p></blockquote><h3 id="状态迁移应用步骤："><a href="#状态迁移应用步骤：" class="headerlink" title="状态迁移应用步骤："></a>状态迁移应用步骤：</h3><blockquote><p>1.根据需求明确状态节点。<br>2.绘制状态迁移图。<br>3.绘制状态迁移树。<br>4.抽取测试用例。</p></blockquote><h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.状态迁移类需求<br><img src="/2017/12/27/状态迁移/1.状态迁移类需求.png" alt="1.状态迁移类需求"><br>2.根据需求画状态迁移图案例1<br><img src="/2017/12/27/状态迁移/2.根据需求画状态迁移图案例1.png" alt="2.根据需求画状态迁移图案例1"><br>3.根据需求画状态迁移图案例2<br><img src="/2017/12/27/状态迁移/3.根据需求画状态迁移图案例2.png" alt="3.根据需求画状态迁移图案例2"></p><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;状态迁移关注被测对象的状态变化，在需求规格说明书中是否有不可达到的状态和非法的状态，是否产生非法的状态迁移。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/categories/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正交试验</title>
-    <link href="http://pythonfood.github.io/2017/12/27/%E6%AD%A3%E4%BA%A4%E8%AF%95%E9%AA%8C/"/>
-    <id>http://pythonfood.github.io/2017/12/27/正交试验/</id>
-    <published>2017-12-27T09:10:05.000Z</published>
-    <updated>2018-02-09T06:22:03.782Z</updated>
-    
-    <content type="html"><![CDATA[<p>正交试验是研究多因素多水平的一种设计方法，它是根据正交性从全面试验中挑选出部分有代表性的点进行试验，这些有代表性的点具备了“均匀分散，齐整可比”的特点，正交试验设计是一种基于正交表的、高效率、快速、经济的试验。<br><a id="more"></a></p><h3 id="正交试验重要概念："><a href="#正交试验重要概念：" class="headerlink" title="正交试验重要概念："></a>正交试验重要概念：</h3><blockquote><p>1.因子：所有参与试验的影响试验结果的条件成为因子。<br>2.水平：影响试验因子的取值或输入称为水平。<br>3.整齐可比：在同一张正交表中，每个因子每个水平出现的次数完全相同。试验中，每个因子的每个水平与其他因子的水平参与试验的机率完全相同。<br>4.均匀分散：同一张正交表中，任意两列水平搭配是完全相同的。</p></blockquote><h3 id="正交试验应用步骤："><a href="#正交试验应用步骤：" class="headerlink" title="正交试验应用步骤："></a>正交试验应用步骤：</h3><blockquote><p>1.分析需求获取因子和水平。<br>2.根据因子和水平选择合适的正交表。<br>3.替换因子和水平，获取试验次数。<br>4.根据试验或其他因素补充试验次数。<br>5.细化输出获取测试用例。</p></blockquote><h3 id="正交试验注意点："><a href="#正交试验注意点：" class="headerlink" title="正交试验注意点："></a>正交试验注意点：</h3><blockquote><p>1.选择正交表的因子与水平恰好与正交表相同。<br>2.根据对象因子与正交表中的因子不同，选择正交表中因子稍大于被测对象因子数，且试验次数最少的，多余的因子弃用。<br>3.被测对象水平与正交表中的水平不同，可根据实际情况进行合并，然后拆分。<br>4.因子水平都不相同，则可选择因子，水平稍大于被测对象的，且实验次数最少的。</p></blockquote><h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.提取因子和水平<br><img src="/2017/12/27/正交试验/1.提取因子和水平.png" alt="1.提取因子和水平"><br>2.设计正交试验表，补充缺少的必要用例<br><img src="/2017/12/27/正交试验/2.设计正交试验表，补充缺少的必要用例.png" alt="2.设计正交试验表，补充缺少的必要用例"><br>3.替换因子水平得出用例<br><img src="/2017/12/27/正交试验/3.替换因子水平得出用例.png" alt="3.替换因子水平得出用例"></p><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;正交试验是研究多因素多水平的一种设计方法，它是根据正交性从全面试验中挑选出部分有代表性的点进行试验，这些有代表性的点具备了“均匀分散，齐整可比”的特点，正交试验设计是一种基于正交表的、高效率、快速、经济的试验。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/categories/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>因果图</title>
-    <link href="http://pythonfood.github.io/2017/12/27/%E5%9B%A0%E6%9E%9C%E5%9B%BE/"/>
-    <id>http://pythonfood.github.io/2017/12/27/因果图/</id>
-    <published>2017-12-27T09:10:04.000Z</published>
-    <updated>2018-02-09T06:21:52.091Z</updated>
-    
-    <content type="html"><![CDATA[<p>因果图是一种利用图解法分析输入的各种组合情况，从而设计测试用例的方法，它适合于检查程序输入条件的各种组合情况。<br><a id="more"></a></p><h3 id="输入与输出的关系："><a href="#输入与输出的关系：" class="headerlink" title="输入与输出的关系："></a>输入与输出的关系：</h3><blockquote><p>1.恒等：若ci是1，则ei也是1；否则ei为0。<br>2.非：若ci是1，则ei是0；否则ei是1。<br>3.或：若c1或c2或c3是1，则ei是1；否则ei为0。“或”可有任意个输入。<br>4.与：若c1和c2都是1，则ei为1；否则ei为0。“与”也可有任意个输入。</p></blockquote><p><img src="/2017/12/27/因果图/因果图基本图形符.png" alt="因果图基本图形符"></p><h3 id="输入与输入的关系："><a href="#输入与输入的关系：" class="headerlink" title="输入与输入的关系："></a>输入与输入的关系：</h3><blockquote><p>1.E约束（异）：a和b中至多有一个可能为1，即a和b不能同时为1。<br>2.I约束（或）：a、b和c中至少有一个必须是1，即 a、b 和c不能同时为0。<br>3.O约束（唯一）；a和b必须有一个，且仅有1个为1。<br>4.R约束（要求）：a是1时，b必须是1，即不可能a是1时b是0。</p></blockquote><p><img src="/2017/12/27/因果图/因果图约束条件.png" alt="因果图约束条件"></p><h3 id="输出与输出的关系："><a href="#输出与输出的关系：" class="headerlink" title="输出与输出的关系："></a>输出与输出的关系：</h3><blockquote><p>1.M(屏蔽)：a出现时，b必定不出现；a不出现时，b则不确定。</p></blockquote><h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.根据关系画用例的因果图<br><img src="/2017/12/27/因果图/1.根据关系画用例的因果图.png" alt="1.根据关系画用例的因果图"><br>2.根据用例因果图设计判定表<br><img src="/2017/12/27/因果图/2.根据用例因果图设计判定表.png" alt="2.根据用例因果图设计判定表"><br>3.去除因果图判定表的无效项<br><img src="/2017/12/27/因果图/3.去除因果图判定表的无效项.png" alt="3.去除因果图判定表的无效项"></p><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;因果图是一种利用图解法分析输入的各种组合情况，从而设计测试用例的方法，它适合于检查程序输入条件的各种组合情况。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/categories/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
-    
-    
-      <category term="测试用例" scheme="http://pythonfood.github.io/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/"/>
     
   </entry>
   
