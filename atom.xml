@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://pythonfood.github.io/"/>
-  <updated>2018-03-08T09:18:59.419Z</updated>
+  <updated>2018-03-09T07:39:28.930Z</updated>
   <id>http://pythonfood.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>持续集成-jenkins</title>
+    <link href="http://pythonfood.github.io/2018/03/05/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90-jenkins/"/>
+    <id>http://pythonfood.github.io/2018/03/05/持续集成-jenkins/</id>
+    <published>2018-03-05T01:00:00.000Z</published>
+    <updated>2018-03-09T07:39:28.930Z</updated>
+    
+    <content type="html"><![CDATA[<p>持续集成jenkins使用笔记。<br><a id="more"></a></p><h3 id="1-持续集成流程"><a href="#1-持续集成流程" class="headerlink" title="1.持续集成流程"></a>1.持续集成流程</h3><p>(1)提交代码<br>(2)拉取代码<br>(3)编译<br>(4)打包<br>(5)配置<br>(6)测试<br>(7)反馈问题<br>(8)开发处理<br>(9)回到(1)</p><h3 id="2-持续集成工具"><a href="#2-持续集成工具" class="headerlink" title="2.持续集成工具"></a>2.持续集成工具</h3><p>(1)代码管理工具：</p><blockquote><p>Git：官网下载安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>GitHub：官网地址<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p></blockquote><p>(2)集成工具：</p><blockquote><p>Jenkins：官网下载安装<a href="https://jenkins.io/download/" target="_blank" rel="noopener">https://jenkins.io/download/</a><br>1)安装后会自动启动浏览器，输入<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br>2)根据页面中标红路径找到管理员密码吗<br>3)输入管理员密码，点击【Continue】<br>4)安装插件，默认选项即可<br>5)安装完需要创建用户，此处点击【Continue as admin】使用默认账户即可<br>6)点击【Start using Jekins】启动<br>7)修改密码，进入【admin-设置】，向上拉找到密码处即可修改</p></blockquote><h3 id="3-Jenkins系统配置"><a href="#3-Jenkins系统配置" class="headerlink" title="3.Jenkins系统配置"></a>3.Jenkins系统配置</h3><p>(1)插件管理：</p><blockquote><p>1)进入【系统管理-管理插件-已安装】查看下面插件：</p><blockquote><ul><li>Git Plugin</li><li>GitHub Plugin</li><li>Gradle Plugin</li><li>Android Emulator Plugin</li></ul></blockquote><p>2)未安装的进入【可选插件】里安装即可</p></blockquote><p>(2)Gradle配置：</p><blockquote><p>1)进入【系统管理-全局工具配置】找到【Gradle安装】<br>2)点击【新增Gradle】<br>3)选择自动安装，名称输入和版本一致即可<br>4)再点击【Apply】-【Save】</p></blockquote><p>(3)GitHub配置：</p><blockquote><p>1)进入【系统管理-系统设置】找到【GitHub】<br>2)点击【Add GitHub Server】<br>3)在【GitHub Server】的【API URL】输入(<a href="https://api.github.com" target="_blank" rel="noopener">https://api.github.com</a>)<br>4)再点击【Credentials】右侧的问号设置权限，展开的内容里右键点击【personal access token】新窗口打开github<br>5)在github页面【Token description】输入自定义名称,勾选【repo】,点击【Generate token】<br>6)在github页面生成Personal access tokens后复制<br>7)回到jenkins页面点击【add】-【jenkins】<br>8)在弹出窗口里【Kind】类别选择【Secret text】,将刚才复制的token粘贴到【Secret】，再点击【add】就创建了身份信息<br>9)可以点击【Test connection】验证一下，验证通过后点击【保存】</p></blockquote><h3 id="4-Jenkins-JOB配置"><a href="#4-Jenkins-JOB配置" class="headerlink" title="4.Jenkins JOB配置"></a>4.Jenkins JOB配置</h3><p>创建任务：</p><blockquote><p>1)点击页面中【创建一个新任务】<br>2)输入任务名称，选择【构建一个自由风格的软件项目】，点击【确定】进入设置界面<br>3)进行自定义配置后点击【保存】</p></blockquote><h3 id="5-JOB配置小示例"><a href="#5-JOB配置小示例" class="headerlink" title="5.JOB配置小示例"></a>5.JOB配置小示例</h3><p>进入创建的任务详情界面，点击【配置】进行job配置<br>(1)拉取代码：</p><blockquote><p>1)【源码管理】选择【Git】，输入代码库的URL地址<br>2)点击【Add】-【jenkins】配置github权限<br>3)弹出界面输入github的帐户名和密码，点击【Add】添加<br>4)【Credentials】选择刚添加的github账户</p></blockquote><p>(2)编译、打包：</p><blockquote><p>1)【构建】点击【增加构建步骤】<br>2)选择【Invoke Gradle script】<br>3)【Gradle Version】选择对应版本<br>4)【Tasks】填写“build”等信息</p></blockquote><p>(3)配置：</p><blockquote><p>1)【构建】点击【增加构建步骤】<br>2)选择【Install Android package】<br>3)【APK file】填写生成的apk路径（此处可以先生构建一次4)查看路径，再复制到这里）<br>5)勾选【Uninstall existing APK first】</p></blockquote><p>(4)测试：</p><blockquote><p>1)【构建】点击【增加构建步骤】<br>2)选择【Run Android monkey tester】<br>3)【Package IDs】输入包名<br>4)【Event count】输入执行次数<br>5)【Delay between events】输入间隔时间ms<br>6)点击【Apply】,点击【保存】</p></blockquote><p>(5)立即构建：</p><blockquote><p>1)进入创建的任务详情界面<br>2)点击【立即构建】进行构建<br>3)点击构建的任务可以查看详情<br>4)【Console Output】可以查看日志信息</p></blockquote><p>(6)定时构建：</p><blockquote><p>1)进入创建的任务详情界面<br>2)点击【配置】进行job配置<br>3)【构建触发器】下选择【Build periodically】<br>4)【日程表】里输入规则，例如“H/15 <em> </em> <em> </em>”(每15分钟构建一次)<br>5)点击【日程表】右侧问号，可以查看规则描述<br>6)点击【Apply】,点击【保存】</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;持续集成jenkins使用笔记。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="持续集成" scheme="http://pythonfood.github.io/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+    
+      <category term="持续集成" scheme="http://pythonfood.github.io/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+  </entry>
   
   <entry>
     <title>接口测试-python</title>
@@ -424,28 +446,6 @@
     <summary type="html">
     
       &lt;p&gt;python脚本实现安卓app的启动时间测试。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="专项测试" scheme="http://pythonfood.github.io/categories/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="专项测试" scheme="http://pythonfood.github.io/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓专项测试</title>
-    <link href="http://pythonfood.github.io/2017/12/27/%E5%AE%89%E5%8D%93%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    <id>http://pythonfood.github.io/2017/12/27/安卓专项测试/</id>
-    <published>2017-12-27T11:10:00.000Z</published>
-    <updated>2018-03-06T02:03:55.930Z</updated>
-    
-    <content type="html"><![CDATA[<p>安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。<br><a id="more"></a></p><h3 id="响应时间："><a href="#响应时间：" class="headerlink" title="响应时间："></a>响应时间：</h3><blockquote><p>1.安装：普通安装、覆盖安装<br>2.启动：冷启动、热启动</p><blockquote><p>(1)adb命令：adb logcat、adb shell am start、adb shell screenrecord等。</p><blockquote><p>小示例：<br>1)adb shell screenrecord /sdcard/demo.mp4<br>2)adb pull /sdcard/demo.mp4 d:\record<br>3)用按帧播放的视频软件播放分析，比如KMplayer。</p></blockquote><p>(2)代码里打点（埋点）。<br>(3)高速相机。<br>(4)秒表。<br>(5)第三方工具或云测平台。</p></blockquote><p>3.跳转：页面之间、控件之间</p></blockquote><h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu:"></a>cpu:</h3><blockquote><p>1.活动状态<br>2.静默状态</p><blockquote><p>(1)第三方工具：腾讯GT、网易Emmagee、阿里易测等。（小白首选）。<br>(2)dumpsys命令：adb shell dumpsys cpuinfo | grep {PackageName}。<br>(3)top命令：adb shell top | grep {PackageName}。</p><blockquote><p>小示例：<br>1)adb shell<br>2)top | grep com.peng.cloudp.tv</p><blockquote><p>第一列PID:进度ID<br>第二列PR:优先级<br>第三列CPU:瞬时CPU占用率<br>第四列进程状态:R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程<br>第五列THR:当前应用所用的线程数<br>第六列VSS:虚拟消耗内存<br>第七列RSS:实际使用物理内存<br>第八列UID:进程所有者的用户ID<br>第九列PR:进程名称</p></blockquote></blockquote></blockquote></blockquote><h3 id="内存："><a href="#内存：" class="headerlink" title="内存："></a>内存：</h3><blockquote><p>1.命令查看内存数据</p><blockquote><p>(1)adb shell dumpsys meminfo {PackageName}查看内存是否是一味上涨的趋势，不会回收或者部分回收。<br>(2)/system/build.prop 查看每个应用分配的最高内存值。<br>adb shell procrank (没有可以从网上下载procrank文件)。</p><blockquote><p>PID:进程ID<br>VSS:虚拟消耗内存<br>RSS:实际使用物理内存，是共享内存+私有内存。<br>PSS:占用私有内存加上平均分配的的共享内存。<br>USS:私有内存，如果应用终止了，这部分内存会释放。如果这个值超过应用被分配的最大值，就会闪退。</p></blockquote></blockquote><p>2.Memory Monitor查看内存风险<br>3.MAT分析内存泄漏<br>4.Zombie辅助检查内存占用</p></blockquote><h3 id="电量："><a href="#电量：" class="headerlink" title="电量："></a>电量：</h3><blockquote><p>1.待机：无网络待机、wifi待机、3G待机等。<br>2.活动状态：不断地进行某些场景操作、看视频、灭屏下载、唤醒等。<br>3.静默状态：打开app后不操作，后台运行。</p><blockquote><p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumps batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p></blockquote></blockquote><h3 id="流量："><a href="#流量：" class="headerlink" title="流量："></a>流量：</h3><blockquote><p>1.活动状态<br>2.静默状态</p><blockquote><p>(1)通过Tcpdump抓包，然后用Wireshark分析。如果想更自动化，可以用FildderCore二次开发。<br>(2)查看Linux流量统计文件。</p><blockquote><p>小示例：<br>1)ps | grep com.peng.cloudp.tv （获取的pid为9696）<br>2)cat /proc/9696/status （通过pid值获取uid为10035）<br>3)cat /proc/uid_stat/10035/tcp_snd （通过uid获取发送的流量byte,为15584）<br>4)cat /proc/uid_stat/10035/tcp_rcv （通过uid获取接收的流量byte,为16778）</p></blockquote><p>(3)利用类似DDMS的工具查看流量。（小白首选）<br>(4)通过Android API 的 TrafficStats类来统计。<br>(5)第三方工具或云测平台。</p></blockquote></blockquote><h3 id="FPS："><a href="#FPS：" class="headerlink" title="FPS："></a>FPS：</h3><blockquote><p>1.adb shell dumpsys gfxinfo</p><blockquote><p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt;&gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p></blockquote><p>2.monitor.bat进行测试</p><p>3.打开【设置-开发者选项-GPU呈现模式分析-在屏幕上显示为条形图】，开启后点击应用，可以看到条形图。</p><blockquote><p>测试应用流畅度：<br>(1)条形图高于绿线，说明出现卡顿<br>(2)条形图低于绿线，说明比较流畅</p></blockquote></blockquote><h3 id="过度渲染："><a href="#过度渲染：" class="headerlink" title="过度渲染："></a>过度渲染：</h3><blockquote><p>1.打开【设置-开发者选项-调试GPU过度绘制-显示过度绘制区域】，开启后点击应用，可以看到各种颜色的区域。</p><blockquote><p>颜色的标识：<br>(1)蓝色1x过度绘制<br>(2)绿色2x过度绘制<br>(3)淡红色3x过度绘制<br>(4)红色超过4x过度绘制</p></blockquote><p>2.颜色越浅越好:蓝-绿-淡红-红。最理想的是一个像素只绘制一次，合格的页面是白色、蓝色为主，绿色以上区域不能超过整个的三分之一。</p><blockquote><p>验收标准：<br>(1)控制过度绘制为2x<br>(2)不允许存在4x过度绘制<br>(3)不允许存在面积超过屏幕1/4区域的3x过度绘制（淡红色区域）</p></blockquote></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
