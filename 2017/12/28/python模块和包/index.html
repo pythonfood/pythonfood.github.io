@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>安卓专项测试 | PythonFood</title>
+  <title>python模块和包 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta name="keywords" content="专项测试">
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓专项测试">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/安卓专项测试/index.html">
+<meta property="og:title" content="python模块和包">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python模块和包/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta property="og:updated_time" content="2018-03-06T02:03:55.930Z">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-03-15T09:52:11.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓专项测试">
-<meta name="twitter:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
+<meta name="twitter:title" content="python模块和包">
+<meta name="twitter:description" content="人生苦短，我用python。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-安卓专项测试" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-python模块和包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      安卓专项测试
+      python模块和包
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -118,12 +118,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/专项测试/">专项测试</a>
+                      <a href="/categories/python/">python</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-12-27
+          <i class="fa fa-calendar"></i>  2017-12-28
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -139,82 +139,57 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。<br><a id="more"></a></p>
-<h3 id="响应时间："><a href="#响应时间：" class="headerlink" title="响应时间："></a>响应时间：</h3><blockquote>
-<p>1.安装：普通安装、覆盖安装<br>2.启动：冷启动、热启动</p>
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、模块"><a href="#一、模块" class="headerlink" title="一、模块"></a>一、模块</h2><p>模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。</p>
+<p>模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用python标准库的方法。</p>
+<p>模块能定义函数，类和变量，模块里也能包含可执行的代码。</p>
 <blockquote>
-<p>(1)adb命令：adb logcat、adb shell am start、adb shell screenrecord等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#新建模块文件modle_1.py，内容如下：</span><br><span class="line">def p_func(arg):</span><br><span class="line">    print(&apos;hello&apos;,arg)</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line">#新建主模块文件main.py，内容如下：</span><br><span class="line">from modle_1 import p_func   #导入模块modle_1中的p_func函数</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:   #判断是否为主程序执行口</span><br><span class="line">    p_func(&apos;python&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#output：</span><br><span class="line">hello python</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>ps：<strong>自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了sys模块，自己的模块就不可命名为sys.py，否则将无法导入系统自带的sys模块。 </strong></p>
+<h2 id="二、模块引入"><a href="#二、模块引入" class="headerlink" title="二、模块引入"></a>二、模块引入</h2><h3 id="1、import"><a href="#1、import" class="headerlink" title="1、import"></a>1、import</h3><p><code>import module1[, module2[,... moduleN]</code></p>
 <blockquote>
-<p>小示例：<br>1)adb shell screenrecord /sdcard/demo.mp4<br>2)adb pull /sdcard/demo.mp4 d:\record<br>3)用按帧播放的视频软件播放分析，比如KMplayer。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys #导入模块</span><br><span class="line"></span><br><span class="line">sys.path.append(&apos;&apos;) #调用模块里的方法</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>(2)代码里打点（埋点）。<br>(3)高速相机。<br>(4)秒表。<br>(5)第三方工具或云测平台。</p>
-</blockquote>
-<p>3.跳转：页面之间、控件之间</p>
-</blockquote>
-<h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu:"></a>cpu:</h3><blockquote>
-<p>1.活动状态<br>2.静默状态</p>
+<h3 id="2、from…import"><a href="#2、from…import" class="headerlink" title="2、from…import"></a>2、from…import</h3><p><code>from modname import name1[, name2[, ... nameN]]</code></p>
 <blockquote>
-<p>(1)第三方工具：腾讯GT、网易Emmagee、阿里易测等。（小白首选）。<br>(2)dumpsys命令：adb shell dumpsys cpuinfo | grep {PackageName}。<br>(3)top命令：adb shell top | grep {PackageName}。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from fibo import fib, fib2 #导入模块里的函数</span><br><span class="line"></span><br><span class="line">fib(500) # 直接使用函数</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3、from…import"><a href="#3、from…import" class="headerlink" title="3、from…import *"></a>3、from…import *</h3><p><code>from modname import *</code><br>这样会把模块中的所有内容导入到当前命名空间，一般不建议使用，消耗内存空间，也容易出现未预知的问题。</p>
+<h2 id="三、搜索路径"><a href="#三、搜索路径" class="headerlink" title="三、搜索路径"></a>三、搜索路径</h2><p>1、python解析器对模块位置的搜索顺序是：</p>
+<ul>
+<li>当前目录</li>
+<li>shell变量PYTHONPATH下的每个目录</li>
+<li>python模块路径目录</li>
+</ul>
+<p>2、添加搜索路径<br>方法一：直接修改sys.path，运行结束后失效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.path.append(&apos;&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>方法二：设置环境变量PYTHONPATH，一般不推荐。<br><code>set PYTHONPATH =/usr/local/lib/python</code></p>
+<h2 id="四、作用域"><a href="#四、作用域" class="headerlink" title="四、作用域"></a>四、作用域</h2><h3 id="1、正常变量"><a href="#1、正常变量" class="headerlink" title="1、正常变量"></a>1、正常变量</h3><p>正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等。</p>
+<h3 id="2、特殊变量"><a href="#2、特殊变量" class="headerlink" title="2、特殊变量"></a>2、特殊变量</h3><p>类似<code>__xxx__</code>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，我们自己的变量一般不要用这种变量名。<br>比如：<code>__name__</code>属性，个模块都有一个__name__属性，当其值是’__main__‘时，表明该模块自身在运行，否则是被引入。</p>
+<h3 id="3、私有变量"><a href="#3、私有变量" class="headerlink" title="3、私有变量"></a>3、私有变量</h3><p>类似<code>_xxx</code>和<code>__xxx</code>这样的变量是私有变量，（private）函数和变量“不应该”被直接引用。</p>
+<p>ps：内置的函数<code>dir(模块名)</code>可以找到模块内定义的所有名称。以一个字符串列表的形式返回。</p>
+<h2 id="五、包"><a href="#五、包" class="headerlink" title="五、包"></a>五、包</h2><p>目录只有包含一个<code>__init__.py</code>文件，才会被认作是一个包。<br>模块用来组织python代码，包用来组织模块。</p>
+<p>包的导入：<br>(1)import</p>
 <blockquote>
-<p>小示例：<br>1)adb shell<br>2)top | grep com.peng.cloudp.tv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#只导入一个包里面的特定模块</span><br><span class="line">import sound.effects.echo </span><br><span class="line"></span><br><span class="line">#访问时必须使用全名</span><br><span class="line">sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)from…import<br>1)导入子模块</p>
 <blockquote>
-<p>第一列PID:进度ID<br>第二列PR:优先级<br>第三列CPU:瞬时CPU占用率<br>第四列进程状态:R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程<br>第五列THR:当前应用所用的线程数<br>第六列VSS:虚拟消耗内存<br>第七列RSS:实际使用物理内存<br>第八列UID:进程所有者的用户ID<br>第九列PR:进程名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入子模块</span><br><span class="line">from sound.effects import echo</span><br><span class="line"></span><br><span class="line">#访问不需要那些冗长的前缀</span><br><span class="line">echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
 </blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="内存："><a href="#内存：" class="headerlink" title="内存："></a>内存：</h3><blockquote>
-<p>1.命令查看内存数据</p>
+<p>2)直接导入一个函数或者变量</p>
 <blockquote>
-<p>(1)adb shell dumpsys meminfo {PackageName}查看内存是否是一味上涨的趋势，不会回收或者部分回收。<br>(2)/system/build.prop 查看每个应用分配的最高内存值。<br>adb shell procrank (没有可以从网上下载procrank文件)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入一个函数</span><br><span class="line">from sound.effects.echo import echofilter</span><br><span class="line"></span><br><span class="line">#直接访问函数</span><br><span class="line">echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)from…import *<br>这个方法在 Windows平台上工作的就不是非常好，因为Windows是一个大小写不区分的系统。<br>如果非要使用，请使用下面的方法：</p>
 <blockquote>
-<p>PID:进程ID<br>VSS:虚拟消耗内存<br>RSS:实际使用物理内存，是共享内存+私有内存。<br>PSS:占用私有内存加上平均分配的的共享内存。<br>USS:私有内存，如果应用终止了，这部分内存会释放。如果这个值超过应用被分配的最大值，就会闪退。</p>
+<p>1)在<code>file:sounds/effects/__init__.py</code>中包含如下代码<code>__all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]</code>。<br>2)使用<code>from sound.effects import *</code>这种用法时，你只会导入包里面这三个子模块。</p>
 </blockquote>
-</blockquote>
-<p>2.Memory Monitor查看内存风险<br>3.MAT分析内存泄漏<br>4.Zombie辅助检查内存占用</p>
-</blockquote>
-<h3 id="电量："><a href="#电量：" class="headerlink" title="电量："></a>电量：</h3><blockquote>
-<p>1.待机：无网络待机、wifi待机、3G待机等。<br>2.活动状态：不断地进行某些场景操作、看视频、灭屏下载、唤醒等。<br>3.静默状态：打开app后不操作，后台运行。</p>
-<blockquote>
-<p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumps batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p>
-</blockquote>
-</blockquote>
-<h3 id="流量："><a href="#流量：" class="headerlink" title="流量："></a>流量：</h3><blockquote>
-<p>1.活动状态<br>2.静默状态</p>
-<blockquote>
-<p>(1)通过Tcpdump抓包，然后用Wireshark分析。如果想更自动化，可以用FildderCore二次开发。<br>(2)查看Linux流量统计文件。</p>
-<blockquote>
-<p>小示例：<br>1)ps | grep com.peng.cloudp.tv （获取的pid为9696）<br>2)cat /proc/9696/status （通过pid值获取uid为10035）<br>3)cat /proc/uid_stat/10035/tcp_snd （通过uid获取发送的流量byte,为15584）<br>4)cat /proc/uid_stat/10035/tcp_rcv （通过uid获取接收的流量byte,为16778）</p>
-</blockquote>
-<p>(3)利用类似DDMS的工具查看流量。（小白首选）<br>(4)通过Android API 的 TrafficStats类来统计。<br>(5)第三方工具或云测平台。</p>
-</blockquote>
-</blockquote>
-<h3 id="FPS："><a href="#FPS：" class="headerlink" title="FPS："></a>FPS：</h3><blockquote>
-<p>1.adb shell dumpsys gfxinfo</p>
-<blockquote>
-<p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt;&gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
-</blockquote>
-<p>2.monitor.bat进行测试</p>
-<p>3.打开【设置-开发者选项-GPU呈现模式分析-在屏幕上显示为条形图】，开启后点击应用，可以看到条形图。</p>
-<blockquote>
-<p>测试应用流畅度：<br>(1)条形图高于绿线，说明出现卡顿<br>(2)条形图低于绿线，说明比较流畅</p>
-</blockquote>
-</blockquote>
-<h3 id="过度渲染："><a href="#过度渲染：" class="headerlink" title="过度渲染："></a>过度渲染：</h3><blockquote>
-<p>1.打开【设置-开发者选项-调试GPU过度绘制-显示过度绘制区域】，开启后点击应用，可以看到各种颜色的区域。</p>
-<blockquote>
-<p>颜色的标识：<br>(1)蓝色1x过度绘制<br>(2)绿色2x过度绘制<br>(3)淡红色3x过度绘制<br>(4)红色超过4x过度绘制</p>
-</blockquote>
-<p>2.颜色越浅越好:蓝-绿-淡红-红。最理想的是一个像素只绘制一次，合格的页面是白色、蓝色为主，绿色以上区域不能超过整个的三分之一。</p>
-<blockquote>
-<p>验收标准：<br>(1)控制过度绘制为2x<br>(2)不允许存在4x过度绘制<br>(3)不允许存在面积超过屏幕1/4区域的3x过度绘制（淡红色区域）</p>
-</blockquote>
-</blockquote>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月06日 10:03</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/27/安卓专项测试/" title="安卓专项测试">http://pythonfood.github.io/2017/12/27/安卓专项测试/</a></p>
+        <p>最后更新： 2018年03月15日 17:52</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/28/python模块和包/" title="python模块和包">http://pythonfood.github.io/2017/12/28/python模块和包/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -271,7 +246,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/安卓专项测试/&title=《安卓专项测试》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python模块和包/&title=《python模块和包》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -281,22 +256,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/安卓专项测试/&title=《安卓专项测试》 — PythonFood&source=安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python模块和包/&title=《python模块和包》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/安卓专项测试/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python模块和包/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安卓专项测试》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/安卓专项测试/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python模块和包》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python模块和包/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/安卓专项测试/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python模块和包/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -306,7 +281,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/安卓专项测试/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python模块和包/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -318,7 +293,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/专项测试/" class="color5">专项测试</a>
+    <a href="/tags/python/" class="color2">python</a>
       
   </li>
 
@@ -331,26 +306,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#响应时间："><span class="post-toc-text">响应时间：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cpu"><span class="post-toc-text">cpu:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存："><span class="post-toc-text">内存：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电量："><span class="post-toc-text">电量：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流量："><span class="post-toc-text">流量：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FPS："><span class="post-toc-text">FPS：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过度渲染："><span class="post-toc-text">过度渲染：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、模块"><span class="post-toc-text">一、模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、模块引入"><span class="post-toc-text">二、模块引入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、import"><span class="post-toc-text">1、import</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、from…import"><span class="post-toc-text">2、from…import</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、from…import"><span class="post-toc-text">3、from…import *</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、搜索路径"><span class="post-toc-text">三、搜索路径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、作用域"><span class="post-toc-text">四、作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、正常变量"><span class="post-toc-text">1、正常变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、特殊变量"><span class="post-toc-text">2、特殊变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、私有变量"><span class="post-toc-text">3、私有变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、包"><span class="post-toc-text">五、包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/安卓专项测试-启动时间/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/01/selenium安装-windows/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          安卓专项测试-启动时间
+          selenium安装-windows
         
       </span>
     </a>
   
   
-    <a href="/2017/12/27/流程分析/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">流程分析</span>
+    <a href="/2017/12/28/python类和对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python类和对象</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -359,7 +334,7 @@
 
 
     
-        <div id="SOHUCS" sid="安卓专项测试" ></div>
+        <div id="SOHUCS" sid="python模块和包" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';

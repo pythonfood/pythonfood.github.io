@@ -281,6 +281,28 @@
   </entry>
   
   <entry>
+    <title>python模块和包</title>
+    <link href="http://pythonfood.github.io/2017/12/28/python%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/"/>
+    <id>http://pythonfood.github.io/2017/12/28/python模块和包/</id>
+    <published>2017-12-28T11:10:00.000Z</published>
+    <updated>2018-03-15T09:52:11.625Z</updated>
+    
+    <content type="html"><![CDATA[<p>人生苦短，我用python。<br><a id="more"></a></p><h2 id="一、模块"><a href="#一、模块" class="headerlink" title="一、模块"></a>一、模块</h2><p>模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。</p><p>模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用python标准库的方法。</p><p>模块能定义函数，类和变量，模块里也能包含可执行的代码。</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#新建模块文件modle_1.py，内容如下：</span><br><span class="line">def p_func(arg):</span><br><span class="line">    print(&apos;hello&apos;,arg)</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line">#新建主模块文件main.py，内容如下：</span><br><span class="line">from modle_1 import p_func   #导入模块modle_1中的p_func函数</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:   #判断是否为主程序执行口</span><br><span class="line">    p_func(&apos;python&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#output：</span><br><span class="line">hello python</span><br></pre></td></tr></table></figure></blockquote><p>ps：<strong>自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了sys模块，自己的模块就不可命名为sys.py，否则将无法导入系统自带的sys模块。 </strong></p><h2 id="二、模块引入"><a href="#二、模块引入" class="headerlink" title="二、模块引入"></a>二、模块引入</h2><h3 id="1、import"><a href="#1、import" class="headerlink" title="1、import"></a>1、import</h3><p><code>import module1[, module2[,... moduleN]</code></p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys #导入模块</span><br><span class="line"></span><br><span class="line">sys.path.append(&apos;&apos;) #调用模块里的方法</span><br></pre></td></tr></table></figure></blockquote><h3 id="2、from…import"><a href="#2、from…import" class="headerlink" title="2、from…import"></a>2、from…import</h3><p><code>from modname import name1[, name2[, ... nameN]]</code></p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from fibo import fib, fib2 #导入模块里的函数</span><br><span class="line"></span><br><span class="line">fib(500) # 直接使用函数</span><br></pre></td></tr></table></figure></blockquote><h3 id="3、from…import"><a href="#3、from…import" class="headerlink" title="3、from…import *"></a>3、from…import *</h3><p><code>from modname import *</code><br>这样会把模块中的所有内容导入到当前命名空间，一般不建议使用，消耗内存空间，也容易出现未预知的问题。</p><h2 id="三、搜索路径"><a href="#三、搜索路径" class="headerlink" title="三、搜索路径"></a>三、搜索路径</h2><p>1、python解析器对模块位置的搜索顺序是：</p><ul><li>当前目录</li><li>shell变量PYTHONPATH下的每个目录</li><li>python模块路径目录</li></ul><p>2、添加搜索路径<br>方法一：直接修改sys.path，运行结束后失效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.path.append(&apos;&apos;)</span><br></pre></td></tr></table></figure></p><p>方法二：设置环境变量PYTHONPATH，一般不推荐。<br><code>set PYTHONPATH =/usr/local/lib/python</code></p><h2 id="四、作用域"><a href="#四、作用域" class="headerlink" title="四、作用域"></a>四、作用域</h2><h3 id="1、正常变量"><a href="#1、正常变量" class="headerlink" title="1、正常变量"></a>1、正常变量</h3><p>正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等。</p><h3 id="2、特殊变量"><a href="#2、特殊变量" class="headerlink" title="2、特殊变量"></a>2、特殊变量</h3><p>类似<code>__xxx__</code>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，我们自己的变量一般不要用这种变量名。<br>比如：<code>__name__</code>属性，个模块都有一个__name__属性，当其值是’__main__‘时，表明该模块自身在运行，否则是被引入。</p><h3 id="3、私有变量"><a href="#3、私有变量" class="headerlink" title="3、私有变量"></a>3、私有变量</h3><p>类似<code>_xxx</code>和<code>__xxx</code>这样的变量是私有变量，（private）函数和变量“不应该”被直接引用。</p><p>ps：内置的函数<code>dir(模块名)</code>可以找到模块内定义的所有名称。以一个字符串列表的形式返回。</p><h2 id="五、包"><a href="#五、包" class="headerlink" title="五、包"></a>五、包</h2><p>目录只有包含一个<code>__init__.py</code>文件，才会被认作是一个包。<br>模块用来组织python代码，包用来组织模块。</p><p>包的导入：<br>(1)import</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#只导入一个包里面的特定模块</span><br><span class="line">import sound.effects.echo </span><br><span class="line"></span><br><span class="line">#访问时必须使用全名</span><br><span class="line">sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure></blockquote><p>(2)from…import<br>1)导入子模块</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入子模块</span><br><span class="line">from sound.effects import echo</span><br><span class="line"></span><br><span class="line">#访问不需要那些冗长的前缀</span><br><span class="line">echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure></blockquote><p>2)直接导入一个函数或者变量</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入一个函数</span><br><span class="line">from sound.effects.echo import echofilter</span><br><span class="line"></span><br><span class="line">#直接访问函数</span><br><span class="line">echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure></blockquote><p>(3)from…import *<br>这个方法在 Windows平台上工作的就不是非常好，因为Windows是一个大小写不区分的系统。<br>如果非要使用，请使用下面的方法：</p><blockquote><p>1)在<code>file:sounds/effects/__init__.py</code>中包含如下代码<code>__all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]</code>。<br>2)使用<code>from sound.effects import *</code>这种用法时，你只会导入包里面这三个子模块。</p></blockquote><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;人生苦短，我用python。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://pythonfood.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://pythonfood.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python类和对象</title>
     <link href="http://pythonfood.github.io/2017/12/28/python%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/"/>
     <id>http://pythonfood.github.io/2017/12/28/python类和对象/</id>
@@ -431,28 +453,6 @@
     
     
       <category term="python" scheme="http://pythonfood.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>monkey</title>
-    <link href="http://pythonfood.github.io/2017/12/27/monkey/"/>
-    <id>http://pythonfood.github.io/2017/12/27/monkey/</id>
-    <published>2017-12-27T12:00:00.000Z</published>
-    <updated>2018-02-09T09:35:12.818Z</updated>
-    
-    <content type="html"><![CDATA[<p>Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。<br><a id="more"></a></p><h3 id="常用选项："><a href="#常用选项：" class="headerlink" title="常用选项："></a>常用选项：</h3><blockquote><p><code>--help</code>：打印帮助信息<br><code>-v</code>：指定打印信息的详细级别，一个-v增加一个级别，默认级别为0。</p></blockquote><h3 id="事件选项："><a href="#事件选项：" class="headerlink" title="事件选项："></a>事件选项：</h3><blockquote><p><code>-s</code>：指定产生随机事件种子值，相同的种子值产生相同的事件序列。<br><code>--throttle</code>：每个事件结束后的间隔时间。<br><code>--pct-touch</code>：指定(触摸事件)的百分比<br><code>--pct-motion</code>：（滑动事件)<br><code>--pct-trackball</code>：(轨迹球事件)<br><code>--pct-nav</code>：（导航事件 up/down/left/right）<br><code>--pct-majornav</code>：(主要导航事件 back key 、 menu key)<br><code>--pct-syskeys</code>：(系统按键事件 Home 、Back 、startCall 、 endCall 、 volumeControl)<br><code>--pct-appswitch</code> ：（activity之间的切换）<br><code>--pct-anyevent</code> ：（任意事件）</p></blockquote><h3 id="约束选项："><a href="#约束选项：" class="headerlink" title="约束选项："></a>约束选项：</h3><blockquote><p><code>-p</code>：指定有效的package（如不指定，则对系统中所有package有效），一个-p 对应一个有效package。<br><code>-c</code>：activity必须至少包含一个指定的category，才能被启动，否则启动不了。</p></blockquote><h3 id="调试选项："><a href="#调试选项：" class="headerlink" title="调试选项："></a>调试选项：</h3><blockquote><p><code>--dbg-no-events</code>：初始化启动的activity，但是不产生任何事件。<br><code>--hprof</code>：指定该项后在事件序列发送前后会立即生成分析报告  —— 一般建议指定该项。<br><code>--ignore-crashes</code>：忽略崩溃<br><code>--ignore-timeouts</code>：忽略超时<br><code>--ignore-security-exceptions</code>：忽略安全异常<br><code>--kill-process-after-error</code>：发生错误后直接杀掉进程<br><code>--monitor-native-crashes</code>：跟踪本地方法的崩溃问题<br><code>--wait-dbg</code>：知道连接了调试器才执行monkey测试。</p></blockquote><h3 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h3><pre><code>adb shell monkey -p（指定包名） com.hiveview.cloudscreen.py --throttle（操作延时ms） 1000 -s(指定seed值) 1500859116902 -v -v（信息反馈级别） 1000（执行次数）adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-majornav 50 --pct-nav 50 -v -v 1000 &gt;d:\monkey.txtadb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --ignore-crashes --ignore-timeouts --monitor-native-crashes --pct-majornav 50 --pct-nav 50 -v -v 1000 &gt;d:\monkey_log.txtadb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-nav 50 --pct-majornav 50 -v -v 1000 &gt;d:\monkey_log.txt</code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="monkey" scheme="http://pythonfood.github.io/categories/monkey/"/>
-    
-    
-      <category term="monkey" scheme="http://pythonfood.github.io/tags/monkey/"/>
     
   </entry>
   
