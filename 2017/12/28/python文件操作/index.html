@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>python模块和包 | PythonFood</title>
+  <title>python文件操作 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
@@ -11,13 +11,13 @@
   <meta name="description" content="人生苦短，我用python。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python模块和包">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python模块和包/index.html">
+<meta property="og:title" content="python文件操作">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python文件操作/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="人生苦短，我用python。">
-<meta property="og:updated_time" content="2018-03-15T09:52:11.625Z">
+<meta property="og:updated_time" content="2018-03-19T01:39:27.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python模块和包">
+<meta name="twitter:title" content="python文件操作">
 <meta name="twitter:description" content="人生苦短，我用python。">
   
   
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-python模块和包" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-python文件操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      python模块和包
+      python文件操作
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -140,56 +140,43 @@
       
             
             <p>人生苦短，我用python。<br><a id="more"></a></p>
-<h2 id="一、模块"><a href="#一、模块" class="headerlink" title="一、模块"></a>一、模块</h2><p>模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。</p>
-<p>模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用python标准库的方法。</p>
-<p>模块能定义函数，类和变量，模块里也能包含可执行的代码。</p>
+<h2 id="一、file对象"><a href="#一、file对象" class="headerlink" title="一、file对象"></a>一、file对象</h2><p>操作文件首先要创建file对象，file对象使用<code>open()</code>函数来创建。</p>
+<h3 id="1、读取创建"><a href="#1、读取创建" class="headerlink" title="1、读取创建"></a>1、读取创建</h3><p>(1)读取文本文件，UTF-8编码：<br><code>f = open(&#39;/Users/michael/test.txt&#39;, &#39;r&#39;)</code></p>
+<p>(2)读取二进制文件，比如图片、视频等用<code>rb</code>模式打开文件:<br><code>f = open(&#39;/Users/michael/test.jpg&#39;, &#39;rb&#39;)</code></p>
+<p>(3)读取非UTF-8编码的文本文件，需要给open()函数传入<code>encoding</code>参数:<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;r&#39;, encoding=&#39;gbk&#39;)</code></p>
+<p>(4)有些编码不规范的文件,遇到编码错误,最简单的方式是直接忽略(<code>errors</code>参数)：<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;r&#39;, encoding=&#39;gbk&#39;, errors=&#39;ignore&#39;)</code></p>
+<h3 id="2、写入创建"><a href="#2、写入创建" class="headerlink" title="2、写入创建"></a>2、写入创建</h3><p>(1)写入文本文件，UTF-8编码：<br><code>file = open(&#39;/Users/michael/test.txt&#39;, &#39;w&#39;)</code></p>
+<p>(2)写入二进制文件：<br><code>f = open(&#39;/Users/michael/test.jpg&#39;, &#39;wb&#39;)</code></p>
+<p>(3)写入特定编码的文本文件，请给open()函数传入encoding参数:<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;w&#39;, encoding=&#39;gbk&#39;)</code></p>
+<p>(4)在文本末尾追加写入，需要传入<code>a</code>参数(append)：<br><code>file = open(&#39;/Users/michael/test.txt&#39;, &#39;w&#39;, &#39;a&#39;)</code></p>
+<h2 id="二、读文件"><a href="#二、读文件" class="headerlink" title="二、读文件"></a>二、读文件</h2><p>创建file对象后，就可以调取<code>read()</code>方法进行读取内容了。</p>
+<h3 id="1、read-size"><a href="#1、read-size" class="headerlink" title="1、read(size)"></a>1、read(size)</h3><p>从文件读取指定的字节数，如果未给定或为负则读取所有：<br><code>line = f.read()</code> #一次性全部读取<br><code>line = f.read(10)</code> #一次读取10个字节，即5汉字</p>
+<h3 id="2、readline-size"><a href="#2、readline-size" class="headerlink" title="2、readline(size)"></a>2、readline(size)</h3><p>读取整行，包括 “\n” 字符：<br><code>line = f.readline()</code> #一次性读取一整行<br><code>line = f.readline(5)</code> #读取一行中的前5个字节</p>
+<h3 id="3、readlines-sizeint"><a href="#3、readlines-sizeint" class="headerlink" title="3、readlines(sizeint)"></a>3、readlines(sizeint)</h3><p>读取所有行并返回列表，若给定sizeint&gt;0，返回总和大约为sizeint字节的行, 实际读取值可能比 sizeint 较大, 因为需要填充缓冲区：<br><code>lines = f.readlines()</code> #一次性读取所有行，返回列表</p>
+<h2 id="三、写文件"><a href="#三、写文件" class="headerlink" title="三、写文件"></a>三、写文件</h2><p>创建file对象后，也可以调取<code>write()</code>方法进行写入内容了。</p>
+<h3 id="1、write-str"><a href="#1、write-str" class="headerlink" title="1、write(str)"></a>1、write(str)</h3><p>将字符串写入文件，没有返回值。<br><code>f.write(&#39;hello world&#39;)</code> #向文件写入</p>
+<h3 id="2、writelines-sequence"><a href="#2、writelines-sequence" class="headerlink" title="2、writelines(sequence)"></a>2、writelines(sequence)</h3><p>向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。<br><code>seq = [&quot;hello\n&quot;, &quot;world\n&quot;]</code><br><code>f.writelines(seq)</code> #向文件写入列表，并换行</p>
+<h2 id="四、关闭文件"><a href="#四、关闭文件" class="headerlink" title="四、关闭文件"></a>四、关闭文件</h2><p>文件使用完毕后必须关闭，关闭后文件不能再进行读写操作。</p>
+<h3 id="1、close"><a href="#1、close" class="headerlink" title="1、close()"></a>1、close()</h3><p><code>f.close()</code><br>由于文件读写时都有可能产生IOError，一旦出错后面的f.close()就不会调用,我们可以使用<code>try...finally</code>来实现</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#新建模块文件modle_1.py，内容如下：</span><br><span class="line">def p_func(arg):</span><br><span class="line">    print(&apos;hello&apos;,arg)</span><br><span class="line">    return</span><br><span class="line"></span><br><span class="line">#新建主模块文件main.py，内容如下：</span><br><span class="line">from modle_1 import p_func   #导入模块modle_1中的p_func函数</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:   #判断是否为主程序执行口</span><br><span class="line">    p_func(&apos;python&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#output：</span><br><span class="line">hello python</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    f = open(&apos;/path/to/file&apos;, &apos;r&apos;)</span><br><span class="line">    print(f.read())</span><br><span class="line">finally:</span><br><span class="line">    if f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>ps：<strong>自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了sys模块，自己的模块就不可命名为sys.py，否则将无法导入系统自带的sys模块。 </strong></p>
-<h2 id="二、模块引入"><a href="#二、模块引入" class="headerlink" title="二、模块引入"></a>二、模块引入</h2><h3 id="1、import"><a href="#1、import" class="headerlink" title="1、import"></a>1、import</h3><p><code>import module1[, module2[,... moduleN]</code></p>
+<h3 id="2、with…as…"><a href="#2、with…as…" class="headerlink" title="2、with…as…"></a>2、with…as…</h3><p>Python引入了<code>with</code>语句来自动帮我们调用<code>close()</code>方法：</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys #导入模块</span><br><span class="line"></span><br><span class="line">sys.path.append(&apos;&apos;) #调用模块里的方法</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;/Users/michael/test.txt&apos;, &apos;w&apos;) as f:</span><br><span class="line">    f.write(&apos;Hello, world!&apos;)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="2、from…import"><a href="#2、from…import" class="headerlink" title="2、from…import"></a>2、from…import</h3><p><code>from modname import name1[, name2[, ... nameN]]</code></p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from fibo import fib, fib2 #导入模块里的函数</span><br><span class="line"></span><br><span class="line">fib(500) # 直接使用函数</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="3、from…import"><a href="#3、from…import" class="headerlink" title="3、from…import *"></a>3、from…import *</h3><p><code>from modname import *</code><br>这样会把模块中的所有内容导入到当前命名空间，一般不建议使用，消耗内存空间，也容易出现未预知的问题。</p>
-<h2 id="三、搜索路径"><a href="#三、搜索路径" class="headerlink" title="三、搜索路径"></a>三、搜索路径</h2><p>1、python解析器对模块位置的搜索顺序是：</p>
-<ul>
-<li>当前目录</li>
-<li>shell变量PYTHONPATH下的每个目录</li>
-<li>python模块路径目录</li>
-</ul>
-<p>2、添加搜索路径<br>方法一：直接修改sys.path，运行结束后失效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.path.append(&apos;&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>方法二：设置环境变量PYTHONPATH，一般不推荐。<br><code>set PYTHONPATH =/usr/local/lib/python</code></p>
-<h2 id="四、作用域"><a href="#四、作用域" class="headerlink" title="四、作用域"></a>四、作用域</h2><h3 id="1、正常变量"><a href="#1、正常变量" class="headerlink" title="1、正常变量"></a>1、正常变量</h3><p>正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等。</p>
-<h3 id="2、特殊变量"><a href="#2、特殊变量" class="headerlink" title="2、特殊变量"></a>2、特殊变量</h3><p>类似<code>__xxx__</code>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，我们自己的变量一般不要用这种变量名。<br>比如：<code>__name__</code>属性，个模块都有一个__name__属性，当其值是’__main__‘时，表明该模块自身在运行，否则是被引入。</p>
-<h3 id="3、私有变量"><a href="#3、私有变量" class="headerlink" title="3、私有变量"></a>3、私有变量</h3><p>类似<code>_xxx</code>和<code>__xxx</code>这样的变量是私有变量，（private）函数和变量“不应该”被直接引用。</p>
-<p>ps：内置的函数<code>dir(模块名)</code>可以找到模块内定义的所有名称。以一个字符串列表的形式返回。</p>
-<h2 id="五、包"><a href="#五、包" class="headerlink" title="五、包"></a>五、包</h2><p>目录只有包含一个<code>__init__.py</code>文件，才会被认作是一个包。<br>模块用来组织python代码，包用来组织模块。</p>
-<p>包的导入：<br>(1)import</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#只导入一个包里面的特定模块</span><br><span class="line">import sound.effects.echo </span><br><span class="line"></span><br><span class="line">#访问时必须使用全名</span><br><span class="line">sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>(2)from…import<br>1)导入子模块</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入子模块</span><br><span class="line">from sound.effects import echo</span><br><span class="line"></span><br><span class="line">#访问不需要那些冗长的前缀</span><br><span class="line">echo.echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>2)直接导入一个函数或者变量</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#导入一个函数</span><br><span class="line">from sound.effects.echo import echofilter</span><br><span class="line"></span><br><span class="line">#直接访问函数</span><br><span class="line">echofilter(input, output, delay=0.7, atten=4)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>(3)from…import *<br>这个方法在 Windows平台上工作的就不是非常好，因为Windows是一个大小写不区分的系统。<br>如果非要使用，请使用下面的方法：</p>
-<blockquote>
-<p>1)在<code>file:sounds/effects/__init__.py</code>中包含如下代码<code>__all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]</code>。<br>2)使用<code>from sound.effects import *</code>这种用法时，你只会导入包里面这三个子模块。</p>
-</blockquote>
+<h2 id="五、其他操作"><a href="#五、其他操作" class="headerlink" title="五、其他操作"></a>五、其他操作</h2><h3 id="1、file-flush"><a href="#1、file-flush" class="headerlink" title="1、file.flush()"></a>1、file.flush()</h3><p>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</p>
+<h3 id="2、file-next"><a href="#2、file-next" class="headerlink" title="2、file.next()"></a>2、file.next()</h3><p>返回文件下一行。</p>
+<h3 id="3、file-tell"><a href="#3、file-tell" class="headerlink" title="3、file.tell()"></a>3、file.tell()</h3><p>返回文件当前位置。</p>
+<h3 id="4、file-seek-offset-whence"><a href="#4、file-seek-offset-whence" class="headerlink" title="4、file.seek(offset[, whence])"></a>4、file.seek(offset[, whence])</h3><p>设置文件当前位置。<br>offset：开始的偏移量，也就是代表需要移动偏移的字节数。<br>whence：默认值为0，表示要从哪个位置开始偏移，0代表从文件开头开始算起，1代表从当前位置开始算起，2代表从文件末尾算起。</p>
+<h3 id="5、file-truncate-size"><a href="#5、file-truncate-size" class="headerlink" title="5、file.truncate(size)"></a>5、file.truncate(size)</h3><p>从文件的首行首字符开始截断，截断文件为size个字符，无size表示从当前位置截断；截断之后V后面的所有字符被删除，其中Widnows系统下的换行代表2个字符大小。</p>
+<h3 id="6、file-isatty"><a href="#6、file-isatty" class="headerlink" title="6、file.isatty()"></a>6、file.isatty()</h3><p>如果文件连接到一个终端设备返回 True，否则返回 False。</p>
+<h3 id="7、file-fileno"><a href="#7、file-fileno" class="headerlink" title="7、file.fileno()"></a>7、file.fileno()</h3><p>返回一个整型的文件描述符(file descriptor FD 整型), 可以用在如os模块的read方法等一些底层操作上。</p>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月15日 17:52</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/28/python模块和包/" title="python模块和包">http://pythonfood.github.io/2017/12/28/python模块和包/</a></p>
+        <p>最后更新： 2018年03月19日 09:39</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/28/python文件操作/" title="python文件操作">http://pythonfood.github.io/2017/12/28/python文件操作/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -246,7 +233,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python模块和包/&title=《python模块和包》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python文件操作/&title=《python文件操作》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -256,22 +243,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python模块和包/&title=《python模块和包》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python文件操作/&title=《python文件操作》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python模块和包/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python文件操作/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python模块和包》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python模块和包/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python文件操作》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python文件操作/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python模块和包/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python文件操作/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -281,7 +268,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python模块和包/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python文件操作/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -306,26 +293,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、模块"><span class="post-toc-text">一、模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、模块引入"><span class="post-toc-text">二、模块引入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、import"><span class="post-toc-text">1、import</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、from…import"><span class="post-toc-text">2、from…import</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、from…import"><span class="post-toc-text">3、from…import *</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、搜索路径"><span class="post-toc-text">三、搜索路径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、作用域"><span class="post-toc-text">四、作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、正常变量"><span class="post-toc-text">1、正常变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、特殊变量"><span class="post-toc-text">2、特殊变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、私有变量"><span class="post-toc-text">3、私有变量</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、包"><span class="post-toc-text">五、包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、file对象"><span class="post-toc-text">一、file对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、读取创建"><span class="post-toc-text">1、读取创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、写入创建"><span class="post-toc-text">2、写入创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、读文件"><span class="post-toc-text">二、读文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、read-size"><span class="post-toc-text">1、read(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、readline-size"><span class="post-toc-text">2、readline(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、readlines-sizeint"><span class="post-toc-text">3、readlines(sizeint)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、写文件"><span class="post-toc-text">三、写文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、write-str"><span class="post-toc-text">1、write(str)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、writelines-sequence"><span class="post-toc-text">2、writelines(sequence)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、关闭文件"><span class="post-toc-text">四、关闭文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、close"><span class="post-toc-text">1、close()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、with…as…"><span class="post-toc-text">2、with…as…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、其他操作"><span class="post-toc-text">五、其他操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、file-flush"><span class="post-toc-text">1、file.flush()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、file-next"><span class="post-toc-text">2、file.next()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、file-tell"><span class="post-toc-text">3、file.tell()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、file-seek-offset-whence"><span class="post-toc-text">4、file.seek(offset[, whence])</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、file-truncate-size"><span class="post-toc-text">5、file.truncate(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、file-isatty"><span class="post-toc-text">6、file.isatty()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、file-fileno"><span class="post-toc-text">7、file.fileno()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/28/python错误异常/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/01/selenium安装-windows/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          python错误异常
+          selenium安装-windows
         
       </span>
     </a>
   
   
-    <a href="/2017/12/28/python类和对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">python类和对象</span>
+    <a href="/2017/12/28/python错误异常/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python错误异常</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -334,7 +321,7 @@
 
 
     
-        <div id="SOHUCS" sid="python模块和包" ></div>
+        <div id="SOHUCS" sid="python文件操作" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
