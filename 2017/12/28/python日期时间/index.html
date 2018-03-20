@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python日期时间 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python日期时间">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python日期时间/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-03-20T06:48:00.704Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python日期时间">
+<meta name="twitter:description" content="人生苦短，我用python。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python日期时间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python日期时间
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、time模块"><a href="#一、time模块" class="headerlink" title="一、time模块"></a>一、time模块</h2><p>time提供的功能是更加接近于操作系统层面的。需要注意的是在该模块中的大多数函数是调用了所在平台C library的同名函数， 所以要特别注意有些函数是平台相关的，可能会在不同的平台有不同的效果。另外一点是，由于是基于Unix Timestamp，所以其所能表述的日期范围被限定在1970-2038之间，如果你写的代码需要处理在前面所述范围之外的日期，那可能需要考虑使用datetime模块更好。</p>
+<h3 id="1、结构化时间"><a href="#1、结构化时间" class="headerlink" title="1、结构化时间"></a>1、结构化时间</h3><p>时间元组用一个元组装起来的9组数字处理时间，也就是结构化时间(struct_time)。<br><code>time.localtime()</code><br>例如：(tm_year=2017, tm_mon=6, tm_mday=5, tm_hour=20, tm_min=57, tm_sec=51, tm_wday=0, tm_yday=156, tm_isdst=0)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0</td>
+<td style="text-align:left">tm_year</td>
+<td style="text-align:left">2008</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">tm_mon</td>
+<td style="text-align:left">1到12</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">tm_mday</td>
+<td style="text-align:left">1到31</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">tm_hour</td>
+<td style="text-align:left">0到23</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">tm_min</td>
+<td style="text-align:left">0到59</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">tm_sec</td>
+<td style="text-align:left">0到61(60或61是闰秒)</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">tm_wday</td>
+<td style="text-align:left">0到6(0是周一)</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">tm_yday</td>
+<td style="text-align:left">一年中的第几天，1到366</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">tm_isdst</td>
+<td style="text-align:left">是否为夏令时，值有：1(夏令时)、0(不是夏令时)、-1(未知)，默认-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2、时间戳"><a href="#2、时间戳" class="headerlink" title="2、时间戳"></a>2、时间戳</h3><p>时间戳(timestamp)：时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。<br><code>time.time()</code><br>例如：1496667277.8989</p>
+<h3 id="3、格式化时间"><a href="#3、格式化时间" class="headerlink" title="3、格式化时间"></a>3、格式化时间</h3><p>格式化的时间字符串(Format String)。<br><code>time.strftime()</code><br>例如：2017-06-05 20:55:48</p>
+<p>python中时间日期格式化符号：</p>
+<blockquote>
+<ul>
+<li>%y 两位数的年份表示（00-99）</li>
+<li>%Y 四位数的年份表示（000-9999）</li>
+<li>%m 月份（01-12）</li>
+<li>%d 月内中的一天（0-31）</li>
+<li>%H 24小时制小时数（0-23）</li>
+<li>%I 12小时制小时数（01-12）</li>
+<li>%M 分钟数（00=59）</li>
+<li>%S 秒（00-59）</li>
+<li>%a 本地简化星期名称</li>
+<li>%A 本地完整星期名称</li>
+<li>%b 本地简化的月份名称</li>
+<li>%B 本地完整的月份名称</li>
+<li>%c 本地相应的日期表示和时间表示</li>
+<li>%j 年内的一天（001-366）</li>
+<li>%p 本地A.M.或P.M.的等价符</li>
+<li>%U 一年中的星期数（00-53）星期天为星期的开始</li>
+<li>%w 星期（0-6），星期天为星期的开始</li>
+<li>%W 一年中的星期数（00-53）星期一为星期的开始</li>
+<li>%x 本地相应的日期表示</li>
+<li>%X 本地相应的时间表示</li>
+<li>%Z 当前时区的名称</li>
+<li>%% %号本身</li>
+</ul>
+</blockquote>
+<h3 id="4、时间格式转换"><a href="#4、时间格式转换" class="headerlink" title="4、时间格式转换"></a>4、时间格式转换</h3><p>(1)时间戳——&gt;时间元组</p>
+<ul>
+<li><code>time.localtime()</code></li>
+<li><code>time.gmtime()</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">print(time.time()) # 获得时间戳</span><br><span class="line">print(time.localtime(time.time())) # 时间戳转换为时间元组</span><br><span class="line">print(time.gmtime(time.time())) # 时间戳转换为格林威治天文时间下的时间元组</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)时间元组——&gt;时间戳</p>
+<ul>
+<li><code>time.mktime()</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">t = (2017, 6, 5, 22, 3, 38, 1, 48, 0) # 时间元组</span><br><span class="line">secs = time.mktime( t ) # 时间元组转换为时间戳</span><br><span class="line">print (&quot;time.mktime(t) : %f&quot; %  secs)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)时间元组——&gt;格式化时间</p>
+<ul>
+<li><code>time.strftime()</code></li>
+<li><code>time.asctime()</code></li>
+<li><code>time.ctime()</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"># 时间元组格式化成2016-03-20 11:45:39形式</span><br><span class="line">print (time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, time.localtime()))</span><br><span class="line"></span><br><span class="line"># 时间元组格式化为&quot;Tue Dec 11 18:07:14 2008&quot;形式</span><br><span class="line">print (time.asctime(time.localtime()))</span><br><span class="line"></span><br><span class="line"># 时间元组格式化为&quot;Tue Dec 11 18:07:14 2008&quot;形式</span><br><span class="line">print (time.ctime(time.localtime()))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)格式化时间——&gt;时间元组</p>
+<ul>
+<li><code>time.strptime()</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"># fmt的格式时间字符串解析为时间元组</span><br><span class="line">print (time.strptime(&quot;30 Nov 00&quot;, &quot;%d %b %y&quot;))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)时间戳&lt;——&gt;格式化时间<br>时间戳和格式化时间相互转换，需要先转换为时间元组，再进行转换。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#时间戳格式化</span><br><span class="line">localtime = time.asctime( time.localtime(time.time()) )</span><br><span class="line"></span><br><span class="line">#fmt格式时间转换为时间戳</span><br><span class="line">secs = time.mktime(time.strptime(&quot;30 Nov 00&quot;, &quot;%d %b %y&quot;))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="5、time模块函数"><a href="#5、time模块函数" class="headerlink" title="5、time模块函数"></a>5、time模块函数</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">time.altzone</td>
+<td style="text-align:left">返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.asctime([tupletime])</td>
+<td style="text-align:left">接受时间元组并返回一个可读的形式为”Tue Dec 11 18:07:14 2008”（2008年12月11日 周二18时07分14秒）的24个字符的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.clock()</td>
+<td style="text-align:left">用以浮点数计算的秒数返回当前的CPU时间。用来衡量不同程序的耗时，比time.time()更有用。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.ctime([secs])</td>
+<td style="text-align:left">作用相当于asctime(localtime(secs))，未给参数相当于asctime()</td>
+</tr>
+<tr>
+<td style="text-align:left">time.gmtime([secs])</td>
+<td style="text-align:left">接收时间辍（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0</td>
+</tr>
+<tr>
+<td style="text-align:left">time.localtime([secs]</td>
+<td style="text-align:left">接收时间辍（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.mktime(tupletime)</td>
+<td style="text-align:left">接受时间元组并返回时间辍（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.sleep(secs)</td>
+<td style="text-align:left">推迟调用线程的运行，secs指秒数。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.strftime(fmt[,tupletime])</td>
+<td style="text-align:left">接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.strptime(str,fmt=’%a %b %d %H:%M:%S %Y’)</td>
+<td style="text-align:left">根据fmt的格式把一个时间字符串解析为时间元组。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.time( )</td>
+<td style="text-align:left">返回当前时间的时间戳（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.tzset()</td>
+<td style="text-align:left">根据环境变量TZ重新初始化时间相关设置。 </td>
+</tr>
+<tr>
+<td style="text-align:left">time.timezone</td>
+<td style="text-align:left">属性time.timezone是当地时区（未启动夏令时）距离格林威治的偏移秒数（&gt;0，美洲;&lt;=0大部分欧洲，亚洲，非洲）。</td>
+</tr>
+<tr>
+<td style="text-align:left">time.tzname</td>
+<td style="text-align:left">属性time.tzname包含一对根据情况的不同而不同的字符串，分别是带夏令时的本地时区名称，和不带的。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二、datetime模块"><a href="#二、datetime模块" class="headerlink" title="二、datetime模块"></a>二、datetime模块</h2><p>datetime基于time进行了封装，提供了更多实用的函数。</p>
+<h3 id="1、获取当前时间"><a href="#1、获取当前时间" class="headerlink" title="1、获取当前时间"></a>1、获取当前时间</h3><p><code>datetime.now()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">now = datetime.now() # 获取当前datetime</span><br><span class="line">print(now)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2、获取指定日期时间"><a href="#2、获取指定日期时间" class="headerlink" title="2、获取指定日期时间"></a>2、获取指定日期时间</h3><p>直接用参数构造一个datetime：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line">dt = datetime(2017, 4, 19, 12, 20) # 用指定日期时间创建datetime</span><br><span class="line">print(dt)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3、时间格式转换"><a href="#3、时间格式转换" class="headerlink" title="3、时间格式转换"></a>3、时间格式转换</h3><p>(1)datetime——&gt;timestamp<br><code>timestamp()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">dt = datetime(2015, 4, 19, 12, 20) # 用指定日期时间创建datetime</span><br><span class="line">dt.timestamp() # 把datetime转换为timestamp</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)timestamp——&gt;datetime<br><code>datetime.fromtimestamp()</code><br><code>datetime.utcfromtimestamp()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">t = 1429417200.0</span><br><span class="line">print(datetime.fromtimestamp(t)) # timestamp转换为本地时间</span><br><span class="line">print(datetime.utcfromtimestamp(t)) # timestamp转换为UTC时间</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)str——&gt;datetime<br><code>datetime.strptime()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">cday = datetime.strptime(&apos;2015-6-1 18:19:59&apos;, &apos;%Y-%m-%d %H:%M:%S&apos;) # str转换为datetime</span><br><span class="line">print(cday)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)datetime——&gt;str<br><code>strftime()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime</span><br><span class="line"></span><br><span class="line">now = datetime.now()</span><br><span class="line">print(now.strftime(&apos;%a, %b %d %H:%M&apos;)) # datetime转换为str</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4、datetime加减"><a href="#4、datetime加减" class="headerlink" title="4、datetime加减"></a>4、datetime加减</h3><p>+或-<code>timedelta()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime, timedelta</span><br><span class="line"></span><br><span class="line">now = datetime.now()</span><br><span class="line">now + timedelta(hours=10) #加10小时</span><br><span class="line">now - timedelta(days=1) #减1天</span><br><span class="line">now + timedelta(days=2, hours=12) #加2天12小时</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="5、本地时间转换为UTC时间"><a href="#5、本地时间转换为UTC时间" class="headerlink" title="5、本地时间转换为UTC时间"></a>5、本地时间转换为UTC时间</h3><p>一个datetime类型有一个时区属性<code>tzinfo</code>，但是默认为None，所以无法区分这个datetime到底是哪个时区，除非强行给datetime设置一个时区：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime,timedelta,timezone</span><br><span class="line"></span><br><span class="line">tz_utc_8 = timezone(timedelta(hours=8)) # 创建时区UTC+8:00</span><br><span class="line">now = datetime.now()</span><br><span class="line">dt = now.replace(tzinfo=tz_utc_8) # 强制设置为UTC+8:00</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="6、时区转换"><a href="#6、时区转换" class="headerlink" title="6、时区转换"></a>6、时区转换</h3><p>可以先通过<code>utcnow()</code>拿到当前的UTC时间，再通过<code>astimezone()</code>转换为任意时区的时间：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from datetime import datetime,timedelta,timezone</span><br><span class="line"></span><br><span class="line"># 拿到UTC时间，并强制设置时区为UTC+0:00</span><br><span class="line">utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)</span><br><span class="line"></span><br><span class="line"># astimezone()将转换时区为北京时间</span><br><span class="line">bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))</span><br><span class="line"></span><br><span class="line">#astimezone()将bj_dt转换时区为东京时间</span><br><span class="line">tokyo_dt = bj_dt.astimezone(timezone(timedelta(hours=9)))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="三、calendar模块"><a href="#三、calendar模块" class="headerlink" title="三、calendar模块"></a>三、calendar模块</h2><p>Calendar的函数都是日历相关的，例如打印某月的字符月历。</p>
+<h3 id="1、获取某月日历"><a href="#1、获取某月日历" class="headerlink" title="1、获取某月日历"></a>1、获取某月日历</h3><p><code>calendar.month()</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import calendar</span><br><span class="line"></span><br><span class="line">cal = calendar.month(2017, 1)</span><br><span class="line">print(cal)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2、calendar模块函数"><a href="#2、calendar模块函数" class="headerlink" title="2、calendar模块函数"></a>2、calendar模块函数</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">calendar.calendar(year,w=2,l=1,c=6)</td>
+<td style="text-align:left">返回一个多行字符串格式的year年年历，3个月一行，间隔距离为c。 每日宽度间隔为w字符。每行长度为21<em> W+18+2</em> C。l是每星期行数。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.firstweekday( )</td>
+<td style="text-align:left">返回当前每周起始日期的设置。默认情况下，首次载入caendar模块时返回0，即星期一。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.isleap(year)</td>
+<td style="text-align:left">是闰年返回True，否则为false。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.leapdays(y1,y2)</td>
+<td style="text-align:left">返回在Y1，Y2两年之间的闰年总数。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.month(year,month,w=2,l=1)</td>
+<td style="text-align:left">返回一个多行字符串格式的year年month月日历，两行标题，一周一行。每日宽度间隔为w字符。每行的长度为7* w+6。l是每星期的行数。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.monthcalendar(year,month)</td>
+<td style="text-align:left">返回一个整数的单层嵌套列表。每个子列表装载代表一个星期的整数。Year年month月外的日期都设为0;范围内的日子都由该月第几日表示，从1开始。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.monthrange(year,month)</td>
+<td style="text-align:left">返回两个整数。第一个是该月的星期几的日期码，第二个是该月的日期码。日从0（星期一）到6（星期日）;月从1到12。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.prcal(year,w=2,l=1,c=6)</td>
+<td style="text-align:left">相当于 print calendar.calendar(year,w,l,c).</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.prmonth(year,month,w=2,l=1)</td>
+<td style="text-align:left">相当于 print calendar.calendar（year，w，l，c）。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.setfirstweekday(weekday)</td>
+<td style="text-align:left">设置每周的起始日期码。0（星期一）到6（星期日）。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.timegm(tupletime)</td>
+<td style="text-align:left">和time.gmtime相反：接受一个时间元组形式，返回该时刻的时间辍（1970纪元后经过的浮点秒数）。</td>
+</tr>
+<tr>
+<td style="text-align:left">calendar.weekday(year,month,day)</td>
+<td style="text-align:left">返回给定日期的日期码。0（星期一）到6（星期日）。月份为 1（一月） 到 12（12月）。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年03月20日 14:48</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/28/python日期时间/" title="python日期时间">http://pythonfood.github.io/2017/12/28/python日期时间/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python日期时间/&title=《python日期时间》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python日期时间/&title=《python日期时间》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python日期时间/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python日期时间》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python日期时间/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python日期时间/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python日期时间/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、time模块"><span class="post-toc-text">一、time模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、结构化时间"><span class="post-toc-text">1、结构化时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、时间戳"><span class="post-toc-text">2、时间戳</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、格式化时间"><span class="post-toc-text">3、格式化时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、时间格式转换"><span class="post-toc-text">4、时间格式转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、time模块函数"><span class="post-toc-text">5、time模块函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、datetime模块"><span class="post-toc-text">二、datetime模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、获取当前时间"><span class="post-toc-text">1、获取当前时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、获取指定日期时间"><span class="post-toc-text">2、获取指定日期时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、时间格式转换"><span class="post-toc-text">3、时间格式转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、datetime加减"><span class="post-toc-text">4、datetime加减</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、本地时间转换为UTC时间"><span class="post-toc-text">5、本地时间转换为UTC时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、时区转换"><span class="post-toc-text">6、时区转换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、calendar模块"><span class="post-toc-text">三、calendar模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、获取某月日历"><span class="post-toc-text">1、获取某月日历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、calendar模块函数"><span class="post-toc-text">2、calendar模块函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/01/selenium安装-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          selenium安装-windows
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/28/python文件操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python文件操作</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python日期时间" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 14px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 14px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
