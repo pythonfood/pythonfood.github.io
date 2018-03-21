@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python正则表达式 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python正则表达式">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python正则表达式/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-03-21T01:25:11.213Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python正则表达式">
+<meta name="twitter:description" content="人生苦短，我用python。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python正则表达式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、正则表达式"><a href="#一、正则表达式" class="headerlink" title="一、正则表达式"></a>一、正则表达式</h2><p>正则就是用一些具有特殊含义的符号组合到一起（称为正则表达式）来描述字符或者字符串的方法。或者说：正则就是用来描述一类事物的规则。（在Python中）它内嵌在Python中，并通过 re 模块实现。正则表达式模式被编译成一系列的字节码，然后由用 C 编写的匹配引擎执行。</p>
+<p>常用的正则表达式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">一般字符</td>
+<td style="text-align:left">匹配自身</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">匹配字符串的开头</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">匹配字符串的末尾。</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配任意字符，除了换行符，当re.DOTALL标记被指定时，则可以匹配包括换行符的任意字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">[…]</td>
+<td style="text-align:left">用来表示一组字符,单独列出：[amk] 匹配 ‘a’，’m’或’k’</td>
+</tr>
+<tr>
+<td style="text-align:left">[^…]</td>
+<td style="text-align:left">不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">re*</td>
+<td style="text-align:left">匹配0个或多个的表达式。</td>
+</tr>
+<tr>
+<td style="text-align:left">re+</td>
+<td style="text-align:left">匹配1个或多个的表达式。</td>
+</tr>
+<tr>
+<td style="text-align:left">re?</td>
+<td style="text-align:left">匹配0个或1个由前面的正则表达式定义的片段，非贪婪方式</td>
+</tr>
+<tr>
+<td style="text-align:left">re{ n}</td>
+<td style="text-align:left">匹配n个前面表达式。例如，”o{2}”不能匹配”Bob”中的”o”，但是能匹配”food”中的两个o。</td>
+</tr>
+<tr>
+<td style="text-align:left">re{ n,}</td>
+<td style="text-align:left">精确匹配n个前面表达式。例如，”o{2,}”不能匹配”Bob”中的”o”，但能匹配”foooood”中的所有o。”o{1,}”等价于”o+”。”o{0,}”则等价于”o*”。</td>
+</tr>
+<tr>
+<td style="text-align:left">re{ n, m}</td>
+<td style="text-align:left">匹配 n 到 m 次由前面的正则表达式定义的片段，贪婪方式</td>
+</tr>
+<tr>
+<td style="text-align:left">a&#124;b</td>
+<td style="text-align:left">匹配a或b</td>
+</tr>
+<tr>
+<td style="text-align:left">(re)</td>
+<td style="text-align:left">G匹配括号内的表达式，也表示一个组</td>
+</tr>
+<tr>
+<td style="text-align:left">(?imx)</td>
+<td style="text-align:left">正则表达式包含三种可选标志：i, m, 或 x 。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?-imx)</td>
+<td style="text-align:left">正则表达式关闭 i, m, 或 x 可选标志。只影响括号中的区域。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?: re)</td>
+<td style="text-align:left">类似 (…), 但是不表示一个组</td>
+</tr>
+<tr>
+<td style="text-align:left">(?imx: re)</td>
+<td style="text-align:left">在括号中使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td style="text-align:left">(?-imx: re)</td>
+<td style="text-align:left">在括号中不使用i, m, 或 x 可选标志</td>
+</tr>
+<tr>
+<td style="text-align:left">(?#…)</td>
+<td style="text-align:left">注释.</td>
+</tr>
+<tr>
+<td style="text-align:left">(?= re)</td>
+<td style="text-align:left">前向肯定界定符。如果所含正则表达式，以 … 表示，在当前位置成功匹配时成功，否则失败。但一旦所含表达式已经尝试，匹配引擎根本没有提高；模式的剩余部分还要尝试界定符的右边。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?! re)</td>
+<td style="text-align:left">前向否定界定符。与肯定界定符相反；当所含表达式不能在字符串当前位置匹配时成功。</td>
+</tr>
+<tr>
+<td style="text-align:left">(?&gt; re)</td>
+<td style="text-align:left">匹配的独立模式，省去回溯。</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配数字字母下划线</td>
+</tr>
+<tr>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">匹配非数字字母下划线</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配任意空白字符，等价于 [\t\n\r\f]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">匹配任意非空字符</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配任意数字，等价于 [0-9]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">匹配任意非数字</td>
+</tr>
+<tr>
+<td style="text-align:left">\A</td>
+<td style="text-align:left">匹配字符串开始</td>
+</tr>
+<tr>
+<td style="text-align:left">\Z</td>
+<td style="text-align:left">匹配字符串结束，如果是存在换行，只匹配到换行前的结束字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">\z</td>
+<td style="text-align:left">匹配字符串结束</td>
+</tr>
+<tr>
+<td style="text-align:left">\G</td>
+<td style="text-align:left">匹配最后匹配完成的位置。</td>
+</tr>
+<tr>
+<td style="text-align:left">\b</td>
+<td style="text-align:left">匹配一个单词边界，也就是指单词和空格间的位置。例如， ‘er\b’ 可以匹配”never” 中的 ‘er’，但不能匹配 “verb” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td style="text-align:left">\B</td>
+<td style="text-align:left">匹配非单词边界。’er\B’ 能匹配 “verb” 中的 ‘er’，但不能匹配 “never” 中的 ‘er’。</td>
+</tr>
+<tr>
+<td style="text-align:left">\n, \t, 等。</td>
+<td style="text-align:left">匹配一个换行符。匹配一个制表符, 等</td>
+</tr>
+<tr>
+<td style="text-align:left">\1…\9</td>
+<td style="text-align:left">匹配第n个分组的内容。</td>
+</tr>
+<tr>
+<td style="text-align:left">\10</td>
+<td style="text-align:left">匹配第n个分组的内容，如果它经匹配。否则指的是八进制字符码的表达式。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二、re模块"><a href="#二、re模块" class="headerlink" title="二、re模块"></a>二、re模块</h2><p>Python通过re模块提供对正则表达式的支持。使用re的一般步骤是先将正则表达式的字符串形式编译为Pattern实例，然后使用Pattern实例处理文本并获得匹配结果（一个Match实例），最后使用Match实例获得信息，进行其他的操作。</p>
+<h3 id="1、re-match"><a href="#1、re-match" class="headerlink" title="1、re.match()"></a>1、re.match()</h3><p>re.match()尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。<br><code>re.match(pattern, string, flags=0)</code></p>
+<ul>
+<li>pattern    #匹配的正则表达式</li>
+<li>string    #要匹配的字符串。</li>
+<li>flags        #标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">print(re.match(&apos;www&apos;, &apos;www.baidu.com&apos;)) # 在起始位置匹配</span><br><span class="line">print(re.match(&apos;com&apos;, &apos;www.baidu.com&apos;)) # 不在起始位置匹配,返回None</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>可以使用group(num)或groups()匹配对象函数来获取匹配表达式:</p>
+<ul>
+<li><code>group(num=0)</code> #匹配的整个表达式的字符串，group()可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</li>
+<li><code>groups()</code>     #返回一个包含所有小组字符串的元组，从1到所含的小组号。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import re </span><br><span class="line"></span><br><span class="line">m = re.match(r&apos;^(\d&#123;3&#125;)-(\d&#123;3,8&#125;)$&apos;, &apos;010-12345&apos;)</span><br><span class="line">print(m.group(0)) #group(0)返回的是原始字符串</span><br><span class="line">print(m.group(1)) #group(1)返回的是第一个子串</span><br><span class="line">print(m.group(2)) #group(2)返回的是第二个子串</span><br><span class="line"></span><br><span class="line">t = re.match(r&apos;^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$&apos;, &apos;19:05:30&apos;)</span><br><span class="line">t.groups() #返回包含所有子串的元组</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2、re-search"><a href="#2、re-search" class="headerlink" title="2、re.search()"></a>2、re.search()</h3><p>re.search()扫描整个字符串并返回第一个成功的匹配。<br><code>re.search(pattern, string, flags=0)</code></p>
+<ul>
+<li>pattern    #匹配的正则表达式</li>
+<li>string    #要匹配的字符串。</li>
+<li>flags        #标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"> </span><br><span class="line">print(re.search(&apos;www&apos;, &apos;www.baidu.com&apos;))  # 在起始位置匹配</span><br><span class="line">print(re.search(&apos;com&apos;, &apos;www.baidu.com&apos;))  # 不在起始位置匹配,也能匹配</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>同样可以使用group(num)或groups()匹配对象函数来获取匹配表达式:</p>
+<ul>
+<li><code>group(num=0)</code> #匹配的整个表达式的字符串，group()可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</li>
+<li><code>groups()</code>     #返回一个包含所有小组字符串的元组，从1到所含的小组号。</li>
+</ul>
+<h3 id="3、re-split"><a href="#3、re-split" class="headerlink" title="3、re.split()"></a>3、re.split()</h3><p>re.split()方法按照能够匹配的子串将字符串分割后返回列表。<br><code>re.split(pattern, string[, maxsplit=0, flags=0])</code></p>
+<ul>
+<li>pattern    #匹配的正则表达式</li>
+<li>string    #要匹配的字符串。</li>
+<li>maxsplit    #分隔次数，maxsplit=1 分隔一次，默认为 0，不限制次数。</li>
+<li>flags        #标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">re.split(r&apos;\s+&apos;, &apos;a b   c&apos;) #连续的空格也可以识别，然后分割返回[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br><span class="line">re.split(r&apos;[\s\,\;]+&apos;, &apos;a,b;; c  d&apos;) #返回[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4、re-sub"><a href="#4、re-sub" class="headerlink" title="4、re.sub()"></a>4、re.sub()</h3><p>re.sub()用于替换字符串中的匹配项。<br><code>re.sub(pattern, repl, string, count=0)</code></p>
+<ul>
+<li>pattern    #正则中的模式字符串。</li>
+<li>repl        #替换的字符串，也可为一个函数。</li>
+<li>string    #要被查找替换的原始字符串。</li>
+<li>count        #模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"> </span><br><span class="line">phone = &quot;2004-959-559 # 这是一个电话号码&quot;</span><br><span class="line"> </span><br><span class="line"># 删除注释</span><br><span class="line">num = re.sub(r&apos;#.*$&apos;, &quot;&quot;, phone)</span><br><span class="line">print (&quot;电话号码 : &quot;, num)</span><br><span class="line"> </span><br><span class="line"># 移除非数字的内容</span><br><span class="line">num = re.sub(r&apos;\D&apos;, &quot;&quot;, phone)</span><br><span class="line">print (&quot;电话号码 : &quot;, num)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>sub()中的<code>repl</code>参数传入函数：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"> </span><br><span class="line"># 将匹配的数字乘于 2</span><br><span class="line">def double(matched):</span><br><span class="line">    value = int(matched.group(&apos;value&apos;))</span><br><span class="line">    return str(value * 2)</span><br><span class="line"> </span><br><span class="line">s = &apos;A23G4HFD567&apos;</span><br><span class="line">print(re.sub(&apos;(?P&lt;value&gt;\d+)&apos;, double, s))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="5、re-compile"><a href="#5、re-compile" class="headerlink" title="5、re.compile()"></a>5、re.compile()</h3><p>re.compile()函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。<br><code>re.compile(pattern[, flags])</code></p>
+<ul>
+<li>pattern    #一个字符串形式的正则表达式</li>
+<li>flags        #可选，表示匹配模式，比如忽略大小写，多行模式等</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(r&apos;\d+&apos;)                    # 用于匹配至少一个数字</span><br><span class="line">m = pattern.match(&apos;one12twothree34four&apos;)        # 查找头部，没有匹配</span><br><span class="line">print(m)</span><br><span class="line"></span><br><span class="line">m = pattern.match(&apos;one12twothree34four&apos;, 2, 10) # 从&apos;e&apos;的位置开始匹配，没有匹配</span><br><span class="line">print(m)</span><br><span class="line"></span><br><span class="line">m = pattern.match(&apos;one12twothree34four&apos;, 3, 10) # 从&apos;1&apos;的位置开始匹配，正好匹配</span><br><span class="line">print(m)                                        # 返回一个 Match 对象</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="6、re-findall"><a href="#6、re-findall" class="headerlink" title="6、re.findall()"></a>6、re.findall()</h3><p>re.findall()在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。<br>注意： match()和search()是匹配一次，findall()匹配所有。<br><code>findall(string[, pos[, endpos]])</code></p>
+<ul>
+<li>string    #待匹配的字符串。</li>
+<li>pos        #可选参数，指定字符串的起始位置，默认为 0。</li>
+<li>endpos    #可选参数，指定字符串的结束位置，默认为字符串的长度。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"> </span><br><span class="line">pattern = re.compile(r&apos;\d+&apos;)   # 查找数字</span><br><span class="line"></span><br><span class="line">result1 = pattern.findall(&apos;faf9 985 4da7 f9g&apos;)</span><br><span class="line">print(result1)</span><br><span class="line"></span><br><span class="line">result2 = pattern.findall(&apos;faf9 985 4da7 f9g&apos;, 2, 10)</span><br><span class="line">print(result2)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="7、re-finditer"><a href="#7、re-finditer" class="headerlink" title="7、re.finditer()"></a>7、re.finditer()</h3><p>re.finditer()在字符串中找到正则表达式所匹配的所有子串，并把它们作为一个迭代器返回。<br><code>re.finditer(pattern, string, flags=0)</code></p>
+<ul>
+<li>pattern    #匹配的正则表达式</li>
+<li>string    #要匹配的字符串。</li>
+<li>flags        #标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"> </span><br><span class="line">it = re.finditer(r&quot;\d+&quot;,&quot;12a32bc43jf3&quot;) </span><br><span class="line">for match in it: </span><br><span class="line">    print (match.group())</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="8、正则表达式修饰符"><a href="#8、正则表达式修饰符" class="headerlink" title="8、正则表达式修饰符"></a>8、正则表达式修饰符</h3><p>正则表达式可以包含一些可选标志修饰符来控制匹配的模式。修饰符被指定为一个可选的标志。多个标志可以通过按位 OR(|) 它们来指定。如 re.I | re.M 被设置成 I 和 M 标志：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">修饰符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">re.I</td>
+<td style="text-align:left">使匹配对大小写不敏感</td>
+</tr>
+<tr>
+<td style="text-align:left">re.L</td>
+<td style="text-align:left">做本地化识别（locale-aware）匹配</td>
+</tr>
+<tr>
+<td style="text-align:left">re.M</td>
+<td style="text-align:left">多行匹配，影响 ^ 和 $</td>
+</tr>
+<tr>
+<td style="text-align:left">re.S</td>
+<td style="text-align:left">使 . 匹配包括换行在内的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:left">re.U</td>
+<td style="text-align:left">根据Unicode字符集解析字符。这个标志影响 \w, \W, \b, \B.</td>
+</tr>
+<tr>
+<td style="text-align:left">re.X</td>
+<td style="text-align:left">该标志通过给予你更灵活的格式以便你将正则表达式写得更易于理解。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line">pattern = re.compile(r&apos;([a-z]+) ([a-z]+)&apos;, re.I)   # re.I 表示忽略大小写</span><br><span class="line">m = pattern.match(&apos;Hello World Wide Web&apos;)</span><br><span class="line">print(m)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="三、正则表达式实例"><a href="#三、正则表达式实例" class="headerlink" title="三、正则表达式实例"></a>三、正则表达式实例</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">实例</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">python</td>
+<td style="text-align:left">匹配 “python”</td>
+</tr>
+<tr>
+<td style="text-align:left">[Pp]ython</td>
+<td style="text-align:left">匹配 “Python” 或 “python”</td>
+</tr>
+<tr>
+<td style="text-align:left">rub[ye]</td>
+<td style="text-align:left">匹配 “ruby” 或 “rube”</td>
+</tr>
+<tr>
+<td style="text-align:left">[aeiou]</td>
+<td style="text-align:left">匹配中括号内的任意一个字母</td>
+</tr>
+<tr>
+<td style="text-align:left">[0-9]</td>
+<td style="text-align:left">匹配任何数字。类似于 [0123456789]</td>
+</tr>
+<tr>
+<td style="text-align:left">[a-z]</td>
+<td style="text-align:left">匹配任何小写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">[A-Z]</td>
+<td style="text-align:left">匹配任何大写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">[a-zA-Z0-9]</td>
+<td style="text-align:left">匹配任何字母及数字</td>
+</tr>
+<tr>
+<td style="text-align:left">[^aeiou]</td>
+<td style="text-align:left">除了aeiou字母以外的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:left">[^0-9]</td>
+<td style="text-align:left">匹配除了数字外的字符</td>
+</tr>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配除 “\n” 之外的任何单个字符。要匹配包括 ‘\n’ 在内的任何字符，请使用象 ‘[.\n]’ 的模式。</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配一个数字字符。等价于 [0-9]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">匹配一个非数字字符。等价于 [^0-9]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配包括下划线的任何单词字符。等价于’[A-Za-z0-9_]’。</td>
+</tr>
+<tr>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">匹配任何非单词字符。等价于 ‘[^A-Za-z0-9_]’。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年03月21日 09:25</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/28/python正则表达式/" title="python正则表达式">http://pythonfood.github.io/2017/12/28/python正则表达式/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/python正则表达式/&title=《python正则表达式》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/python正则表达式/&title=《python正则表达式》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/python正则表达式/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python正则表达式》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/python正则表达式/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/python正则表达式/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/python正则表达式/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、正则表达式"><span class="post-toc-text">一、正则表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、re模块"><span class="post-toc-text">二、re模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、re-match"><span class="post-toc-text">1、re.match()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、re-search"><span class="post-toc-text">2、re.search()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、re-split"><span class="post-toc-text">3、re.split()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、re-sub"><span class="post-toc-text">4、re.sub()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、re-compile"><span class="post-toc-text">5、re.compile()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、re-findall"><span class="post-toc-text">6、re.findall()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、re-finditer"><span class="post-toc-text">7、re.finditer()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、正则表达式修饰符"><span class="post-toc-text">8、正则表达式修饰符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、正则表达式实例"><span class="post-toc-text">三、正则表达式实例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/01/selenium安装-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          selenium安装-windows
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/28/python文件目录/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python文件目录</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python正则表达式" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 14px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 14px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
