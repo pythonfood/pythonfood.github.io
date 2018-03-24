@@ -3,24 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>selenium安装-windows | PythonFood</title>
+  <title>pythonJSON解析 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。">
-<meta name="keywords" content="selenium">
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="selenium安装-windows">
-<meta property="og:url" content="http://pythonfood.github.io/2018/01/01/selenium安装-windows/index.html">
+<meta property="og:title" content="pythonJSON解析">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/28/pythonJSON解析/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。">
-<meta property="og:image" content="http://pythonfood.github.io/2018/01/01/selenium安装-windows/脚本执行结果.png">
-<meta property="og:updated_time" content="2018-02-23T10:18:00.724Z">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-03-24T10:10:28.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="selenium安装-windows">
-<meta name="twitter:description" content="selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。">
-<meta name="twitter:image" content="http://pythonfood.github.io/2018/01/01/selenium安装-windows/脚本执行结果.png">
+<meta name="twitter:title" content="pythonJSON解析">
+<meta name="twitter:description" content="人生苦短，我用python。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -105,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-selenium安装-windows" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-pythonJSON解析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      selenium安装-windows
+      pythonJSON解析
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -120,12 +118,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/selenium/">selenium</a>
+                      <a href="/categories/python/">python</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-01-01
+          <i class="fa fa-calendar"></i>  2017-12-28
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -141,52 +139,127 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。<br><a id="more"></a></p>
-<h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1.安装Python"></a>1.<a href="https://pythonfood.github.io/2017/12/28/python安装-windows/#more">安装Python</a></h3><h3 id="2-安装pip"><a href="#2-安装pip" class="headerlink" title="2.安装pip"></a>2.安装pip</h3><blockquote>
-<p>方法1：自动安装</p>
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、json模块"><a href="#一、json模块" class="headerlink" title="一、json模块"></a>一、json模块</h2><p>JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。它基于ECMAScript的一个子集。</p>
+<p>Python3 中可以使用json模块来对JSON数据进行编解码，它主要包含以下四个函数：</p>
+<ul>
+<li><code>json.dumps()</code> ：将python数据对象转换为JSON格式的字符串</li>
+<li><code>json.loads()</code> ：将JSON编码的字符串转换为python的数据结构</li>
+<li><code>json.dump()</code> ：将python数据对象以JSON格式数据流的形式写入到文件</li>
+<li><code>json.load()</code> ：解析包含JSON编码的字符串的文件为python数据对象</li>
+</ul>
+<p>Python编码为JSON类型转换对应表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Python</th>
+<th style="text-align:left">JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">dict</td>
+<td style="text-align:left">object</td>
+</tr>
+<tr>
+<td style="text-align:left">list, tuple</td>
+<td style="text-align:left">array</td>
+</tr>
+<tr>
+<td style="text-align:left">str</td>
+<td style="text-align:left">string</td>
+</tr>
+<tr>
+<td style="text-align:left">int, float, int- &amp; float-derived Enums</td>
+<td style="text-align:left">number</td>
+</tr>
+<tr>
+<td style="text-align:left">True</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:left">False</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:left">None</td>
+<td style="text-align:left">null</td>
+</tr>
+</tbody>
+</table>
+<p>JSON解码为Python类型转换对应表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">JSON</th>
+<th style="text-align:left">Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">object</td>
+<td style="text-align:left">dict</td>
+</tr>
+<tr>
+<td style="text-align:left">array</td>
+<td style="text-align:left">list</td>
+</tr>
+<tr>
+<td style="text-align:left">string</td>
+<td style="text-align:left">str</td>
+</tr>
+<tr>
+<td style="text-align:left">number (int)</td>
+<td style="text-align:left">int</td>
+</tr>
+<tr>
+<td style="text-align:left">number (real)</td>
+<td style="text-align:left">float</td>
+</tr>
+<tr>
+<td style="text-align:left">true</td>
+<td style="text-align:left">True</td>
+</tr>
+<tr>
+<td style="text-align:left">false</td>
+<td style="text-align:left">False</td>
+</tr>
+<tr>
+<td style="text-align:left">null</td>
+<td style="text-align:left">None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1、json-dumps"><a href="#1、json-dumps" class="headerlink" title="1、json.dumps()"></a>1、json.dumps()</h3><p><code>json.dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)</code></p>
+<ul>
+<li>obj :python数据对象</li>
+<li>skipkeys :当值为True时，若键不是以下类型（str, int, float, bool, None），则会略过，而不是触发错误</li>
+<li>ensure_ascii :当值为True时，输出时会自动转义所有非ASCII字符</li>
+<li>allow_nan :当值为True时，会将超过浮点数取值范围的数值自动对应于JAVASCRIPT的(NaN, Infinity, -Infinity)，否则会引发错误</li>
+<li>sort_keys :当值为True时，输出结果会按键值排序</li>
+</ul>
 <blockquote>
-<p>在第1步安装python时，已经安装了pip。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line"></span><br><span class="line">py_data = &#123;</span><br><span class="line">	&apos;no&apos; = 1,</span><br><span class="line">	&apos;name&apos; = &apos;baidu&apos;,</span><br><span class="line">	&apos;url&apos; = &apos;http://www.baidu.com&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">json_str = json.dumps(py_data)</span><br><span class="line"></span><br><span class="line">print (&quot;Python原始数据：&quot;, repr(data))</span><br><span class="line">print (&quot;JSON对象：&quot;, json_str)</span><br><span class="line"></span><br><span class="line">#输出结果：</span><br><span class="line">#Python原始数据： &#123;&apos;url&apos;: &apos;http://www.baidu.com&apos;, &apos;no&apos;: 1, &apos;name&apos;: &apos;baidu&apos;&#125;</span><br><span class="line">#JSON对象： &#123;&quot;url&quot;: &quot;http://www.baidu.com&quot;, &quot;no&quot;: 1, &quot;name&quot;: &quot;baidu&quot;&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>方法2：手动安装</p>
+<h3 id="2、json-loads"><a href="#2、json-loads" class="headerlink" title="2、json.loads()"></a>2、json.loads()</h3><p><code>json.loads(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)</code></p>
+<ul>
+<li>s :包含JSON的字符串、字节以及字节数组</li>
+<li>object_hook :将传入的字典解析后，再调用用户定义的钩子函数，最终返回钩子函数的返回值</li>
+</ul>
 <blockquote>
-<p>(1)下载pip压缩包：<a href="https://pypi.python.org/pypi/pip#downloads" target="_blank" rel="noopener">https://pypi.python.org/pypi/pip#downloads</a><br>(2)解压后cmd进入解压目录，执行<code>python setup.py install</code>进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">py_data1 = &#123;</span><br><span class="line">	&apos;no&apos; = 1,</span><br><span class="line">	&apos;name&apos; = &apos;baidu&apos;,</span><br><span class="line">	&apos;url&apos; = &apos;http://www.baidu.com&apos;</span><br><span class="line">&#125;</span><br><span class="line">json_str = json.dumps(py_data1)</span><br><span class="line"></span><br><span class="line">py_data2 = json.loads(json_str)</span><br><span class="line"></span><br><span class="line">print(&quot;py_data2[name]:&quot;, py_data2[&apos;name&apos;])</span><br><span class="line">print(&quot;py_data2[url]:&quot;, py_data2[&apos;url&apos;])</span><br><span class="line"></span><br><span class="line">#输出结果：</span><br><span class="line">#py_data2[&apos;name&apos;]:  baidu</span><br><span class="line">#py_data2[&apos;url&apos;]:  http://www.baidu.com</span><br></pre></td></tr></table></figure>
 </blockquote>
+<h3 id="3、json-dump"><a href="#3、json-dump" class="headerlink" title="3、json.dump()"></a>3、json.dump()</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">#Python数据对象以JSON格式写入文件</span><br><span class="line">with open(&apos;data.json&apos;, &apos;w&apos;) as f:</span><br><span class="line">    json.dump(data, f)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="3-安装selenium"><a href="#3-安装selenium" class="headerlink" title="3.安装selenium"></a>3.安装selenium</h3><blockquote>
-<p>方法1：命令行安装</p>
-<blockquote>
-<p>进入cmd输入命令’pip install selenium’。</p>
+<h3 id="4、json-load"><a href="#4、json-load" class="headerlink" title="4、json.load()"></a>4、json.load()</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">#读取JSON编码文件解析为Python数据</span><br><span class="line">with open(&apos;data.json&apos;, &apos;r&apos;) as f:</span><br><span class="line">    data = json.load(f)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>方法2：下载whl包安装</p>
-<blockquote>
-<p>(1)下载selenium安装包：<a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="noopener">https://pypi.python.org/pypi/selenium</a> 或 <a href="https://www.seleniumhq.org/download/" target="_blank" rel="noopener">https://www.seleniumhq.org/download/</a><br>(2)下载完成后，进入cmd输入命令<code>pip install</code>，再直接将文件拖入cmd窗口，回车即可安装。</p>
-</blockquote>
-</blockquote>
-<h3 id="4-安装浏览器驱动"><a href="#4-安装浏览器驱动" class="headerlink" title="4.安装浏览器驱动"></a>4.安装浏览器驱动</h3><blockquote>
-<p>(1)下载浏览器驱动</p>
-<blockquote>
-<p>不同浏览器需下载不同驱动，不同版本浏览器对应不同版本驱动。这里只给出chrome和firefox的驱动下载地址：<br>1)chrome：<a href="http://npm.taobao.org/mirrors/chromedriver" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/chromedriver</a> 或 <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a><br>2)firefox：<a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></p>
-</blockquote>
-<p>(2)安装浏览器驱动</p>
-<blockquote>
-<p>下载完驱动后解压，将驱动放置在可执行路径下。这里给出三种路径：<br>1)将浏览器驱动放到python的Path路径下。<br>2)将浏览器驱动放到浏览器的Path路径下。<br>3)自定义路径，新建driver文件夹，将驱动放在driver文件下，最后将该路径添加到环境变量中。</p>
-</blockquote>
-</blockquote>
-<h3 id="5-验证环境（小示例）"><a href="#5-验证环境（小示例）" class="headerlink" title="5.验证环境（小示例）"></a>5.验证环境（小示例）</h3><blockquote>
-<p>(1)创建python文件selenium_python.py，内容如下：</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&apos;http://www.baidu.com/&apos;)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>(2)cmd执行命令<code>python selenium_python.py</code>。<br>(3)脚本自动执行，结果如下：</p>
-<blockquote>
-<p><img src="/2018/01/01/selenium安装-windows/脚本执行结果.png" alt="脚本执行结果"></p>
-</blockquote>
-</blockquote>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月23日 18:18</p>
-        <p>原始链接： <a class="post-url" href="/2018/01/01/selenium安装-windows/" title="selenium安装-windows">http://pythonfood.github.io/2018/01/01/selenium安装-windows/</a></p>
+        <p>最后更新： 2018年03月24日 18:10</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/28/pythonJSON解析/" title="pythonJSON解析">http://pythonfood.github.io/2017/12/28/pythonJSON解析/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -243,7 +316,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/01/01/selenium安装-windows/&title=《selenium安装-windows》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/28/pythonJSON解析/&title=《pythonJSON解析》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -253,22 +326,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/01/01/selenium安装-windows/&title=《selenium安装-windows》 — PythonFood&source=selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/28/pythonJSON解析/&title=《pythonJSON解析》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/01/01/selenium安装-windows/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/28/pythonJSON解析/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《selenium安装-windows》 — PythonFood&url=http://pythonfood.github.io/2018/01/01/selenium安装-windows/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pythonJSON解析》 — PythonFood&url=http://pythonfood.github.io/2017/12/28/pythonJSON解析/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/01/01/selenium安装-windows/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/28/pythonJSON解析/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -278,7 +351,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/01/01/selenium安装-windows/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/28/pythonJSON解析/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -290,7 +363,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/selenium/" class="color4">selenium</a>
+    <a href="/tags/python/" class="color2">python</a>
       
   </li>
 
@@ -303,26 +376,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Python"><span class="post-toc-text">1.安装Python</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装pip"><span class="post-toc-text">2.安装pip</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装selenium"><span class="post-toc-text">3.安装selenium</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-安装浏览器驱动"><span class="post-toc-text">4.安装浏览器驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-验证环境（小示例）"><span class="post-toc-text">5.验证环境（小示例）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、json模块"><span class="post-toc-text">一、json模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、json-dumps"><span class="post-toc-text">1、json.dumps()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、json-loads"><span class="post-toc-text">2、json.loads()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、json-dump"><span class="post-toc-text">3、json.dump()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、json-load"><span class="post-toc-text">4、json.load()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/01/01/selenium常用API/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/01/selenium安装-windows/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          selenium常用API
+          selenium安装-windows
         
       </span>
     </a>
   
   
-    <a href="/2017/12/28/pythonJSON解析/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">pythonJSON解析</span>
+    <a href="/2017/12/28/python网络请求/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python网络请求</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -331,7 +404,7 @@
 
 
     
-        <div id="SOHUCS" sid="selenium安装-windows" ></div>
+        <div id="SOHUCS" sid="pythonJSON解析" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
