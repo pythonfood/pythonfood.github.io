@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="人生苦短，我用python。">
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/28/python数据类型/format格式化数字字符.png">
-<meta property="og:updated_time" content="2018-03-13T07:41:02.867Z">
+<meta property="og:updated_time" content="2018-03-28T02:23:33.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python数据类型">
 <meta name="twitter:description" content="人生苦短，我用python。">
@@ -230,8 +230,8 @@
 <td style="text-align:left">从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</td>
 </tr>
 <tr>
-<td style="text-align:left">randrange</td>
-<td style="text-align:left">([start,] stop [,step])     从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1</td>
+<td style="text-align:left">randrange([start,] stop [,step])</td>
+<td style="text-align:left">从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1</td>
 </tr>
 <tr>
 <td style="text-align:left">random()</td>
@@ -492,7 +492,14 @@
 </tr>
 </tbody>
 </table>
-<p>（2）格式化操作符辅助指令</p>
+<p>（2）格式化操作符辅助指令<br>可以用如下的方式，对格式进行进一步的控制：<br><code>%[(name)][flags][width].[precision]typecode</code></p>
+<ul>
+<li>(name)为命名</li>
+<li>flags可以有+,-,’ ‘或0。+表示右对齐。-表示左对齐。’ ‘为一个空格，表示在正数的左侧填充一个空格，从而与负数对齐。0表示使用0填充。例如：print(“%04d” % 5)</li>
+<li>width表示显示宽度</li>
+<li>precision表示小数点后精度。例如：print(“%6.3f” % 2.3)</li>
+<li>width, precision为两个整数。我们可以利用<em>，来动态代入这两个量。例如：print(“%.</em>f” % (4, 1.2))</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1078,7 +1085,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月13日 15:41</p>
+        <p>最后更新： 2018年03月28日 10:23</p>
         <p>原始链接： <a class="post-url" href="/2017/12/28/python数据类型/" title="python数据类型">http://pythonfood.github.io/2017/12/28/python数据类型/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
