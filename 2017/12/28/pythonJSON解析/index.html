@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/28/pythonJSON解析/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="人生苦短，我用python。">
-<meta property="og:updated_time" content="2018-03-29T09:38:51.129Z">
+<meta property="og:updated_time" content="2018-03-29T09:43:32.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pythonJSON解析">
 <meta name="twitter:description" content="人生苦短，我用python。">
@@ -247,7 +247,7 @@
 <li>object_hook :将传入的字典解析后，再调用用户定义的钩子函数，最终返回钩子函数的返回值</li>
 </ul>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">py_data1 = &#123;</span><br><span class="line">	&apos;no&apos; = 1,</span><br><span class="line">	&apos;name&apos; = &apos;baidu&apos;,</span><br><span class="line">	&apos;url&apos; = &apos;http://www.baidu.com&apos;</span><br><span class="line">&#125;</span><br><span class="line">json_str = json.dumps(py_data1)</span><br><span class="line"></span><br><span class="line">py_data2 = json.loads(json_str)</span><br><span class="line"></span><br><span class="line">print(&quot;py_data2[name]:&quot;, py_data2[&apos;name&apos;])</span><br><span class="line">print(&quot;py_data2[url]:&quot;, py_data2[&apos;url&apos;])</span><br><span class="line"></span><br><span class="line">#输出结果：</span><br><span class="line">#py_data2[&apos;name&apos;]:  baidu</span><br><span class="line">#py_data2[&apos;url&apos;]:  http://www.baidu.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">py_data1 = &#123;</span><br><span class="line">	&apos;no&apos; : 1,</span><br><span class="line">	&apos;name&apos; : &apos;baidu&apos;,</span><br><span class="line">	&apos;url&apos; : &apos;http://www.baidu.com&apos;</span><br><span class="line">&#125;</span><br><span class="line">json_str = json.dumps(py_data1)</span><br><span class="line"></span><br><span class="line">py_data2 = json.loads(json_str)</span><br><span class="line"></span><br><span class="line">print(&quot;py_data2[name]:&quot;, py_data2[&apos;name&apos;])</span><br><span class="line">print(&quot;py_data2[url]:&quot;, py_data2[&apos;url&apos;])</span><br><span class="line"></span><br><span class="line">#输出结果：</span><br><span class="line">#py_data2[&apos;name&apos;]:  baidu</span><br><span class="line">#py_data2[&apos;url&apos;]:  http://www.baidu.com</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="3、json-dump"><a href="#3、json-dump" class="headerlink" title="3、json.dump()"></a>3、json.dump()</h3><blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line">#Python数据对象以JSON格式写入文件</span><br><span class="line">with open(&apos;data.json&apos;, &apos;w&apos;) as f:</span><br><span class="line">    json.dump(data, f)</span><br></pre></td></tr></table></figure>
@@ -258,7 +258,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月29日 17:38</p>
+        <p>最后更新： 2018年03月29日 17:43</p>
         <p>原始链接： <a class="post-url" href="/2017/12/28/pythonJSON解析/" title="pythonJSON解析">http://pythonfood.github.io/2017/12/28/pythonJSON解析/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
