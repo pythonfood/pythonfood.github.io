@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/28/python内置函数/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="人生苦短，我用python。">
-<meta property="og:updated_time" content="2018-03-25T11:48:49.765Z">
+<meta property="og:updated_time" content="2018-03-29T09:52:29.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python内置函数">
 <meta name="twitter:description" content="人生苦短，我用python。">
@@ -323,9 +323,6 @@
 <li><p><code>frozenset()</code>创建一个不可修改的集合</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">frozenset([iterable])</span><br><span class="line">set和frozenset最本质的区别是前者是可变的，后者是不可变的。当集合对象会被改变时（例如删除，添加元素），只能使用set，</span><br><span class="line">一般来说使用fronzet的地方都可以使用set。</span><br><span class="line">参数iterable：可迭代对象。</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>　</p>
-<ol>
 <li><p><code>getattr()</code>获取对象的属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">getattr(object, name [, defalut])</span><br><span class="line">获取对象object名为name的特性，如果object不包含名为name的特性，将会抛出AttributeError异常；如果不包含名为name的特性</span><br><span class="line">且提供default参数，将返回default。</span><br><span class="line">参数object：对象</span><br><span class="line">参数name：对象的特性名</span><br><span class="line">参数default：缺省返回值</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; append = getattr(list, &apos;append&apos;)</span><br><span class="line">&gt;&gt;&gt; append</span><br><span class="line">&lt;method &apos;append&apos; of &apos;list&apos; objects&gt;</span><br><span class="line">&gt;&gt;&gt; mylist = [3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; append(mylist, 6)</span><br><span class="line">&gt;&gt;&gt; mylist</span><br><span class="line">[3, 4, 5, 6]</span><br><span class="line">&gt;&gt;&gt; method = getattr(list, &apos;add&apos;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">AttributeError: type object &apos;list&apos; has no attribute &apos;add&apos;</span><br><span class="line">&gt;&gt;&gt; method = getattr(list, &apos;add&apos;, &apos;NoMethod&apos;)</span><br><span class="line">&gt;&gt;&gt; method</span><br><span class="line">&apos;NoMethod&apos;</span><br></pre></td></tr></table></figure>
 </li>
@@ -440,7 +437,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月25日 19:48</p>
+        <p>最后更新： 2018年03月29日 17:52</p>
         <p>原始链接： <a class="post-url" href="/2017/12/28/python内置函数/" title="python内置函数">http://pythonfood.github.io/2017/12/28/python内置函数/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
