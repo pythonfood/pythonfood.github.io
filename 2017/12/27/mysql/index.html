@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/27/mysql/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="mysql常用命令笔记。">
-<meta property="og:updated_time" content="2018-04-22T08:39:20.602Z">
+<meta property="og:updated_time" content="2018-04-22T08:48:04.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="mysql常用命令笔记。">
@@ -481,10 +481,7 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW COLUMNS FROM test;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p><strong>5、约束条件：</strong></p>
-<blockquote>
-<p>约束保证数据的完整性、唯一性。约束分为表级约束和列级约束。</p>
-<blockquote>
+<p><strong>5、约束条件：</strong><br>约束保证数据的完整性、唯一性。约束分为表级约束和列级约束。</p>
 <ul>
 <li>主键约束：<code>PRIMARY KEY</code></li>
 <li>空与非空：<code>NULL/NOT NULL</code></li>
@@ -493,7 +490,7 @@
 <li>自动增加：<code>AUTO_INCREMENT</code></li>
 <li>外键约束：<code>FOREIGN KEY</code></li>
 </ul>
-</blockquote>
+<blockquote>
 <p>(1)主键约束：<code>PRIMARY KEY</code><br>主键约束不允许重复，也不允许为空。每个表只允许存在一个主键。<br>主键约束可以在列级别创建，也可以在表级别创建。</p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 基本模式</span><br><span class="line">CREATE TABLE test(id SMALLINT UNSIGNED PRIMARY KEY, username VARCHAR(30) NOT NULL;</span><br><span class="line"># 组合模式</span><br><span class="line">CREATE TABLE test1(id INT, name VARCHAR(20), pwd VARCHAR(20), primary key(id, name));</span><br></pre></td></tr></table></figure>
@@ -716,7 +713,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年04月22日 16:39</p>
+        <p>最后更新： 2018年04月22日 16:48</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/mysql/" title="mysql">http://pythonfood.github.io/2017/12/27/mysql/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
