@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。">
 <meta property="og:image" content="http://pythonfood.github.io/2018/01/01/selenium安装-windows/脚本执行结果.png">
-<meta property="og:updated_time" content="2018-02-23T10:18:00.724Z">
+<meta property="og:updated_time" content="2018-05-04T08:03:05.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="selenium安装-windows">
 <meta name="twitter:description" content="selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。">
@@ -142,7 +142,7 @@
       
             
             <p>selenium环境搭建的简单步骤：安装Python——安装pip——安装selenium——安装浏览器驱动。<br><a id="more"></a></p>
-<h3 id="1-安装Python"><a href="#1-安装Python" class="headerlink" title="1.安装Python"></a>1.<a href="https://pythonfood.github.io/2017/12/28/python安装-windows/#more">安装Python</a></h3><h3 id="2-安装pip"><a href="#2-安装pip" class="headerlink" title="2.安装pip"></a>2.安装pip</h3><blockquote>
+<h2 id="一、安装Python"><a href="#一、安装Python" class="headerlink" title="一、安装Python"></a>一、<a href="https://pythonfood.github.io/2017/12/28/python安装-windows/#more">安装Python</a></h2><h2 id="二、安装pip"><a href="#二、安装pip" class="headerlink" title="二、安装pip"></a>二、安装pip</h2><blockquote>
 <p>方法1：自动安装</p>
 <blockquote>
 <p>在第1步安装python时，已经安装了pip。</p>
@@ -152,7 +152,7 @@
 <p>(1)下载pip压缩包：<a href="https://pypi.python.org/pypi/pip#downloads" target="_blank" rel="noopener">https://pypi.python.org/pypi/pip#downloads</a><br>(2)解压后cmd进入解压目录，执行<code>python setup.py install</code>进行安装。</p>
 </blockquote>
 </blockquote>
-<h3 id="3-安装selenium"><a href="#3-安装selenium" class="headerlink" title="3.安装selenium"></a>3.安装selenium</h3><blockquote>
+<h2 id="三、安装selenium"><a href="#三、安装selenium" class="headerlink" title="三、安装selenium"></a>三、安装selenium</h2><blockquote>
 <p>方法1：命令行安装</p>
 <blockquote>
 <p>进入cmd输入命令’pip install selenium’。</p>
@@ -162,7 +162,7 @@
 <p>(1)下载selenium安装包：<a href="https://pypi.python.org/pypi/selenium" target="_blank" rel="noopener">https://pypi.python.org/pypi/selenium</a> 或 <a href="https://www.seleniumhq.org/download/" target="_blank" rel="noopener">https://www.seleniumhq.org/download/</a><br>(2)下载完成后，进入cmd输入命令<code>pip install</code>，再直接将文件拖入cmd窗口，回车即可安装。</p>
 </blockquote>
 </blockquote>
-<h3 id="4-安装浏览器驱动"><a href="#4-安装浏览器驱动" class="headerlink" title="4.安装浏览器驱动"></a>4.安装浏览器驱动</h3><blockquote>
+<h2 id="四、安装浏览器驱动"><a href="#四、安装浏览器驱动" class="headerlink" title="四、安装浏览器驱动"></a>四、安装浏览器驱动</h2><blockquote>
 <p>(1)下载浏览器驱动</p>
 <blockquote>
 <p>不同浏览器需下载不同驱动，不同版本浏览器对应不同版本驱动。这里只给出chrome和firefox的驱动下载地址：<br>1)chrome：<a href="http://npm.taobao.org/mirrors/chromedriver" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/chromedriver</a> 或 <a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a><br>2)firefox：<a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></p>
@@ -172,7 +172,7 @@
 <p>下载完驱动后解压，将驱动放置在可执行路径下。这里给出三种路径：<br>1)将浏览器驱动放到python的Path路径下。<br>2)将浏览器驱动放到浏览器的Path路径下。<br>3)自定义路径，新建driver文件夹，将驱动放在driver文件下，最后将该路径添加到环境变量中。</p>
 </blockquote>
 </blockquote>
-<h3 id="5-验证环境（小示例）"><a href="#5-验证环境（小示例）" class="headerlink" title="5.验证环境（小示例）"></a>5.验证环境（小示例）</h3><blockquote>
+<h2 id="五、验证环境（小示例）"><a href="#五、验证环境（小示例）" class="headerlink" title="五、验证环境（小示例）"></a>五、验证环境（小示例）</h2><blockquote>
 <p>(1)创建python文件selenium_python.py，内容如下：</p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(&apos;http://www.baidu.com/&apos;)</span><br></pre></td></tr></table></figure>
@@ -185,7 +185,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月23日 18:18</p>
+        <p>最后更新： 2018年05月04日 16:03</p>
         <p>原始链接： <a class="post-url" href="/2018/01/01/selenium安装-windows/" title="selenium安装-windows">http://pythonfood.github.io/2018/01/01/selenium安装-windows/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -303,7 +303,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Python"><span class="post-toc-text">1.安装Python</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装pip"><span class="post-toc-text">2.安装pip</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装selenium"><span class="post-toc-text">3.安装selenium</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-安装浏览器驱动"><span class="post-toc-text">4.安装浏览器驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-验证环境（小示例）"><span class="post-toc-text">5.验证环境（小示例）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、安装Python"><span class="post-toc-text">一、安装Python</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、安装pip"><span class="post-toc-text">二、安装pip</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、安装selenium"><span class="post-toc-text">三、安装selenium</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、安装浏览器驱动"><span class="post-toc-text">四、安装浏览器驱动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、验证环境（小示例）"><span class="post-toc-text">五、验证环境（小示例）</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

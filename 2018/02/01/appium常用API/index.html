@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2018/02/01/appium常用API/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="appium常用API笔记。">
-<meta property="og:updated_time" content="2018-03-06T10:08:56.403Z">
+<meta property="og:updated_time" content="2018-05-04T08:25:16.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="appium常用API">
 <meta name="twitter:description" content="appium常用API笔记。">
@@ -140,7 +140,7 @@
       
             
             <p>appium常用API笔记。<br><a id="more"></a></p>
-<h3 id="1-元素定位"><a href="#1-元素定位" class="headerlink" title="1.元素定位"></a>1.元素定位</h3><p>(1)id定位<br>find_element_by_id(“resrouce-id”)</p>
+<h2 id="一、元素定位"><a href="#一、元素定位" class="headerlink" title="一、元素定位"></a>一、元素定位</h2><p>(1)id定位<br>find_element_by_id(“resrouce-id”)</p>
 <blockquote>
 <p><code>driver.find_element_by_id(&#39;com.android.calculator2:id/digit8&#39;)</code></p>
 </blockquote>
@@ -217,7 +217,7 @@
 <blockquote>
 <p><code>find_element(By.ID,&quot;com.android.calculator2:id/digit8&quot;)</code></p>
 </blockquote>
-<h3 id="2-应用操作"><a href="#2-应用操作" class="headerlink" title="2.应用操作"></a>2.应用操作</h3><p>(1)安装应用<br><code>install_app()</code> #安装应用到设备中去。需要apk包的路径。</p>
+<h2 id="二、应用操作"><a href="#二、应用操作" class="headerlink" title="二、应用操作"></a>二、应用操作</h2><p>(1)安装应用<br><code>install_app()</code> #安装应用到设备中去。需要apk包的路径。</p>
 <blockquote>
 <p><code>driver.install_app(&quot;path/to/my.apk&quot;)</code><br><code>driver.install_app(&quot;D:\\android\\apk\\ContactManager.apk&quot;)</code></p>
 </blockquote>
@@ -249,7 +249,7 @@
 <blockquote>
 <p><code>driver.start_activity(&#39;com.example.android.apis&#39;, &#39;.Foo&#39;)</code></p>
 </blockquote>
-<h3 id="3-键盘操作"><a href="#3-键盘操作" class="headerlink" title="3.键盘操作"></a>3.键盘操作</h3><p>ps：<a href="https://pythonfood.github.io/2018/02/01/appium键值表/#more">appium键值表</a><br>(1)send_keys()方法</p>
+<h2 id="三、键盘操作"><a href="#三、键盘操作" class="headerlink" title="三、键盘操作"></a>三、键盘操作</h2><p>ps：<a href="https://pythonfood.github.io/2018/02/01/appium键值表/#more">appium键值表</a><br>(1)send_keys()方法</p>
 <blockquote>
 <p><code>driver.find_element_by_name(“Name”).send_keys(&quot;jack&quot;)</code></p>
 </blockquote>
@@ -269,7 +269,7 @@
 <blockquote>
 <p><code>driver.hide_keyboard()</code> #android不需要参数，ios需要传参key_name</p>
 </blockquote>
-<h3 id="4-TouchAction操作"><a href="#4-TouchAction操作" class="headerlink" title="4.TouchAction操作"></a>4.TouchAction操作</h3><p>使用前导入TouchAction模块<code>from appium.webdriver.common.touch_action import TouchAction</code><br>(1)点击<br><code>tap(self,el=None,x=None,y=None,count=1)</code><br>(2)短按<br><code>press(self, el=None, x=None, y=None)</code><br>(3)长按<br><code>long_press(self, el=None, x=None, y=None, duration=1000(ms))</code><br>(4)释放<br><code>release(self)</code><br>(5)移动到<br><code>move_to(self,el=None,x=None,y=None)</code><br>(6)等待<br><code>wait(self,ms=0)</code><br>(7)执行<br><code>perform(self)</code></p>
+<h2 id="四、TouchAction操作"><a href="#四、TouchAction操作" class="headerlink" title="四、TouchAction操作"></a>四、TouchAction操作</h2><p>使用前导入TouchAction模块<code>from appium.webdriver.common.touch_action import TouchAction</code><br>(1)点击<br><code>tap(self,el=None,x=None,y=None,count=1)</code><br>(2)短按<br><code>press(self, el=None, x=None, y=None)</code><br>(3)长按<br><code>long_press(self, el=None, x=None, y=None, duration=1000(ms))</code><br>(4)释放<br><code>release(self)</code><br>(5)移动到<br><code>move_to(self,el=None,x=None,y=None)</code><br>(6)等待<br><code>wait(self,ms=0)</code><br>(7)执行<br><code>perform(self)</code></p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#关于perform官网给的伪代码中讲</span><br><span class="line">TouchAction().tap(el).perform()</span><br><span class="line">#与</span><br><span class="line">driver.perform(TouchAction().tap(el))</span><br><span class="line">#效果一致</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -277,7 +277,7 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from appium.webdriver.common.touch_action import TouchAction</span><br><span class="line">from appium.webdriver.common.multi_action import MultiAction</span><br><span class="line"></span><br><span class="line">action0 = TouchAction().tap(el1)</span><br><span class="line">action1 = TouchAction().tap(el2)</span><br><span class="line">MultiTouch().add(action0).add(action1).perform()</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="5-上下文操作"><a href="#5-上下文操作" class="headerlink" title="5.上下文操作"></a>5.上下文操作</h3><p>(1)当前会话中的所有上下文，使用后可以识别H5页面的控件<br><code>driver.contexts</code></p>
+<h2 id="五、上下文操作"><a href="#五、上下文操作" class="headerlink" title="五、上下文操作"></a>五、上下文操作</h2><p>(1)当前会话中的所有上下文，使用后可以识别H5页面的控件<br><code>driver.contexts</code></p>
 <blockquote>
 <p>获取的是一个list列表：</p>
 <blockquote>
@@ -299,7 +299,7 @@
 </blockquote>
 </blockquote>
 <p>(4)应用的字符串<br><code>driver.app_strings</code></p>
-<h3 id="6-屏幕操作"><a href="#6-屏幕操作" class="headerlink" title="6.屏幕操作"></a>6.屏幕操作</h3><p>(1)点击<br>1)<code>click()</code></p>
+<h2 id="六、屏幕操作"><a href="#六、屏幕操作" class="headerlink" title="六、屏幕操作"></a>六、屏幕操作</h2><p>(1)点击<br>1)<code>click()</code></p>
 <blockquote>
 <p><code>driver.find_element_by_id(&quot;com.wuba.zhuanzhuan:id/ae8&quot;).click()</code></p>
 </blockquote>
@@ -333,7 +333,7 @@
 <li>nosensor：不由传感器确定方向。旋转设备的时候，界面不会跟着旋转。初始界面方向由系统提供。</li>
 </ul>
 <p>(11)获取当前屏幕的方向<br><code>get_orientation()</code></p>
-<h3 id="7-网络设置"><a href="#7-网络设置" class="headerlink" title="7.网络设置"></a>7.网络设置</h3><p>(1)返回网络类型数值<br><code>driver.network_connection</code></p>
+<h2 id="七、网络设置"><a href="#七、网络设置" class="headerlink" title="七、网络设置"></a>七、网络设置</h2><p>(1)返回网络类型数值<br><code>driver.network_connection</code></p>
 <p>(2)网络设置<br><code>driver.setNetworkConnection(bitmask掩码)</code><br>使用前导入ConnectionType模块<code>from appium.webdriver.connectiontype import ConnectionType</code></p>
 <blockquote>
 <p><code>driver.set_network_connection(2)</code><br><code>driver.set_network_connection(ConnectionType.WIFI_ONLY)</code></p>
@@ -381,9 +381,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="8-位置设置"><a href="#8-位置设置" class="headerlink" title="8.位置设置"></a>8.位置设置</h3><p>(1)打开定位设置<br><code>driver.toggle_location_services()</code> </p>
+<h2 id="八、位置设置"><a href="#八、位置设置" class="headerlink" title="八、位置设置"></a>八、位置设置</h2><p>(1)打开定位设置<br><code>driver.toggle_location_services()</code> </p>
 <p>(2)设置设备的经纬度<br><code>driver.set_location(latitude纬度，longitude经度，altitude海拔高度)</code></p>
-<h3 id="9-文件操作"><a href="#9-文件操作" class="headerlink" title="9.文件操作"></a>9.文件操作</h3><p>(1)把本地文件push到设备上。<br><code>push_file()</code></p>
+<h2 id="九、文件操作"><a href="#九、文件操作" class="headerlink" title="九、文件操作"></a>九、文件操作</h2><p>(1)把本地文件push到设备上。<br><code>push_file()</code></p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = &quot;some data for the file&quot;</span><br><span class="line">path = &quot;/data/local/tmp/file.txt&quot;</span><br><span class="line">driver.push_file(path, data.encode(&apos;base64&apos;))</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -392,7 +392,7 @@
 <p><code>driver.pull_file(&#39;Library/AddressBook/AddressBook.sqlitedb&#39;)</code></p>
 </blockquote>
 <p>(3)将设备上的文件夹pull到本地硬盘上，一般远程文件为/data/local/tmp下的文件。<br><code>pull_folder()</code></p>
-<h3 id="10-activity操作"><a href="#10-activity操作" class="headerlink" title="10.activity操作"></a>10.activity操作</h3><p>(1)启动activity<br><code>driver.start_activity()</code></p>
+<h2 id="十、activity操作"><a href="#十、activity操作" class="headerlink" title="十、activity操作"></a>十、activity操作</h2><p>(1)启动activity<br><code>driver.start_activity()</code></p>
 <p>(2)获取当前activity<br><code>driver.current_activity</code></p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">activity = self.driver.current_activity </span><br><span class="line">print(u&quot;当前的activity是:&quot;, activity)</span><br></pre></td></tr></table></figure>
@@ -403,7 +403,7 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1)启动应用，输入命令，查看</span><br><span class="line">adb shell dumpsys window | findstr mCurrentFocus </span><br><span class="line"># 2)启动应用，输入命令，查看</span><br><span class="line">adb shell dumpsys activity activities</span><br><span class="line"># 3)有安装包，cmd输入命令，查看</span><br><span class="line">aapt dump badging &lt;file_path.apk&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="11-其他操作"><a href="#11-其他操作" class="headerlink" title="11.其他操作"></a>11.其他操作</h3><p>(1)打开通知栏<br><code>driver.open_notifications()</code></p>
+<h2 id="十一、其他操作"><a href="#十一、其他操作" class="headerlink" title="十一、其他操作"></a>十一、其他操作</h2><p>(1)打开通知栏<br><code>driver.open_notifications()</code></p>
 <p>(2)摇一摇手机<br><code>driver.shake()</code></p>
 <p>(3)获取控件各种属性<br><code>get_attribute()</code><br>可获取的字符串类型：</p>
 <ul>
@@ -429,8 +429,8 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#返回element的x坐标, int类型</span><br><span class="line">driver.element.location.get(&apos;x&apos;)</span><br><span class="line">#返回element的y坐标, int类型</span><br><span class="line">driver.element.location.get(&apos;y&apos;)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h3 id="12-unittest断言"><a href="#12-unittest断言" class="headerlink" title="12.unittest断言"></a>12.unittest断言</h3><p>在unittest单元测试框架中，TestCase类提供了一些方法来检查并报告故障：<br>(1)<code>assertEqual(first, second, msg=None)</code>#判断first和second的值是否相等，如果不相等则测试失败，msg用于定义失败后所抛出的异常信息。<br>(2)<code>assertNotEqual(first, second, msg=None)</code>#测试first和second不相等，如果相等，则测试失败。<br>(3)<code>assertTure(expr,msg=None)</code><br>(4)<code>assertFalse(expr,msg=None)</code>#测试expr为Ture（或为False）<br>(5)<code>assertIs(first, second, msg=None)</code><br>(6)<code>assertIsNot(first, second, msg=None)</code>#测试的first和second是（或不是）相同的对象。<br>(7)<code>assertIsNone(expr, msg=None)</code><br>(8)<code>assertIsNotNone(expr, msg=None)</code>#测试expr是（或不是）为None<br>(9)<code>assertIn(first, second, msg=None)</code><br>(10)<code>assertNotIn(first, second, msg=None)</code>#测试first是（或不是）在second中。second包含是否包含first。</p>
-<h3 id="13-脚本设计原则"><a href="#13-脚本设计原则" class="headerlink" title="13.脚本设计原则"></a>13.脚本设计原则</h3><p>(1)LOVE原则(NativeApp)：</p>
+<h2 id="十二、unittest断言"><a href="#十二、unittest断言" class="headerlink" title="十二、unittest断言"></a>十二、unittest断言</h2><p>在unittest单元测试框架中，TestCase类提供了一些方法来检查并报告故障：<br>(1)<code>assertEqual(first, second, msg=None)</code>#判断first和second的值是否相等，如果不相等则测试失败，msg用于定义失败后所抛出的异常信息。<br>(2)<code>assertNotEqual(first, second, msg=None)</code>#测试first和second不相等，如果相等，则测试失败。<br>(3)<code>assertTure(expr,msg=None)</code><br>(4)<code>assertFalse(expr,msg=None)</code>#测试expr为Ture（或为False）<br>(5)<code>assertIs(first, second, msg=None)</code><br>(6)<code>assertIsNot(first, second, msg=None)</code>#测试的first和second是（或不是）相同的对象。<br>(7)<code>assertIsNone(expr, msg=None)</code><br>(8)<code>assertIsNotNone(expr, msg=None)</code>#测试expr是（或不是）为None<br>(9)<code>assertIn(first, second, msg=None)</code><br>(10)<code>assertNotIn(first, second, msg=None)</code>#测试first是（或不是）在second中。second包含是否包含first。</p>
+<h2 id="十三、脚本设计原则"><a href="#十三、脚本设计原则" class="headerlink" title="十三、脚本设计原则"></a>十三、脚本设计原则</h2><p>(1)LOVE原则(NativeApp)：</p>
 <blockquote>
 <p>1)Locate定位元素<br>2)Operate操作元素<br>3)Verify验证结果<br>4)Exception异常处理</p>
 </blockquote>
@@ -441,7 +441,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月06日 18:08</p>
+        <p>最后更新： 2018年05月04日 16:25</p>
         <p>原始链接： <a class="post-url" href="/2018/02/01/appium常用API/" title="appium常用API">http://pythonfood.github.io/2018/02/01/appium常用API/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -559,7 +559,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-元素定位"><span class="post-toc-text">1.元素定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-应用操作"><span class="post-toc-text">2.应用操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-键盘操作"><span class="post-toc-text">3.键盘操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-TouchAction操作"><span class="post-toc-text">4.TouchAction操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-上下文操作"><span class="post-toc-text">5.上下文操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-屏幕操作"><span class="post-toc-text">6.屏幕操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-网络设置"><span class="post-toc-text">7.网络设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-位置设置"><span class="post-toc-text">8.位置设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-文件操作"><span class="post-toc-text">9.文件操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-activity操作"><span class="post-toc-text">10.activity操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-其他操作"><span class="post-toc-text">11.其他操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#12-unittest断言"><span class="post-toc-text">12.unittest断言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#13-脚本设计原则"><span class="post-toc-text">13.脚本设计原则</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、元素定位"><span class="post-toc-text">一、元素定位</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、应用操作"><span class="post-toc-text">二、应用操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、键盘操作"><span class="post-toc-text">三、键盘操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、TouchAction操作"><span class="post-toc-text">四、TouchAction操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、上下文操作"><span class="post-toc-text">五、上下文操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、屏幕操作"><span class="post-toc-text">六、屏幕操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、网络设置"><span class="post-toc-text">七、网络设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、位置设置"><span class="post-toc-text">八、位置设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、文件操作"><span class="post-toc-text">九、文件操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、activity操作"><span class="post-toc-text">十、activity操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十一、其他操作"><span class="post-toc-text">十一、其他操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十二、unittest断言"><span class="post-toc-text">十二、unittest断言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十三、脚本设计原则"><span class="post-toc-text">十三、脚本设计原则</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

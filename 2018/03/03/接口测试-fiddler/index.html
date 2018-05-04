@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://pythonfood.github.io/2018/03/03/接口测试-fiddler/HTTPS设置.png">
 <meta property="og:image" content="http://pythonfood.github.io/2018/03/03/接口测试-fiddler/Connections设置.png">
 <meta property="og:image" content="http://pythonfood.github.io/2018/03/03/接口测试-fiddler/fiddler工作原理.png">
-<meta property="og:updated_time" content="2018-05-04T07:24:05.304Z">
+<meta property="og:updated_time" content="2018-05-04T08:00:15.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="接口测试-fiddler">
 <meta name="twitter:description" content="接口测试fiddler工具使用笔记。">
@@ -144,10 +144,10 @@
       
             
             <p>接口测试fiddler工具使用笔记。<br><a id="more"></a></p>
-<h3 id="1-Fiddler-环境准备"><a href="#1-Fiddler-环境准备" class="headerlink" title="1.Fiddler 环境准备"></a>1.Fiddler 环境准备</h3><p>(1)官网下载安装:<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a><br>(2)相关设置:【Tools-options-HTTPS-Connections】,设置好之后退出再启动一次。</p>
+<h2 id="一、Fiddler-环境准备"><a href="#一、Fiddler-环境准备" class="headerlink" title="一、Fiddler 环境准备"></a>一、Fiddler 环境准备</h2><p>(1)官网下载安装:<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a><br>(2)相关设置:【Tools-options-HTTPS-Connections】,设置好之后退出再启动一次。</p>
 <p><img src="/2018/03/03/接口测试-fiddler/HTTPS设置.png" alt="HTTPS设置"><br><img src="/2018/03/03/接口测试-fiddler/Connections设置.png" alt="Connections设置"></p>
-<h3 id="2-Fiddler-工作原理"><a href="#2-Fiddler-工作原理" class="headerlink" title="2.Fiddler 工作原理"></a>2.Fiddler 工作原理</h3><p><img src="/2018/03/03/接口测试-fiddler/fiddler工作原理.png" alt="fiddler工作原理"></p>
-<h3 id="3-Fiddler-基本界面"><a href="#3-Fiddler-基本界面" class="headerlink" title="3.Fiddler 基本界面"></a>3.Fiddler 基本界面</h3><p>(1)Session部分:</p>
+<h2 id="二、Fiddler-工作原理"><a href="#二、Fiddler-工作原理" class="headerlink" title="二、Fiddler 工作原理"></a>二、Fiddler 工作原理</h2><p><img src="/2018/03/03/接口测试-fiddler/fiddler工作原理.png" alt="fiddler工作原理"></p>
+<h2 id="三、Fiddler-基本界面"><a href="#三、Fiddler-基本界面" class="headerlink" title="三、Fiddler 基本界面"></a>三、Fiddler 基本界面</h2><p>(1)Session部分:</p>
 <blockquote>
 <ul>
 <li>#:id</li>
@@ -191,15 +191,15 @@
 <p>(3)Statistics:静态统计</p>
 <p>(4)Composer:构造各种各样的请求发送给服务器</p>
 <p>(5)AutoResponder:配置假数据模拟后端服务器返回的数据</p>
-<h3 id="4-Fiddler-设置断点修改Request"><a href="#4-Fiddler-设置断点修改Request" class="headerlink" title="4.Fiddler 设置断点修改Request"></a>4.Fiddler 设置断点修改Request</h3><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
+<h2 id="四、Fiddler-设置断点修改Request"><a href="#四、Fiddler-设置断点修改Request" class="headerlink" title="四、Fiddler 设置断点修改Request"></a>四、Fiddler 设置断点修改Request</h2><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
 <blockquote>
 <p>1)设置断点【Rules-Automatic Breakpoints-Before Request F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“fiddler”<br>4)fiddler对应的请求，点击【Response部分-Run to Completion】<br>5)fiddler新弹出的请求应该就是需要改参数的请求<br>6)fiddler需要修改参数的请求，点击【Request部分-WebForms】<br>7)修改对应的参数<br>8)点击【Repose部分-Run to Completion】<br>9)回到浏览器查看请求是否修改成功</p>
 </blockquote>
-<p>2)通过命令设置断点(可以拦截指定站点)</p>
+<p>(2)通过命令设置断点(可以拦截指定站点)</p>
 <blockquote>
 <p>1)session部分底部输入命令<code>bpu www.baidu.com</code>，其他操作同上。<br>2)清除拦截，输入命令<code>bpu</code></p>
 </blockquote>
-<h3 id="5-Fiddler-设置断点修改Response"><a href="#5-Fiddler-设置断点修改Response" class="headerlink" title="5.Fiddler 设置断点修改Response"></a>5.Fiddler 设置断点修改Response</h3><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
+<h2 id="五、Fiddler-设置断点修改Response"><a href="#五、Fiddler-设置断点修改Response" class="headerlink" title="五、Fiddler 设置断点修改Response"></a>五、Fiddler 设置断点修改Response</h2><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
 <blockquote>
 <p>1)点击设置【Rules-Automatic Breakpoints-After Response Alt+F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“哈哈”<br>4)fiddler修改Response部分的参数<br>5)点击【Response部分-Run to Completion】<br>6)回到浏览器查看请求是否修改成功</p>
 </blockquote>
@@ -211,7 +211,7 @@
 <blockquote>
 <p>1)浏览器进行百度搜索“哈哈”<br>2)fiddler对应的请求,点击【AutoResponder-Add Rule】<br>3)勾选【Enable reles】【Unmatched requests passthrough】【Enable Latency】<br>4)下边规则改为模糊匹配，例如改为：<code>regex:(?inx)^https://www.baidu.com/s?.+</code><br>5)下边下拉框返回状态码任意可选，例如选择:404_Plain.dat<br>6)点击【Save】按钮<br>7)回到浏览器重新百度搜索任意字符，看是否返回404<br>ps:可以通过下拉列表的“find a file”自定义规则，文件内容自定义。</p>
 </blockquote>
-<h3 id="6-Fiddler-小工具"><a href="#6-Fiddler-小工具" class="headerlink" title="6.Fiddler 小工具"></a>6.Fiddler 小工具</h3><p>(1)会话的过滤</p>
+<h2 id="六、Fiddler-小工具"><a href="#六、Fiddler-小工具" class="headerlink" title="六、Fiddler 小工具"></a>六、Fiddler 小工具</h2><p>(1)会话的过滤</p>
 <blockquote>
 <p>1)点击【Filters-Use Filters】<br>2)【No Host Filter】下拉框选择【Show only the following Hosts】<br>3)输入要过滤的站点，例如:www.baidu.com<br>4)点击【Actions-Run Filterset now】<br>5)此时session对话框只显示过滤站点请求</p>
 </blockquote>
@@ -223,10 +223,10 @@
 <blockquote>
 <p>1)点击【Tools-TextWizard】<br>2)上部分输入原始内容，下部分显示编解码内容<br>3)例如：上面输入(<a href="https://www.grigsoft.com/download-windiff.htm" target="_blank" rel="noopener">https://www.grigsoft.com/download-windiff.htm</a>) ，下面选择URLEecode,即可看到结果。</p>
 </blockquote>
-<h3 id="7-Fiddler-Host设置"><a href="#7-Fiddler-Host设置" class="headerlink" title="7.Fiddler Host设置"></a>7.Fiddler Host设置</h3><blockquote>
+<h2 id="七、Fiddler-Host设置"><a href="#七、Fiddler-Host设置" class="headerlink" title="七、Fiddler Host设置"></a>七、Fiddler Host设置</h2><blockquote>
 <p>1)点击【Tools-HOSTS…】<br>2)勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】<br>3)点击会话框底部【Import Windows Hosts File】，导入系统host<br>4)任意修改host,点击【Save】host即生效<br>5)不使用修改的host,只需要取消勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】</p>
 </blockquote>
-<h3 id="8-Fiddler-构造HTTP请求"><a href="#8-Fiddler-构造HTTP请求" class="headerlink" title="8.Fiddler 构造HTTP请求"></a>8.Fiddler 构造HTTP请求</h3><p>(1)构造Get请求</p>
+<h2 id="八、Fiddler-构造HTTP请求"><a href="#八、Fiddler-构造HTTP请求" class="headerlink" title="八、Fiddler 构造HTTP请求"></a>八、Fiddler 构造HTTP请求</h2><p>(1)构造Get请求</p>
 <blockquote>
 <p>1)选择一条Get请求，点击【Inspectors-Headers】<br>2)复制Headers的头部信息，粘贴到【Composer-Parsed】的对话框<br>3)首先删除掉复制信息的“Get”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)点击【Execute】发送请求<br>6)查看session界面请求是否发送<br>ps:可以任意修改URL进行接口测试</p>
 </blockquote>
@@ -234,14 +234,14 @@
 <blockquote>
 <p>1)选择一条Post请求，点击【Inspectors-Raw】<br>2)复制所有信息，粘贴到【Composer-Parsed】的对话框，请求方式选择【POST】<br>3)首先删除掉复制信息的“Post”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)剪切空行以下的request body信息，粘贴到下面的输入框<br>6)点击【Execute】发送请求<br>7)查看session界面请求是否发送<br>ps:可以任意修改URL和request body信息进行接口测试</p>
 </blockquote>
-<h3 id="9-Fiddler-抓取手机包"><a href="#9-Fiddler-抓取手机包" class="headerlink" title="9.Fiddler 抓取手机包"></a>9.Fiddler 抓取手机包</h3><p>(1)配置Fiddler允许监听https<br>(2)配置Fiddler允许远程连接<br>(3)手机端设置代理服务</p>
+<h2 id="九、Fiddler-抓取手机包"><a href="#九、Fiddler-抓取手机包" class="headerlink" title="九、Fiddler 抓取手机包"></a>九、Fiddler 抓取手机包</h2><p>(1)配置Fiddler允许监听https<br>(2)配置Fiddler允许远程连接<br>(3)手机端设置代理服务</p>
 <blockquote>
 <p>1)设置【Tools-Options-HTTPS】<br>2)设置【Tools-Options-Connections】<br>3)手机当前连接wifi里设置代理:主机名填写电脑的ip地址，端口填写8888<br>4)手机操作应用，请求就会发送到fiddler,其他操作同PC端操作</p>
 </blockquote>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月04日 15:24</p>
+        <p>最后更新： 2018年05月04日 16:00</p>
         <p>原始链接： <a class="post-url" href="/2018/03/03/接口测试-fiddler/" title="接口测试-fiddler">http://pythonfood.github.io/2018/03/03/接口测试-fiddler/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -359,7 +359,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Fiddler-环境准备"><span class="post-toc-text">1.Fiddler 环境准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Fiddler-工作原理"><span class="post-toc-text">2.Fiddler 工作原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Fiddler-基本界面"><span class="post-toc-text">3.Fiddler 基本界面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Fiddler-设置断点修改Request"><span class="post-toc-text">4.Fiddler 设置断点修改Request</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Fiddler-设置断点修改Response"><span class="post-toc-text">5.Fiddler 设置断点修改Response</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Fiddler-小工具"><span class="post-toc-text">6.Fiddler 小工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-Fiddler-Host设置"><span class="post-toc-text">7.Fiddler Host设置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-Fiddler-构造HTTP请求"><span class="post-toc-text">8.Fiddler 构造HTTP请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-Fiddler-抓取手机包"><span class="post-toc-text">9.Fiddler 抓取手机包</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Fiddler-环境准备"><span class="post-toc-text">一、Fiddler 环境准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Fiddler-工作原理"><span class="post-toc-text">二、Fiddler 工作原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Fiddler-基本界面"><span class="post-toc-text">三、Fiddler 基本界面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Fiddler-设置断点修改Request"><span class="post-toc-text">四、Fiddler 设置断点修改Request</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、Fiddler-设置断点修改Response"><span class="post-toc-text">五、Fiddler 设置断点修改Response</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、Fiddler-小工具"><span class="post-toc-text">六、Fiddler 小工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、Fiddler-Host设置"><span class="post-toc-text">七、Fiddler Host设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、Fiddler-构造HTTP请求"><span class="post-toc-text">八、Fiddler 构造HTTP请求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、Fiddler-抓取手机包"><span class="post-toc-text">九、Fiddler 抓取手机包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

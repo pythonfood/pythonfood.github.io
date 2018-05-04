@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/27/monkey/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。">
-<meta property="og:updated_time" content="2018-02-09T09:35:12.818Z">
+<meta property="og:updated_time" content="2018-05-04T07:50:00.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="monkey">
 <meta name="twitter:description" content="Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。">
@@ -140,19 +140,19 @@
       
             
             <p>Monkey是Android中的一个命令行工具，可以运行在模拟器里或实际设备中。它向系统发送伪随机的用户事件流(如按键输入、触摸屏输入、手势输入等)，实现对正在开发的应用程序进行压力测试。Monkey测试是一种为了测试软件的稳定性、健壮性的快速有效的方法。<br><a id="more"></a></p>
-<h3 id="常用选项："><a href="#常用选项：" class="headerlink" title="常用选项："></a>常用选项：</h3><blockquote>
+<h2 id="一、常用选项"><a href="#一、常用选项" class="headerlink" title="一、常用选项"></a>一、常用选项</h2><blockquote>
 <p><code>--help</code>：打印帮助信息<br><code>-v</code>：指定打印信息的详细级别，一个-v增加一个级别，默认级别为0。</p>
 </blockquote>
-<h3 id="事件选项："><a href="#事件选项：" class="headerlink" title="事件选项："></a>事件选项：</h3><blockquote>
+<h2 id="二、事件选项"><a href="#二、事件选项" class="headerlink" title="二、事件选项"></a>二、事件选项</h2><blockquote>
 <p><code>-s</code>：指定产生随机事件种子值，相同的种子值产生相同的事件序列。<br><code>--throttle</code>：每个事件结束后的间隔时间。<br><code>--pct-touch</code>：指定(触摸事件)的百分比<br><code>--pct-motion</code>：（滑动事件)<br><code>--pct-trackball</code>：(轨迹球事件)<br><code>--pct-nav</code>：（导航事件 up/down/left/right）<br><code>--pct-majornav</code>：(主要导航事件 back key 、 menu key)<br><code>--pct-syskeys</code>：(系统按键事件 Home 、Back 、startCall 、 endCall 、 volumeControl)<br><code>--pct-appswitch</code> ：（activity之间的切换）<br><code>--pct-anyevent</code> ：（任意事件）</p>
 </blockquote>
-<h3 id="约束选项："><a href="#约束选项：" class="headerlink" title="约束选项："></a>约束选项：</h3><blockquote>
+<h2 id="三、约束选项"><a href="#三、约束选项" class="headerlink" title="三、约束选项"></a>三、约束选项</h2><blockquote>
 <p><code>-p</code>：指定有效的package（如不指定，则对系统中所有package有效），一个-p 对应一个有效package。<br><code>-c</code>：activity必须至少包含一个指定的category，才能被启动，否则启动不了。</p>
 </blockquote>
-<h3 id="调试选项："><a href="#调试选项：" class="headerlink" title="调试选项："></a>调试选项：</h3><blockquote>
+<h2 id="四、调试选项"><a href="#四、调试选项" class="headerlink" title="四、调试选项"></a>四、调试选项</h2><blockquote>
 <p><code>--dbg-no-events</code>：初始化启动的activity，但是不产生任何事件。<br><code>--hprof</code>：指定该项后在事件序列发送前后会立即生成分析报告  —— 一般建议指定该项。<br><code>--ignore-crashes</code>：忽略崩溃<br><code>--ignore-timeouts</code>：忽略超时<br><code>--ignore-security-exceptions</code>：忽略安全异常<br><code>--kill-process-after-error</code>：发生错误后直接杀掉进程<br><code>--monitor-native-crashes</code>：跟踪本地方法的崩溃问题<br><code>--wait-dbg</code>：知道连接了调试器才执行monkey测试。</p>
 </blockquote>
-<h3 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h3><pre><code>adb shell monkey -p（指定包名） com.hiveview.cloudscreen.py --throttle（操作延时ms） 1000 -s(指定seed值) 1500859116902 -v -v（信息反馈级别） 1000（执行次数）
+<h2 id="五、小示例"><a href="#五、小示例" class="headerlink" title="五、小示例"></a>五、小示例</h2><pre><code>adb shell monkey -p（指定包名） com.hiveview.cloudscreen.py --throttle（操作延时ms） 1000 -s(指定seed值) 1500859116902 -v -v（信息反馈级别） 1000（执行次数）
 
 adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-majornav 50 --pct-nav 50 -v -v 1000 &gt;d:\monkey.txt
 
@@ -162,7 +162,7 @@ adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-nav 50 --pc
 </code></pre><h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 17:35</p>
+        <p>最后更新： 2018年05月04日 15:50</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/monkey/" title="monkey">http://pythonfood.github.io/2017/12/27/monkey/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -280,7 +280,7 @@ adb shell monkey -p com.hiveview.cloudscreen.py --throttle 100 --pct-nav 50 --pc
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用选项："><span class="post-toc-text">常用选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件选项："><span class="post-toc-text">事件选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#约束选项："><span class="post-toc-text">约束选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调试选项："><span class="post-toc-text">调试选项：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、常用选项"><span class="post-toc-text">一、常用选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、事件选项"><span class="post-toc-text">二、事件选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、约束选项"><span class="post-toc-text">三、约束选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、调试选项"><span class="post-toc-text">四、调试选项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、小示例"><span class="post-toc-text">五、小示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

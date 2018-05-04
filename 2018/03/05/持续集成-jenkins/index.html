@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2018/03/05/持续集成-jenkins/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="持续集成jenkins使用笔记。">
-<meta property="og:updated_time" content="2018-05-04T07:22:47.846Z">
+<meta property="og:updated_time" content="2018-05-04T07:47:46.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="持续集成-jenkins">
 <meta name="twitter:description" content="持续集成jenkins使用笔记。">
@@ -140,8 +140,8 @@
       
             
             <p>持续集成jenkins使用笔记。<br><a id="more"></a></p>
-<h3 id="1-持续集成流程"><a href="#1-持续集成流程" class="headerlink" title="1.持续集成流程"></a>1.持续集成流程</h3><p>(1)提交代码<br>(2)拉取代码<br>(3)编译<br>(4)打包<br>(5)配置<br>(6)测试<br>(7)反馈问题<br>(8)开发处理<br>(9)回到(1)</p>
-<h3 id="2-持续集成工具"><a href="#2-持续集成工具" class="headerlink" title="2.持续集成工具"></a>2.持续集成工具</h3><p>(1)代码管理工具：</p>
+<h2 id="一、持续集成流程"><a href="#一、持续集成流程" class="headerlink" title="一、持续集成流程"></a>一、持续集成流程</h2><p>(1)提交代码<br>(2)拉取代码<br>(3)编译<br>(4)打包<br>(5)配置<br>(6)测试<br>(7)反馈问题<br>(8)开发处理<br>(9)回到(1)</p>
+<h2 id="二、持续集成工具"><a href="#二、持续集成工具" class="headerlink" title="二、持续集成工具"></a>二、持续集成工具</h2><p>(1)代码管理工具：</p>
 <blockquote>
 <p>Git：官网下载安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>GitHub：官网地址<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
 </blockquote>
@@ -149,7 +149,7 @@
 <blockquote>
 <p>Jenkins：官网下载安装<a href="https://jenkins.io/download/" target="_blank" rel="noopener">https://jenkins.io/download/</a><br>1)安装后会自动启动浏览器，输入<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br>2)根据页面中标红路径找到管理员密码吗<br>3)输入管理员密码，点击【Continue】<br>4)安装插件，默认选项即可<br>5)安装完需要创建用户，此处点击【Continue as admin】使用默认账户即可<br>6)点击【Start using Jekins】启动<br>7)修改密码，进入【admin-设置】，向上拉找到密码处即可修改</p>
 </blockquote>
-<h3 id="3-Jenkins系统配置"><a href="#3-Jenkins系统配置" class="headerlink" title="3.Jenkins系统配置"></a>3.Jenkins系统配置</h3><p>(1)插件管理：</p>
+<h2 id="三、Jenkins系统配置"><a href="#三、Jenkins系统配置" class="headerlink" title="三、Jenkins系统配置"></a>三、Jenkins系统配置</h2><p>(1)插件管理：</p>
 <blockquote>
 <p>1)进入【系统管理-管理插件-已安装】查看下面插件：</p>
 <blockquote>
@@ -170,11 +170,11 @@
 <blockquote>
 <p>1)进入【系统管理-系统设置】找到【GitHub】<br>2)点击【Add GitHub Server】<br>3)在【GitHub Server】的【API URL】输入(<a href="https://api.github.com" target="_blank" rel="noopener">https://api.github.com</a>)<br>4)再点击【Credentials】右侧的问号设置权限，展开的内容里右键点击【personal access token】新窗口打开github<br>5)在github页面【Token description】输入自定义名称,勾选【repo】,点击【Generate token】<br>6)在github页面生成Personal access tokens后复制<br>7)回到jenkins页面点击【add】-【jenkins】<br>8)在弹出窗口里【Kind】类别选择【Secret text】,将刚才复制的token粘贴到【Secret】，再点击【add】就创建了身份信息<br>9)可以点击【Test connection】验证一下，验证通过后点击【保存】</p>
 </blockquote>
-<h3 id="4-Jenkins-JOB配置"><a href="#4-Jenkins-JOB配置" class="headerlink" title="4.Jenkins JOB配置"></a>4.Jenkins JOB配置</h3><p>创建任务：</p>
+<h2 id="四、Jenkins-JOB配置"><a href="#四、Jenkins-JOB配置" class="headerlink" title="四、Jenkins JOB配置"></a>四、Jenkins JOB配置</h2><p>创建任务：</p>
 <blockquote>
 <p>1)点击页面中【创建一个新任务】<br>2)输入任务名称，选择【构建一个自由风格的软件项目】，点击【确定】进入设置界面<br>3)进行自定义配置后点击【保存】</p>
 </blockquote>
-<h3 id="5-JOB配置小示例"><a href="#5-JOB配置小示例" class="headerlink" title="5.JOB配置小示例"></a>5.JOB配置小示例</h3><p>进入创建的任务详情界面，点击【配置】进行job配置<br>(1)拉取代码：</p>
+<h2 id="五、JOB配置小示例"><a href="#五、JOB配置小示例" class="headerlink" title="五、JOB配置小示例"></a>五、JOB配置小示例</h2><p>进入创建的任务详情界面，点击【配置】进行job配置<br>(1)拉取代码：</p>
 <blockquote>
 <p>1)【源码管理】选择【Git】，输入代码库的URL地址<br>2)点击【Add】-【jenkins】配置github权限<br>3)弹出界面输入github的帐户名和密码，点击【Add】添加<br>4)【Credentials】选择刚添加的github账户</p>
 </blockquote>
@@ -201,7 +201,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月04日 15:22</p>
+        <p>最后更新： 2018年05月04日 15:47</p>
         <p>原始链接： <a class="post-url" href="/2018/03/05/持续集成-jenkins/" title="持续集成-jenkins">http://pythonfood.github.io/2018/03/05/持续集成-jenkins/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -319,7 +319,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-持续集成流程"><span class="post-toc-text">1.持续集成流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-持续集成工具"><span class="post-toc-text">2.持续集成工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Jenkins系统配置"><span class="post-toc-text">3.Jenkins系统配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-Jenkins-JOB配置"><span class="post-toc-text">4.Jenkins JOB配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-JOB配置小示例"><span class="post-toc-text">5.JOB配置小示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、持续集成流程"><span class="post-toc-text">一、持续集成流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、持续集成工具"><span class="post-toc-text">二、持续集成工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Jenkins系统配置"><span class="post-toc-text">三、Jenkins系统配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Jenkins-JOB配置"><span class="post-toc-text">四、Jenkins JOB配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、JOB配置小示例"><span class="post-toc-text">五、JOB配置小示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

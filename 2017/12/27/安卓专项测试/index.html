@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/27/安卓专项测试/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta property="og:updated_time" content="2018-03-06T02:03:55.930Z">
+<meta property="og:updated_time" content="2018-05-04T07:49:27.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓专项测试">
 <meta name="twitter:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
@@ -140,7 +140,7 @@
       
             
             <p>安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。<br><a id="more"></a></p>
-<h3 id="响应时间："><a href="#响应时间：" class="headerlink" title="响应时间："></a>响应时间：</h3><blockquote>
+<h2 id="一、响应时间"><a href="#一、响应时间" class="headerlink" title="一、响应时间"></a>一、响应时间</h2><blockquote>
 <p>1.安装：普通安装、覆盖安装<br>2.启动：冷启动、热启动</p>
 <blockquote>
 <p>(1)adb命令：adb logcat、adb shell am start、adb shell screenrecord等。</p>
@@ -151,7 +151,7 @@
 </blockquote>
 <p>3.跳转：页面之间、控件之间</p>
 </blockquote>
-<h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu:"></a>cpu:</h3><blockquote>
+<h2 id="二、cpu"><a href="#二、cpu" class="headerlink" title="二、cpu"></a>二、cpu</h2><blockquote>
 <p>1.活动状态<br>2.静默状态</p>
 <blockquote>
 <p>(1)第三方工具：腾讯GT、网易Emmagee、阿里易测等。（小白首选）。<br>(2)dumpsys命令：adb shell dumpsys cpuinfo | grep {PackageName}。<br>(3)top命令：adb shell top | grep {PackageName}。</p>
@@ -163,7 +163,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="内存："><a href="#内存：" class="headerlink" title="内存："></a>内存：</h3><blockquote>
+<h2 id="三、内存"><a href="#三、内存" class="headerlink" title="三、内存"></a>三、内存</h2><blockquote>
 <p>1.命令查看内存数据</p>
 <blockquote>
 <p>(1)adb shell dumpsys meminfo {PackageName}查看内存是否是一味上涨的趋势，不会回收或者部分回收。<br>(2)/system/build.prop 查看每个应用分配的最高内存值。<br>adb shell procrank (没有可以从网上下载procrank文件)。</p>
@@ -173,13 +173,13 @@
 </blockquote>
 <p>2.Memory Monitor查看内存风险<br>3.MAT分析内存泄漏<br>4.Zombie辅助检查内存占用</p>
 </blockquote>
-<h3 id="电量："><a href="#电量：" class="headerlink" title="电量："></a>电量：</h3><blockquote>
+<h2 id="四、电量"><a href="#四、电量" class="headerlink" title="四、电量"></a>四、电量</h2><blockquote>
 <p>1.待机：无网络待机、wifi待机、3G待机等。<br>2.活动状态：不断地进行某些场景操作、看视频、灭屏下载、唤醒等。<br>3.静默状态：打开app后不操作，后台运行。</p>
 <blockquote>
 <p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumps batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p>
 </blockquote>
 </blockquote>
-<h3 id="流量："><a href="#流量：" class="headerlink" title="流量："></a>流量：</h3><blockquote>
+<h2 id="五、流量"><a href="#五、流量" class="headerlink" title="五、流量"></a>五、流量</h2><blockquote>
 <p>1.活动状态<br>2.静默状态</p>
 <blockquote>
 <p>(1)通过Tcpdump抓包，然后用Wireshark分析。如果想更自动化，可以用FildderCore二次开发。<br>(2)查看Linux流量统计文件。</p>
@@ -189,7 +189,7 @@
 <p>(3)利用类似DDMS的工具查看流量。（小白首选）<br>(4)通过Android API 的 TrafficStats类来统计。<br>(5)第三方工具或云测平台。</p>
 </blockquote>
 </blockquote>
-<h3 id="FPS："><a href="#FPS：" class="headerlink" title="FPS："></a>FPS：</h3><blockquote>
+<h2 id="六、FPS"><a href="#六、FPS" class="headerlink" title="六、FPS"></a>六、FPS</h2><blockquote>
 <p>1.adb shell dumpsys gfxinfo</p>
 <blockquote>
 <p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt;&gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
@@ -200,7 +200,7 @@
 <p>测试应用流畅度：<br>(1)条形图高于绿线，说明出现卡顿<br>(2)条形图低于绿线，说明比较流畅</p>
 </blockquote>
 </blockquote>
-<h3 id="过度渲染："><a href="#过度渲染：" class="headerlink" title="过度渲染："></a>过度渲染：</h3><blockquote>
+<h2 id="七、过度渲染"><a href="#七、过度渲染" class="headerlink" title="七、过度渲染"></a>七、过度渲染</h2><blockquote>
 <p>1.打开【设置-开发者选项-调试GPU过度绘制-显示过度绘制区域】，开启后点击应用，可以看到各种颜色的区域。</p>
 <blockquote>
 <p>颜色的标识：<br>(1)蓝色1x过度绘制<br>(2)绿色2x过度绘制<br>(3)淡红色3x过度绘制<br>(4)红色超过4x过度绘制</p>
@@ -213,7 +213,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月06日 10:03</p>
+        <p>最后更新： 2018年05月04日 15:49</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/安卓专项测试/" title="安卓专项测试">http://pythonfood.github.io/2017/12/27/安卓专项测试/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -331,7 +331,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#响应时间："><span class="post-toc-text">响应时间：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cpu"><span class="post-toc-text">cpu:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存："><span class="post-toc-text">内存：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电量："><span class="post-toc-text">电量：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流量："><span class="post-toc-text">流量：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FPS："><span class="post-toc-text">FPS：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#过度渲染："><span class="post-toc-text">过度渲染：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、响应时间"><span class="post-toc-text">一、响应时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、cpu"><span class="post-toc-text">二、cpu</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、内存"><span class="post-toc-text">三、内存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、电量"><span class="post-toc-text">四、电量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、流量"><span class="post-toc-text">五、流量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、FPS"><span class="post-toc-text">六、FPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、过度渲染"><span class="post-toc-text">七、过度渲染</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     

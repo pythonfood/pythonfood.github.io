@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png">
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png">
-<meta property="og:updated_time" content="2018-02-09T06:21:19.701Z">
+<meta property="og:updated_time" content="2018-05-04T07:50:36.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="等价类">
 <meta name="twitter:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
@@ -144,20 +144,20 @@
       
             
             <p>等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。<br><a id="more"></a></p>
-<h3 id="等价类划分规则："><a href="#等价类划分规则：" class="headerlink" title="等价类划分规则："></a>等价类划分规则：</h3><blockquote>
+<h2 id="一、等价类划分规则"><a href="#一、等价类划分规则" class="headerlink" title="一、等价类划分规则"></a>一、等价类划分规则</h2><blockquote>
 <p>1.如果输入条件规定了一个取值范围，那么就应该确定一个有效等价类以及两个无效等价类。<br>如月份取值在1~12之间，由此可确定一个有效等价类即月份在1~12之间，和两个无效等价类，即月份取值小于1及月份取值大于12.<br>2.规定了输入条件必须如何的情况下可以确定一个有效等价类和一个无效等价类。<br>如输入值必须大于0，则有效等价类为输入值大于0 ，无效等价类为输入值小于或者等于0.<br>3.在输入数据是一个bool常量的情况下，可以确定一个有效等价类和一个无效等价类。<br>4.在规定了输入数据由n个值构成的情况下，并要求定其中的每个值进行测试时，可以确定n个有效等价类和一个无效等价类。<br>如交通工具类型为公共汽车、卡车、出租车、火车或者摩托车，那么就应该为每一个输入值确定一个有效等价类和一个无效等价类例如拖车。<br>5.在规定了输入数据冰箱最受的规则的情况下，可以确定一个有效等价类和若干个无效等价类（从不同角度违反规则）。<br>如输入值必须是数字类型的字符，则可确定一个有效等价类，及输入值为数字类型得字符，和多个无效等价类，即输入值为字母、为专用字符（如+、*、@等）以及为非打印字符（如回车、空格等）。<br>6.在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。<br>划分等价类之后，应建立等价类表，列出与每一个输入条件对于的有效等价类和无效等价类。</p>
 </blockquote>
-<h3 id="等价类设计测试用例："><a href="#等价类设计测试用例：" class="headerlink" title="等价类设计测试用例："></a>等价类设计测试用例：</h3><blockquote>
+<h2 id="二、等价类设计测试用例"><a href="#二、等价类设计测试用例" class="headerlink" title="二、等价类设计测试用例"></a>二、等价类设计测试用例</h2><blockquote>
 <p>1.根据需求，划分有效等价类和无效等价类，有效等价类统一编号，无效等价类统一编号。<br>2.设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止。<br>3.设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p>
 </blockquote>
-<h3 id="等价类四则运算法："><a href="#等价类四则运算法：" class="headerlink" title="等价类四则运算法："></a>等价类四则运算法：</h3><blockquote>
+<h2 id="三、等价类四则运算法"><a href="#三、等价类四则运算法" class="headerlink" title="三、等价类四则运算法"></a>三、等价类四则运算法</h2><blockquote>
 <p>1.不考虑需求其他子项，细致分解当期测试点及详细需求，做累加。<br>2.根据业务规则减少，排除相关不可能出现的规则，减少不可能出现的组合。<br>3.如果有效等价类中具有互斥条件的需求时，可运用乘得到用例个数。<br>4.排除所有具有重复特性的等价类，尽可能做到有效等价类之间交集为空。</p>
 </blockquote>
-<h4 id="小示例："><a href="#小示例：" class="headerlink" title="小示例："></a>小示例：</h4><p>1.有效等价类一条用例尽量覆盖所有有效等价类<br><img src="/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png" alt="1.有效等价类一条用例尽量覆盖所有有效等价类"><br>2.无效等价类一条用例覆盖一个无效等价类<br><img src="/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png" alt="2.无效等价类一条用例覆盖一个无效等价类"><br>3.根据覆盖条件编写等价类测试用例<br><img src="/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png" alt="3.根据覆盖条件编写等价类测试用例"></p>
+<h2 id="四、小示例"><a href="#四、小示例" class="headerlink" title="四、小示例"></a>四、小示例</h2><p>1.有效等价类一条用例尽量覆盖所有有效等价类<br><img src="/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png" alt="1.有效等价类一条用例尽量覆盖所有有效等价类"><br>2.无效等价类一条用例覆盖一个无效等价类<br><img src="/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png" alt="2.无效等价类一条用例覆盖一个无效等价类"><br>3.根据覆盖条件编写等价类测试用例<br><img src="/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png" alt="3.根据覆盖条件编写等价类测试用例"></p>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月09日 14:21</p>
+        <p>最后更新： 2018年05月04日 15:50</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/等价类/" title="等价类">http://pythonfood.github.io/2017/12/27/等价类/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -275,7 +275,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类划分规则："><span class="post-toc-text">等价类划分规则：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类设计测试用例："><span class="post-toc-text">等价类设计测试用例：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类四则运算法："><span class="post-toc-text">等价类四则运算法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小示例："><span class="post-toc-text">小示例：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、等价类划分规则"><span class="post-toc-text">一、等价类划分规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、等价类设计测试用例"><span class="post-toc-text">二、等价类设计测试用例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、等价类四则运算法"><span class="post-toc-text">三、等价类四则运算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、小示例"><span class="post-toc-text">四、小示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
