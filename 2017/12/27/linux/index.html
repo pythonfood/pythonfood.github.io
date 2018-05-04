@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="linux常用命令笔记。">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/linux/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="linux常用命令笔记。">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/linux/vi-vim键盘图.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/linux/vi-vim工作模式.png">
+<meta property="og:updated_time" content="2018-05-04T06:58:12.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="linux常用命令笔记。">
+<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/linux/vi-vim键盘图.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      linux
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/linux/">linux</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>linux常用命令笔记。<br><a id="more"></a></p>
+<h2 id="一、系统安装"><a href="#一、系统安装" class="headerlink" title="一、系统安装"></a>一、系统安装</h2><p>进入各版本linux官网下载安装：</p>
+<ul>
+<li>CentOS：<a href="https://www.centos.org/download/" target="_blank" rel="noopener">https://www.centos.org/download/</a></li>
+<li>Ubuntu：<a href="https://www.ubuntu.com/download" target="_blank" rel="noopener">https://www.ubuntu.com/download</a></li>
+</ul>
+<h2 id="二、目录结构"><a href="#二、目录结构" class="headerlink" title="二、目录结构"></a>二、目录结构</h2><p>命令窗口输入命令：<code>ls /</code>查看根目录结构：</p>
+<ul>
+<li>/bin：bin是Binary的缩写, 这个目录存放着最经常使用的命令。</li>
+<li>/boot：这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
+<li>/dev ：dev是Device(设备)的缩写, 该目录下存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</li>
+<li>/etc：这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
+<li>/home：用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li>
+<li>/lib：这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</li>
+<li>/lost+found：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</li>
+<li>/media：linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</li>
+<li>/mnt：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在/mnt/上，然后进入该目录就可以查看光驱里的内容了。</li>
+<li>/opt：这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</li>
+<li>/proc：这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：<code>echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</code></li>
+<li>/tmp：这个目录是用来存放一些临时文件的。</li>
+<li>/usr：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</li>
+<li>/usr/bin：系统用户使用的应用程序。</li>
+<li>/usr/sbin：超级用户使用的比较高级的管理程序和系统守护程序。</li>
+<li>/usr/src：内核源代码默认的放置目录。</li>
+<li>/var：这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</li>
+</ul>
+<h2 id="三、启动过程"><a href="#三、启动过程" class="headerlink" title="三、启动过程"></a>三、启动过程</h2><p>Linux系统的启动过程可以分为5个阶段：</p>
+<ul>
+<li>内核的引导 </li>
+<li>运行init</li>
+<li>系统初始化</li>
+<li>建立终端 </li>
+<li>用户登录系统</li>
+</ul>
+<p><strong>1、内核的引导</strong><br>当计算机打开电源后，首先是BIOS开机自检，按照BIOS中设置的启动设备（通常是硬盘）来启动。<br>操作系统接管硬件以后，首先读入/boot目录下的内核文件。<br><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;</em></p>
+<p><strong>2、运行init</strong><br>init 进程是系统所有进程的起点，init 程序首先是需要读取配置文件/etc/inittab。<br>许多程序需要开机启动,它们在Windows叫做”服务”(service)，在Linux就叫做”守护进程”(daemon)。init进程的一大任务，就是去运行这些开机启动的程序。<br>Linux允许为不同的场合，分配不同的开机启动程序，这就叫做”运行级别”（runlevel）。也就是说，启动时根据”运行级别”，确定要运行哪些程序。<br><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;/init——&gt;运行级别——&gt;</em></p>
+<p>Linux系统有7个运行级别(runlevel)：</p>
+<ul>
+<li>运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动</li>
+<li>运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆</li>
+<li>运行级别2：多用户状态(没有NFS)</li>
+<li>运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式</li>
+<li>运行级别4：系统未使用，保留</li>
+<li>运行级别5：X11控制台，登陆后进入图形GUI模式</li>
+<li>运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动</li>
+</ul>
+<p><strong>3、系统初始化</strong><br>在init的配置文件中有这么一行：si::sysinit:/etc/rc.d/rc.sysinit，而rc.sysinit是一个bash shell的脚本，它主要是完成一些系统初始化的工作。<br>它主要完成的工作有：激活交换分区，检查磁盘，加载硬件模块以及其它一些需要优先执行任务。<br><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;/init——&gt;运行级别——&gt;/etc/init.d——&gt;</em></p>
+<p><strong>4、建立终端</strong><br>rc执行完毕后，返回init。这时基本系统环境已经设置好了，各种守护进程也已经启动了。<br>init接下来会打开6个终端，以便用户登录系统。在inittab中的以下6行就是定义了6个终端：</p>
+<ul>
+<li>1:2345:respawn:/sbin/mingetty tty1</li>
+<li>2:2345:respawn:/sbin/mingetty tty2</li>
+<li>3:2345:respawn:/sbin/mingetty tty3</li>
+<li>4:2345:respawn:/sbin/mingetty tty4</li>
+<li>5:2345:respawn:/sbin/mingetty tty5</li>
+<li>6:2345:respawn:/sbin/mingetty tty6</li>
+</ul>
+<p>从上面可以看出在2、3、4、5的运行级别中都将以respawn方式运行mingetty程序，mingetty程序能打开终端、设置模式。同时它会显示一个文本登录界面。</p>
+<p><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;/init——&gt;运行级别——&gt;/etc/init.d——&gt;建立终端——&gt;</em></p>
+<p><strong>5、用户登录系统</strong><br>一般来说，用户的登录方式有三种： </p>
+<ul>
+<li>命令行登录</li>
+<li>ssh登录</li>
+<li>图形界面登录</li>
+</ul>
+<p><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;/init——&gt;运行级别——&gt;/etc/init.d——&gt;建立终端——&gt;用户登录——&gt;</em></p>
+<p>图形模式与文字模式的切换：<br>1)Linux预设提供了六个命令窗口终端机让我们来登录。默认我们登录的就是第一个窗口，也就是tty1。<br>按下<code>Ctrl + Alt + F1 ~ F6</code>来切换tty1,tty2 … tty6。<br>2)如果安装了图形界面，默认情况下是进入图形界面的，此时按<code>Ctrl + Alt + F1 ~ F6</code>来进入一个命令窗口界面。<br>进入命令窗口界面后再返回图形界面只要按下<code>Ctrl + Alt + F7</code>就回来了。<br>3)如果在vmware虚拟机，命令窗口切换的快捷键为<code>Alt + Space + F1~F6</code>。如果在图形界面下请按<code>Alt + Shift + Ctrl + F1~F6</code>切换至命令窗口。<br><em>BIOS自检——&gt;操作系统——&gt;/boot——&gt;/init——&gt;运行级别——&gt;/etc/init.d——&gt;建立终端——&gt;用户登录——&gt;Login shell</em></p>
+<p><strong>6、Linux关机</strong><br>正确的关机流程为：sync &gt; shutdown &gt; reboot &gt; halt</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sync # 将数据由内存同步到硬盘中。</span><br><span class="line"></span><br><span class="line">shutdown -h now # 立刻关机</span><br><span class="line">halt # 立刻关机</span><br><span class="line">poweroff # 立刻关机</span><br><span class="line">init 0 # 立刻关机</span><br><span class="line">shutdown –h 10 ‘This server will shutdown after 10 mins’ # 这个命令会显示在登陆用户的当前屏幕中，计算机将在10分钟后关机。</span><br><span class="line">shutdown -h 20:25 # 系统会在今天20:25关机</span><br><span class="line">shutdown -h +10 # 十分钟后关机</span><br><span class="line"></span><br><span class="line">shutdown -r now # 立刻重启</span><br><span class="line">reboot # 立刻重启</span><br><span class="line">init 6 # 立刻重启</span><br><span class="line">shutdown -r +10 #十分钟后重启</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="四、远程登录"><a href="#四、远程登录" class="headerlink" title="四、远程登录"></a>四、远程登录</h2><p>Linux系统中是通过ssh服务实现的远程登录功能，默认ssh服务端口号为22。<br><strong>1、SSH登录</strong><br>SSH(Secure Shell)：安全协议外壳。是建立在应用层和传输层基础上的安全协议。<br>(1)Window系统上Linux远程登录客户端有SecureCRT、Putty、XShel、SSH Secure Shell等。<br>客户端输入：Host Name( or IP address)、Port、用户名、密码等，就可以远程登录。<br>(2)终端利用ssh登录远程服务器:</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install ssh # 安装ssh</span><br><span class="line">service sshd start # 启动ssh</span><br><span class="line">ssh -p 50022 root@127.0.0.1 # 登录远程服务器</span><br><span class="line">#输入密码：</span><br><span class="line">root@127.0.0.1: #此处输入密码即可登录</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="五、文件目录"><a href="#五、文件目录" class="headerlink" title="五、文件目录"></a>五、文件目录</h2><p><strong>1、文件属性</strong><br>(1)文件基本属性<br>使用<code>ll</code>或<code>ls –l</code>命令来显示一个文件的属性以及文件所属的用户和组:</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br><span class="line"></span><br><span class="line"># total 64</span><br><span class="line"># dr-xr-xr-x   2 root root 4096 Dec 14  2012 bin</span><br><span class="line"># ...</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>文件的属性由左边第一部分的10个字符来确定,从左至右用0-9这些数字来表示:0-123-456-789</p>
+<ul>
+<li>第0位：文件类型</li>
+<li>第1-3位：属主(owner,该文件的所有者)拥有该文件的权限</li>
+<li>第4-6位：属组(group,所有者的同组用户)拥有该文件的权限</li>
+<li>第7-9位：其他用户(others)拥有该文件的权限</li>
+</ul>
+<p>其中，第0位文件类型：</p>
+<ul>
+<li>d：则是目录</li>
+<li>-：则是文件</li>
+<li>l：则表示为链接文档(link file)</li>
+<li>b：则表示为装置文件里面的可供储存的接口设备(可随机存取装置)</li>
+<li>c：则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。</li>
+</ul>
+<p>其中，权限表示：</p>
+<ul>
+<li>第1、4、7位：表示读权限，用”r”字符表示读权限；用”-“字符表示没有读权限</li>
+<li>第2、5、8位：表示写权限，用”w”字符表示写权限，用”-“字符表示没有写权限</li>
+<li>第3、6、9位：表示可执行权限，用”x”字符表示执行权限，用”-“字符表示没有执行权限。 </li>
+</ul>
+<p>(2)chgrp更改文件属组<br><code>chgrp [-R] 属组名 文件名</code></p>
+<ul>
+<li>-R：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上-R的参数，那么该目录下的所有文件的属组都会更改。 </li>
+</ul>
+<p>(3)chown更改文件属主，也可以同时更改文件属组<br><code>chown [-R] 属主名 文件名</code><br><code>chown [-R] 属主名:属组名 文件名</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown bin install.log</span><br><span class="line">chown root:root install.log</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)chmod更改文件9个属性<br>1)符号类型改变文件权限<br><code>chmod {u属主|g属组|o其他人|a所有人} {+加入|-除去|=设置} {r|w|x} 文件或目录</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod u=rwx,g=rx,o=rx install.log </span><br><span class="line">chmod a-x install.log # 全部人除去可执行权限</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2)数字类型改变文件权限<br><code>chmod [-R] xyz 文件或目录</code></p>
+<ul>
+<li>xyz : 是数字类型的权限属性，为rwx属性数值的相加</li>
+<li>-R : 进行递归(recursive)的持续变更，亦即连同次目录下的所有文件都会变更</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 install.log # 所有人设置可读可写可执行</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、目录跳转</strong><br>(1)ls列出目录<br><code>ls [目录名称]</code></p>
+<ul>
+<li>a ：全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来</li>
+<li>-d ：仅列出目录本身，而不是列出目录内的文件数据</li>
+<li>-l ：长数据串列出，包含文件的属性与权限等等数据</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)cd切换目录<br><code>cd [相对路径或绝对路径]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd   # 进入用户主目录</span><br><span class="line">cd ~ # 进入用户主目录</span><br><span class="line">cd - # 返回进入此目录之前所在的目录</span><br><span class="line">cd .. # 返回上级目录</span><br><span class="line">cd ../.. # 返回上两级目录</span><br><span class="line">cd ./test/ # 相对路径切换到test目录</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)pwd显示当前目录<br><code>pwd [-P]</code></p>
+<ul>
+<li>-P：显示出确实的路径，而非使用连结(link)路径</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br><span class="line">pwd -P</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、文件目录的创建删除</strong><br>(1)mkdir创建新目录<br><code>mkdir [-mp] 目录名称</code></p>
+<ul>
+<li>-m：配置文件的权限</li>
+<li>-p：直接将所需要的目录(包含上一级目录)递归创建起来</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir test</span><br><span class="line">mkdir -m 711 test</span><br><span class="line">mkdir -p test1/test2/test3/test4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)rmdir删除空目录<br><code>rmdir [-p] 目录名称</code></p>
+<ul>
+<li>-p：连同上一级『空的』目录也一起删除</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rmdir test</span><br><span class="line">rmdir -p test1/test2/test3/test4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)rm移除文件或目录<br><code>rm [-fir] 文件或目录</code></p>
+<ul>
+<li>-f ：就是force的意思，忽略不存在的文件，不会出现警告信息!</li>
+<li>-i ：互动模式，在删除前会询问使用者是否动作</li>
+<li>-r ：递归删除！最常用在目录的删除了！这是非常危险的选项！！！</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -i install.log</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)touch创建新的空文件<br><code>touch [选项] 文件名</code></p>
+<ul>
+<li>-a：或–time=atime或–time=access或–time=use  只更改存取时间</li>
+<li>-c：或–no-create  不建立任何文件</li>
+<li>-d：&lt;时间日期&gt; 使用指定的日期时间，而非现在的时间</li>
+<li>-f：此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题</li>
+<li>-m：或–time=mtime或–time=modify  只更该变动时间</li>
+<li>-r：&lt;参考文件或目录&gt;  把指定文件或目录的日期时间，统统设成和参考文件或目录的日期时间相同</li>
+<li>-t：&lt;日期时间&gt;  使用指定的日期时间，而非现在的时间</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch ott.txt # 创建新的空文件</span><br><span class="line">touch ott.txt # 文件存在，更新文件当前时间戳</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、文件目录的复制移动</strong><br>(1)cp复制文件或目录<br><code>cp [选项] 源文件 目标文件</code></p>
+<ul>
+<li>-a：相当於 -pdr 的意思，至於pdr请参考下列说明</li>
+<li>-d：若来源档为连结档的属性(link file)，则复制连结档属性而非文件本身</li>
+<li>-f：为强制(force)的意思，若目标文件已经存在且无法开启，则移除后再尝试一次</li>
+<li>-i：若目标档(destination)已经存在时，在覆盖时会先询问动作的进行</li>
+<li>-l：进行硬式连结(hard link)的连结档创建，而非复制文件本身</li>
+<li>-p：连同文件的属性一起复制过去，而非使用默认属性(备份常用)</li>
+<li>-r：递归持续复制，用於目录的复制行为</li>
+<li>-s：复制成为符号连结档 (symbolic link)，亦即『捷径』文件</li>
+<li>-u：若 destination 比 source 旧才升级 destination ！</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/.bashrc /tmp/bashrc</span><br><span class="line">cp -i ~/.bashrc /tmp/bashrc</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)mv移动文件与目录，或修改名称<br><code>mv [选项] 源文件 目标文件</code></p>
+<ul>
+<li>-f：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</li>
+<li>-i：若目标文件(destination)已经存在时，就会询问是否覆盖！</li>
+<li>-u：若目标文件已经存在，且source比较新，才会升级(update)</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv /usr/men/* . # /usr/men/所有文件移到当前目录,“.”表示当前目录</span><br><span class="line">mv test newtest # 重命名</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、文件内容显示</strong><br>(1)cat由第一行开始显示文件内容<br><code>cat [-AbEnTv] 文件名</code></p>
+<ul>
+<li>-A ：相当於 -vET 的整合选项，可列出一些特殊字符而不是空白而已</li>
+<li>-b ：列出行号，仅针对非空白行做行号显示，空白行不标行号</li>
+<li>-E ：将结尾的断行字节 $ 显示出来</li>
+<li>-n ：列印出行号，连同空白行也会有行号，与 -b 的选项不同</li>
+<li>-T ：将 [tab] 按键以 ^I 显示出来</li>
+<li>-v ：列出一些看不出来的特殊字符</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)tac由最后一行开始显示文件内容<br><code>tac 文件名</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tac /etc/issue</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)nl显示行号和内容<br><code>nl [-bnw] 文件</code></p>
+<ul>
+<li>-b：指定行号指定的方式，主要有两种：</li>
+<li>-b a：表示不论是否为空行，也同样列出行号(类似 cat -n</li>
+<li>-b t：如果有空行，空的那一行不要列出行号(默认值)</li>
+<li>-n：列出行号表示的方法，主要有三种：</li>
+<li>-n ln：行号在荧幕的最左方显示；</li>
+<li>-n rn：行号在自己栏位的最右方显示，且不加 0 </li>
+<li>-n rz：行号在自己栏位的最右方显示，且加 0 </li>
+<li>-w：行号栏位的占用的位数</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nl /etc/issue</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)more一页一页翻动<br><code>more [选项] 文件名</code></p>
+<ul>
+<li>-&lt;数字&gt;：指定每屏显示的行数；</li>
+<li>-d：显示“[press space to continue,’q’ to quit.]”和“[Press ‘h’ for instructions]”；</li>
+<li>-c：不进行滚屏操作。每次刷新这个屏幕；</li>
+<li>-s：将多个空行压缩成一行显示；</li>
+<li>-u：禁止下划线；</li>
+<li>+&lt;数字&gt;：从指定数字的行开始显示。</li>
+</ul>
+<p>在more这个运行过程中，有几个按键可以按：</p>
+<ul>
+<li>按Space键：显示文本的下一屏内容</li>
+<li>按Enier键：只显示文本的下一行内容 </li>
+<li>/字串：代表在这个显示的内容当中，向下搜寻“字串”这个关键字</li>
+<li>:f：立刻显示出档名以及目前显示的行数</li>
+<li>按H键：显示帮助屏，该屏上有相关的帮助信息 </li>
+<li>按B键：显示上一屏内容，不过这动作只对文件有用，对管线无用 </li>
+<li>按Q键：退出more命令。 </li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more -dc file</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)less一页一页翻动,可以向前翻页<br><code>less [选项] 文件名</code></p>
+<ul>
+<li>-e：文件内容显示完毕后，自动退出；</li>
+<li>-f：强制显示文件；</li>
+<li>-g：不加亮显示搜索到的所有关键词，仅显示当前显示的关键字，以提高显示速度；</li>
+<li>-l：搜索时忽略大小写的差异；</li>
+<li>-N：每一行行首显示行号；</li>
+<li>-s：将连续多个空行压缩成一行显示；</li>
+<li>-S：在单行显示较长的内容，而不换行显示；</li>
+<li>-x&lt;数字&gt;：将TAB字符显示为指定个数的空格字符。</li>
+</ul>
+<p>在less这个运行过程中，有几个按键可以按：</p>
+<ul>
+<li>空白键：向下翻动一页；</li>
+<li>[pagedown]：向下翻动一页；</li>
+<li>[pageup]：向上翻动一页；</li>
+<li>/字串：向下搜寻『字串』的功能；</li>
+<li>?字串：向上搜寻『字串』的功能；</li>
+<li>n：重复前一个搜寻 (与 / 或 ? 有关！)</li>
+<li>N：反向的重复前一个搜寻 (与 / 或 ? 有关！)</li>
+<li>q：离开 less 这个程序； </li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less /etc/man.config</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(6)head读取文件前几行<br><code>head [选项] 文件名</code></p>
+<ul>
+<li>-n&lt;数字&gt;：指定显示头部内容的行数；</li>
+<li>-c&lt;字符数&gt;：指定显示头部内容的字符数；</li>
+<li>-v：总是显示文件名的头信息；</li>
+<li>-q：不显示文件名的头信息。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n 20 /etc/man.config</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(7)tail读取文件后几行<br><code>tail [选项] 文件名</code></p>
+<ul>
+<li>-n&lt;数字&gt;：指定显示后面内容的行数；</li>
+<li>-f ：表示持续侦测后面所接的档名，要等到按下[ctrl]-c才会结束tail的侦测 </li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 20 /etc/man.config</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>6、文件搜索</strong><br>(1)find在指定目录下查找文件<br><code>find 目录名称 [选项]</code></p>
+<ul>
+<li>-amin&lt;分钟&gt;：查找在指定时间曾被存取过的文件或目录，单位以分钟计算</li>
+<li>-anewer&lt;参考文件或目录&gt;：查找其存取时间较指定文件或目录的存取时间更接近现在的文件或目录</li>
+<li>-atime<24小时数>：查找在指定时间曾被存取过的文件或目录，单位以24小时计算</24小时数></li>
+<li>-cmin&lt;分钟&gt;：查找在指定时间之时被更改过的文件或目录</li>
+<li>-cnewer&lt;参考文件或目录&gt;查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录</li>
+<li>-ctime<24小时数>：查找在指定时间之时被更改的文件或目录，单位以24小时计算</24小时数></li>
+<li>-daystart：从本日开始计算时间</li>
+<li>-depth：从指定目录下最深层的子目录开始查找</li>
+<li>-expty：寻找文件大小为0 Byte的文件，或目录下没有任何子目录或文件的空目录</li>
+<li>-exec&lt;执行指令&gt;：假设find指令的回传值为True，就执行该指令</li>
+<li>-false：将find指令的回传值皆设为False；</li>
+<li>-fls&lt;列表文件&gt;：此参数的效果和指定“-ls”参数类似，但会把结果保存为指定的列表文件</li>
+<li>-follow：排除符号连接</li>
+<li>-fprint&lt;列表文件&gt;：此参数的效果和指定“-print”参数类似，但会把结果保存成指定的列表文件</li>
+<li>-fprint0&lt;列表文件&gt;：此参数的效果和指定“-print0”参数类似，但会把结果保存成指定的列表文件</li>
+<li>-fprintf&lt;列表文件&gt;&lt;输出格式&gt;：此参数的效果和指定“-printf”参数类似，但会把结果保存成指定的列表文件</li>
+<li>-fstype&lt;文件系统类型&gt;：只寻找该文件系统类型下的文件或目录</li>
+<li>-gid&lt;群组识别码&gt;：查找符合指定之群组识别码的文件或目录</li>
+<li>-group&lt;群组名称&gt;：查找符合指定之群组名称的文件或目录</li>
+<li>-help或——help：在线帮助</li>
+<li>-ilname&lt;范本样式&gt;：此参数的效果和指定“-lname”参数类似，但忽略字符大小写的差别</li>
+<li>-iname&lt;范本样式&gt;：此参数的效果和指定“-name”参数类似，但忽略字符大小写的差别</li>
+<li>-inum<inode编号>：查找符合指定的inode编号的文件或目录</inode编号></li>
+<li>-ipath&lt;范本样式&gt;：此参数的效果和指定“-path”参数类似，但忽略字符大小写的差别</li>
+<li>-iregex&lt;范本样式&gt;：此参数的效果和指定“-regexe”参数类似，但忽略字符大小写的差别</li>
+<li>-links&lt;连接数目&gt;：查找符合指定的硬连接数目的文件或目录</li>
+<li>-iname&lt;范本样式&gt;：指定字符串作为寻找符号连接的范本样式</li>
+<li>-ls：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出</li>
+<li>-maxdepth&lt;目录层级&gt;：设置最大目录层级</li>
+<li>-mindepth&lt;目录层级&gt;：设置最小目录层级</li>
+<li>-mmin&lt;分钟&gt;：查找在指定时间曾被更改过的文件或目录，单位以分钟计算</li>
+<li>-mount：此参数的效果和指定“-xdev”相同</li>
+<li>-mtime<24小时数>：查找在指定时间曾被更改过的文件或目录，单位以24小时计算</24小时数></li>
+<li>-name&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式</li>
+<li>-newer&lt;参考文件或目录&gt;：查找其更改时间较指定文件或目录的更改时间更接近现在的文件或目录</li>
+<li>-nogroup：找出不属于本地主机群组识别码的文件或目录</li>
+<li>-noleaf：不去考虑目录至少需拥有两个硬连接存在</li>
+<li>-nouser：找出不属于本地主机用户识别码的文件或目录</li>
+<li>-ok&lt;执行指令&gt;：此参数的效果和指定“-exec”类似，但在执行指令之前会先询问用户，若回答“y”或“Y”，则放弃执行命令</li>
+<li>-path&lt;范本样式&gt;：指定字符串作为寻找目录的范本样式</li>
+<li>-perm&lt;权限数值&gt;：查找符合指定的权限数值的文件或目录</li>
+<li>-print：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为每列一个名称，每个名称前皆有“./”字符串</li>
+<li>-print0：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式为全部的名称皆在同一行</li>
+<li>-printf&lt;输出格式&gt;：假设find指令的回传值为Ture，就将文件或目录名称列出到标准输出。格式可以自行指定</li>
+<li>-prune：不寻找字符串作为寻找文件或目录的范本样式</li>
+<li>-regex&lt;范本样式&gt;：指定字符串作为寻找文件或目录的范本样式</li>
+<li>-size&lt;文件大小&gt;：b块（512字节）、c字节 、w字（2字节）、k千字节、M兆字节、G吉字节 </li>
+<li>-true：将find指令的回传值皆设为True</li>
+<li>-typ&lt;文件类型&gt;：f普通文件、l符号连接 、d目录 、c字符设备 、b块设备 、s套接字 、p Fifo </li>
+<li>-uid&lt;用户识别码&gt;：查找符合指定的用户识别码的文件或目录</li>
+<li>-used&lt;日数&gt;：查找文件或目录被更改之后在指定时间曾被存取过的文件或目录，单位以日计算</li>
+<li>-user&lt;拥有者名称&gt;：查找符和指定的拥有者名称的文件或目录</li>
+<li>-version或——version：显示版本信息</li>
+<li>-xdev：将范围局限在先行的文件系统中</li>
+<li>-xtype&lt;文件类型&gt;：此参数的效果和指定“-type”参数类似，差别在于它针对符号连接检查</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find . # 查找当前路径</span><br><span class="line">find /home -name &quot;*.txt&quot; # 匹配文件名</span><br><span class="line">find /usr/ -path &quot;*local*&quot; # 匹配路径</span><br><span class="line">find . -type f -atime -7 # 查找近7天</span><br><span class="line">find test3 -size +100c # 查找大于100字符</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)全面搜索正则表达式<br><code>grep match_pattern file_name</code><br><code>grep &quot;match_pattern&quot; file_1 file_2 file_3 ...</code></p>
+<ul>
+<li>-a：不要忽略二进制数据</li>
+<li>-A&lt;显示列数&gt;：除了显示符合范本样式的那一行之外，并显示该行之后的内容</li>
+<li>-b：在显示符合范本样式的那一行之外，并显示该行之前的内容</li>
+<li>-c：计算符合范本样式的列数</li>
+<li>-C&lt;显示列数&gt;或-&lt;显示列数&gt;：除了显示符合范本样式的那一列之外，并显示该列之前后的内容</li>
+<li>-d&lt;进行动作&gt;：当指定要查找的是目录而非文件时，必须使用这项参数，否则grep命令将回报信息并停止动作</li>
+<li>-e&lt;范本样式&gt;：指定字符串作为查找文件内容的范本样式</li>
+<li>-E：将范本样式为延伸的普通表示法来使用，意味着使用能使用扩展正则表达式</li>
+<li>-f&lt;范本文件&gt;：指定范本文件，其内容有一个或多个范本样式，让grep查找符合范本条件的文件内容，格式为每一列的范本样式</li>
+<li>-F：将范本样式视为固定字符串的列表</li>
+<li>-G：将范本样式视为普通的表示法来使用</li>
+<li>-h：在显示符合范本样式的那一列之前，不标示该列所属的文件名称</li>
+<li>-H：在显示符合范本样式的那一列之前，标示该列的文件名称</li>
+<li>-i：忽略字符大小写的差别</li>
+<li>-l：列出文件内容符合指定的范本样式的文件名称</li>
+<li>-L：列出文件内容不符合指定的范本样式的文件名称</li>
+<li>-n：在显示符合范本样式的那一列之前，标示出该列的编号</li>
+<li>-q：不显示任何信息</li>
+<li>-R/-r：此参数的效果和指定“-d recurse”参数相同</li>
+<li>-s：不显示错误信息</li>
+<li>-v：反转查找</li>
+<li>-w：只显示全字符合的列</li>
+<li>-x：只显示全列符合的列</li>
+<li>-y：此参数效果跟“-i”相同</li>
+<li>-o：只输出文件中匹配到的部分</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep -E &quot;[1-9]+&quot;</span><br><span class="line">grep &quot;text&quot; -n file_name</span><br><span class="line">cat file_name | grep &quot;text&quot; -n</span><br><span class="line">grep -l &quot;text&quot; file1 file2 file3 # 多文件搜索</span><br><span class="line">grep &quot;text&quot; . -r -n # 递归搜索</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>7、文件连接</strong><br>(1)ln文件连接<br><code>ln [选项] 源文件 目标文件</code></p>
+<ul>
+<li>-b或–backup：删除，覆盖目标文件之前的备份</li>
+<li>-d或-F或——directory：建立目录的硬连接</li>
+<li>-f或——force：强行建立文件或目录的连接，不论文件或目录是否存在</li>
+<li>-i或——interactive：覆盖既有文件之前先询问用户</li>
+<li>-n或–no-dereference：把符号连接的目的目录视为一般文件</li>
+<li>-s或——symbolic：对源文件建立符号连接，而非硬连接</li>
+<li>-S&lt;字尾备份字符串&gt;或–suffix=&lt;字尾备份字符串&gt;：用”-b”参数备份目标文件后，备份文件的字尾会被加上一个备份字符串，预设的备份字符串是符号“~”，用户可通过“-S”参数来改变它</li>
+<li>-v或——verbose：显示指令执行过程</li>
+<li>-V&lt;备份方式&gt;或–version-control=&lt;备份方式&gt;：用“-b”参数备份目标文件后，备份文件的字尾会被加上一个备份字符串，这个字符串不仅可用“-S”参数变更，当使用“-V”参数&lt;备份方式&gt;指定不同备份方式时，也会产生不同字尾的备份字符串</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln ott.txt /cache/test21/ott1.txt # 硬连接，绝对路径，相当于copy备份</span><br><span class="line">ln  -s ott.txt /cache/test21/ott1.txt # 软连接，绝对路径，相当于快捷方式</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="六、文件压缩"><a href="#六、文件压缩" class="headerlink" title="六、文件压缩"></a>六、文件压缩</h2><p><strong>1、tar打包</strong><br><code>tar [选项] 文件或目录</code></p>
+<ul>
+<li>-A或–catenate：新增文件到以存在的备份文件</li>
+<li>-B：设置区块大小</li>
+<li>-c或–create：建立新的备份文件</li>
+<li>-C &lt;目录&gt;：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项</li>
+<li>-d：记录文件的差别</li>
+<li>-x或–extract或–get：从备份文件中还原文件</li>
+<li>-t或–list：列出备份文件的内容</li>
+<li>-z或–gzip或–ungzip：通过gzip指令处理备份文件</li>
+<li>-Z或–compress或–uncompress：通过compress指令处理备份文件</li>
+<li>-f&lt;备份文件&gt;或–file=&lt;备份文件&gt;：指定备份文件</li>
+<li>-v或–verbose：显示指令执行过程</li>
+<li>-r：添加文件到已经压缩的文件</li>
+<li>-u：添加改变了和现有的文件到已经存在的压缩文件</li>
+<li>-j：支持bzip2解压文件</li>
+<li>-v：显示操作过程</li>
+<li>-l：文件系统边界设置</li>
+<li>-k：保留原有文件不覆盖</li>
+<li>-m：保留文件不被覆盖</li>
+<li>-w：确认压缩文件的正确性</li>
+<li>-p或–same-permissions：用原来的文件权限还原文件</li>
+<li>-P或–absolute-names：文件名使用绝对名称，不移除文件名称前的“/”号</li>
+<li>-N &lt;日期格式&gt; 或 –newer=&lt;日期时间&gt;：只将较指定日期更新的文件保存到备份文件里</li>
+<li>–exclude=&lt;范本样式&gt;：排除符合范本样式的文件</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf log.tar log2012.log  # 仅打包，不压缩</span><br><span class="line">tar -zcvf log.tar.gz log2012.log  # 打包后，以 gzip 压缩 </span><br><span class="line">tar -jcvf log.tar.bz2 log2012.log # 打包后，以 bzip2 压缩 </span><br><span class="line">tar -zxvf /opt/soft/test/log.tar.gz # 解压缩</span><br><span class="line">tar -ztvf log.tar.gz # 查阅tar包内文件</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、gzip压缩</strong><br><code>gzip [选项] 文件或目录</code></p>
+<ul>
+<li>-a或——ascii：使用ASCII文字模式</li>
+<li>-d或–decompress或—-uncompress：解开压缩文件</li>
+<li>-f或——force：强行压缩文件。不理会文件名称或硬连接是否存在以及该文件是否为符号连接</li>
+<li>-h或——help：在线帮助</li>
+<li>-l或——list：列出压缩文件的相关信息</li>
+<li>-L或——license：显示版本与版权信息</li>
+<li>-n或–no-name：压缩文件时，不保存原来的文件名称及时间戳记</li>
+<li>-N或——name：压缩文件时，保存原来的文件名称及时间戳记</li>
+<li>-q或——quiet：不显示警告信息</li>
+<li>-r或——recursive：递归处理，将指定目录下的所有文件及子目录一并处理</li>
+<li>-S或&lt;压缩字尾字符串&gt;或—-suffix&lt;压缩字尾字符串&gt;：更改压缩字尾字符串</li>
+<li>-t或——test：测试压缩文件是否正确无误</li>
+<li>-v或——verbose：显示指令执行过程</li>
+<li>-V或——version：显示版本信息</li>
+<li>-&lt;压缩效率&gt;：压缩效率是一个介于1~9的数值，预设值为“6”，指定愈大的数值，压缩效率就会愈高</li>
+<li>–best：此参数的效果和指定“-9”参数相同</li>
+<li>–fast：此参数的效果和指定“-1”参数相同</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip * # 把test目录下的每个文件压缩成.gz文件</span><br><span class="line">gzip -dv * 把上例中每个压缩的文件解压，并列出详细的信息 </span><br><span class="line">gzip -l * 把1例中每个压缩的文件解压，并列出详细的信息</span><br><span class="line">gzip -r log.tar # 压缩一个tar备份文件，此时压缩文件的扩展名为.tar.gz</span><br><span class="line">gzip -rv test # 递归的压缩目录 </span><br><span class="line">gzip -dr test # 递归地解压目录</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="七、用户管理"><a href="#七、用户管理" class="headerlink" title="七、用户管理"></a>七、用户管理</h2><p><strong>1、用户账号的管理</strong><br>用户账号的管理工作主要涉及到用户账号的添加、修改和删除。<br>添加用户账号就是在系统中创建一个新账号，然后为新账号分配用户号、用户组、主目录和登录Shell等资源。刚添加的账号是被锁定的，无法使用。<br>(1)添加新用户账号<br>增加用户账号就是在/etc/passwd文件中为新用户增加一条记录，同时更新其他系统文件如/etc/shadow, /etc/group等。<br><code>useradd [选项] 用户名</code></p>
+<ul>
+<li>-c comment：指定一段注释性描述</li>
+<li>-d 目录：指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录</li>
+<li>-g 用户组：指定用户所属的用户组</li>
+<li>-G 用户组，用户组：指定用户所属的附加组</li>
+<li>-s Shell文件 指定用户的登录Shell</li>
+<li>-u 用户号：指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd –d /usr/tester -s /bin/sh -g group –G adm,root tester #新建一个用户tester，同时新建主目录，该用户的登录Shell是/bin/sh，它属于group用户组，同时又属于adm和root用户组，其中group用户组是其主组。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)删除用户账号<br>删除用户账号就是要将/etc/passwd等系统文件中的该用户记录删除，必要时还删除用户的主目录。<br><code>userdel [选项] 用户名</code></p>
+<ul>
+<li>-r：把用户的主目录一起删除</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">userdel -r tester</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)修改用户账号<br><code>usermod [选项] 用户名</code></p>
+<ul>
+<li>-c comment：指定一段注释性描述</li>
+<li>-d 目录：指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录</li>
+<li>-g 用户组：指定用户所属的用户组</li>
+<li>-G 用户组，用户组：指定用户所属的附加组</li>
+<li>-s Shell文件 指定用户的登录Shell</li>
+<li>-u 用户号：指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号</li>
+<li>-l 新用户名：指定一个新的账号，即将原来的用户名改为新的用户名</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -s /bin/ksh -d /home/z –g developer tester</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)用户口令管理<br>用户账号刚创建时没有口令，但是被系统锁定，无法使用，必须为其指定口令后才可以使用，即使是指定空口令。<br><code>passwd [选项] 用户名</code></p>
+<ul>
+<li>-l：锁定口令，即禁用账号</li>
+<li>-u：口令解锁</li>
+<li>-d：使账号无口令</li>
+<li>-f：强迫用户下次登录时修改口令</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#普通用户修改自己的口令时，passwd命令会先询问原口令，验证后再要求用户输入两遍新口令</span><br><span class="line">passwd    </span><br><span class="line">Old password:****** </span><br><span class="line">New password:******* </span><br><span class="line">Re-enter new password:*******</span><br><span class="line"></span><br><span class="line">#超级用户为用户指定口令时，就不需要知道原口令</span><br><span class="line">passwd tester </span><br><span class="line">New password:******* </span><br><span class="line">Re-enter new password:*******</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、用户组的管理</strong><br>用户组的管理涉及用户组的添加、删除和修改。组的增加、删除和修改实际上就是对/etc/group文件的更新。<br>(1)增加新的用户组<br><code>groupadd [选项] 用户组</code></p>
+<ul>
+<li>-g GID：指定新用户组的组标识号（GID）</li>
+<li>-o：一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd group1 # 增加了一个新组group1，新组的组标识号是在当前已有的最大组标识号的基础上加1</span><br><span class="line">groupadd -g 101 group2 # 增加了一个新组group2，同时指定新组的组标识号是101</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)删除用户组<br><code>groupdel 用户组</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupdel group1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)修改用户组<br><code>groupmod [选项] 用户组</code></p>
+<ul>
+<li>-g GID：为用户组指定新的组标识号</li>
+<li>-o：与-g选项同时使用，用户组的新GID可以与系统已有用户组的GID相同</li>
+<li>-n 新用户组：将用户组的名字改为新名字</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupmod –g 10000 -n group3 group2 # 将组group2的标识号改为10000，组名修改为group3</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)切换用户组<br><code>newgrp root</code></p>
+<p><strong>3、与用户账号有关的系统文件</strong><br>(1)/etc/passwd文件<br>每个用户都在/etc/passwd文件中有一个对应的记录行，它记录了这个用户的一些基本属性。<br><code>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/passwd</span><br><span class="line"></span><br><span class="line">root:x:0:0:Superuser:/:</span><br><span class="line">daemon:x:1:1:System daemons:/etc:</span><br><span class="line">bin:x:2:2:Owner of system commands:/bin:</span><br><span class="line">sys:x:3:3:Owner of system files:/usr/sys:</span><br><span class="line">adm:x:4:4:System accounting:/usr/adm:</span><br><span class="line">uucp:x:5:5:UUCP administrator:/usr/lib/uucp:</span><br><span class="line">auth:x:7:21:Authentication administrator:/tcb/files/auth:</span><br><span class="line">cron:x:9:16:Cron daemon:/usr/spool/cron:</span><br><span class="line">listen:x:37:4:Network daemon:/usr/net/nls:</span><br><span class="line">lp:x:71:18:Printer administrator:/usr/spool/lp:</span><br><span class="line">sam:x:200:50:Sam san:/usr/sam:/bin/sh</span><br><span class="line"></span><br><span class="line">#系统中有一类用户称为伪用户（psuedo users）</span><br><span class="line">#bin 拥有可执行的用户命令文件 </span><br><span class="line">#sys 拥有系统文件 </span><br><span class="line">#adm 拥有帐户文件 </span><br><span class="line">#uucp UUCP使用 </span><br><span class="line">#lp lp或lpd子系统使用 </span><br><span class="line">#nobody NFS使用</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)/etc/shadow文件<br>由于/etc/passwd文件是所有用户都可读的,因此对安全性要求较高的Linux系统都把加密后的口令字分离出来，单独存放在/etc/shadow文件。 有超级用户才拥有该文件读权限，这就保证了用户密码的安全性。<br><code>登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">＃ cat /etc/shadow</span><br><span class="line"></span><br><span class="line">root:Dnakfw28zf38w:8764:0:168:7:::</span><br><span class="line">daemon:*::0:0::::</span><br><span class="line">bin:*::0:0::::</span><br><span class="line">sys:*::0:0::::</span><br><span class="line">adm:*::0:0::::</span><br><span class="line">uucp:*::0:0::::</span><br><span class="line">nuucp:*::0:0::::</span><br><span class="line">auth:*::0:0::::</span><br><span class="line">cron:*::0:0::::</span><br><span class="line">listen:*::0:0::::</span><br><span class="line">lp:*::0:0::::</span><br><span class="line">sam:EkdiSECLWPdSa:9740:0:0::::</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)/etc/group文件<br><code>组名:口令:组标识号:组内用户列表</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root::0:root</span><br><span class="line">bin::2:root,bin</span><br><span class="line">sys::3:root,uucp</span><br><span class="line">adm::4:root,adm</span><br><span class="line">daemon::5:root,daemon</span><br><span class="line">lp::7:root,lp</span><br><span class="line">users::20:root,sam</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="八、磁盘管理"><a href="#八、磁盘管理" class="headerlink" title="八、磁盘管理"></a>八、磁盘管理</h2><p><strong>1、df检查文件系统的磁盘空间占用情况</strong><br>利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。<br><code>df [-ahikHTm] [目录或文件名]</code></p>
+<ul>
+<li>-a：列出所有的文件系统，包括系统特有的 /proc 等文件系统</li>
+<li>-k：以 KBytes 的容量显示各文件系统</li>
+<li>-m：以 MBytes 的容量显示各文件系统</li>
+<li>-h：以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示</li>
+<li>-H：以 M=1000K 取代 M=1024K 的进位方式</li>
+<li>-T：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出</li>
+<li>-i：不用硬盘容量，而以 inode 的数量来显示</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# df -h</span><br><span class="line">Filesystem            Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/hdc2             9.5G  3.7G  5.4G  41% /</span><br><span class="line">/dev/hdc3             4.8G  139M  4.4G   4% /home</span><br><span class="line">/dev/hdc1              99M   11M   83M  12% /boot</span><br><span class="line">tmpfs                 363M     0  363M   0% /dev/shm</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、du对文件和目录磁盘使用的空间的查看</strong><br><code>du [-ahskm] 文件或目录名称</code></p>
+<ul>
+<li>-a：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已</li>
+<li>-h：以人们较易读的容量格式 (G/M) 显示</li>
+<li>-s：列出总量而已，而不列出每个各别的目录占用容量</li>
+<li>-S：不包括子目录下的总计，与 -s 有点差别</li>
+<li>-k：以 KBytes 列出容量显示</li>
+<li>-m：以 MBytes 列出容量显示</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# du -a</span><br><span class="line">12      ./install.log.syslog   &lt;==有文件的列表了</span><br><span class="line">8       ./.bash_logout</span><br><span class="line">8       ./test4</span><br><span class="line">8       ./test2</span><br><span class="line">....中间省略....</span><br><span class="line">12      ./.gconfd</span><br><span class="line">220     .</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、fdisk磁盘分区表操作工具</strong><br><code>fdisk [-l] 装置名称</code></p>
+<ul>
+<li>-l ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# df /           #仅找出磁盘文件名而已</span><br><span class="line">Filesystem           1K-blocks      Used Available Use% Mounted on</span><br><span class="line">/dev/hdc2              9920624   3823168   5585388  41% /</span><br><span class="line"></span><br><span class="line">[root@www ~]# fdisk /dev/hdc  #注意不要加上数字！</span><br><span class="line">...</span><br><span class="line">Command (m for help):     # 等待你的输入！</span><br><span class="line"></span><br><span class="line">Command (m for help): m   #输入 m 后，就会看到底下这些命令介绍</span><br><span class="line">Command action</span><br><span class="line">   a   toggle a bootable flag</span><br><span class="line">   b   edit bsd disklabel</span><br><span class="line">   c   toggle the dos compatibility flag</span><br><span class="line">   d   delete a partition            #删除一个partition</span><br><span class="line">   l   list known partition types</span><br><span class="line">   m   print this menu</span><br><span class="line">   n   add a new partition           #新增一个partition</span><br><span class="line">   o   create a new empty DOS partition table</span><br><span class="line">   p   print the partition table     #在屏幕上显示分割表</span><br><span class="line">   q   quit without saving changes   #不储存离开fdisk程序</span><br><span class="line">   s   create a new empty Sun disklabel</span><br><span class="line">   t   change a partition&apos;s system id</span><br><span class="line">   u   change display/entry units</span><br><span class="line">   v   verify the partition table</span><br><span class="line">   w   write table to disk and exit  #将刚刚的动作写入分割表</span><br><span class="line">   x   extra functionality (experts only)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、 mkfs磁盘格式化</strong><br><code>mkfs [-t 文件系统格式] 装置文件名</code></p>
+<ul>
+<li>-t ：可以接文件系统格式，例如 ext3, ext2, vfat 等(系统有支持才会生效) </li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# mkfs -t ext3 /dev/hdc6</span><br><span class="line">mke2fs 1.39 (29-May-2006)</span><br><span class="line">Filesystem label=                #这里指的是分割槽的名称(label)</span><br><span class="line">OS type: Linux</span><br><span class="line">Block size=4096 (log=2)          #block 的大小配置为 4K </span><br><span class="line">Fragment size=4096 (log=2)</span><br><span class="line">251392 inodes, 502023 blocks     #由此配置决定的inode/block数量</span><br><span class="line">25101 blocks (5.00%) reserved for the super user</span><br><span class="line">First data block=0</span><br><span class="line">Maximum filesystem blocks=515899392</span><br><span class="line">16 block groups</span><br><span class="line">32768 blocks per group, 32768 fragments per group</span><br><span class="line">15712 inodes per group</span><br><span class="line">Superblock backups stored on blocks:</span><br><span class="line">        32768, 98304, 163840, 229376, 294912</span><br><span class="line"></span><br><span class="line">Writing inode tables: done</span><br><span class="line">Creating journal (8192 blocks): done #有日志记录</span><br><span class="line">Writing superblocks and filesystem accounting information: done</span><br><span class="line"></span><br><span class="line">This filesystem will be automatically checked every 34 mounts or</span><br><span class="line">180 days, whichever comes first.  Use tune2fs -c or -i to override.</span><br><span class="line"># 这样就创建起来我们所需要的 Ext3 文件系统了！简单明了！</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、磁盘挂载和卸载</strong><br>(1)mount挂载磁盘<br><code>mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ios9660 /dev/cdrom /mnt/cdrom #将光盘设备挂载到/mnt/cdrom</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)umount卸载磁盘<br><code>umount [-fn] 装置文件名或挂载点</code></p>
+<ul>
+<li>-f：强制卸除！可用在类似网络文件系统 (NFS) 无法读取到的情况下</li>
+<li>-n：不升级 /etc/mtab 情况下卸除</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /mnt/cdrom</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="九、进程管理"><a href="#九、进程管理" class="headerlink" title="九、进程管理"></a>九、进程管理</h2><p><strong>1、ps查看进程</strong><br><code>ps [选项]</code></p>
+<ul>
+<li>-a：显示所有终端机下执行的程序，除了阶段作业领导者之外。</li>
+<li>a：显示现行终端机下的所有程序，包括其他用户的程序。</li>
+<li>-A：显示所有程序。</li>
+<li>-c：显示CLS和PRI栏位。</li>
+<li>c：列出程序时，显示每个程序真正的指令名称，而不包含路径，选项或常驻服务的标示。</li>
+<li>-C&lt;指令名称&gt;：指定执行指令的名称，并列出该指令的程序的状况。</li>
+<li>-d：显示所有程序，但不包括阶段作业领导者的程序。</li>
+<li>-e：此选项的效果和指定”A”选项相同。</li>
+<li>e：列出程序时，显示每个程序所使用的环境变量。</li>
+<li>-f：显示UID,PPIP,C与STIME栏位。</li>
+<li>f：用ASCII字符显示树状结构，表达程序间的相互关系。</li>
+<li>-g&lt;群组名称&gt;：此选项的效果和指定”-G”选项相同，当亦能使用阶段作业领导者的名称来指定。</li>
+<li>g：显示现行终端机下的所有程序，包括群组领导者的程序。</li>
+<li>-G&lt;群组识别码&gt;：列出属于该群组的程序的状况，也可使用群组名称来指定。</li>
+<li>h：不显示标题列。</li>
+<li>-H：显示树状结构，表示程序间的相互关系。</li>
+<li>-j或j：采用工作控制的格式显示程序状况。</li>
+<li>-l或l：采用详细的格式来显示程序状况。</li>
+<li>L：列出栏位的相关信息。</li>
+<li>-m或m：显示所有的执行绪。</li>
+<li>n：以数字来表示USER和WCHAN栏位。</li>
+<li>-N：显示所有的程序，除了执行ps指令终端机下的程序之外。</li>
+<li>-p&lt;程序识别码&gt;：指定程序识别码，并列出该程序的状况。</li>
+<li>p&lt;程序识别码&gt;：此选项的效果和指定”-p”选项相同，只在列表格式方面稍有差异。</li>
+<li>r：只列出现行终端机正在执行中的程序。</li>
+<li>-s&lt;阶段作业&gt;：指定阶段作业的程序识别码，并列出隶属该阶段作业的程序的状况。</li>
+<li>s：采用程序信号的格式显示程序状况。</li>
+<li>S：列出程序时，包括已中断的子程序资料。</li>
+<li>-t&lt;终端机编号&gt;：指定终端机编号，并列出属于该终端机的程序的状况。</li>
+<li>t&lt;终端机编号&gt;：此选项的效果和指定”-t”选项相同，只在列表格式方面稍有差异。</li>
+<li>-T：显示现行终端机下的所有程序。</li>
+<li>-u&lt;用户识别码&gt;：此选项的效果和指定”-U”选项相同。</li>
+<li>u：以用户为主的格式来显示程序状况。</li>
+<li>-U&lt;用户识别码&gt;：列出属于该用户的程序的状况，也可使用用户名称来指定。</li>
+<li>U&lt;用户名称&gt;：列出属于该用户的程序的状况。</li>
+<li>v：采用虚拟内存的格式显示程序状况。</li>
+<li>-V或V：显示版本信息。</li>
+<li>-w或w：采用宽阔的格式来显示程序状况。　</li>
+<li>x：显示所有程序，不以终端机来区分。</li>
+<li>X：采用旧式的Linux i386登陆格式显示程序状况。</li>
+<li>-y：配合选项”-l”使用时，不显示F(flag)栏位，并以RSS栏位取代ADDR栏位　。</li>
+<li>-&lt;程序识别码&gt;：此选项的效果和指定”p”选项相同。</li>
+<li>–cols&lt;每列字符数&gt;：设置每列的最大字符数。</li>
+<li>–columns&lt;每列字符数&gt;：此选项的效果和指定”–cols”选项相同。</li>
+<li>–cumulative：此选项的效果和指定”S”选项相同。</li>
+<li>–deselect：此选项的效果和指定”-N”选项相同。</li>
+<li>–forest：此选项的效果和指定”f”选项相同。</li>
+<li>–headers：重复显示标题列。</li>
+<li>–help：在线帮助。</li>
+<li>–info：显示排错信息。</li>
+<li>–lines&lt;显示列数&gt;：设置显示画面的列数。</li>
+<li>–no-headers：此选项的效果和指定”h”选项相同，只在列表格式方面稍有差异。</li>
+<li>–group&lt;群组名称&gt;：此选项的效果和指定”-G”选项相同。</li>
+<li>–Group&lt;群组识别码&gt;：此选项的效果和指定”-G”选项相同。</li>
+<li>–pid&lt;程序识别码&gt;：此选项的效果和指定”-p”选项相同。</li>
+<li>–rows&lt;显示列数&gt;：此选项的效果和指定”–lines”选项相同。</li>
+<li>–sid&lt;阶段作业&gt;：此选项的效果和指定”-s”选项相同。</li>
+<li>–tty&lt;终端机编号&gt;：此选项的效果和指定”-t”选项相同。</li>
+<li>–user&lt;用户名称&gt;：此选项的效果和指定”-U”选项相同。</li>
+<li>–User&lt;用户识别码&gt;：此选项的效果和指定”-U”选项相同。</li>
+<li>–version：此选项的效果和指定”-V”选项相同。</li>
+<li>–widty&lt;每列字符数&gt;：此选项的效果和指定”-cols”选项相同。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -a #列出所有进程</span><br><span class="line">ps -ef | grep xxx #列出所需进程</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、kill终止进程</strong><br><code>kill [选项] 进程或作业识别号</code></p>
+<ul>
+<li>-a：当处理当前进程时，不限制命令名和进程号的对应关系</li>
+<li>-l &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称</li>
+<li>-p：指定kill 命令只打印相关进程的进程号，而不发送任何信号</li>
+<li>-s &lt;信息名称或编号&gt;：指定要送出的信息</li>
+<li>-u：指定用户</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep vim #查看pid</span><br><span class="line">root      3268  2884  0 16:21 pts/1    00:00:00 vim install.log</span><br><span class="line">root      3370  2822  0 16:21 pts/0    00:00:00 grep vim</span><br><span class="line"></span><br><span class="line">kill 3268 #杀掉进程</span><br><span class="line">kill -9 3268 #强制杀掉进程</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十、系统性能"><a href="#十、系统性能" class="headerlink" title="十、系统性能"></a>十、系统性能</h2><p><strong>1、top实时动态查看系统整体运行情况</strong><br><code>top [选项]</code></p>
+<ul>
+<li>-b：以批处理模式操作</li>
+<li>-c：显示完整的治命令</li>
+<li>-d：屏幕刷新间隔时间</li>
+<li>-I：忽略失效过程</li>
+<li>-s：保密模式</li>
+<li>-S：累积模式</li>
+<li>-i&lt;时间&gt;：设置间隔时间</li>
+<li>-u&lt;用户名&gt;：指定用户名</li>
+<li>-p&lt;进程号&gt;：指定进程</li>
+<li>-n&lt;次数&gt;：循环显示的次数</li>
+</ul>
+<p>在top命令执行过程中可以使用的一些交互命令:</p>
+<ul>
+<li>h：显示帮助画面，给出一些简短的命令总结说明</li>
+<li>k：终止一个进程</li>
+<li>i：忽略闲置和僵死进程，这是一个开关式命令</li>
+<li>q：退出程序</li>
+<li>r：重新安排一个进程的优先级别</li>
+<li>S：切换到累计模式</li>
+<li>s：改变两次刷新之间的延迟时间（单位为s），如果有小数，就换算成ms。输入0值则系统将不断刷新，默认值是5s</li>
+<li>f或者F：从当前显示中添加或者删除项目</li>
+<li>o或者O：改变显示项目的顺序</li>
+<li>l：切换显示平均负载和启动时间信息</li>
+<li>m：切换显示内存信息</li>
+<li>t：切换显示进程和CPU状态信息</li>
+<li>c：切换显示命令名称和完整命令行</li>
+<li>M：根据驻留内存大小进行排序</li>
+<li>P：根据CPU使用百分比大小进行排序</li>
+<li>T：根据时间/累计时间进行排序</li>
+<li>w：将当前设置写入~/.toprc文件中</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]$ top</span><br><span class="line"># 统计信息：前五行是系统整体的统计信息</span><br><span class="line">top - 16:07:37 up 241 days, 20:11,  1 user,  load average: 0.96, 1.13, 1.25</span><br><span class="line">Tasks: 231 total,   1 running, 230 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s): 12.7%us,  8.4%sy,  0.0%ni, 77.1%id,  0.0%wa,  0.0%hi,  1.8%si,  0.0%st</span><br><span class="line">Mem:  12196436k total, 12056552k used,   139884k free,    64564k buffers</span><br><span class="line">Swap:  2097144k total,   151016k used,  1946128k free,  3120236k cached</span><br><span class="line"></span><br><span class="line"># 进程信息：统计信息下方类似表格区域显示的是各个进程的详细信息，默认5秒刷新一次</span><br><span class="line">PID     USER      PR    NI   VIRT    RES     SHR    S   %CPU    %MEM        TIME+   COMMAND</span><br><span class="line">18411   pplive    20     0  11.9g   7.8g    5372    S  220.2    67.1     16761:00   java</span><br><span class="line"> 1875   pplive    20     0  3958m   127m    4564    S    4.6     1.1     12497:35   java</span><br><span class="line">    4   root      20     0      0      0       0    S    0.3     0.0    184:01.76   ksoftirqd/0</span><br><span class="line">   13   root      20     0      0      0       0    S    0.3     0.0    135:49.83   ksoftirqd/2</span><br><span class="line">   25   root      20     0      0      0       0    S    0.3     0.0    136:54.49   ksoftirqd/5</span><br><span class="line">   </span><br><span class="line"># 统计信息说明：</span><br><span class="line">	# 第1行：Top 任务队列信息(系统运行状态及平均负载)，与uptime命令结果相同。 </span><br><span class="line">		# 第1段：系统当前时间，例如：16:07:37</span><br><span class="line">		# 第2段：系统运行时间，未重启的时间，时间越长系统越稳定。 </span><br><span class="line">			# 格式：up xx days, HH:MM</span><br><span class="line">			# 例如：241 days, 20:11, 表示连续运行了241天20小时11分钟</span><br><span class="line">		# 第3段：当前登录用户数，例如：1 user，表示当前只有1个用户登录</span><br><span class="line">		# 第4段：系统负载，即任务队列的平均长度，3个数值分别统计最近1，5，15分钟的系统平均负载 </span><br><span class="line">			# 系统平均负载：单核CPU情况下，0.00 表示没有任何负荷，1.00表示刚好满负荷，超过1侧表示超负荷，理想值是0.7；</span><br><span class="line">			# 多核CPU负载：CPU核数 * 理想值0.7 = 理想负荷，例如：4核CPU负载不超过2.8何表示没有出现高负载。</span><br><span class="line">	# 第2行：Tasks 进程相关信息 </span><br><span class="line">		# 第1段：进程总数，例如：Tasks: 231 total, 表示总共运行231个进程</span><br><span class="line">		# 第2段：正在运行的进程数，例如：1 running,</span><br><span class="line">		# 第3段：睡眠的进程数，例如：230 sleeping,</span><br><span class="line">		# 第4段：停止的进程数，例如：0 stopped,</span><br><span class="line">		# 第5段：僵尸进程数，例如：0 zombie</span><br><span class="line">	# 第3行：Cpus CPU相关信息，如果是多核CPU，按数字1可显示各核CPU信息，此时1行将转为Cpu核数行，数字1可以来回切换。 </span><br><span class="line">		# 第1段：us 用户空间占用CPU百分比，例如：Cpu(s): 12.7%us,</span><br><span class="line">		# 第2段：sy 内核空间占用CPU百分比，例如：8.4%sy,</span><br><span class="line">		# 第3段：ni 用户进程空间内改变过优先级的进程占用CPU百分比，例如：0.0%ni,</span><br><span class="line">		# 第4段：id 空闲CPU百分比，例如：77.1%id,</span><br><span class="line">		# 第5段：wa 等待输入输出的CPU时间百分比，例如：0.0%wa,</span><br><span class="line">		# 第6段：hi CPU服务于硬件中断所耗费的时间总额，例如：0.0%hi,</span><br><span class="line">		# 第7段：si CPU服务软中断所耗费的时间总额，例如：1.8%si,</span><br><span class="line">		# 第8段：st Steal time 虚拟机被hypervisor偷去的CPU时间（如果当前处于一个hypervisor下的vm，实际上hypervisor也是要消耗一部分CPU处理时间的）</span><br><span class="line">	# 第4行：Mem 内存相关信息（Mem: 12196436k total, 12056552k used, 139884k free, 64564k buffers） </span><br><span class="line">		# 第1段：物理内存总量，例如：Mem: 12196436k total,</span><br><span class="line">		# 第2段：使用的物理内存总量，例如：12056552k used,</span><br><span class="line">		# 第3段：空闲内存总量，例如：Mem: 139884k free,</span><br><span class="line">		# 第4段：用作内核缓存的内存量，例如：64564k buffers</span><br><span class="line">	# 第5行：Swap 交换分区相关信息（Swap: 2097144k total, 151016k used, 1946128k free, 3120236k cached） </span><br><span class="line">		# 第1段：交换区总量，例如：Swap: 2097144k total,</span><br><span class="line">		# 第2段：使用的交换区总量，例如：151016k used,</span><br><span class="line">		# 第3段：空闲交换区总量，例如：1946128k free,</span><br><span class="line">		# 第4段：缓冲的交换区总量，3120236k cached   </span><br><span class="line"></span><br><span class="line"># 进程信息说明：</span><br><span class="line">	# A: PID = (Process Id) 进程Id；</span><br><span class="line">	# E: USER = (User Name) 进程所有者的用户名；</span><br><span class="line">	# H: PR = (Priority) 优先级</span><br><span class="line">	# I: NI = (Nice value) nice值。负值表示高优先级，正值表示低优先级</span><br><span class="line">	# O: VIRT = (Virtual Image (kb)) 进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</span><br><span class="line">	# Q: RES = (Resident size (kb)) 进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA</span><br><span class="line">	# T: SHR = (Shared Mem size (kb)) 共享内存大小，单位kb</span><br><span class="line">	# W: S = (Process Status) 进程状态。D=不可中断的睡眠状态,R=运行,S=睡眠,T=跟踪/停止,Z=僵尸进程</span><br><span class="line">	# K: %CPU = (CPU usage) 上次更新到现在的CPU时间占用百分比</span><br><span class="line">	# N: %MEM = (Memory usage (RES)) 进程使用的物理内存百分比</span><br><span class="line">	# M: TIME+ = (CPU Time, hundredths) 进程使用的CPU时间总计，单位1/100秒 </span><br><span class="line">	# b: PPID = (Parent Process Pid) 父进程Id </span><br><span class="line">	# c: RUSER = (Real user name) </span><br><span class="line">	# d: UID = (User Id) 进程所有者的用户id </span><br><span class="line">	# f: GROUP = (Group Name) 进程所有者的组名 </span><br><span class="line">	# g: TTY = (Controlling Tty) 启动进程的终端名。不是从终端启动的进程则显示为 ? </span><br><span class="line">	# j: P = (Last used cpu (SMP)) 最后使用的CPU，仅在多CPU环境下有意义 </span><br><span class="line">	# p: SWAP = (Swapped size (kb)) 进程使用的虚拟内存中，被换出的大小，单位kb </span><br><span class="line">	# l: TIME = (CPU Time) 进程使用的CPU时间总计，单位秒 </span><br><span class="line">	# r: CODE = (Code size (kb)) 可执行代码占用的物理内存大小，单位kb </span><br><span class="line">	# s: DATA = (Data+Stack size (kb)) 可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb </span><br><span class="line">	# u: nFLT = (Page Fault count) 页面错误次数 </span><br><span class="line">	# v: nDRT = (Dirty Pages count) 最后一次写入到现在，被修改过的页面数 </span><br><span class="line">	# y: WCHAN = (Sleeping in Function) 若该进程在睡眠，则显示睡眠中的系统函数名 </span><br><span class="line">	# z: Flags = (Task Flags &lt;sched.h&gt;) 任务标志，参考 sched.h</span><br><span class="line">	# X: COMMAND = (Command name/line) 命令名/命令行</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、free显示系统使用和空闲的内存情况</strong><br><code>free [选项]</code></p>
+<ul>
+<li>-b：以Byte为单位显示内存使用情况</li>
+<li>-k：以KB为单位显示内存使用情况</li>
+<li>-m：以MB为单位显示内存使用情况</li>
+<li>-o：不显示缓冲区调节列</li>
+<li>-s&lt;间隔秒数&gt;：持续观察内存使用状况</li>
+<li>-t：显示内存总和列</li>
+<li>-V：显示版本信息</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]$ free -m</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:          2016       1973         42          0        163       1497</span><br><span class="line">-/+ buffers/cache:        312       1703</span><br><span class="line">Swap:         4094          0       4094</span><br><span class="line"></span><br><span class="line"># 第一部分Mem行解释：</span><br><span class="line">	# total：内存总数；total=used+free</span><br><span class="line">	# used：已经使用的内存数；</span><br><span class="line">	# free：空闲的内存数；</span><br><span class="line">	# shared：当前已经废弃不用；</span><br><span class="line">	# buffers Buffer：缓存内存数；</span><br><span class="line">	# cached Page：缓存内存数。</span><br><span class="line"># 第二部分(-/+ buffers/cache)解释:</span><br><span class="line">	# (-buffers/cache) used内存数：第一部分Mem行中的 used – buffers – cached；反映的是被程序实实在在吃掉的内存。</span><br><span class="line">	# (+buffers/cache) free内存数: 第一部分Mem行中的 free + buffers + cached；反映的是可以挪用的内存总数。</span><br><span class="line"># 第三部分Swap交换分区:</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、cat /proc/meminfo查看系统内存情况</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]$ cat /proc/meminfo </span><br><span class="line"> </span><br><span class="line">MemTotal: 262144 kB  </span><br><span class="line">MemFree: 237904 kB  </span><br><span class="line">Cached: 10540 kB  </span><br><span class="line">Active: 10220 kB  </span><br><span class="line">Inactive: 7004 kB  </span><br><span class="line">Active(anon): 6608 kB  </span><br><span class="line">Inactive(anon): 76 kB  </span><br><span class="line">Active(file): 3612 kB  </span><br><span class="line">Inactive(file): 6928 kB  </span><br><span class="line">Unevictable: 0 kB  </span><br><span class="line">Mlocked: 0 kB  </span><br><span class="line">SwapTotal: 524288 kB  </span><br><span class="line">SwapFree: 524288 kB  </span><br><span class="line">Dirty: 0 kB  </span><br><span class="line">Writeback: 0 kB  </span><br><span class="line">AnonPages: 6684 kB  </span><br><span class="line">Shmem: 2632 kB  </span><br><span class="line">Slab: 6972 kB  </span><br><span class="line">SReclaimable: 4288 kB  </span><br><span class="line">SUnreclaim: 2684 kB  </span><br><span class="line"></span><br><span class="line"># 显示解释</span><br><span class="line"># MemTotal: 所有可用RAM大小（即物理内存减去一些预留位和内核的二进制代码大小）</span><br><span class="line"># MemFree: LowFree与HighFree的总和，被系统留着未使用的内存</span><br><span class="line"># Buffers: 用来给文件做缓冲大小</span><br><span class="line"># Cached: 被高速缓冲存储器（cache memory）用的内存的大小（等于 diskcache minus SwapCache ）.</span><br><span class="line"># SwapCached:被高速缓冲存储器（cache memory）用的交换空间的大小已经被交换出来的内存，但仍然被存放在swapfile中。用来在需要的时候很快的被替换而不需要再次打开I/O端口。</span><br><span class="line"># Active: 在活跃使用中的缓冲或高速缓冲存储器页面文件的大小，除非非常必要否则不会被移作他用.</span><br><span class="line"># Inactive: 在不经常使用中的缓冲或高速缓冲存储器页面文件的大小，可能被用于其他途径.</span><br><span class="line"># HighTotal:</span><br><span class="line"># HighFree: 该区域不是直接映射到内核空间。内核必须使用不同的手法使用该段内存。</span><br><span class="line"># LowTotal:</span><br><span class="line"># LowFree: 低位可以达到高位内存一样的作用，而且它还能够被内核用来记录一些自己的数据结构。Among many</span><br><span class="line"># other things, it is where everything from the Slab is allocated. Bad things happen when you’re out of lowmem.</span><br><span class="line"># SwapTotal: 交换空间的总大小</span><br><span class="line"># SwapFree: 未被使用交换空间的大小</span><br><span class="line"># Dirty: 等待被写回到磁盘的内存大小。</span><br><span class="line"># Writeback: 正在被写回到磁盘的内存大小。</span><br><span class="line"># AnonPages：未映射页的内存大小</span><br><span class="line"># Mapped: 设备和文件等映射的大小。</span><br><span class="line"># Slab: 内核数据结构缓存的大小，可以减少申请和释放内存带来的消耗。</span><br><span class="line"># SReclaimable:可收回Slab的大小</span><br><span class="line"># SUnreclaim：不可收回Slab的大小（SUnreclaim+SReclaimable＝Slab）</span><br><span class="line"># PageTables：管理内存分页页面的索引表的大小。</span><br><span class="line"># NFS_Unstable:不稳定页表的大小</span><br><span class="line"># VmallocTotal: 可以vmalloc虚拟内存大小</span><br><span class="line"># VmallocUsed: 已经被使用的虚拟内存大小。</span><br><span class="line"># VmallocChunk: largest contigious block of vmalloc area which is free</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、iostat监视磁盘操作活动</strong><br><code>iostat [选项] [时间] [次数]</code></p>
+<ul>
+<li>-C：显示CPU使用情况</li>
+<li>-d：显示磁盘使用情况</li>
+<li>-k：以 KB 为单位显示</li>
+<li>-m：以 M 为单位显示</li>
+<li>-N：显示磁盘阵列(LVM) 信息</li>
+<li>-n：显示NFS 使用情况</li>
+<li>-p[磁盘]：显示磁盘和分区的情况</li>
+<li>-t：显示终端和CPU的信息</li>
+<li>-x：显示详细信息</li>
+<li>-V：显示版本信息</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]# iostat</span><br><span class="line"></span><br><span class="line">#系统信息和监测时间</span><br><span class="line">Linux 2.6.18-128.el5 (CT1186)   2012年12月28日</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           8.30    0.02    5.07    0.17    0.00   86.44</span><br><span class="line">		   </span><br><span class="line">Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn</span><br><span class="line">sda              22.73        43.70       487.42  674035705 7517941952</span><br><span class="line">sda1              0.00         0.00         0.00       2658        536</span><br><span class="line">sda2              0.11         3.74         3.51   57721595   54202216</span><br><span class="line">sda3              0.98         0.61        17.51    9454172  270023368</span><br><span class="line">sda4              0.00         0.00         0.00          6          0</span><br><span class="line">sda5              6.95         0.12       108.73    1924834 1677123536</span><br><span class="line">sda6              2.20         0.18        31.22    2837260  481488056</span><br><span class="line">sda7             12.48        39.04       326.45  602094508 5035104240</span><br><span class="line"></span><br><span class="line"># cpu属性值说明： </span><br><span class="line">	# %user：CPU处在用户模式下的时间百分比。 </span><br><span class="line">	# %nice：CPU处在带NICE值的用户模式下的时间百分比。 </span><br><span class="line">	# %system：CPU处在系统模式下的时间百分比。 </span><br><span class="line">	# %iowait：CPU等待输入输出完成时间的百分比。</span><br><span class="line">	# %steal：管理程序维护另一个虚拟处理器时，虚拟CPU的无意识等待时间百分比。 </span><br><span class="line">	# %idle：CPU空闲时间百分比。</span><br><span class="line"># 备注：如果%iowait的值过高，表示硬盘存在I/O瓶颈，%idle值高，表示CPU较空闲，如果%idle值高但系统响应慢时，有可能是CPU等待分配内存，此时应加大内存容量。%idle值如果持续低于10，那么系统的CPU处理能力相对较低，表明系统中最需要解决的资源是CPU。</span><br><span class="line">	# disk属性值说明： </span><br><span class="line">	# rrqm/s: 每秒进行 merge 的读操作数目。即 rmerge/s </span><br><span class="line">	# wrqm/s: 每秒进行 merge 的写操作数目。即 wmerge/s </span><br><span class="line">	# r/s: 每秒完成的读 I/O 设备次数。即 rio/s </span><br><span class="line">	# w/s: 每秒完成的写 I/O 设备次数。即 wio/s </span><br><span class="line">	# rsec/s: 每秒读扇区数。即 rsect/s </span><br><span class="line">	# wsec/s: 每秒写扇区数。即 wsect/s </span><br><span class="line">	# rkB/s: 每秒读K字节数。是 rsect/s 的一半，因为每扇区大小为512字节。 </span><br><span class="line">	# wkB/s: 每秒写K字节数。是 wsect/s 的一半。 </span><br><span class="line">	# avgrq-sz: 平均每次设备I/O操作的数据大小 (扇区)。 </span><br><span class="line">	# avgqu-sz: 平均I/O队列长度。 </span><br><span class="line">	# # await: 平均每次设备I/O操作的等待时间 (毫秒)。 </span><br><span class="line">	# svctm: 平均每次设备I/O操作的服务时间 (毫秒)。 </span><br><span class="line">	# %util: 一秒中有百分之多少的时间用于 I/O 操作，即被io消耗的cpu百分比</span><br><span class="line"># 备注：如果 %util 接近 100%，说明产生的I/O请求太多，I/O系统已经满负荷，该磁盘可能存在瓶颈。如果 svctm 比较接近 await，说明 I/O 几乎没有等待时间；如果 await 远大于 svctm，说明I/O 队列太长，io响应太慢，则需要进行必要优化。如果avgqu-sz比较大，也表示有当量io在等待。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十一、软件安装"><a href="#十一、软件安装" class="headerlink" title="十一、软件安装"></a>十一、软件安装</h2><p><strong>1、yum软件包管理器</strong><br>(1)yum命令是在Fedora和RedHat以及SUSE中基于rpm的软件包管理器。<br><code>yum [选项] [参数] 软件包</code><br>选项：</p>
+<ul>
+<li>-h：显示帮助信息</li>
+<li>-y：对所有的提问都回答“yes”</li>
+<li>-c：指定配置文件</li>
+<li>-q：安静模式</li>
+<li>-v：详细模式</li>
+<li>-d：设置调试等级（0-10）</li>
+<li>-e：设置错误等级（0-10）</li>
+<li>-R：设置yum处理一个命令的最大等待时间</li>
+<li>-C：完全从缓存中运行，而不去下载或者更新任何头文件</li>
+</ul>
+<p>参数：</p>
+<ul>
+<li>install：安装rpm软件包</li>
+<li>update：更新rpm软件包</li>
+<li>check-update：检查是否有可用的更新rpm软件包</li>
+<li>remove：删除指定的rpm软件包</li>
+<li>list：显示软件包的信息</li>
+<li>search：检查软件包的信息</li>
+<li>info：显示指定的rpm软件包的描述信息和概要信息</li>
+<li>clean：清理yum过期的缓存</li>
+<li>shell：进入yum的shell提示符</li>
+<li>resolvedep：显示rpm软件包的依赖关系</li>
+<li>localinstall：安装本地的rpm软件包</li>
+<li>localupdate：显示本地rpm软件包进行更新</li>
+<li>deplist：显示rpm软件包的所有依赖关系</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">yum install              #全部安装</span><br><span class="line">yum install package1     #安装指定的安装包package1</span><br><span class="line">yum groupinsall group1   #安装程序组group1</span><br><span class="line"></span><br><span class="line">yum update               #全部更新</span><br><span class="line">yum update package1      #更新指定程序包package1</span><br><span class="line">yum check-update         #检查可更新的程序</span><br><span class="line">yum upgrade package1     #升级指定程序包package1</span><br><span class="line">yum groupupdate group1   #升级程序组group1</span><br><span class="line"></span><br><span class="line">yum info package1      #显示安装包信息package1</span><br><span class="line">yum list               #显示所有已经安装和可以安装的程序包</span><br><span class="line">yum list package1      #显示指定程序包安装情况package1</span><br><span class="line">yum groupinfo group1   #显示程序组group1信息yum search string 根据关键字string查找安装包</span><br><span class="line"></span><br><span class="line">yum remove &amp;#124; erase package1   #删除程序包package1</span><br><span class="line">yum groupremove group1             #删除程序组group1</span><br><span class="line">yum deplist package1               #查看程序package1依赖情况</span><br><span class="line"></span><br><span class="line">yum clean packages       #清除缓存目录下的软件包</span><br><span class="line">yum clean headers        #清除缓存目录下的 headers</span><br><span class="line">yum clean oldheaders     #清除缓存目录下旧的 headers</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)国内yum源</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#1.首先备份/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line">#2.下载对应版本repo文件, 放入/etc/yum.repos.d/(操作前请做好相应备份)</span><br><span class="line">#网易yum源：http://mirrors.163.com/.help/CentOS6-Base-163.repo</span><br><span class="line">#中科大yum源，安装方法查看：https://lug.ustc.edu.cn/wiki/mirrors/help/centos</span><br><span class="line">#sohuyum源，安装方法查看: http://mirrors.sohu.com/help/centos.html</span><br><span class="line"></span><br><span class="line">#3.运行以下命令生成缓存</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、apt-get软件包管理工具</strong><br>(1)apt-get命令是Debian Linux发行版中的APT软件包管理工具。<br><code>apt-get [选项] [参数] 软件包</code><br>选项： </p>
+<ul>
+<li>-h：本帮助文件。 </li>
+<li>-q：输出到日志 - 无进展指示 </li>
+<li>-qq：不输出信息，错误除外 </li>
+<li>-d：仅下载 - 不安装或解压归档文件 </li>
+<li>-s：不实际安装。模拟执行命令</li>
+<li>-y：假定对所有的询问选是，不提示 </li>
+<li>-f：尝试修正系统依赖损坏处 </li>
+<li>-m：如果归档无法定位，尝试继续</li>
+<li>-u：同时显示更新软件包的列表 </li>
+<li>-b：获取源码包后编译 -V 显示详细的版本号</li>
+<li>-c=?：阅读此配置文件</li>
+<li>-o=?：设置自定的配置选项，如 -o dir::cache=/tmp</li>
+</ul>
+<p>参数：</p>
+<ul>
+<li>update：重新获取软件包列表 </li>
+<li>upgrade：进行更新 </li>
+<li>install：安装新的软件包 </li>
+<li>remove：移除软件包 </li>
+<li>autoremove：自动移除全部不使用的软件包 </li>
+<li>purge：移除软件包和配置文件 </li>
+<li>source：下载源码档案 </li>
+<li>build-dep：为源码包配置编译依赖 </li>
+<li>dist-upgrade：发行版升级</li>
+<li>dselect-upgrade：依照 dselect 的选择更新 </li>
+<li>clean：清除下载的归档文件 </li>
+<li>autoclean：清除旧的的已下载的归档文件 </li>
+<li>check：检验是否有损坏的依赖 </li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-get install packagename # 安装一个新软件包</span><br><span class="line">apt-get remove packagename # 卸载一个已安装的软件包（保留配置文件）</span><br><span class="line">apt-get –purge remove packagename # 卸载一个已安装的软件包（删除配置文件）</span><br><span class="line">apt-get autoclean apt # 把已装或已卸的软件都备份在硬盘上,删除你已经删掉的软件</span><br><span class="line">apt-get clean # 把安装的软件的备份也删除</span><br><span class="line">apt-get upgrade # 更新所有已安装的软件包</span><br><span class="line">apt-get dist-upgrade # 将系统升级到新版本</span><br><span class="line">apt-get autoclean # 定期运行这个命令来清除那些已经卸载的软件包的.deb文件</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)国内apt-get源</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#1.原文件重命名备份</span><br><span class="line">sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line"></span><br><span class="line">#2.编辑源列表文件</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">#3.用下面文本做内容</span><br><span class="line">#deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">#deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">#deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">#deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"># ##测试版源</span><br><span class="line">#deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># #源码</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"># ##测试版源</span><br><span class="line">#deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse</span><br><span class="line"># #Canonical 合作伙伴和附加</span><br><span class="line">#deb http://archive.canonical.com/ubuntu/ xenial partner</span><br><span class="line">#deb http://extras.ubuntu.com/ubuntu/ xenial main</span><br><span class="line"></span><br><span class="line">#4.更新</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十二、网络管理"><a href="#十二、网络管理" class="headerlink" title="十二、网络管理"></a>十二、网络管理</h2><p><strong>1、ping测试网络状况</strong><br><code>ping [选项] 目的主机</code></p>
+<ul>
+<li>-d：使用Socket的SO_DEBUG功能；</li>
+<li>-c&lt;完成次数&gt;：设置完成要求回应的次数</li>
+<li>-f：极限检测</li>
+<li>-i&lt;间隔秒数&gt;：指定收发信息的间隔时间</li>
+<li>-I&lt;网络界面&gt;：使用指定的网络界面送出数据包</li>
+<li>-l&lt;前置载入&gt;：设置在送出要求信息之前，先行发出的数据包</li>
+<li>-n：只输出数值</li>
+<li>-p&lt;范本样式&gt;：设置填满数据包的范本样式</li>
+<li>-q：不显示指令执行过程，开头和结尾的相关信息除外</li>
+<li>-r：忽略普通的Routing Table，直接将数据包送到远端主机上</li>
+<li>-R：记录路由过程</li>
+<li>-s&lt;数据包大小&gt;：设置数据包的大小</li>
+<li>-t&lt;存活数值&gt;：设置存活数值TTL的大小</li>
+<li>-v：详细显示指令的执行过程</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、nslookup查询DNS信息</strong><br><code>nslookup [选项] 域名</code></p>
+<ul>
+<li>-sil：不显示任何警告信息</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]# nslookup www.baidu.com</span><br><span class="line">Server:     192.168.226.2</span><br><span class="line">Address:    192.168.226.2#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">www.baidu.com   canonical name = www.a.shifen.com.</span><br><span class="line">Name:   www.a.shifen.com</span><br><span class="line">Address: 115.239.211.112</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、ifconfig查看与临时配置网络</strong><br><code>ifconfig [参数]</code></p>
+<ul>
+<li>add&lt;地址&gt;：设置网络设备IPv6的ip地址；</li>
+<li>del&lt;地址&gt;：删除网络设备IPv6的IP地址；</li>
+<li>down：关闭指定的网络设备；</li>
+<li><hw<网络设备类型>&lt;硬件地址&gt;：设置网络设备的类型与硬件地址；</hw<网络设备类型></li>
+<li>io_addr<i o地址="">：设置网络设备的I/O地址；</i></li>
+<li>irq<irq地址>：设置网络设备的IRQ；</irq地址></li>
+<li>media&lt;网络媒介类型&gt;：设置网络设备的媒介类型；</li>
+<li>mem_start&lt;内存地址&gt;：设置网络设备在主内存所占用的起始地址；</li>
+<li>metric&lt;数目&gt;：指定在计算数据包的转送次数时，所要加上的数目；</li>
+<li>mtu&lt;字节&gt;：设置网络设备的MTU；</li>
+<li>netmask&lt;子网掩码&gt;：设置网络设备的子网掩码；</li>
+<li>tunnel&lt;地址&gt;：建立IPv4与IPv6之间的隧道通信地址；</li>
+<li>up：启动指定的网络设备；</li>
+<li>-broadcast&lt;地址&gt;：将要送往指定地址的数据包当成广播数据包来处理；</li>
+<li>-pointopoint&lt;地址&gt;：与指定地址的网络设备建立直接连线，此模式具有保密功能；</li>
+<li>-promisc：关闭或启动指定网络设备的promiscuous模式；</li>
+<li>IP地址：指定网络设备的IP地址；</li>
+<li>网络设备：指定网络设备的名称。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]# ifconfig</span><br><span class="line"># eth0表示第一块网卡,inet addr用来表示网卡的IP地址</span><br><span class="line">eth0      Link encap:Ethernet  HWaddr 00:16:3E:00:1E:51  </span><br><span class="line">          inet addr:10.160.7.81  Bcast:10.160.15.255  Mask:255.255.240.0</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:61430830 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:88534 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:3607197869 (3.3 GiB)  TX bytes:6115042 (5.8 MiB)</span><br><span class="line"># lo是表示主机的回环地址</span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:16436  Metric:1</span><br><span class="line">          RX packets:56103 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:56103 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0</span><br><span class="line">          RX bytes:5079451 (4.8 MiB)  TX bytes:5079451 (4.8 MiB)</span><br><span class="line">		  </span><br><span class="line"># 启动关闭指定网卡	</span><br><span class="line">ifconfig eth0 up #还有其他命令实现ifup eth0</span><br><span class="line">ifconfig eth0 down #还有其他命令实现ifdown eth0</span><br><span class="line"></span><br><span class="line"># 配置IP地址</span><br><span class="line">[root@localhost ~]# ifconfig eth0 192.168.2.10</span><br><span class="line">[root@localhost ~]# ifconfig eth0 192.168.2.10 netmask 255.255.255.0</span><br><span class="line">[root@localhost ~]# ifconfig eth0 192.168.2.10 netmask 255.255.255.0 broadcast 192.168.2.255</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、service network启动关闭网络服务</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service network start #启动网络服务</span><br><span class="line">service network stop #关闭网络服务</span><br><span class="line">service network restart #重启网络服务</span><br><span class="line">service network status #查看状态</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>6、修改主机名</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 1、临时生效</span><br><span class="line">hostname test</span><br><span class="line"></span><br><span class="line"># 2、启动后生效</span><br><span class="line">vi /etc/sysconfig/network</span><br><span class="line"></span><br><span class="line"># 修改文件内容：</span><br><span class="line"># NETWORKING=yes </span><br><span class="line"># NETWORKING_IPV6=no </span><br><span class="line"># NETWORKING_IPV4=yes </span><br><span class="line"># HOSTNAME=localhost.localdomain # 主机名定义,将localhost改成你对应的主机名，如test  </span><br><span class="line"># DOMAINNAME=localdomain </span><br><span class="line"># GATEWAY=192.168.0.1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>7、设置IP地址</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 1、临时生效</span><br><span class="line">ifconfig eth0 192.168.0.20 netmask 255.255.255.0</span><br><span class="line"></span><br><span class="line"># 2、启动后生效</span><br><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0 #centos、redhead用</span><br><span class="line">vi /etc/network/interfaces #debian、ubuntu用</span><br><span class="line"></span><br><span class="line"># 修改文件内容：</span><br><span class="line"># DEVICE=eth0 </span><br><span class="line"># BOOTPROTO=static #动态IP需设置为dhcp</span><br><span class="line"># HWADDR=00:0C:29:97:E2:45</span><br><span class="line"># ONBOOT=yes </span><br><span class="line"># TYPE=ethernet </span><br><span class="line"># NETMASK=255.255.255.0  </span><br><span class="line"># IPADDR=192.168.0.1  </span><br><span class="line"># GATEWAY=192.168.0.1  </span><br><span class="line"># BROADCAST=192.168.0.255</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>8、修改DNS</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vi /etc/resolv.conf #dhcp环境下修改/etc/resolv.conf后，重启网卡，会自动清除；添加到/etc/sysconfig/network-scripts/ifcfg-eth0的dns地址不会清除；</span><br><span class="line"></span><br><span class="line"># 修改文件内容：</span><br><span class="line"># nameserver 202.96.128.68 # 主</span><br><span class="line"># nameserver 219.136.241.206 # 备</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>9、防火墙开启关闭</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service iptables start #防火墙开启</span><br><span class="line">service iptables stop #防火墙关闭</span><br><span class="line"></span><br><span class="line">#设置首启项</span><br><span class="line">ntsysv</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十三、日期时间"><a href="#十三、日期时间" class="headerlink" title="十三、日期时间"></a>十三、日期时间</h2><p><strong>1、cal显示日历信息</strong><br><code>cal [选项] [月份] [年份]</code></p>
+<ul>
+<li>-l：显示单月输出</li>
+<li>-3：显示临近三个月的日历</li>
+<li>-s：将星期日作为月的第一天</li>
+<li>-m：将星期一作为月的第一天</li>
+<li>-j：显示“julian”日期</li>
+<li>-y：显示当前年的日历</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cal -3</span><br><span class="line">cal 9 2017</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、date显示或设置系统时间与日期</strong><br><code>date [选项] &lt;+时间日期格式&gt;</code></p>
+<ul>
+<li>-d&lt;字符串&gt;：显示字符串所指的日期与时间。字符串前后必须加上双引号；</li>
+<li>-s&lt;字符串&gt;：根据字符串来设置日期与时间。字符串前后必须加上双引号；</li>
+<li>-u：显示GMT；</li>
+<li>–help：在线帮助；</li>
+<li>–version：显示版本信息。</li>
+</ul>
+<p>日期格式字符串列表:</p>
+<ul>
+<li>%H 小时，24小时制（00~23）</li>
+<li>%I 小时，12小时制（01~12）</li>
+<li>%k 小时，24小时制（0~23）</li>
+<li>%l 小时，12小时制（1~12）</li>
+<li>%M 分钟（00~59）</li>
+<li>%p 显示出AM或PM</li>
+<li>%r 显示时间，12小时制（hh:mm:ss %p）</li>
+<li>%s 从1970年1月1日00:00:00到目前经历的秒数</li>
+<li>%S 显示秒（00~59）</li>
+<li>%T 显示时间，24小时制（hh:mm:ss）</li>
+<li>%X 显示时间的格式（%H:%M:%S）</li>
+<li>%Z 显示时区，日期域（CST）</li>
+<li>%a 星期的简称（Sun~Sat）</li>
+<li>%A 星期的全称（Sunday~Saturday）</li>
+<li>%h,%b 月的简称（Jan~Dec）</li>
+<li>%B 月的全称（January~December）</li>
+<li>%c 日期和时间（Tue Nov 20 14:12:58 2012）</li>
+<li>%d 一个月的第几天（01~31）</li>
+<li>%x,%D 日期（mm/dd/yy）</li>
+<li>%j 一年的第几天（001~366）</li>
+<li>%m 月份（01~12）</li>
+<li>%w 一个星期的第几天（0代表星期天）</li>
+<li>%W 一年的第几个星期（00~53，星期一为第一天）</li>
+<li>%y 年的最后两个数字（1999则是99）</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">date +&quot;%Y-%m-%d&quot; # 格式化输出：2007-12-07</span><br><span class="line">date -d &quot;1 day ago&quot; +&quot;%Y-%m-%d&quot; # 输出昨天日期：2012-11-19</span><br><span class="line">date -d &quot;1970-01-01 1234567890 seconds&quot; +&quot;%Y-%m-%d %H:%m:%S&quot; # 1234567890 秒：2009-02-13 23:02:30</span><br><span class="line">date -d &quot;2009-12-12&quot; +&quot;%Y/%m/%d %H:%M.%S&quot; # 普通转格式：2009/12/12 00:00.00</span><br><span class="line">date -d &quot;Dec 5, 2009 12:00:37 AM 2 year ago&quot; +&quot;%Y-%m-%d %H:%M.%S&quot; # 格式转换后时间游走：2007-12-05 00:00.37</span><br><span class="line"></span><br><span class="line"># 加减操作：</span><br><span class="line">date +%Y%m%d                   # 显示前天年月日</span><br><span class="line">date -d &quot;+1 day&quot; +%Y%m%d       # 显示前一天的日期</span><br><span class="line">date -d &quot;-1 day&quot; +%Y%m%d       # 显示后一天的日期</span><br><span class="line">date -d &quot;-1 month&quot; +%Y%m%d     # 显示上一月的日期</span><br><span class="line">date -d &quot;+1 month&quot; +%Y%m%d     # 显示下一月的日期</span><br><span class="line">date -d &quot;-1 year&quot; +%Y%m%d      # 显示前一年的日期</span><br><span class="line">date -d &quot;+1 year&quot; +%Y%m%d      # 显示下一年的日期</span><br><span class="line"></span><br><span class="line"># 设定时间：</span><br><span class="line">date -s                        # 设置当前时间，只有root权限才能设置，其他只能查看</span><br><span class="line">date -s 20120523               # 设置成20120523，这样会把具体时间设置成空00:00:00</span><br><span class="line">date -s 01:01:01               # 设置具体时间，不会对日期做更改</span><br><span class="line">date -s &quot;01:01:01 2012-05-23&quot;  # 这样可以设置全部时间</span><br><span class="line">date -s &quot;01:01:01 20120523&quot;    # 这样可以设置全部时间</span><br><span class="line">date -s &quot;2012-05-23 01:01:01&quot;  # 这样可以设置全部时间</span><br><span class="line">date -s &quot;20120523 01:01:01&quot;    # 这样可以设置全部时间</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十四、帮助文档"><a href="#十四、帮助文档" class="headerlink" title="十四、帮助文档"></a>十四、帮助文档</h2><p><strong>1、whatis查询一个命令执行什么功能</strong><br><code>whatis Command</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# whatis chown</span><br><span class="line">chown                (1)  - change file owner and group</span><br><span class="line">chown                (1p)  - change the file ownership</span><br><span class="line">chown                (2)  - change ownership of a file</span><br><span class="line">chown                (3p)  - change owner and group of a file</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、man帮助指令</strong><br><code>man [选项] [数字] Command</code></p>
+<ul>
+<li>-a：在所有的man帮助手册中搜索</li>
+<li>-f：等价于whatis指令，显示给定关键字的简短描述信息</li>
+<li>-P：指定内容时使用分页程序</li>
+<li>-M：指定man手册搜索的路径</li>
+<li>数字：指定从哪本man手册中搜索帮助</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man sleep</span><br><span class="line">man 3 sleep</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、help显示shell内部命令的帮助信息</strong><br><code>help [选项] Command</code></p>
+<ul>
+<li>-s：输出短格式的帮助信息。仅包括命令格式。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help cd</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、–help/-h显示shell外部命令帮助信息</strong><br><code>Command –help/-h</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --help</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十五、vi-vim编辑器"><a href="#十五、vi-vim编辑器" class="headerlink" title="十五、vi/vim编辑器"></a>十五、vi/vim编辑器</h2><p>所有的Unix Like系统都会内建vi文本编辑器，vim是从vi发展出来的一个文本编辑器。<br>vim官方网站：<a href="http://www.vim.org" target="_blank" rel="noopener">http://www.vim.org</a></p>
+<p><strong>1、vi/vim键盘图</strong><br><img src="/2017/12/27/linux/vi-vim键盘图.png" alt="vi-vim键盘图"></p>
+<p><strong>2、vi/vim工作模式</strong><br>vi/vim分为三种工作模式：命令模式(Command mode)、输入模式(Insert mode)、底线命令模式(Last line mode)。<br><img src="/2017/12/27/linux/vi-vim工作模式.png" alt="vi-vim工作模式"></p>
+<p>(1)命令模式：<br>用户刚刚启动vi/vim便进入了命令模式。此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。<br>常用的几个命令：</p>
+<ul>
+<li>i 切换到输入模式，以输入字符。</li>
+<li>x 删除当前光标所在处的字符。</li>
+<li>: 切换到底线命令模式，以在最底一行输入命令。</li>
+</ul>
+<p>(2)输入模式<br>在输入模式中，可以使用以下按键：</p>
+<ul>
+<li>字符按键以及Shift组合，输入字符</li>
+<li>ENTER，回车键，换行</li>
+<li>BACK SPACE，退格键，删除光标前一个字符</li>
+<li>DEL，删除键，删除光标后一个字符</li>
+<li>方向键，在文本中移动光标</li>
+<li>HOME/END，移动光标到行首/行尾</li>
+<li>Page Up/Page Down，上/下翻页</li>
+<li>Insert，切换光标为输入/替换模式，光标将变成竖线/下划线</li>
+<li>ESC，退出输入模式，切换到命令模式</li>
+</ul>
+<p>(3)底线命令模式<br>在底线命令模式中，基本的命令有（已经省略了冒号）：</p>
+<ul>
+<li>q 退出程序</li>
+<li>w 保存文件</li>
+<li>按ESC键可随时退出底线命令模式。</li>
+</ul>
+<p><strong>3、vi/vim按键说明</strong><br>(1)一般模式可用的光标移动、复制粘贴、搜索替换等：<br>1)移动光标的方法：</p>
+<ul>
+<li>h 或 向左箭头键(←)：光标向左移动一个字符</li>
+<li>j 或 向下箭头键(↓)：光标向下移动一个字符</li>
+<li>k 或 向上箭头键(↑)：光标向上移动一个字符</li>
+<li>l 或 向右箭头键(→)：光标向右移动一个字符</li>
+<li>[Ctrl] + [f]：屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</li>
+<li>[Ctrl] + [b]：屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</li>
+<li>[Ctrl] + [d]：屏幕『向下』移动半页</li>
+<li>[Ctrl] + [u]：屏幕『向上』移动半页</li>
+<li>+：光标移动到非空格符的下一行</li>
+<li>-：光标移动到非空格符的上一行</li>
+<li>n<space>：那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。例如 20<space> 则光标会向后面移动 20 个字符距离。</space></space></li>
+<li>0 或功能键[Home]：这是数字『 0 』：移动到这一行的最前面字符处 (常用)</li>
+<li>$ 或功能键[End]：移动到这一行的最后面字符处(常用)</li>
+<li>H：光标移动到这个屏幕的最上方那一行的第一个字符</li>
+<li>M：光标移动到这个屏幕的中央那一行的第一个字符</li>
+<li>L：光标移动到这个屏幕的最下方那一行的第一个字符</li>
+<li>G：移动到这个档案的最后一行(常用)</li>
+<li>nG：n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</li>
+<li>gg：移动到这个档案的第一行，相当于 1G 啊！ (常用)</li>
+<li>n<enter>：n 为数字。光标向下移动 n 行(常用)</enter></li>
+</ul>
+<p>2)搜索替换：</p>
+<ul>
+<li>/word：向光标之下寻找一个名称为 word 的字符串。例如要在档案内搜寻 vbird 这个字符串，就输入 /vbird 即可！ (常用)</li>
+<li>?word：向光标之上寻找一个字符串名称为 word 的字符串。</li>
+<li>n：这个 n 是英文按键。代表重复前一个搜寻的动作。举例来说， 如果刚刚我们执行 /vbird 去向下搜寻 vbird 这个字符串，则按下 n 后，会向下继续搜寻下一个名称为 vbird 的字符串。如果是执行 ?vbird 的话，那么按下 n 则会向上继续搜寻名称为 vbird 的字符串！</li>
+<li>N：这个 N 是英文按键。与 n 刚好相反，为『反向』进行前一个搜寻动作。 例如 /vbird 后，按下 N 则表示『向上』搜寻 vbird 。</li>
+<li>:n1,n2s/word1/word2/g：n1 与 n2 为数字。在第 n1 与 n2 行之间寻找 word1 这个字符串，并将该字符串取代为 word2 ！举例来说，在 100 到 200 行之间搜寻 vbird 并取代为 VBIRD 则：『:100,200s/vbird/VBIRD/g』。(常用)</li>
+<li>:1,$s/word1/word2/g：从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！(常用)</li>
+<li>:1,$s/word1/word2/gc：从第一行到最后一行寻找 word1 字符串，并将该字符串取代为 word2 ！且在取代前显示提示字符给用户确认 (confirm) 是否需要取代！(常用)</li>
+</ul>
+<p>3)删除、复制与贴上：</p>
+<ul>
+<li>x, X：在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)</li>
+<li>nx：n 为数字，连续向后删除 n 个字符。举例来说，我要连续删除 10 个字符， 『10x』。</li>
+<li>dd：删除游标所在的那一整行(常用)</li>
+<li>ndd：n 为数字。删除光标所在的向下 n 行，例如 20dd 则是删除 20 行 (常用)</li>
+<li>d1G：删除光标所在到第一行的所有数据</li>
+<li>dG：删除光标所在到最后一行的所有数据</li>
+<li>d$：删除游标所在处，到该行的最后一个字符</li>
+<li>d0：那个是数字的 0 ，删除游标所在处，到该行的最前面一个字符</li>
+<li>yy：复制游标所在的那一行(常用)</li>
+<li>nyy：n 为数字。复制光标所在的向下 n 行，例如 20yy 则是复制 20 行(常用)</li>
+<li>y1G：复制游标所在行到第一行的所有数据</li>
+<li>yG：复制游标所在行到最后一行的所有数据</li>
+<li>y0：复制光标所在的那个字符到该行行首的所有数据</li>
+<li>y$：复制光标所在的那个字符到该行行尾的所有数据</li>
+<li>p, P：p 为将已复制的数据在光标下一行贴上，P 则为贴在游标上一行！ 举例来说，我目前光标在第 20 行，且已经复制了 10 行数据。则按下 p 后， 那 10 行数据会贴在原本的 20 行之后，亦即由 21 行开始贴。但如果是按下 P 呢？ 那么原本的第 20 行会被推到变成 30 行。 (常用)</li>
+<li>J：将光标所在行与下一行的数据结合成同一行</li>
+<li>c：重复删除多个数据，例如向下删除 10 行，[ 10cj ]</li>
+<li>u；复原前一个动作。(常用)</li>
+<li>[Ctrl]+r：重做上一个动作。(常用)</li>
+<li>.：不要怀疑！这就是小数点！意思是重复前一个动作的意思。 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)</li>
+</ul>
+<p>(2)一般模式切换到编辑模式的可用的按钮说明:<br>1)进入输入或取代的编辑模式:</p>
+<ul>
+<li>i, I：进入输入模式(Insert mode)：i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。 (常用)</li>
+<li>a, A：进入输入模式(Insert mode)：a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。(常用)</li>
+<li>o, O：进入输入模式(Insert mode)：这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处输入新的一行』； O 为在目前光标所在处的上一行输入新的一行！(常用)</li>
+<li>r, R：进入取代模式(Replace mode)：r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)</li>
+<li>[Esc]：退出编辑模式，回到一般模式中(常用)</li>
+</ul>
+<p>(3)一般模式切换到指令行模式的可用的按钮说明:<br>1)指令行的储存、离开等指令:</p>
+<ul>
+<li>:w —— 将编辑的数据写入硬盘档案中(常用)</li>
+<li>:w! —— 若文件属性为『只读』时，强制写入该档案。不过，到底能不能写入， 还是跟你对该档案的档案权限有关啊！</li>
+<li>:q —— 离开 vi (常用)</li>
+<li>:q! —— 若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。</li>
+<li>:wq —— 储存后离开，若为 :wq! 则为强制储存后离开 (常用)</li>
+<li>ZZ —— 这是大写的 Z 喔！若档案没有更动，则不储存离开，若档案已经被更动过，则储存后离开！</li>
+<li>:w [filename] —— 将编辑的数据储存成另一个档案（类似另存新档）</li>
+<li>:r [filename] —— 在编辑的数据中，读入另一个档案的数据。亦即将 『filename』 这个档案内容加到游标所在行后面</li>
+<li>:n1,n2 w [filename] —— 将 n1 到 n2 的内容储存成 filename 这个档案。</li>
+<li>:! command —— 暂时离开 vi 到指令行模式下执行 command 的显示结果！例如『:! ls /home』即可在 vi 当中察看 /home 底下以 ls 输出的档案信息！<br>2)vim 环境的变更：</li>
+<li>:set nu —— 显示行号，设定之后，会在每一行的前缀显示该行的行号</li>
+<li>:set nonu —— 与 set nu 相反，为取消行号！</li>
+</ul>
+<p>PS特别注意，在 vi/vim 中，数字是很有意义的！数字通常代表重复做几次的意思！ 也有可能是代表去到第几个什么什么的意思。举例来说，要删除 50 行，则是用 『50dd』 对吧！ 数字加在动作之前，如我要向下移动 20 行呢？那就是『20j』或者是『20↓』即可。</p>
+<h2 id="十六、shell编程"><a href="#十六、shell编程" class="headerlink" title="十六、shell编程"></a>十六、shell编程</h2><p><strong>1、shell简介</strong><br>(1)shell分类：</p>
+<ul>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+<li>Shell for Root（/sbin/sh）</li>
+</ul>
+<p>(2)hello world</p>
+<p>#! 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种 Shell。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;Hello World !&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)运行shell脚本<br>将上面的代码保存为test.sh，并cd到相应目录：<br>1)作为可执行程序:</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./test.sh  #使脚本具有执行权限</span><br><span class="line">./test.sh  #执行脚本</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2)作为解释器参数:<br>直接运行解释器，其参数就是shell脚本的文件名：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh test.sh</span><br><span class="line">/bin/php test.php</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、shell关键字</strong><br>常用的关键字如下： </p>
+<ul>
+<li><code>echo</code>：打印文字到屏幕 </li>
+<li><code>printf</code>:格式化输出字符串</li>
+<li><code>exec</code>：执行另一个Shell脚本 </li>
+<li><code>read</code>：读标准输入 </li>
+<li><code>expr</code>：对整数型变量进行算术运算 </li>
+<li><code>test</code>：用于测试变量是否相等、 是否为空、文件类型等 </li>
+<li><code>exit</code>：退出</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;It is a test&quot; # 显示普通字符串</span><br><span class="line">echo &quot;\&quot;It is a test\&quot;&quot; # 显示转义字符</span><br><span class="line">read name  # 读取标准输入</span><br><span class="line">echo &quot;$name It is a test&quot; # 显示变量</span><br><span class="line">echo -e &quot;OK! \n&quot; # -e开启转义 \n换行</span><br><span class="line">echo -e &quot;OK! \c&quot; # -e开启转义 \c不换行</span><br><span class="line">echo &apos;$name\&quot;&apos; # 原样输出字符串，不进行转义或取变量(用单引号)</span><br><span class="line">echo `date` # 显示命令执行结果,这里使用的是反引号 `, 而不是单引号 &apos;</span><br><span class="line"></span><br><span class="line">printf &quot;Hello, Shell\n&quot;  # printf换行需要手动加\n</span><br><span class="line">printf &quot;%-10s %-8s %-4.2f\n&quot; 郭靖 男 66.1234 #格式化输出，%d十进制整数、 %s字符串、 %c字符、 %f浮点</span><br><span class="line"></span><br><span class="line">exec ./othershell.sh # 执行其他脚本</span><br><span class="line"></span><br><span class="line">expr $VAR - 5 # 计算变量运算</span><br><span class="line"></span><br><span class="line">#数值测试</span><br><span class="line">test $[num1] -eq $[num2]  # -eq	等于则为真</span><br><span class="line">test $[num1] -ne $[num2]  # -ne	不等于则为真</span><br><span class="line">test $[num1] -gt $[num2]  # -gt	大于则为真</span><br><span class="line">test $[num1] -ge $[num2]  # -ge	大于等于则为真</span><br><span class="line">test $[num1] -lt $[num2]  # -lt	小于则为真</span><br><span class="line">test $[num1] -le $[num2]  # -le	小于等于则为真</span><br><span class="line">#字符串测试</span><br><span class="line">test $str1 = $str2  # =	等于则为真</span><br><span class="line">test $str1 != $str2 # !=	不相等则为真</span><br><span class="line">test -z $str1       # -z 字符串	字符串的长度为零则为真</span><br><span class="line">test -n $str2       # -n 字符串	字符串的长度不为零则为真</span><br><span class="line">#文件测试</span><br><span class="line">test -e ./bash  # -e 文件名	如果文件存在则为真</span><br><span class="line">test -r ./bash  # -r 文件名	如果文件存在且可读则为真</span><br><span class="line">test -w ./bash  # -w 文件名	如果文件存在且可写则为真</span><br><span class="line">test -x ./bash  # -x 文件名	如果文件存在且可执行则为真</span><br><span class="line">test -s ./bash  # -s 文件名	如果文件存在且至少有一个字符则为真</span><br><span class="line">test -d ./bash  # -d 文件名	如果文件存在且为目录则为真</span><br><span class="line">test -f ./bash  # -f 文件名	如果文件存在且为普通文件则为真</span><br><span class="line">test -c ./bash  # -c 文件名	如果文件存在且为字符型特殊文件则为真</span><br><span class="line">test -b ./bash  # -b 文件名	如果文件存在且为块特殊文件则为真</span><br><span class="line">#Shell提供了( 与-a )、( 或-o )、( 非! )三个逻辑操作符用于将测试条件连接起来，其优先级为：&quot;!&quot;最高，&quot;-a&quot;次之，&quot;-o&quot;最低</span><br><span class="line">test -e ./notFile -o -e ./bash</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、shell变量</strong><br>(1)定义变量</p>
+<ul>
+<li>只能使用英文字母，数字和下划线，首字符不能以数字开头</li>
+<li>中间不能有空格，可以使用下划线_</li>
+<li>等号前后不要有空格：NUM=10 </li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）</li>
+</ul>
+<p>(2)使用变量<br>在变量名前面加美元$符号即可：<code>echo $VAR</code> 或 <code>echo ${VAR}</code></p>
+<p>(3)自定义变量<br>常见前缀： </p>
+<ul>
+<li><code>unset</code>：删除变量 </li>
+<li><code>readonly</code>：标记只读变量 </li>
+<li><code>export</code>：指定全局变量</li>
+<li><code>local</code>：指定本地变量</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CITY=SHENZHEN # 定义普通变量</span><br><span class="line">export NAME=cdeveloper # 定义全局变量</span><br><span class="line">readonly AGE=21 # 定义只读变量</span><br><span class="line"></span><br><span class="line"># 打印变量的值</span><br><span class="line">echo $CITY</span><br><span class="line">echo $NAME</span><br><span class="line">echo $AGE</span><br><span class="line"></span><br><span class="line">unset CITY # 删除 CITY 变量</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)位置变量</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@www~]# cat test.sh</span><br><span class="line">#!/bin/bash</span><br><span class="line">echo $0</span><br><span class="line">echo $2</span><br><span class="line">echo $1</span><br><span class="line"></span><br><span class="line">[root@www~]# ./test.sh  arg0 arg1</span><br><span class="line">./test.sh</span><br><span class="line">arg1</span><br><span class="line">arg0</span><br><span class="line"></span><br><span class="line">#执行脚本传入变量，可以看到：$0 表示脚本名称、$1 表示第一个参数、$2 表示第二个参数</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)预定义变量<br>预定义变量常用来获取命令行的输入:</p>
+<ul>
+<li><code>$0</code> ：脚本文件名</li>
+<li><code>$1-9</code> ：第 1-9 个命令行参数名</li>
+<li><code>$#</code> ：命令行参数个数</li>
+<li><code>$@</code> ：所有命令行参数</li>
+<li><code>$*</code> ：所有命令行参数</li>
+<li><code>$?</code> ：前一个命令的退出状态，可用于获取函数返回值</li>
+<li><code>$$</code> ：执行的进程 ID</li>
+</ul>
+<p>(6)环境变量<br>环境变量默认就存在，常用的有：</p>
+<ul>
+<li><code>HOME</code>：用户主目录 </li>
+<li><code>PATH</code>：系统环境变量 PATH </li>
+<li><code>TERM</code>：当前终端 </li>
+<li><code>UID</code>：当前用户 ID </li>
+<li><code>PWD</code>：当前工作目录，绝对路径</li>
+</ul>
+<p><strong>4、shell字符串</strong><br>字符串可以用单引号，也可以用双引号，也可以不用引号。<br>(1)单引号和双引号</p>
+<ul>
+<li>单引号里的任何字符都会原样输出</li>
+<li>单引号字符串中的变量是无效的</li>
+<li>单引号字串中不能出现单引号（对单引号使用转义符后也不行）</li>
+<li>双引号里可以有变量</li>
+<li>双引号里可以出现转义字符</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">your_name=&apos;www&apos;</span><br><span class="line">str=&quot;Hello, I know your are \&quot;$your_name\&quot;! \n&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)字符串拼接</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your_name=&quot;www&quot;</span><br><span class="line">greeting=&quot;hello, &quot;$your_name&quot; !&quot;</span><br><span class="line">greeting_1=&quot;hello, $&#123;your_name&#125; !&quot;</span><br><span class="line">echo $greeting $greeting_1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)获取字符串长度</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=&quot;abcd&quot;</span><br><span class="line">echo $&#123;#string&#125; #输出 4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)提取子字符串</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=&quot;hello world&quot;</span><br><span class="line">echo $&#123;string:1:4&#125; # 输出 ello</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)查找子字符串</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=&quot;tester is a good friend&quot;</span><br><span class="line">echo `expr index &quot;$string&quot; is`  # 输出 8</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、shell数组</strong><br>(1)定义数组<br>用括号来表示数组，数组元素用”空格”符号分割开</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">array_name=(value0 value1 value2 value3)</span><br><span class="line"></span><br><span class="line">array_name=(</span><br><span class="line">value0</span><br><span class="line">value1</span><br><span class="line">value2</span><br><span class="line">value3</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">#单独定义数组的各个分量</span><br><span class="line">array_name[0]=value0</span><br><span class="line">array_name[1]=value1</span><br><span class="line">array_name[n]=valuen</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)读取数组<br><code>${数组名[下标]}</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">valuen=$&#123;array_name[n]&#125;</span><br><span class="line">echo $&#123;array_name[@]&#125; # 使用@符号可以获取数组中的所有元素</span><br><span class="line">echo $&#123;array_name[*]&#125; # 使用*符号可以获取数组中的所有元素</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)获取数组的长度</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 取得数组元素的个数</span><br><span class="line">length=$&#123;#array_name[@]&#125;</span><br><span class="line">length=$&#123;#array_name[*]&#125;</span><br><span class="line"></span><br><span class="line"># 取得数组单个元素的长度</span><br><span class="line">lengthn=$&#123;#array_name[n]&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>6、shell运算符</strong><br>原生bash不支持简单的数学运算，但是可以通过其他命令(awk和expr等)来实现，其中expr最常用。<br>(1)算术运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加法</td>
+<td style="text-align:left">expr $a + $b 结果为 30。</td>
+</tr>
+<tr>
+<td style="text-align:left">-</td>
+<td style="text-align:left">减法</td>
+<td style="text-align:left">expr $a - $b 结果为 -10。</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">乘法。乘号*前边必须加反斜杠\才能实现乘法运算。</td>
+<td style="text-align:left">expr $a * $b 结果为  200。</td>
+</tr>
+<tr>
+<td style="text-align:left">/</td>
+<td style="text-align:left">除法</td>
+<td style="text-align:left">expr $b / $a 结果为 2。</td>
+</tr>
+<tr>
+<td style="text-align:left">%</td>
+<td style="text-align:left">取余</td>
+<td style="text-align:left">expr $b % $a 结果为 0。</td>
+</tr>
+<tr>
+<td style="text-align:left">=</td>
+<td style="text-align:left">赋值</td>
+<td style="text-align:left">a=$b 将把变量 b 的值赋给 a。</td>
+</tr>
+<tr>
+<td style="text-align:left">==</td>
+<td style="text-align:left">相等。用于比较两个数字，相同则返回 true。</td>
+<td style="text-align:left">[ $a == $b ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">!=</td>
+<td style="text-align:left">不相等。用于比较两个数字，不相同则返回 true。</td>
+<td style="text-align:left">[ $a != $b ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<p>(2)数字关系运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-eq</td>
+<td style="text-align:left">检测两个数是否相等，相等返回 true。</td>
+<td style="text-align:left">[ $a -eq $b ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-ne</td>
+<td style="text-align:left">检测两个数是否不相等，不相等返回 true。</td>
+<td style="text-align:left">[ $a -ne $b ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-gt</td>
+<td style="text-align:left">检测左边的数是否大于右边的，如果是，则返回 true。</td>
+<td style="text-align:left">[ $a -gt $b ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-lt</td>
+<td style="text-align:left">检测左边的数是否小于右边的，如果是，则返回 true。</td>
+<td style="text-align:left">[ $a -lt $b ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-ge</td>
+<td style="text-align:left">检测左边的数是否大于等于右边的，如果是，则返回 true。</td>
+<td style="text-align:left">[ $a -ge $b ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-le</td>
+<td style="text-align:left">检测左边的数是否小于等于右边的，如果是，则返回 true。</td>
+<td style="text-align:left">[ $a -le $b ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<p>(3)布尔运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">!</td>
+<td style="text-align:left">非运算，表达式为 true 则返回 false，否则返回 true。</td>
+<td style="text-align:left">[ ! false ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-o</td>
+<td style="text-align:left">或运算，有一个表达式为 true 则返回 true。</td>
+<td style="text-align:left">[ $a -lt 20 -o $b -gt 100 ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-a</td>
+<td style="text-align:left">与运算，两个表达式都为 true 才返回 true。</td>
+<td style="text-align:left">[ $a -lt 20 -a $b -gt 100 ] 返回 false。</td>
+</tr>
+</tbody>
+</table>
+<p>(4)逻辑运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&amp;&amp;</td>
+<td style="text-align:left">逻辑的 AND</td>
+<td style="text-align:left">[[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</td>
+</tr>
+<tr>
+<td style="text-align:left">&#124;&#124;</td>
+<td style="text-align:left">逻辑的 OR</td>
+<td style="text-align:left">[[ $a -lt 100 &#124;&#124; $b -gt 100 ]] 返回 true</td>
+</tr>
+</tbody>
+</table>
+<p>(5)字符串运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">=</td>
+<td style="text-align:left">检测两个字符串是否相等，相等返回 true。</td>
+<td style="text-align:left">[ $a = $b ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">!=</td>
+<td style="text-align:left">检测两个字符串是否相等，不相等返回 true。</td>
+<td style="text-align:left">[ $a != $b ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-z</td>
+<td style="text-align:left">检测字符串长度是否为0，为0返回 true。</td>
+<td style="text-align:left">[ -z $a ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-n</td>
+<td style="text-align:left">检测字符串长度是否为0，不为0返回 true。</td>
+<td style="text-align:left">[ -n $a ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">str</td>
+<td style="text-align:left">检测字符串是否为空，不为空返回 true。</td>
+<td style="text-align:left">[ $a ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<p>(6)文件测试运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-b file</td>
+<td style="text-align:left">检测文件是否是块设备文件，如果是，则返回 true。</td>
+<td style="text-align:left">[ -b $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-c file</td>
+<td style="text-align:left">检测文件是否是字符设备文件，如果是，则返回 true。</td>
+<td style="text-align:left">[ -c $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-d file</td>
+<td style="text-align:left">检测文件是否是目录，如果是，则返回 true。</td>
+<td style="text-align:left">[ -d $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-f file</td>
+<td style="text-align:left">检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</td>
+<td style="text-align:left">[ -f $file ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-g file</td>
+<td style="text-align:left">检测文件是否设置了 SGID 位，如果是，则返回 true。</td>
+<td style="text-align:left">[ -g $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-k file</td>
+<td style="text-align:left">检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</td>
+<td style="text-align:left">[ -k $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-p file</td>
+<td style="text-align:left">检测文件是否是有名管道，如果是，则返回 true。</td>
+<td style="text-align:left">[ -p $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-u file</td>
+<td style="text-align:left">检测文件是否设置了 SUID 位，如果是，则返回 true。</td>
+<td style="text-align:left">[ -u $file ] 返回 false。</td>
+</tr>
+<tr>
+<td style="text-align:left">-r file</td>
+<td style="text-align:left">检测文件是否可读，如果是，则返回 true。</td>
+<td style="text-align:left">[ -r $file ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-w file</td>
+<td style="text-align:left">检测文件是否可写，如果是，则返回 true。</td>
+<td style="text-align:left">[ -w $file ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-x file</td>
+<td style="text-align:left">检测文件是否可执行，如果是，则返回 true。</td>
+<td style="text-align:left">[ -x $file ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-s file</td>
+<td style="text-align:left">检测文件是否为空（文件大小是否大于0），不为空返回 true。</td>
+<td style="text-align:left">[ -s $file ] 返回 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">-e file</td>
+<td style="text-align:left">检测文件（包括目录）是否存在，如果是，则返回 true。</td>
+<td style="text-align:left">[ -e $file ] 返回 true。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>7、shell流程控制</strong><br>(1)if语句</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># if语法格式</span><br><span class="line">if condition</span><br><span class="line">then</span><br><span class="line">    command1 </span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN </span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># if else语法格式</span><br><span class="line">if condition</span><br><span class="line">then</span><br><span class="line">    command1 </span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">else</span><br><span class="line">    command</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># if else-if elseelse语法格式</span><br><span class="line">if condition1</span><br><span class="line">then</span><br><span class="line">    command1</span><br><span class="line">elif condition2 </span><br><span class="line">then </span><br><span class="line">    command2</span><br><span class="line">else</span><br><span class="line">    commandN</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">#实例</span><br><span class="line">num1=$[2*3]</span><br><span class="line">num2=$[1+5]</span><br><span class="line">if test $[num1] -eq $[num2]</span><br><span class="line">then</span><br><span class="line">    echo &apos;两个数字相等!&apos;</span><br><span class="line">else</span><br><span class="line">    echo &apos;两个数字不相等!&apos;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)for 循环</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># for循环一般格式</span><br><span class="line">for var in item1 item2 ... itemN</span><br><span class="line">do</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 顺序输出当前列表中的数字</span><br><span class="line">for loop in 1 2 3 4 5</span><br><span class="line">do</span><br><span class="line">    echo &quot;The value is: $loop&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 普通for循环</span><br><span class="line">for ((i = 1; i &lt;= 3; i++))</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 无限循环</span><br><span class="line">for (( ; ; ))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)while循环</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># while循环一般格式</span><br><span class="line">while condition</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 实例</span><br><span class="line">int=1</span><br><span class="line">while(( $int&lt;=5 ))</span><br><span class="line">do</span><br><span class="line">    echo $int</span><br><span class="line">    let &quot;int++&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 无限循环</span><br><span class="line">while :  # 或while true</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)until循环<br>until 循环执行一系列命令直至条件为 true 时停止。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># until语法格式</span><br><span class="line">until condition</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">#实例</span><br><span class="line">a=0</span><br><span class="line">until [ ! $a -lt 10 ]</span><br><span class="line">do</span><br><span class="line">   echo $a</span><br><span class="line">   a=`expr $a + 1`</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)case语句<br>case语句为多选择语句。可以用case语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># case语句格式</span><br><span class="line">case 值 in</span><br><span class="line">模式1)</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line">模式2）</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    ...</span><br><span class="line">    commandN</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line"># 实例</span><br><span class="line">echo &apos;输入 1 到 4 之间的数字:&apos;</span><br><span class="line">echo &apos;你输入的数字为:&apos;</span><br><span class="line">read aNum</span><br><span class="line">case $aNum in</span><br><span class="line">    1)  echo &apos;你选择了 1&apos;</span><br><span class="line">    ;;</span><br><span class="line">    2)  echo &apos;你选择了 2&apos;</span><br><span class="line">    ;;</span><br><span class="line">    3)  echo &apos;你选择了 3&apos;</span><br><span class="line">    ;;</span><br><span class="line">    4)  echo &apos;你选择了 4&apos;</span><br><span class="line">    ;;</span><br><span class="line">    *)  echo &apos;你没有输入 1 到 4 之间的数字&apos;</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(6)break命令<br>break命令允许跳出所有循环。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#实例</span><br><span class="line">for VAR in 1 2 3</span><br><span class="line">do</span><br><span class="line"># 如果VAR等于2就跳出循环</span><br><span class="line">    if [ $VAR -eq 2 ]</span><br><span class="line">    then</span><br><span class="line">        break</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    echo $VAR</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(7)continue命令<br>continue命令仅仅跳出当前循环。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 实例</span><br><span class="line">for VAR in 1 2 3</span><br><span class="line">do</span><br><span class="line"># 如果VAR等于2，就跳过，直接进入下一次VAR = 3的循环 </span><br><span class="line">    if [ $VAR -eq 2 ]</span><br><span class="line">    then</span><br><span class="line">        continue    </span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    echo $VAR</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>8、shell函数</strong><br>(1)定义函数</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 定义函数，[]表示可加可不加</span><br><span class="line">[ function ] funname [()]</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    action;</span><br><span class="line"></span><br><span class="line">    [return int;]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 实例</span><br><span class="line">function hello_world()</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;hello world fun&quot;</span><br><span class="line">    echo $1 $2 $&#123;10&#125; # 注意：当n&gt;=10时，需要使用$&#123;n&#125;来获取参数。</span><br><span class="line">    return 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)调用函数</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 直接用函数名调用</span><br><span class="line">hello_world</span><br><span class="line"></span><br><span class="line"># 使用「函数名 函数参数」来传递参数</span><br><span class="line">hello_world 1 2 3 4 5 6 7 8 9 10</span><br><span class="line"></span><br><span class="line"># 使用「FUN=`函数名 函数参数`」 来间接调用</span><br><span class="line">FUN=`hello_world 1 2 3 4 5 6 7 8 9 10`</span><br><span class="line">echo $FUN</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)获取返回值</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello_world 1 2 3 4 5 6 7 8 9 10</span><br><span class="line">echo $? # $? 可用于获取前一个函数的返回值，这里结果是 1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>9、shell文件包含</strong><br>shell也可以包含外部脚本。这样可以很方便的封装一些公用的代码作为一个独立的文件。<br>shell文件包含的语法格式：</p>
+<ul>
+<li><code>. filename</code> # 注意点号(.)和文件名中间有一空格</li>
+<li><code>source filename</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># test1.sh代码</span><br><span class="line">#!/bin/bash</span><br><span class="line">url=&quot;http://www.baidu.com&quot;</span><br><span class="line"></span><br><span class="line"># test2.sh代码</span><br><span class="line">#!/bin/bash</span><br><span class="line">. ./test1.sh  # 或者使用source ./test1.sh</span><br><span class="line">echo &quot;百度地址：$url&quot;</span><br><span class="line"></span><br><span class="line"># 为test2.sh添加可执行权限并执行</span><br><span class="line">$ chmod +x test2.sh </span><br><span class="line">$ ./test2.sh</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>10、shell重定向</strong><br>(1)输入/输出重定向<br>重定向命令列表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">command &gt; file</td>
+<td style="text-align:left">将输出重定向到 file。</td>
+</tr>
+<tr>
+<td style="text-align:left">command &lt; file</td>
+<td style="text-align:left">将输入重定向到 file。</td>
+</tr>
+<tr>
+<td style="text-align:left">command &gt;&gt; file</td>
+<td style="text-align:left">将输出以追加的方式重定向到 file。</td>
+</tr>
+<tr>
+<td style="text-align:left">n &gt; file</td>
+<td style="text-align:left">将文件描述符为 n 的文件重定向到 file。</td>
+</tr>
+<tr>
+<td style="text-align:left">n &gt;&gt; file</td>
+<td style="text-align:left">将文件描述符为 n 的文件以追加的方式重定向到 file。</td>
+</tr>
+<tr>
+<td style="text-align:left">n &gt;&amp; m</td>
+<td style="text-align:left">将输出文件 m 和 n 合并。</td>
+</tr>
+<tr>
+<td style="text-align:left">n &lt;&amp; m</td>
+<td style="text-align:left">将输入文件 m 和 n 合并。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;&lt; tag</td>
+<td style="text-align:left">将开始标记 tag 和结束标记 tag 之间的内容作为输入。</td>
+</tr>
+</tbody>
+</table>
+<p>一般情况下，每个 Unix/Linux 命令运行时都会打开三个文件：</p>
+<ul>
+<li>标准输入文件(stdin)：stdin的文件描述符为0，Unix程序默认从stdin读取数据。</li>
+<li>标准输出文件(stdout)：stdout 的文件描述符为1，Unix程序默认向stdout输出数据。</li>
+<li>标准错误文件(stderr)：stderr的文件描述符为2，Unix程序会向stderr流中写入错误信息。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">command1 &gt; file1 # 输出重定向      </span><br><span class="line">command1 &lt; file1 # 输入重定向</span><br><span class="line">command 2 &gt; file # stderr重定向到file</span><br><span class="line">command 2 &gt;&gt; file # stderr追加到file文件末尾</span><br><span class="line">command &gt; file 2&gt;&amp;1 # stdout和stderr合并后重定向到 file</span><br><span class="line">command &gt;&gt; file 2&gt;&amp;1 # stdout和stderr合并后重定向到 file</span><br><span class="line">command &lt; file1 &gt;file2 # 对stdin和stdout都重定向</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)Here Document<br>Here Document 是 Shell 中的一种特殊的重定向方式，用来将输入重定向到一个交互式 Shell 脚本或程序。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 基本的形式如下,作用是将两个delimiter之间的内容(document)作为输入传递给command：</span><br><span class="line">command &lt;&lt; delimiter</span><br><span class="line">    document</span><br><span class="line">delimiter</span><br><span class="line"></span><br><span class="line"># 实例</span><br><span class="line">#!/bin/bash</span><br><span class="line">cat &lt;&lt; EOF</span><br><span class="line">hello world</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)/dev/null文件<br>如果希望执行某个命令，但又不希望在屏幕上显示输出结果，那么可以将输出重定向到 /dev/null：<br><code>$ command &gt; /dev/null</code><br>/dev/null是一个特殊的文件，写入到它的内容都会被丢弃；如果尝试从该文件读取内容，那么什么也读不到。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 屏蔽stdout和stderr</span><br><span class="line">$ command &gt; /dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月04日 14:58</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/27/linux/" title="linux">http://pythonfood.github.io/2017/12/27/linux/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/linux/&title=《linux》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/linux/&title=《linux》 — PythonFood&source=linux常用命令笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/linux/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/linux/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/linux/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/linux/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/linux/" class="color1">linux</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、系统安装"><span class="post-toc-text">一、系统安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、目录结构"><span class="post-toc-text">二、目录结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、启动过程"><span class="post-toc-text">三、启动过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、远程登录"><span class="post-toc-text">四、远程登录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、文件目录"><span class="post-toc-text">五、文件目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、文件压缩"><span class="post-toc-text">六、文件压缩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、用户管理"><span class="post-toc-text">七、用户管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、磁盘管理"><span class="post-toc-text">八、磁盘管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、进程管理"><span class="post-toc-text">九、进程管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、系统性能"><span class="post-toc-text">十、系统性能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十一、软件安装"><span class="post-toc-text">十一、软件安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十二、网络管理"><span class="post-toc-text">十二、网络管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十三、日期时间"><span class="post-toc-text">十三、日期时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十四、帮助文档"><span class="post-toc-text">十四、帮助文档</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十五、vi-vim编辑器"><span class="post-toc-text">十五、vi/vim编辑器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十六、shell编程"><span class="post-toc-text">十六、shell编程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/27/安卓专项测试/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          安卓专项测试
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/27/mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mysql</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="linux" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
