@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2018/03/01/unittest测试框架/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。">
-<meta property="og:updated_time" content="2018-03-06T08:09:01.697Z">
+<meta property="og:updated_time" content="2018-05-04T07:22:28.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unittest测试框架">
 <meta name="twitter:description" content="unittest中最核心的四个概念是：test fixture, test case, test suite, test runner。">
@@ -166,10 +166,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from ddt import ddt,data,unpack</span><br><span class="line"></span><br><span class="line">@ddt</span><br><span class="line">class MyTestCase(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">	@data(1,2,3)</span><br><span class="line">	def test_something(self, value):</span><br><span class="line">		print(value)</span><br><span class="line">		self.assertEqual(value, 2)</span><br><span class="line"></span><br><span class="line">	@data((1,2),(2,3))</span><br><span class="line">	@unpack</span><br><span class="line">	def test_anything(self, value1, value2):</span><br><span class="line">		print(value1,value2)</span><br><span class="line">		self.assertEqual(value2, value1+1)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	unittest.main()</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>ps:使用ddt框架后，测试用例的名称会改变，所以装载Test Suite时不能使用单条测试用例装载了，尽量使用类的形式装载Test Suite。</p>
-
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月06日 16:09</p>
+        <p>最后更新： 2018年05月04日 15:22</p>
         <p>原始链接： <a class="post-url" href="/2018/03/01/unittest测试框架/" title="unittest测试框架">http://pythonfood.github.io/2018/03/01/unittest测试框架/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -287,7 +287,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-unittest框架"><span class="post-toc-text">1.unittest框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-unittest小示例"><span class="post-toc-text">2.unittest小示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-DDT数据驱动模式"><span class="post-toc-text">3.DDT数据驱动模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-DDT小示例"><span class="post-toc-text">4.DDT小示例</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-unittest框架"><span class="post-toc-text">1.unittest框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-unittest小示例"><span class="post-toc-text">2.unittest小示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-DDT数据驱动模式"><span class="post-toc-text">3.DDT数据驱动模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-DDT小示例"><span class="post-toc-text">4.DDT小示例</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
