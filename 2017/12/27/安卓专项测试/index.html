@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/27/安卓专项测试/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta property="og:updated_time" content="2018-05-04T07:49:27.527Z">
+<meta property="og:updated_time" content="2018-05-08T07:55:32.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓专项测试">
 <meta name="twitter:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
@@ -176,7 +176,7 @@
 <h2 id="四、电量"><a href="#四、电量" class="headerlink" title="四、电量"></a>四、电量</h2><blockquote>
 <p>1.待机：无网络待机、wifi待机、3G待机等。<br>2.活动状态：不断地进行某些场景操作、看视频、灭屏下载、唤醒等。<br>3.静默状态：打开app后不操作，后台运行。</p>
 <blockquote>
-<p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumps batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p>
+<p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumpsys batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p>
 </blockquote>
 </blockquote>
 <h2 id="五、流量"><a href="#五、流量" class="headerlink" title="五、流量"></a>五、流量</h2><blockquote>
@@ -192,7 +192,7 @@
 <h2 id="六、FPS"><a href="#六、FPS" class="headerlink" title="六、FPS"></a>六、FPS</h2><blockquote>
 <p>1.adb shell dumpsys gfxinfo</p>
 <blockquote>
-<p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt;&gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
+<p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
 </blockquote>
 <p>2.monitor.bat进行测试</p>
 <p>3.打开【设置-开发者选项-GPU呈现模式分析-在屏幕上显示为条形图】，开启后点击应用，可以看到条形图。</p>
@@ -213,7 +213,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月04日 15:49</p>
+        <p>最后更新： 2018年05月08日 15:55</p>
         <p>原始链接： <a class="post-url" href="/2017/12/27/安卓专项测试/" title="安卓专项测试">http://pythonfood.github.io/2017/12/27/安卓专项测试/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -349,8 +349,8 @@
     </a>
   
   
-    <a href="/2017/12/27/linux/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">linux</span>
+    <a href="/2017/12/27/adb/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">adb</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -424,7 +424,7 @@
             <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -457,7 +457,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
         </div>
     </div>
 </div>
