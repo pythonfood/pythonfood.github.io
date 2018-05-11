@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>app测试 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="app端测试笔记。">
+<meta name="keywords" content="app测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="app测试">
+<meta property="og:url" content="http://pythonfood.github.io/2018/03/02/app测试/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="app端测试笔记。">
+<meta property="og:updated_time" content="2018-05-11T03:25:29.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="app测试">
+<meta name="twitter:description" content="app端测试笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-app测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      app测试
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/app测试/">app测试</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-03-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>app端测试笔记。<br><a id="more"></a></p>
+<h2 id="一、测试资源确认及准备"><a href="#一、测试资源确认及准备" class="headerlink" title="一、测试资源确认及准备"></a>一、测试资源确认及准备</h2><ul>
+<li>产品需求文档、产品原型图、接口说明文档以及设计说明文档等应齐全； </li>
+<li>测试设备及工具的准备：IOS和andriod不同版本的真机，以及相关测试工具的准备。   </li>
+</ul>
+<h2 id="二、测试用例设计与评审"><a href="#二、测试用例设计与评审" class="headerlink" title="二、测试用例设计与评审"></a>二、测试用例设计与评审</h2><ul>
+<li>根据产品需求文档、产品原型图等文档，设计客户端的一般功能测试用例；</li>
+<li>测试用例评审、修改与完善，评审通过后着手进入正式测试阶段。   </li>
+</ul>
+<h2 id="三、测试用例框架"><a href="#三、测试用例框架" class="headerlink" title="三、测试用例框架"></a>三、测试用例框架</h2><ul>
+<li>功能测试</li>
+<li>UI测试</li>
+<li>兼容性测试</li>
+<li>稳定性测试</li>
+<li>可靠性测试</li>
+<li>本地化测试</li>
+<li>体验性测试</li>
+<li>安全性测试</li>
+<li>安装升级和卸载</li>
+<li>启动运行和退出</li>
+<li>网络环境</li>
+<li>中断恢复</li>
+<li>手机权限</li>
+<li>消息推送</li>
+<li>屏幕旋转</li>
+<li>文件存储</li>
+<li>系统配置</li>
+<li>性能测试</li>
+<li>竞品测试</li>
+<li>探索测试</li>
+</ul>
+<h2 id="四、测试用例设计"><a href="#四、测试用例设计" class="headerlink" title="四、测试用例设计"></a>四、测试用例设计</h2><p><strong>1、功能测试</strong></p>
+<ul>
+<li>功能点测试。</li>
+<li>业务逻辑测试。</li>
+<li>关联性测试。</li>
+<li>与PC端交互正常。</li>
+<li>注册：<ul>
+<li>同表单编辑页面。</li>
+<li>用户名密码长度。</li>
+<li>注册后的提示页面。</li>
+<li>前台注册页面和后台的管理页面数据是否一致。</li>
+<li>注册后，在后台管理中页面提示。</li>
+</ul>
+</li>
+<li>登录：<ul>
+<li>使用合法的用户登录系统。</li>
+<li>系统是否允许多次非法的登录，是否有次数限制。</li>
+<li>使用已经登录的账号登录系统是否正确处理。</li>
+<li>用户名、口令（密码）错误或漏填时能否登陆。</li>
+<li>删除或修改后的用户，原用户名登陆。</li>
+<li>不输入用户口令和重复点“确定/取消”按钮，是否允许登录。</li>
+<li>登陆后，页面中登录信息。</li>
+<li>页面中有注销按钮。</li>
+<li>登录超时的处理。</li>
+</ul>
+</li>
+<li>免登陆：<ul>
+<li>当应用开启时自动以上一次登录的用户身份来使用App。</li>
+<li>考虑无网络情况时能否正常进入免登录状态。</li>
+<li>切换用户登陆后，要校验用户登录信息以及数据内容是否相应更新，确保原用户退出。</li>
+<li>根据Mtop的现有规则，一个账户只允许登陆一台机器。所以，需要检查一个账户登录多台手机的情况。原手机里的用户需要被退出，给出友好提示。</li>
+<li>App切换到后台，在切换回前台的校验。</li>
+<li>切换到后台，再切换回到前台的测试。</li>
+<li>密码更换后，检查有数据交换时是否进行了有效身份的校验。</li>
+<li>支持自动登录的应用在进行数据校验时，检查系统是否能自动登录成功并且数据操作无误。</li>
+<li>检查用户主动退出登录后，下次启动App，应停留在登录界面。</li>
+</ul>
+</li>
+<li>离线浏览：<ul>
+<li>支持离线浏览，即在本地客户端会缓存一部分数据供用户查看。</li>
+<li>在无线网络情况可以浏览本地数据。</li>
+<li>退出App再开启App时能正常浏览。</li>
+<li>切换到后台再回到前台可以正常浏览。</li>
+<li>锁屏后再解锁回到应用前台可以正常浏览。</li>
+<li>在对服务器段的数据有更新时回给予离线的相应提示。</li>
+</ul>
+</li>
+<li>输入框测试：<ul>
+<li>字符型：<ul>
+<li>字符型输入框：英文全角，英文半角、数字、空或者空格、特殊字符如~!@#$%^&amp;*()_+&lt;&gt;:”{}|`特别要注意单引号和&amp;符号。禁止直接输入特殊字符时，使用“粘贴、拷贝”功能尝试输入。</li>
+<li>长度检查：最小长度、最大长度、最小长度-1、最大长度+1、输入超长字符比如把整个文章拷贝过去。</li>
+<li>空格检查：输入的字符间有空格、字符前有空格、字符后有空格、字符前后有空格。</li>
+<li>多行文本框输入：允许回车换行、保存后再显示能够保存输入的格式、仅输入回车换行，检查能否正确保存（若能，检查保存结果，若不能，查看是否有正常提示）。</li>
+<li>安全性检查：输入特殊字符串输入特殊字符串NULL，null，JavaScript，输入脚本函数。</li>
+</ul>
+</li>
+<li>数字型：<ul>
+<li>边界值：最大值、最小值、最大值+1、最小值-1。</li>
+<li>位数：最小位数、最大位数、最小位数-1、最大位数+1、输入超长值、输入整数。</li>
+<li>异常值、特殊字符：输入空白（NULL）、空格或”~!@#$%等可能导致系统错误的字符、禁止直接输入特殊字符时，尝试使用粘贴拷贝查看是否能正常提交。输入负整数、负小数、分数、输入字母或汉字、小数、科学计数法是否支持1.0E2、全角数字与半角数字、数字与字母混合。</li>
+<li>安全性检查：不能直接输入就复制然后粘贴。</li>
+<li>对于必填项，先录入再删除是否可以提交成功；或者先录入错误数据再改为正确数据是否可提交成功 。</li>
+<li>录入小数然后全选，直接录入新值，是否可正常录入；（可能出现小数全选后无法直接填写新值）。</li>
+</ul>
+</li>
+<li>日期型：<ul>
+<li>合法性检查：输入0月，13月，32日等，闰年2月的处理方式等，考虑开始日期与结束日期的比较，特别是在查询的时候。</li>
+<li>异常值、特殊字符：输入空格或空、输入~！@#￥%……&amp;*（）{}[]等可能导致系统错误的字符。</li>
+<li>安全性检查：不能直接输入，就copy，是否数据检验出错。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>信息重复：<ul>
+<li>在一些需要命名,且名字应该唯一的信息输入重复的名字或ID,看系统有没有处理,会否报错,重名包括是否区分大小写,以及在输入内容的前后输入空格,系统是否作出正确处理。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2、UI测试</strong></p>
+<ul>
+<li>UI与实际设计的效果图是否一致。</li>
+<li>用户界面(如菜单、对话框、窗口和其它可视控件)布局、风格是否满足客户要求，文字是否正确，页面是否美观，文字，图片组合是否完美，操作是否友好等</li>
+<li>导航测试：<ul>
+<li>按钮、对话框、列表和窗口等；或在不同的连接页面之间需要导航。</li>
+<li>是否易于导航，导航是否直观。</li>
+<li>是否需要搜索引擎。</li>
+<li>导航帮助是否准确直观。</li>
+<li>导航与页面结构、菜单、连接页面的风格是否一致。</li>
+</ul>
+</li>
+<li>图形测试：<ul>
+<li>横向比较，各控件操作方式统一。</li>
+<li>自适应界面设计，内容根据窗口大小自适应。</li>
+<li>页面标签风格是否统一。</li>
+<li>页面是否美观。</li>
+<li>页面的图片应有其实际意义而要求整体有序美观。</li>
+</ul>
+</li>
+<li>内容测试：<ul>
+<li>输入框说明文字的内容与系统功能是否一致。</li>
+<li>文字长度是否加以限制。</li>
+<li>文字内容是否表意不明。</li>
+<li>是否有错别字。</li>
+<li>信息是否为中文显示。</li>
+</ul>
+</li>
+<li>过度渲染。</li>
+</ul>
+<p><strong>3、兼容性测试</strong></p>
+<ul>
+<li>不同机型兼容：<ul>
+<li>主流机型TOP100等。</li>
+</ul>
+</li>
+<li>系统版本兼容：<ul>
+<li>android&gt;=2.3、ios&gt;=7。</li>
+</ul>
+</li>
+<li>不同分辨率兼容：<ul>
+<li>800x480、854x480、800x600、960x540、960x640、960x720、1024x576、1024x600、1024x768、1280x720、1280x768、1280x800等分辨率。</li>
+</ul>
+</li>
+<li>新旧版本兼容。</li>
+<li>输入法兼容。</li>
+<li>安全软件兼容。</li>
+<li>通讯软件兼容。</li>
+<li>竞品软件兼容。</li>
+</ul>
+<p><strong>4、稳定性测试</strong></p>
+<ul>
+<li>煲机测试。</li>
+<li>暴力测试。</li>
+<li>电池边界压力。</li>
+<li>存储边界压力。</li>
+<li>网速边界压力。</li>
+<li>反复/长期操作，系统资源是否占用异常。</li>
+<li>单点连续点击是否会响应多次请求。</li>
+<li>多点触控，同时点击2个不同的按钮，同时响应2个操作是否会引起导致页面显示异常，或者程序崩溃。</li>
+</ul>
+<p><strong>5、可靠性测试</strong></p>
+<ul>
+<li>检验产品在出现异常时的处理机制。</li>
+<li>同时需要检验出现这些异常场景，或者是比较极限的情况的时候会否出现crash、anr的情况。</li>
+</ul>
+<p><strong>6、本地化测试</strong></p>
+<ul>
+<li>本地化安装。</li>
+<li>本地化升级。</li>
+<li>本地化网络。</li>
+<li>本地化翻译。</li>
+<li>本地化显示：<ul>
+<li>其他语言的语言习惯（如繁体）。</li>
+<li>英文注意复数。</li>
+<li>多语言下，需要特别检查以图片形式展示的文案（如果功能引导，启动引导图）。</li>
+<li>一致性。（一方面是代指的一致性，一方面如果有系列应用共用功能的文案也需要保持一致）。</li>
+<li>检查英文语言下的切断、断行是否正确。</li>
+<li>当文字长度不一致时，UI界面是否能正常适配。</li>
+</ul>
+</li>
+<li>区域性设定。</li>
+</ul>
+<p><strong>7、体验性测试</strong></p>
+<ul>
+<li>易用性：<ul>
+<li>操作顺序是否合理</li>
+<li>操作是否符合人们的常规习惯，右上角分享菜单等。</li>
+<li>日期控件是否可编辑。</li>
+<li>信息比较长的文本，文本框有没有提供自动垂直滚动条。</li>
+<li>是否支持Tab键，跳转顺序是否条理，键的顺序是否有条理，不乱跳。</li>
+</ul>
+</li>
+<li>友好性：<ul>
+<li>执行风险操作时，是否有确认提示，如删除、移除、注销确认提示吗</li>
+<li>界面操作、标题描述是否恰当。例如应该是气泡提示的却显示成方框提示。</li>
+<li>用滚动条移动页面时，页面的控件是否显示正常。</li>
+<li>控件的提示语描述是否正确</li>
+</ul>
+</li>
+<li>视觉设计：<ul>
+<li>风格.样式.颜色是否协调</li>
+<li>界面布局是否整齐、协调。例如搜索栏上面应该显示三个按钮，实际上只显示了两个或者显示折行</li>
+<li>界面中各个控件是否对齐</li>
+<li>页面是否有多余按钮或标签</li>
+</ul>
+</li>
+</ul>
+<p><strong>8、安全性测试</strong></p>
+<ul>
+<li>App安全测试大概划分为以下几类：<ul>
+<li>从数据的本地存储到数据的传输、处理以及远程访问等各个环节，基于相应的安全标准/行业标准评估App的安全特性。</li>
+<li>借鉴在Web App和网络安全测试的一些成功经验在智能终端App测试中进行裁减或适配。</li>
+<li>检测App的用户授权级别，数据泄漏，非法授权访问等。</li>
+<li>对App的输入有效性校验、认证、授权、敏感数据存储、数据加密等方面进行检测,以期发现潜在的安全问题。</li>
+<li>基于各种通信协议或相应的行业安全标准检视App是否满足相应的要求。</li>
+</ul>
+</li>
+<li>检查包括检查权限、日志、传输通道。</li>
+<li>扫描主要测试端口。</li>
+<li>渗透属于专项测试领域。</li>
+<li>apk文件在PC杀软上检测。</li>
+<li>手机杀毒软件检测。</li>
+<li>数据安全性：<ul>
+<li>当将密码或其它的敏感数据输入到应用程序时，其不会被存储在设备中，同时密码也不会被解码。</li>
+<li>输入的密码将不以明文形式进行显示。</li>
+<li>密码、信用卡明细或其他的敏感数据将不被存储在它们预输入的位置上。</li>
+<li>不同的应用程序的个人身份证或密码长度必须至少在4-8个数字长度之间。</li>
+<li>当应用程序处理信用卡明细或其它的敏感数据时，不以明文形式将数据写到其他单独的文件或者临时文件中。以防止应用程序异常终止而又没有删除它的临时文件，文件可能遭受入侵者的袭击，然后读取这些数据信息。</li>
+<li>党建敏感数据输入到应用程序时，其不会被存储在设备中。</li>
+<li>应用程序应考虑或者虚拟机器产生的用户提示信息或安全警告。</li>
+<li>应用程序不能忽略系统或者虚拟机器产生的用户提示信息或安全警告，更不能在安全警告显示前，利用显示误导信息欺骗用户，应用程序不应该模拟进行安全警告误导用户。</li>
+<li>在数据删除之前，应用程序应当通知用户或者应用程序提供一个“取消”命令的操作。</li>
+<li>应用程序应当能够处理当不允许应用软件连接到个人信息管理的情况。</li>
+<li>当进行读或写用户信息操作时，应用程序将会向用户发送一个操作错误的提示信息。</li>
+<li>在没有用户明确许可的前提下不损坏删除个人信息管理应用程序中的任何内容。</li>
+<li>如果数据库中重要的数据正要被重写，应及时告知用户。</li>
+<li>能合理的处理出现的错误。</li>
+<li>意外情况下应提示用户。</li>
+</ul>
+</li>
+</ul>
+<p><strong>9、安装升级和卸载</strong></p>
+<ul>
+<li>安装：<ul>
+<li>在各个操作系统上（Android&gt;=2.3，ios&gt;=7.0，根据各个应用要求的最低系统）能安装成功。</li>
+<li>分别安装在手机内存或者sd卡上都能成功。</li>
+<li>在安装过程中，突然断网或网络不好，是否给出有好的提示，网络恢复之后是否能正常下载。</li>
+<li>在安装过程中，突然内存不足，是否有相应的提示。</li>
+<li>在安装过程中，是否支持取消操作。</li>
+<li>在安装过程中，突然死机，断电，卡死，手机恢复正常后，是否能正常安装。</li>
+<li>软件安装后是否能够正常运行，安装后的文件夹以及文件是否写到了指定的目录里。</li>
+<li>软件安装各个选项的组合是否符合概要设计说明。</li>
+<li>软件安装向导的UI测试</li>
+</ul>
+</li>
+<li>卸载：<ul>
+<li>卸载清理安装目录，保留sd卡数据。</li>
+<li>在卸载过程中，突然死机，断电，卡死，手机恢复正常后，是否能正常卸载。</li>
+<li>卸载完成之后，查看文件是否卸载干净。</li>
+<li>卸载是否支持取消功能，单击取消后软件卸载的情况。</li>
+<li>系统直接卸载UI测试，是否有卸载状态进度条提示。</li>
+<li>卸载用户使用过程中产生的文件是否有提示。</li>
+<li>其修改的配置信息是否复原。</li>
+<li>卸载是否影响其他软件的功能。</li>
+</ul>
+</li>
+<li>更新：<ul>
+<li>是否可以隔版本升级。</li>
+<li>是否可以覆盖安装低版本。</li>
+<li>忽略本次版本升级，下次是否可以升级。</li>
+<li>没有更新或者网络时提示正确。</li>
+<li>大版本更新不升级无法使用。</li>
+<li>是否有完整的升级策略（强制升级，灰度发布）。</li>
+<li>下载升级包过程中是否可以取消。</li>
+<li>升级包下载是否可以续传。</li>
+<li>升级过程是否可以中断（取消按钮，back键）。</li>
+<li>在线升级验证数字签名。</li>
+<li>Android系统第一次安装非官方市场应用，需要手动取消限制，此过程是否会影响到apk包安装（正对预装应用的测试）。</li>
+<li>收到升级提示后，下载了apk并未安装，同名替换该apk，下次再收到升级提示后，是否正常升级。</li>
+<li>升级覆盖安装是否数据保留。</li>
+<li>用户设置项状态是否保留。</li>
+<li>新版上移除老版的功能是否正常。</li>
+<li>升级后的版本各功能正常。</li>
+<li>不同渠道包覆盖安装。</li>
+<li>版本跨度较大的覆盖安装。</li>
+<li>版本为非强制升级时，用户可以取消升级，老版本正常使用，用户下次启动时，仍出现更新提示（根据客户端策略是下次还是搁多长时间）。</li>
+<li>版本为强制升级时，给出强制更新提示后用户没有更新就退出客户端,用户下次启动时，仍出现强制更新提示。</li>
+<li>打开旧版app时，是否有更新提示，且在不同的手机版本上都能更新成功。</li>
+<li>打开新版app时，不显示更新提示，在设置中检查更新，提示已更新到最新版本。</li>
+<li>在不删除客户端的情况下，用户是否能更新成功，查看新版功能是否正常。</li>
+<li>更新过程中，更新速度是否合理。</li>
+<li>更新过程中，突然网络不好是否有提示。</li>
+<li>更新过程中，突然死机，断电，卡死，手机恢复正常后，是否能更新成功。</li>
+</ul>
+</li>
+</ul>
+<p><strong>10、启动运行和退出</strong></p>
+<ul>
+<li>启动的方式：首次启动，热启动，冷启动。</li>
+<li>首次启动是否出现欢迎界面，可否进入App，停留时间是否合理。</li>
+<li>首次启动后拉取的信息是否正确。</li>
+<li>再次启动时间是否符合预期。</li>
+<li>再次启动app功能是否异常。</li>
+<li>再次启动后状态检查：如初始化信息、初始状态、启动对网络。</li>
+<li>再次启动进程服务检查：进程名、进程数、服务名、服务数、第三方调用的SDK如GPS。</li>
+<li>再次带登陆的应用是否再次启动的时候正常登录。</li>
+<li>出现崩溃是否可以再次启动。</li>
+<li>手动终止进程、服务是否可以在此启动。</li>
+<li>其他系统软件工具停止进程、清理软件数据，是否可以启动。</li>
+<li>启动入口：桌面正常启动，最近运行启动，所有程序列表中启动，锁屏快捷启动。</li>
+<li>其他入口：从其他程序开启应用，从外部以文件形式打开应用（如果有）。</li>
+<li>退回：从其他程序退回时回到被测应用，被测应用打开其他应用再从桌面图标启动。</li>
+<li>异常启动：崩溃后启动，写文件时被强制杀进程后启动，网络请求未收到回包强制杀进程后再启动，网络超时时启动（启动需要有超时机制）。</li>
+<li>运行速度是否流畅。</li>
+<li>各个模块之间的切换是否正常。</li>
+</ul>
+<p><strong>11、网络环境</strong></p>
+<ul>
+<li>移动网络：<ul>
+<li>移动4G/3G/2G。</li>
+<li>联通4G/3G/2G。</li>
+<li>电信4G/3G/2G。</li>
+</ul>
+</li>
+<li>wifi热点：<ul>
+<li>移动。</li>
+<li>联通。</li>
+<li>电信。</li>
+</ul>
+</li>
+<li>切换网络：<ul>
+<li>wifi/4G/3G/2G。</li>
+<li>wifi/wifi。</li>
+<li>飞行模式/4G/3G/2G。</li>
+<li>飞行模式/wifi。</li>
+<li>双卡双待切换。</li>
+</ul>
+</li>
+<li>断网：<ul>
+<li>页面UI呈现是否正常，数据是否完整，toast提示是否正确。</li>
+<li>断网恢复网络。</li>
+</ul>
+</li>
+<li>弱网：<ul>
+<li>弱网络状态下的功能：<ul>
+<li>均在2G，3G，4G，高延时，高丢包，假热点的状态下，弱网状态的功能正常。</li>
+</ul>
+</li>
+<li>弱网络状态下的体验：<ul>
+<li>中间的转态状态正常。</li>
+<li>异常反馈的文案正常，样式正确。</li>
+</ul>
+</li>
+<li>弱网络状态下的响应时间。</li>
+<li>弱网恢复强网。</li>
+</ul>
+</li>
+</ul>
+<p><strong>12、中断恢复</strong></p>
+<ul>
+<li>中断情况：<ul>
+<li>锁屏。</li>
+<li>断电。</li>
+<li>充电。</li>
+<li>电话。</li>
+<li>短信。</li>
+<li>音乐。</li>
+<li>闹钟。</li>
+<li>音量。</li>
+<li>数据线。</li>
+<li>耳机。</li>
+<li>蓝牙。</li>
+<li>日历提醒。</li>
+<li>低电量提醒。</li>
+<li>切换其他app。</li>
+<li>其他app通知。</li>
+<li>强行关闭。</li>
+<li>back。</li>
+<li>home。</li>
+<li>音频资源。</li>
+<li>相机视频资源。</li>
+</ul>
+</li>
+<li>App切换到后台，再回到App，检查是否停留在上一次操作界面。</li>
+<li>App切换到后台，再回到App，检查功能及应用状态是否正常。</li>
+<li>App切换到后台，再回到前台时，注意程序是否崩溃，功能状态是否正常，尤其是对于从后台切换回前台数据有自动更新的时候。</li>
+<li>手机锁屏解锁后进入App注意是否会崩溃，功能状态是否正常，尤其是对于从后台切换回前台数据有自动更新的时候。</li>
+<li>当App使用过程中有电话进来中断后再切换到App，功能状态是否正常。</li>
+<li>当杀掉App进城后，再开启App，App能否正常启动。</li>
+<li>出现必须处理的提示框后，切换到后台，再切换回来，检查提示框是否还存在，有时候会出现应用自动跳过提示框的缺陷。</li>
+<li>对于有数据交换的页面，每个页面都必须要进行前后台切换、锁屏的测试，这种页面最容易出现崩溃。</li>
+<li>在所有界面执行锁屏操作，解锁后观察是否正常运行。</li>
+<li>在所有界面执行长时间锁屏操作，解锁后观察是否正常运行。</li>
+<li>在所有界面，和所有过程，按home键切后台，再切回时观察是否正常。</li>
+<li>在所有的loading过程中，按back键。</li>
+<li>在所有的loading过程中，按home键。</li>
+<li>界面切换动画时尝试多次按back键。</li>
+<li>正常的点击动作，尝试快速按两次。</li>
+<li>后摄像头和前摄像头无法同时启动，后摄像头启动还包括打开闪光灯（与手电筒类应用的兼容性）。</li>
+<li>检查键盘展开和收起的时机，与home、back、锁屏组合测试。</li>
+<li>从第三方启动后，home键回到桌面，再从桌面打开被测应用，显示是否正确（应确定是显示第三方启动界面，还是显示程序正常启动界面，前者如微信，后者如QQ）。</li>
+<li>断电后重启。</li>
+<li>来电结束后，返回被测应用界面。</li>
+<li>在某些特殊情况下，来电后，移动网络会被切断。</li>
+</ul>
+<p><strong>13、手机权限</strong></p>
+<ul>
+<li>软件权限：<ul>
+<li>扣费风险：包括短信、拨打电话、连接网络等。</li>
+<li>隐私泄露风险：包括访问手机信息、访问联系人信息等。</li>
+<li>对App的输入有效性校验、认证、授权、数据加密等方面进行检测。</li>
+<li>限制/允许使用手机功能接入互联网。</li>
+<li>限制/允许使用手机发送接收信息功能。</li>
+<li>限制/允许使用本地连接。</li>
+<li>限制/允许使用手机拍照或录音。</li>
+<li>限制/允许使用手机读取用户数据。</li>
+<li>限制/允许使用手机写入用户数据。</li>
+<li>限制/允许应用程序来注册自动启动应用程序。</li>
+</ul>
+</li>
+<li>需要用户确认的权限没有授权，权限默认关闭。</li>
+<li>当某些权限被安全软件或者系统禁止时，是否可以正常使用。</li>
+<li>使用安全软件进行安全漏洞、病毒扫描，看被测APP是否会被提示有安全问题。</li>
+<li>第三方安全软件弹框请求禁止权限时，选择后，是否会影响到被测应用的正常流程。</li>
+</ul>
+<p><strong>14、消息推送</strong></p>
+<ul>
+<li>检查Push消息是否按照指定的业务规则发送。</li>
+<li>消息推送默认打开。</li>
+<li>关闭消息推送关闭后，收不到推送消息。</li>
+<li>打开推送开关能否正常接收消息。</li>
+<li>app运行时消息推送不会进入消息栏。</li>
+<li>app后台挂机时，消息栏可以接收到推送提醒，点击后从消息栏消失。</li>
+<li>如果用户设置了免打扰的时间段，检查在免打扰时间段内，用户接收不到Push。在非免打扰时间段内，用户能正常收到Push。</li>
+<li>当Push消息是针对登录用户的时候。</li>
+<li>只对手机上最后一个登录用户进行消息推送。</li>
+<li>点击消息推送跳转正确。</li>
+</ul>
+<p><strong>15、屏幕旋转</strong></p>
+<ul>
+<li>当适应横屏时，是否对横屏进行了适配。</li>
+<li>确认哪些界面是需要允许横屏或者禁止横屏的。</li>
+<li>将屏幕锁定为竖屏或者横屏，在几个界面跳转，界面是否正常。</li>
+<li>横竖屏切换，页面需要重新加载，UI是否正确，重新加载的页面可能会发生内存无法释放的情况。</li>
+<li>同一页面横屏后再竖过来是否能和之前显示一致。在横屏情况下做一系列操作看看是否正常。</li>
+</ul>
+<p><strong>16、文件存储</strong></p>
+<ul>
+<li>APP被安装在SD卡或者手机存储空间。</li>
+<li>APP使用过程中产生的临时文件存储路径、命名方式等。</li>
+<li>APP中涉及的下载操作产生的文件存储方式。</li>
+<li>存储的文件被锁、占用。</li>
+<li>磁盘空间不足。</li>
+<li>磁盘无权限（如读、写）。</li>
+<li>无SD卡时的存储提示是否有。</li>
+<li>有SD卡但无存储空间时存储提示是否有。</li>
+<li>内置SD卡，存储是否正确。</li>
+<li>外置SD卡，存储是否正确。</li>
+<li>SD卡被使用时移除，存储是否正确，提示是否有。</li>
+<li>将SD卡的内容删除后操作（如，下载的内容，删除下载的文件，在下载管理对该文件操作）。</li>
+</ul>
+<p><strong>17、系统配置</strong></p>
+<ul>
+<li>语言环境。</li>
+<li>省电管理。</li>
+<li>后台进程驻留管理。</li>
+<li>字体大小和类型。</li>
+<li>是否支持横竖屏自适应。</li>
+</ul>
+<p><strong>18、性能测试</strong></p>
+<ul>
+<li>CPU。</li>
+<li>内存。</li>
+<li>电量。</li>
+<li>流量。</li>
+<li>温度。</li>
+<li>FPS。</li>
+<li>安装时间：<ul>
+<li>普通安装。</li>
+<li>覆盖安装。</li>
+</ul>
+</li>
+<li>启动时间：<ul>
+<li>冷启动。</li>
+<li>热启动。</li>
+</ul>
+</li>
+<li>跳转时间：<ul>
+<li>页面间跳转。</li>
+<li>控件间跳转。</li>
+</ul>
+</li>
+</ul>
+<p><strong>19、竞品测试</strong></p>
+<ul>
+<li>和竞品对各个指标进行定量对比。</li>
+</ul>
+<p><strong>20、探索测试</strong></p>
+<ul>
+<li>自由式探索。</li>
+<li>场景式探索。</li>
+<li>策略试探索。</li>
+<li>反馈式探索。</li>
+</ul>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 11:25</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/02/app测试/" title="app测试">http://pythonfood.github.io/2018/03/02/app测试/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/03/02/app测试/&title=《app测试》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/03/02/app测试/&title=《app测试》 — PythonFood&source=app端测试笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/03/02/app测试/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《app测试》 — PythonFood&url=http://pythonfood.github.io/2018/03/02/app测试/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/03/02/app测试/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/03/02/app测试/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/app测试/" class="color1">app测试</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、测试资源确认及准备"><span class="post-toc-text">一、测试资源确认及准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、测试用例设计与评审"><span class="post-toc-text">二、测试用例设计与评审</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、测试用例框架"><span class="post-toc-text">三、测试用例框架</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、测试用例设计"><span class="post-toc-text">四、测试用例设计</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/03/02/web测试/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          web测试
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/03/01/unittest测试框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">unittest测试框架</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="app测试" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/appium/">appium</a><a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/monkey/">monkey</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/selenium/">selenium</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/专项测试/">专项测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/专项测试/" style="font-size: 16.67px;">专项测试</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/接口测试/" style="font-size: 15px;">接口测试</a> <a href="/tags/测试框架/" style="font-size: 10px;">测试框架</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
