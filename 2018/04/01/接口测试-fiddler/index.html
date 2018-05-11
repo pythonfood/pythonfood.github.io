@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>接口测试-fiddler | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="接口测试fiddler工具使用笔记。">
+<meta name="keywords" content="fiddler">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口测试-fiddler">
+<meta property="og:url" content="http://pythonfood.github.io/2018/04/01/接口测试-fiddler/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="接口测试fiddler工具使用笔记。">
+<meta property="og:image" content="http://pythonfood.github.io/2018/04/01/接口测试-fiddler/HTTPS设置.png">
+<meta property="og:image" content="http://pythonfood.github.io/2018/04/01/接口测试-fiddler/Connections设置.png">
+<meta property="og:image" content="http://pythonfood.github.io/2018/04/01/接口测试-fiddler/fiddler工作原理.png">
+<meta property="og:updated_time" content="2018-05-11T06:58:28.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="接口测试-fiddler">
+<meta name="twitter:description" content="接口测试fiddler工具使用笔记。">
+<meta name="twitter:image" content="http://pythonfood.github.io/2018/04/01/接口测试-fiddler/HTTPS设置.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-接口测试-fiddler" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      接口测试-fiddler
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/接口测试/">接口测试</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-04-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>接口测试fiddler工具使用笔记。<br><a id="more"></a></p>
+<h2 id="一、Fiddler-环境准备"><a href="#一、Fiddler-环境准备" class="headerlink" title="一、Fiddler 环境准备"></a>一、Fiddler 环境准备</h2><p>(1)官网下载安装:<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a><br>(2)相关设置:【Tools-options-HTTPS-Connections】,设置好之后退出再启动一次。</p>
+<p><img src="/2018/04/01/接口测试-fiddler/HTTPS设置.png" alt="HTTPS设置"><br><img src="/2018/04/01/接口测试-fiddler/Connections设置.png" alt="Connections设置"></p>
+<h2 id="二、Fiddler-工作原理"><a href="#二、Fiddler-工作原理" class="headerlink" title="二、Fiddler 工作原理"></a>二、Fiddler 工作原理</h2><p><img src="/2018/04/01/接口测试-fiddler/fiddler工作原理.png" alt="fiddler工作原理"></p>
+<h2 id="三、Fiddler-基本界面"><a href="#三、Fiddler-基本界面" class="headerlink" title="三、Fiddler 基本界面"></a>三、Fiddler 基本界面</h2><p>(1)Session部分:</p>
+<blockquote>
+<ul>
+<li>#:id</li>
+<li>Result:服务器返回的状态码</li>
+<li>Protocol:协议</li>
+<li>Host:发送给服务器的host值</li>
+<li>URL:</li>
+</ul>
+</blockquote>
+<p>(2)Inspectors:<br>1)Request部分:</p>
+<blockquote>
+<ul>
+<li>Headers:头部信息<blockquote>
+<ul>
+<li>User-Agent:用户的身份</li>
+<li>Referer:请求的上一个请求来源</li>
+<li>Host:当前的host</li>
+</ul>
+</blockquote>
+</li>
+<li>TextView:</li>
+<li>WebForms:请求的参数值</li>
+<li>HexView:16进制的view</li>
+<li>Cookies:</li>
+<li>Raw:最原始的所有的数据</li>
+<li>JSON:json形式的请求</li>
+<li>XML:xml形式的请求</li>
+</ul>
+</blockquote>
+<p>2)Response部分:</p>
+<blockquote>
+<ul>
+<li>TextView:可以看到整个返回的内容</li>
+<li>Raw:返回所有的相关的内容</li>
+<li>JSON:返回json形式的数据</li>
+<li>XML:返回xml形式的数据</li>
+<li>WebView:返回的html页面</li>
+<li>ImageView:返回的图片内容</li>
+</ul>
+</blockquote>
+<p>(3)Statistics:静态统计</p>
+<p>(4)Composer:构造各种各样的请求发送给服务器</p>
+<p>(5)AutoResponder:配置假数据模拟后端服务器返回的数据</p>
+<h2 id="四、Fiddler-设置断点修改Request"><a href="#四、Fiddler-设置断点修改Request" class="headerlink" title="四、Fiddler 设置断点修改Request"></a>四、Fiddler 设置断点修改Request</h2><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
+<blockquote>
+<p>1)设置断点【Rules-Automatic Breakpoints-Before Request F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“fiddler”<br>4)fiddler对应的请求，点击【Response部分-Run to Completion】<br>5)fiddler新弹出的请求应该就是需要改参数的请求<br>6)fiddler需要修改参数的请求，点击【Request部分-WebForms】<br>7)修改对应的参数<br>8)点击【Repose部分-Run to Completion】<br>9)回到浏览器查看请求是否修改成功</p>
+</blockquote>
+<p>(2)通过命令设置断点(可以拦截指定站点)</p>
+<blockquote>
+<p>1)session部分底部输入命令<code>bpu www.baidu.com</code>，其他操作同上。<br>2)清除拦截，输入命令<code>bpu</code></p>
+</blockquote>
+<h2 id="五、Fiddler-设置断点修改Response"><a href="#五、Fiddler-设置断点修改Response" class="headerlink" title="五、Fiddler 设置断点修改Response"></a>五、Fiddler 设置断点修改Response</h2><p>(1)通过工具栏设置断点(缺点是会拦截所有的请求)</p>
+<blockquote>
+<p>1)点击设置【Rules-Automatic Breakpoints-After Response Alt+F11】<br>2)清除请求区域<br>3)浏览器进行百度搜索“哈哈”<br>4)fiddler修改Response部分的参数<br>5)点击【Response部分-Run to Completion】<br>6)回到浏览器查看请求是否修改成功</p>
+</blockquote>
+<p>(2)通过命令设置断点(可以拦截指定站点)</p>
+<blockquote>
+<p>1)session部分底部输入命令<code>bpafter www.baidu.com</code>，其他操作同上。<br>2)清除拦截，输入命令<code>bpafter</code></p>
+</blockquote>
+<p>(3)AutoResponder设置</p>
+<blockquote>
+<p>1)浏览器进行百度搜索“哈哈”<br>2)fiddler对应的请求,点击【AutoResponder-Add Rule】<br>3)勾选【Enable reles】【Unmatched requests passthrough】【Enable Latency】<br>4)下边规则改为模糊匹配，例如改为：<code>regex:(?inx)^https://www.baidu.com/s?.+</code><br>5)下边下拉框返回状态码任意可选，例如选择:404_Plain.dat<br>6)点击【Save】按钮<br>7)回到浏览器重新百度搜索任意字符，看是否返回404<br>ps:可以通过下拉列表的“find a file”自定义规则，文件内容自定义。</p>
+</blockquote>
+<h2 id="六、Fiddler-小工具"><a href="#六、Fiddler-小工具" class="headerlink" title="六、Fiddler 小工具"></a>六、Fiddler 小工具</h2><p>(1)会话的过滤</p>
+<blockquote>
+<p>1)点击【Filters-Use Filters】<br>2)【No Host Filter】下拉框选择【Show only the following Hosts】<br>3)输入要过滤的站点，例如:www.baidu.com<br>4)点击【Actions-Run Filterset now】<br>5)此时session对话框只显示过滤站点请求</p>
+</blockquote>
+<p>(2)会话的比较<br>下载windiff:<a href="https://www.grigsoft.com/download-windiff.htm" target="_blank" rel="noopener">https://www.grigsoft.com/download-windiff.htm</a><br>解压后复制到fiddler安装路径即可</p>
+<blockquote>
+<p>1)选中两个要对比的请求<br>2)右键点击【Compare】<br>3)调起windiff工具进行对比</p>
+</blockquote>
+<p>(3)编码小工具</p>
+<blockquote>
+<p>1)点击【Tools-TextWizard】<br>2)上部分输入原始内容，下部分显示编解码内容<br>3)例如：上面输入(<a href="https://www.grigsoft.com/download-windiff.htm" target="_blank" rel="noopener">https://www.grigsoft.com/download-windiff.htm</a>) ，下面选择URLEecode,即可看到结果。</p>
+</blockquote>
+<h2 id="七、Fiddler-Host设置"><a href="#七、Fiddler-Host设置" class="headerlink" title="七、Fiddler Host设置"></a>七、Fiddler Host设置</h2><blockquote>
+<p>1)点击【Tools-HOSTS…】<br>2)勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】<br>3)点击会话框底部【Import Windows Hosts File】，导入系统host<br>4)任意修改host,点击【Save】host即生效<br>5)不使用修改的host,只需要取消勾选对话框顶部【Enable Remapping of requests for one host to a differenthost or IP,overing DNS】</p>
+</blockquote>
+<h2 id="八、Fiddler-构造HTTP请求"><a href="#八、Fiddler-构造HTTP请求" class="headerlink" title="八、Fiddler 构造HTTP请求"></a>八、Fiddler 构造HTTP请求</h2><p>(1)构造Get请求</p>
+<blockquote>
+<p>1)选择一条Get请求，点击【Inspectors-Headers】<br>2)复制Headers的头部信息，粘贴到【Composer-Parsed】的对话框<br>3)首先删除掉复制信息的“Get”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)点击【Execute】发送请求<br>6)查看session界面请求是否发送<br>ps:可以任意修改URL进行接口测试</p>
+</blockquote>
+<p>(2)构造Post请求</p>
+<blockquote>
+<p>1)选择一条Post请求，点击【Inspectors-Raw】<br>2)复制所有信息，粘贴到【Composer-Parsed】的对话框，请求方式选择【POST】<br>3)首先删除掉复制信息的“Post”类型<br>4)再剪切复制信息的URL，粘贴到上方的输入框，去掉URL尾部的“HTTP/1.1”协议<br>5)剪切空行以下的request body信息，粘贴到下面的输入框<br>6)点击【Execute】发送请求<br>7)查看session界面请求是否发送<br>ps:可以任意修改URL和request body信息进行接口测试</p>
+</blockquote>
+<h2 id="九、Fiddler-抓取手机包"><a href="#九、Fiddler-抓取手机包" class="headerlink" title="九、Fiddler 抓取手机包"></a>九、Fiddler 抓取手机包</h2><p>(1)配置Fiddler允许监听https<br>(2)配置Fiddler允许远程连接<br>(3)手机端设置代理服务</p>
+<blockquote>
+<p>1)设置【Tools-Options-HTTPS】<br>2)设置【Tools-Options-Connections】<br>3)手机当前连接wifi里设置代理:主机名填写电脑的ip地址，端口填写8888<br>4)手机操作应用，请求就会发送到fiddler,其他操作同PC端操作</p>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 14:58</p>
+        <p>原始链接： <a class="post-url" href="/2018/04/01/接口测试-fiddler/" title="接口测试-fiddler">http://pythonfood.github.io/2018/04/01/接口测试-fiddler/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/&title=《接口测试-fiddler》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/&title=《接口测试-fiddler》 — PythonFood&source=接口测试fiddler工具使用笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《接口测试-fiddler》 — PythonFood&url=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/04/01/接口测试-fiddler/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/fiddler/" class="color3">fiddler</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Fiddler-环境准备"><span class="post-toc-text">一、Fiddler 环境准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Fiddler-工作原理"><span class="post-toc-text">二、Fiddler 工作原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Fiddler-基本界面"><span class="post-toc-text">三、Fiddler 基本界面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Fiddler-设置断点修改Request"><span class="post-toc-text">四、Fiddler 设置断点修改Request</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、Fiddler-设置断点修改Response"><span class="post-toc-text">五、Fiddler 设置断点修改Response</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、Fiddler-小工具"><span class="post-toc-text">六、Fiddler 小工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、Fiddler-Host设置"><span class="post-toc-text">七、Fiddler Host设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、Fiddler-构造HTTP请求"><span class="post-toc-text">八、Fiddler 构造HTTP请求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、Fiddler-抓取手机包"><span class="post-toc-text">九、Fiddler 抓取手机包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/04/01/接口测试-postman/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          接口测试-postman
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/03/01/selenium常用API/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">selenium常用API</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="接口测试-fiddler" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>

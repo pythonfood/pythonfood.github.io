@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python文件操作 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python文件操作">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/30/python文件操作/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-05-11T06:43:32.830Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python文件操作">
+<meta name="twitter:description" content="人生苦短，我用python。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python文件操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python文件操作
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、file对象"><a href="#一、file对象" class="headerlink" title="一、file对象"></a>一、file对象</h2><p>操作文件首先要创建file对象，file对象使用<code>open()</code>函数来创建。</p>
+<h3 id="1、读取创建"><a href="#1、读取创建" class="headerlink" title="1、读取创建"></a>1、读取创建</h3><p>(1)读取文本文件，UTF-8编码：<br><code>f = open(&#39;/Users/michael/test.txt&#39;, &#39;r&#39;)</code></p>
+<p>(2)读取二进制文件，比如图片、视频等用<code>rb</code>模式打开文件:<br><code>f = open(&#39;/Users/michael/test.jpg&#39;, &#39;rb&#39;)</code></p>
+<p>(3)读取非UTF-8编码的文本文件，需要给open()函数传入<code>encoding</code>参数:<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;r&#39;, encoding=&#39;gbk&#39;)</code></p>
+<p>(4)有些编码不规范的文件,遇到编码错误,最简单的方式是直接忽略(<code>errors</code>参数)：<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;r&#39;, encoding=&#39;gbk&#39;, errors=&#39;ignore&#39;)</code></p>
+<h3 id="2、写入创建"><a href="#2、写入创建" class="headerlink" title="2、写入创建"></a>2、写入创建</h3><p>(1)写入文本文件，UTF-8编码：<br><code>file = open(&#39;/Users/michael/test.txt&#39;, &#39;w&#39;)</code></p>
+<p>(2)写入二进制文件：<br><code>f = open(&#39;/Users/michael/test.jpg&#39;, &#39;wb&#39;)</code></p>
+<p>(3)写入特定编码的文本文件，请给open()函数传入encoding参数:<br><code>f = open(&#39;/Users/michael/gbk.txt&#39;, &#39;w&#39;, encoding=&#39;gbk&#39;)</code></p>
+<p>(4)在文本末尾追加写入，需要传入<code>a</code>参数(append)：<br><code>file = open(&#39;/Users/michael/test.txt&#39;, &#39;w&#39;, &#39;a&#39;)</code></p>
+<h2 id="二、读文件"><a href="#二、读文件" class="headerlink" title="二、读文件"></a>二、读文件</h2><p>创建file对象后，就可以调取<code>read()</code>方法进行读取内容了。</p>
+<h3 id="1、read-size"><a href="#1、read-size" class="headerlink" title="1、read(size)"></a>1、read(size)</h3><p>从文件读取指定的字节数，如果未给定或为负则读取所有：<br><code>line = f.read()</code> #一次性全部读取<br><code>line = f.read(10)</code> #一次读取10个字节，即5汉字</p>
+<h3 id="2、readline-size"><a href="#2、readline-size" class="headerlink" title="2、readline(size)"></a>2、readline(size)</h3><p>读取整行，包括 “\n” 字符：<br><code>line = f.readline()</code> #一次性读取一整行<br><code>line = f.readline(5)</code> #读取一行中的前5个字节</p>
+<h3 id="3、readlines-sizeint"><a href="#3、readlines-sizeint" class="headerlink" title="3、readlines(sizeint)"></a>3、readlines(sizeint)</h3><p>读取所有行并返回列表，若给定sizeint&gt;0，返回总和大约为sizeint字节的行, 实际读取值可能比 sizeint 较大, 因为需要填充缓冲区：<br><code>lines = f.readlines()</code> #一次性读取所有行，返回列表</p>
+<h2 id="三、写文件"><a href="#三、写文件" class="headerlink" title="三、写文件"></a>三、写文件</h2><p>创建file对象后，也可以调取<code>write()</code>方法进行写入内容了。</p>
+<h3 id="1、write-str"><a href="#1、write-str" class="headerlink" title="1、write(str)"></a>1、write(str)</h3><p>将字符串写入文件，没有返回值。<br><code>f.write(&#39;hello world&#39;)</code> #向文件写入</p>
+<h3 id="2、writelines-sequence"><a href="#2、writelines-sequence" class="headerlink" title="2、writelines(sequence)"></a>2、writelines(sequence)</h3><p>向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。<br><code>seq = [&quot;hello\n&quot;, &quot;world\n&quot;]</code><br><code>f.writelines(seq)</code> #向文件写入列表，并换行</p>
+<h2 id="四、关闭文件"><a href="#四、关闭文件" class="headerlink" title="四、关闭文件"></a>四、关闭文件</h2><p>文件使用完毕后必须关闭，关闭后文件不能再进行读写操作。</p>
+<h3 id="1、close"><a href="#1、close" class="headerlink" title="1、close()"></a>1、close()</h3><p><code>f.close()</code><br>由于文件读写时都有可能产生IOError，一旦出错后面的f.close()就不会调用,我们可以使用<code>try...finally</code>来实现</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    f = open(&apos;/path/to/file&apos;, &apos;r&apos;)</span><br><span class="line">    print(f.read())</span><br><span class="line">finally:</span><br><span class="line">    if f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2、with…as…"><a href="#2、with…as…" class="headerlink" title="2、with…as…"></a>2、with…as…</h3><p>Python引入了<code>with</code>语句来自动帮我们调用<code>close()</code>方法：</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&apos;/Users/michael/test.txt&apos;, &apos;w&apos;) as f:</span><br><span class="line">    f.write(&apos;Hello, world!&apos;)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="五、其他操作"><a href="#五、其他操作" class="headerlink" title="五、其他操作"></a>五、其他操作</h2><h3 id="1、file-flush"><a href="#1、file-flush" class="headerlink" title="1、file.flush()"></a>1、file.flush()</h3><p>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。</p>
+<h3 id="2、file-next"><a href="#2、file-next" class="headerlink" title="2、file.next()"></a>2、file.next()</h3><p>返回文件下一行。</p>
+<h3 id="3、file-tell"><a href="#3、file-tell" class="headerlink" title="3、file.tell()"></a>3、file.tell()</h3><p>返回文件当前位置。</p>
+<h3 id="4、file-seek-offset-whence"><a href="#4、file-seek-offset-whence" class="headerlink" title="4、file.seek(offset[, whence])"></a>4、file.seek(offset[, whence])</h3><p>设置文件当前位置。<br>offset：开始的偏移量，也就是代表需要移动偏移的字节数。<br>whence：默认值为0，表示要从哪个位置开始偏移，0代表从文件开头开始算起，1代表从当前位置开始算起，2代表从文件末尾算起。</p>
+<h3 id="5、file-truncate-size"><a href="#5、file-truncate-size" class="headerlink" title="5、file.truncate(size)"></a>5、file.truncate(size)</h3><p>从文件的首行首字符开始截断，截断文件为size个字符，无size表示从当前位置截断；截断之后V后面的所有字符被删除，其中Widnows系统下的换行代表2个字符大小。</p>
+<h3 id="6、file-isatty"><a href="#6、file-isatty" class="headerlink" title="6、file.isatty()"></a>6、file.isatty()</h3><p>如果文件连接到一个终端设备返回 True，否则返回 False。</p>
+<h3 id="7、file-fileno"><a href="#7、file-fileno" class="headerlink" title="7、file.fileno()"></a>7、file.fileno()</h3><p>返回一个整型的文件描述符(file descriptor FD 整型), 可以用在如os模块的read方法等一些底层操作上。</p>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 14:43</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/30/python文件操作/" title="python文件操作">http://pythonfood.github.io/2017/12/30/python文件操作/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/30/python文件操作/&title=《python文件操作》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/30/python文件操作/&title=《python文件操作》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/30/python文件操作/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python文件操作》 — PythonFood&url=http://pythonfood.github.io/2017/12/30/python文件操作/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/30/python文件操作/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/30/python文件操作/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、file对象"><span class="post-toc-text">一、file对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、读取创建"><span class="post-toc-text">1、读取创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、写入创建"><span class="post-toc-text">2、写入创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、读文件"><span class="post-toc-text">二、读文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、read-size"><span class="post-toc-text">1、read(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、readline-size"><span class="post-toc-text">2、readline(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、readlines-sizeint"><span class="post-toc-text">3、readlines(sizeint)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、写文件"><span class="post-toc-text">三、写文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、write-str"><span class="post-toc-text">1、write(str)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、writelines-sequence"><span class="post-toc-text">2、writelines(sequence)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、关闭文件"><span class="post-toc-text">四、关闭文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、close"><span class="post-toc-text">1、close()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、with…as…"><span class="post-toc-text">2、with…as…</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、其他操作"><span class="post-toc-text">五、其他操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、file-flush"><span class="post-toc-text">1、file.flush()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、file-next"><span class="post-toc-text">2、file.next()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、file-tell"><span class="post-toc-text">3、file.tell()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、file-seek-offset-whence"><span class="post-toc-text">4、file.seek(offset[, whence])</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、file-truncate-size"><span class="post-toc-text">5、file.truncate(size)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、file-isatty"><span class="post-toc-text">6、file.isatty()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、file-fileno"><span class="post-toc-text">7、file.fileno()</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/30/python日期时间/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python日期时间
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/30/python错误异常/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python错误异常</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python文件操作" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>

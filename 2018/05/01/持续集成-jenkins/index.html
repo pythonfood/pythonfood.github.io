@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>持续集成-jenkins | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="持续集成jenkins使用笔记。">
+<meta name="keywords" content="jenkins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="持续集成-jenkins">
+<meta property="og:url" content="http://pythonfood.github.io/2018/05/01/持续集成-jenkins/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="持续集成jenkins使用笔记。">
+<meta property="og:updated_time" content="2018-05-11T06:59:51.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="持续集成-jenkins">
+<meta name="twitter:description" content="持续集成jenkins使用笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-持续集成-jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      持续集成-jenkins
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/持续集成/">持续集成</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>持续集成jenkins使用笔记。<br><a id="more"></a></p>
+<h2 id="一、持续集成流程"><a href="#一、持续集成流程" class="headerlink" title="一、持续集成流程"></a>一、持续集成流程</h2><p>(1)提交代码<br>(2)拉取代码<br>(3)编译<br>(4)打包<br>(5)配置<br>(6)测试<br>(7)反馈问题<br>(8)开发处理<br>(9)回到(1)</p>
+<h2 id="二、持续集成工具"><a href="#二、持续集成工具" class="headerlink" title="二、持续集成工具"></a>二、持续集成工具</h2><p>(1)代码管理工具：</p>
+<blockquote>
+<p>Git：官网下载安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>GitHub：官网地址<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+</blockquote>
+<p>(2)集成工具：</p>
+<blockquote>
+<p>Jenkins：官网下载安装<a href="https://jenkins.io/download/" target="_blank" rel="noopener">https://jenkins.io/download/</a><br>1)安装后会自动启动浏览器，输入<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a><br>2)根据页面中标红路径找到管理员密码吗<br>3)输入管理员密码，点击【Continue】<br>4)安装插件，默认选项即可<br>5)安装完需要创建用户，此处点击【Continue as admin】使用默认账户即可<br>6)点击【Start using Jekins】启动<br>7)修改密码，进入【admin-设置】，向上拉找到密码处即可修改</p>
+</blockquote>
+<h2 id="三、Jenkins系统配置"><a href="#三、Jenkins系统配置" class="headerlink" title="三、Jenkins系统配置"></a>三、Jenkins系统配置</h2><p>(1)插件管理：</p>
+<blockquote>
+<p>1)进入【系统管理-管理插件-已安装】查看下面插件：</p>
+<blockquote>
+<ul>
+<li>Git Plugin</li>
+<li>GitHub Plugin</li>
+<li>Gradle Plugin</li>
+<li>Android Emulator Plugin</li>
+</ul>
+</blockquote>
+<p>2)未安装的进入【可选插件】里安装即可</p>
+</blockquote>
+<p>(2)Gradle配置：</p>
+<blockquote>
+<p>1)进入【系统管理-全局工具配置】找到【Gradle安装】<br>2)点击【新增Gradle】<br>3)选择自动安装，名称输入和版本一致即可<br>4)再点击【Apply】-【Save】</p>
+</blockquote>
+<p>(3)GitHub配置：</p>
+<blockquote>
+<p>1)进入【系统管理-系统设置】找到【GitHub】<br>2)点击【Add GitHub Server】<br>3)在【GitHub Server】的【API URL】输入(<a href="https://api.github.com" target="_blank" rel="noopener">https://api.github.com</a>)<br>4)再点击【Credentials】右侧的问号设置权限，展开的内容里右键点击【personal access token】新窗口打开github<br>5)在github页面【Token description】输入自定义名称,勾选【repo】,点击【Generate token】<br>6)在github页面生成Personal access tokens后复制<br>7)回到jenkins页面点击【add】-【jenkins】<br>8)在弹出窗口里【Kind】类别选择【Secret text】,将刚才复制的token粘贴到【Secret】，再点击【add】就创建了身份信息<br>9)可以点击【Test connection】验证一下，验证通过后点击【保存】</p>
+</blockquote>
+<h2 id="四、Jenkins-JOB配置"><a href="#四、Jenkins-JOB配置" class="headerlink" title="四、Jenkins JOB配置"></a>四、Jenkins JOB配置</h2><p>创建任务：</p>
+<blockquote>
+<p>1)点击页面中【创建一个新任务】<br>2)输入任务名称，选择【构建一个自由风格的软件项目】，点击【确定】进入设置界面<br>3)进行自定义配置后点击【保存】</p>
+</blockquote>
+<h2 id="五、JOB配置小示例"><a href="#五、JOB配置小示例" class="headerlink" title="五、JOB配置小示例"></a>五、JOB配置小示例</h2><p>进入创建的任务详情界面，点击【配置】进行job配置<br>(1)拉取代码：</p>
+<blockquote>
+<p>1)【源码管理】选择【Git】，输入代码库的URL地址<br>2)点击【Add】-【jenkins】配置github权限<br>3)弹出界面输入github的帐户名和密码，点击【Add】添加<br>4)【Credentials】选择刚添加的github账户</p>
+</blockquote>
+<p>(2)编译、打包：</p>
+<blockquote>
+<p>1)【构建】点击【增加构建步骤】<br>2)选择【Invoke Gradle script】<br>3)【Gradle Version】选择对应版本<br>4)【Tasks】填写“build”等信息</p>
+</blockquote>
+<p>(3)配置：</p>
+<blockquote>
+<p>1)【构建】点击【增加构建步骤】<br>2)选择【Install Android package】<br>3)【APK file】填写生成的apk路径（此处可以先生构建一次4)查看路径，再复制到这里）<br>5)勾选【Uninstall existing APK first】</p>
+</blockquote>
+<p>(4)测试：</p>
+<blockquote>
+<p>1)【构建】点击【增加构建步骤】<br>2)选择【Run Android monkey tester】<br>3)【Package IDs】输入包名<br>4)【Event count】输入执行次数<br>5)【Delay between events】输入间隔时间ms<br>6)点击【Apply】,点击【保存】</p>
+</blockquote>
+<p>(5)立即构建：</p>
+<blockquote>
+<p>1)进入创建的任务详情界面<br>2)点击【立即构建】进行构建<br>3)点击构建的任务可以查看详情<br>4)【Console Output】可以查看日志信息</p>
+</blockquote>
+<p>(6)定时构建：</p>
+<blockquote>
+<p>1)进入创建的任务详情界面<br>2)点击【配置】进行job配置<br>3)【构建触发器】下选择【Build periodically】<br>4)【日程表】里输入规则，例如“H/15 <em> </em> <em> </em>”(每15分钟构建一次)<br>5)点击【日程表】右侧问号，可以查看规则描述<br>6)点击【Apply】,点击【保存】</p>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 14:59</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/01/持续集成-jenkins/" title="持续集成-jenkins">http://pythonfood.github.io/2018/05/01/持续集成-jenkins/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/&title=《持续集成-jenkins》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/&title=《持续集成-jenkins》 — PythonFood&source=持续集成jenkins使用笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《持续集成-jenkins》 — PythonFood&url=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/05/01/持续集成-jenkins/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/jenkins/" class="color3">jenkins</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、持续集成流程"><span class="post-toc-text">一、持续集成流程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、持续集成工具"><span class="post-toc-text">二、持续集成工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Jenkins系统配置"><span class="post-toc-text">三、Jenkins系统配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Jenkins-JOB配置"><span class="post-toc-text">四、Jenkins JOB配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、JOB配置小示例"><span class="post-toc-text">五、JOB配置小示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/01/unittest测试框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">unittest测试框架</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="持续集成-jenkins" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>

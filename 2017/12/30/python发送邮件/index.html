@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python发送邮件 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python发送邮件">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/30/python发送邮件/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-05-11T06:45:18.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python发送邮件">
+<meta name="twitter:description" content="人生苦短，我用python。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python发送邮件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python发送邮件
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、email模块"><a href="#一、email模块" class="headerlink" title="一、email模块"></a>一、email模块</h2><p>SMTP是发送邮件的协议，Python对SMTP支持有email和smtplib两个模块，email负责构造邮件，smtplib负责发送邮件。</p>
+<ul>
+<li><p><code>email.header.Header(s=None, charset=None, maxlinelen=None, header_name=None, continuation_ws=&#39; &#39;, errors=&#39;strict&#39;)</code>：邮件头</p>
+<blockquote>
+<ul>
+<li><code>s</code>：标头的值，也就是对应From、To、Subject的值。</li>
+<li><code>charset</code>：字符集格式，默认是ASCII，但是一般指定UTF-8格式以兼容更多字符。 </li>
+<li><code>header_name</code>: 标头名，就是From、To、Subject、Time等；</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>email.mime.base.MIMEBase(_maintype, _subtype, **_params)</code>：这是MIME的一个基类。一般不需要在使用时创建实例。</p>
+<blockquote>
+<ul>
+<li><code>_maintype</code>：是内容类型,如text或者image。</li>
+<li><code>_subtype</code>：是内容的minor type类型，如plain或者gif。</li>
+<li><code>**_params</code>：是一个字典，直接传递给Message.add_header()。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>email.mime.multipart.MIMEMultipart([_subtype[, boundary[, _subparts[, _params]]]]</code>：MIMEBase的一个子类,多个MIME对象的集合。</p>
+<blockquote>
+<ul>
+<li><code>_subtype</code>：默认值为mixed。</li>
+<li><code>boundary</code>：是MIMEMultipart的边界,默认边界是可数的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>email.mime.APPLICATION.MIMEApplication(_data[, _subtype[, _encoder[, **_params]]])</code>：MIMEMultipart的一个子类。</p>
+</li>
+<li><p><code>email.mime.audio. MIMEAudio(_audiodata[, _subtype[, _encoder[, **_params]]])</code>：MIME音频对象。</p>
+</li>
+<li><p><code>email.mime.image.MIMEImage(_imagedata[, _subtype[, _encoder[, **_params]]])</code>：MIME二进制文件对象。</p>
+</li>
+<li><p><code>email.mime.text.MIMEText(_text[,_subtype[,_charset]])</code>：MIME文本对象。</p>
+<blockquote>
+<ul>
+<li><code>_text</code>：是邮件内容,</li>
+<li><code>_subtype</code>：邮件类型,可以是text/plain(普通文本邮件),html/plain(html邮件)。</li>
+<li><code>charset</code>：编码,可以是gb2312等等。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>email.mime.message.MIMEMessage(_msg[, _subtype])</code>：具体的一个message实例。</p>
+<blockquote>
+<ul>
+<li><code>msg=mail.Message.Message()</code> # 一个实例</li>
+<li><code>msg[&#39;from&#39;]=&#39;me@xxx.com&#39;</code> # 自己的邮件地址</li>
+<li><code>msg[&#39;to&#39;]=&#39;friend@xxx.com&#39;</code> # 发送到哪里</li>
+<li><code>msg[&#39;date&#39;]=&#39;2012-3-16&#39;</code> # 时间日期</li>
+<li><code>msg[&#39;subject&#39;]=&#39;helloworld&#39;</code> # 邮件主题</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="二、smtplib模块"><a href="#二、smtplib模块" class="headerlink" title="二、smtplib模块"></a>二、smtplib模块</h2><p>SMTP是发送邮件的协议，Python对SMTP支持有email和smtplib两个模块，email负责构造邮件，smtplib负责发送邮件。</p>
+<ul>
+<li><p><code>smtplib.SMTP([host[, port[, local_hostname[, timeout]]]])</code>：SMTP类构造函数,表示与SMTP服务器之间的连接,通过这个连接可以向smtp服务器发送指令,执行相关操作(如:登陆、发送邮件)。所有参数都是可选的。</p>
+<blockquote>
+<ul>
+<li><code>host</code>：smtp服务器主机名</li>
+<li><code>port</code>：smtp服务的端口,默认是25;如果在创建SMTP对象的时候提供了这两个参数,在初始化的时候会自动调用connect方法去连接服务器。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>smtplib.SMTP提供的方法:</p>
+<blockquote>
+<ul>
+<li><code>SMTP.set_debuglevel(level)</code>：设置是否为调试模式。默认为False,即非调试模式,表示不输出任何调试信息。</li>
+<li><code>SMTP.connect([host[, port]])</code>：连接到指定的smtp服务器。参数分别表示smpt主机和端口。注意: 也可以在host参数中指定端口号(如:smpt.yeah.net:25),这样就没必要给出port参数。</li>
+<li><code>SMTP.docmd(cmd[, argstring])</code>：向smtp服务器发送指令。可选参数argstring表示指令的参数。</li>
+<li><code>SMTP.helo([hostname])</code>：使用”helo”指令向服务器确认身份。相当于告诉smtp服务器“我是谁”。</li>
+<li><code>SMTP.has_extn(name)</code>：判断指定名称在服务器邮件列表中是否存在。出于安全考虑,smtp服务器往往屏蔽了该指令。</li>
+<li><code>SMTP.verify(address)</code>：判断指定邮件地址是否在服务器中存在。出于安全考虑,smtp服务器往往屏蔽了该指令。</li>
+<li><code>SMTP.login(user, password)</code>：登陆到smtp服务器。现在几乎所有的smtp服务器,都必须在验证用户信息合法之后才允许发送邮件。</li>
+<li><code>SMTP.sendmail(from_addr, to_addrs, msg[, mail_options, rcpt_options])</code>：发送邮件。这里要注意一下第三个参数,msg是字符串,表示邮件。我们知道邮件一般由标题,发信人,收件人,邮件内容,附件等构成,发送邮件的时候,要注意msg的格式。这个格式就是smtp协议中定义的格式。</li>
+<li><code>SMTP.quit()</code>：断开与smtp服务器的连接,相当于发送”quit”指令。(很多程序中都用到了smtp.close())</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="三、发送邮件"><a href="#三、发送邮件" class="headerlink" title="三、发送邮件"></a>三、发送邮件</h2><h3 id="1、发送文本邮件"><a href="#1、发送文本邮件" class="headerlink" title="1、发送文本邮件"></a>1、发送文本邮件</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">from email.header import Header</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">import smtplib</span><br><span class="line"></span><br><span class="line">#一.构建邮件内容信息</span><br><span class="line">message = MIMEText(&apos;邮件正文测试...此处省略一万字&apos;, &apos;plain&apos;, &apos;utf-8&apos;) #1.邮件正文，plain表示普通文本</span><br><span class="line">message[&apos;Subject&apos;] = Header(&apos;邮件标题测试&apos;, &apos;utf-8&apos;) #2.邮件标题，中文用Header编码</span><br><span class="line">message[&apos;From&apos;] = Header(&apos;发件人的名称测试&apos;, &apos;utf-8&apos;) #3.发件人名称</span><br><span class="line">message[&apos;To&apos;] = Header(&apos;收件人名称测试&apos;, &apos;utf-8&apos;) #4.收件人名称</span><br><span class="line"></span><br><span class="line">#二.定义邮件服务器信息</span><br><span class="line">mail_host = &apos;smpt.xxx.com&apos; #1.邮件服务器</span><br><span class="line">mail_user = &apos;username&apos; #2.登录服务器的用户名</span><br><span class="line">mail_pass = &apos;password&apos; #3.登录服务器的密码</span><br><span class="line"></span><br><span class="line">#三.定义发件人和收件人</span><br><span class="line">sender = &apos;me@163.com&apos; #1.发件人邮箱</span><br><span class="line">receivers = [&apos;friend@126.com&apos;] #2.收件人邮箱，注意可以是列表</span><br><span class="line"></span><br><span class="line">#四.邮件服务器发送邮件</span><br><span class="line">smtp_server = smtplib.SMTP() #1.声明邮件服务器</span><br><span class="line">smtp_server.connect(mail_host, 25) #2.连接服务器，端口25</span><br><span class="line">smtp_server.login(mail_user, mail_pass) #3.登录服务器</span><br><span class="line">smtp_server.sendmail(sender, receivers, message.as_string()) #4.服务器发送邮件</span><br><span class="line">smtp_server.quit() #5.退出服务器</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="2、发送html邮件"><a href="#2、发送html邮件" class="headerlink" title="2、发送html邮件"></a>2、发送html邮件</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">from email.header import Header</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">import smtplib</span><br><span class="line"></span><br><span class="line">#一.构建邮件内容信息</span><br><span class="line">#定义html格式内容</span><br><span class="line">msg_html = &quot;&quot;&quot;</span><br><span class="line">&lt;p&gt;邮件正文测试...此处省略一万字&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;http://www.baidu.com&quot;&gt;点击进入百度&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">message = MIMEText(msg_html, &apos;html&apos;, &apos;utf-8&apos;) #1.邮件正文，html表示html格式</span><br><span class="line">message[&apos;Subject&apos;] = Header(&apos;邮件标题测试&apos;, &apos;utf-8&apos;) #2.邮件标题，中文用Header编码</span><br><span class="line">message[&apos;From&apos;] = Header(&apos;发件人的名称测试&apos;, &apos;utf-8&apos;) #3.发件人名称</span><br><span class="line">message[&apos;To&apos;] = Header(&apos;收件人名称测试&apos;, &apos;utf-8&apos;) #4.收件人名称</span><br><span class="line"></span><br><span class="line">#二.定义邮件服务器信息</span><br><span class="line">mail_host = &apos;smpt.xxx.com&apos; #1.邮件服务器</span><br><span class="line">mail_user = &apos;username&apos; #2.登录服务器的用户名</span><br><span class="line">mail_pass = &apos;password&apos; #3.登录服务器的密码</span><br><span class="line"></span><br><span class="line">#三.定义发件人和收件人邮箱</span><br><span class="line">sender = &apos;me@163.com&apos; #1.发件人邮箱</span><br><span class="line">receivers = [&apos;friend@126.com&apos;] #2.收件人邮箱，注意可以是列表</span><br><span class="line"></span><br><span class="line">#四.邮件服务器发送邮件</span><br><span class="line">smtp_server = smtplib.SMTP() #1.声明邮件服务器</span><br><span class="line">smtp_server.connect(mail_host, 25) #2.连接服务器，端口25</span><br><span class="line">smtp_server.login(mail_user, mail_pass) #3.登录服务器</span><br><span class="line">smtp_server.sendmail(sender, receivers, message.as_string()) #4.服务器发送邮件</span><br><span class="line">smtp_server.quit() #5.退出服务器</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="3、发送带附件邮件"><a href="#3、发送带附件邮件" class="headerlink" title="3、发送带附件邮件"></a>3、发送带附件邮件</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">from email.header import Header</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.mime.multipart import MIMEMultipart</span><br><span class="line">import smtplib</span><br><span class="line"></span><br><span class="line">#一.构建带附件的实例</span><br><span class="line">message = MIMEMultipart() #1.带附件实例</span><br><span class="line">message[&apos;Subject&apos;] = Header(&apos;邮件标题测试&apos;, &apos;utf-8&apos;) #2.邮件标题，中文用Header编码</span><br><span class="line">message[&apos;From&apos;] = Header(&apos;发件人的名称测试&apos;, &apos;utf-8&apos;) #3.发件人名称</span><br><span class="line">message[&apos;To&apos;] = Header(&apos;收件人名称测试&apos;, &apos;utf-8&apos;) #4.收件人名称</span><br><span class="line"></span><br><span class="line">#二、增加邮件正文内容</span><br><span class="line">message.attach(MIMEText(&apos;邮件正文测试...此处省略一万字&apos;, &apos;plain&apos;, &apos;utf-8&apos;)) #1.邮件正文，plain表示普通文本</span><br><span class="line"></span><br><span class="line">#三、添加附件</span><br><span class="line">with open(&apos;/Users/tester/Downloads/test.xlsx&apos;, &apos;rb&apos;) as xlsxpart: #1.用with打开，防止不能关闭文件</span><br><span class="line">	att = MIMEText(xlsxpart.read(), &apos;base64&apos;, &apos;utf-8&apos;) #2.定义附件</span><br><span class="line">	att.add_header(&apos;Content-Disposition&apos;, &apos;attachment&apos;, filename=&apos;test.xlsx&apos;) #3.添加必要的头信息</span><br><span class="line">	message.attach(att) #4.添加附件</span><br><span class="line"></span><br><span class="line">#四.定义邮件服务器信息</span><br><span class="line">mail_host = &apos;smpt.xxx.com&apos; #1.邮件服务器</span><br><span class="line">mail_user = &apos;username&apos; #2.登录服务器的用户名</span><br><span class="line">mail_pass = &apos;password&apos; #3.登录服务器的密码</span><br><span class="line"></span><br><span class="line">#五.定义发件人和收件人</span><br><span class="line">sender = &apos;me@163.com&apos; #1.发件人邮箱</span><br><span class="line">receivers = [&apos;friend@126.com&apos;] #2.收件人邮箱，注意可以是列表</span><br><span class="line"></span><br><span class="line">#六.邮件服务器发送邮件</span><br><span class="line">smtp_server = smtplib.SMTP() #1.声明邮件服务器</span><br><span class="line">smtp_server.connect(mail_host, 25) #2.连接服务器，端口25</span><br><span class="line">smtp_server.login(mail_user, mail_pass) #3.登录服务器</span><br><span class="line">smtp_server.sendmail(sender, receivers, message.as_string()) #4.服务器发送邮件</span><br><span class="line">smtp_server.quit() #5.退出服务器</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="4、发送带图片邮件"><a href="#4、发送带图片邮件" class="headerlink" title="4、发送带图片邮件"></a>4、发送带图片邮件</h3><p>按照发送附件的方式，先把邮件作为附件添加进去，然后，在HTML中通过引用<code>src=&quot;cid:0&quot;</code>就可以把附件作为图片嵌入了。如果有多个图片，给它们依次编号，然后引用不同的<code>cid:x</code>即可。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">from email.header import Header</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line">from email.mime.image import MIMEImage</span><br><span class="line">from email.mime.multipart import MIMEMultipart</span><br><span class="line">import smtplib</span><br><span class="line"></span><br><span class="line">#一.构建带附件的实例</span><br><span class="line">msgroot = MIMEMultipart(&apos;relate&apos;) #1.带附件实例,relate可以存储图片</span><br><span class="line">msgroot[&apos;Subject&apos;] = Header(&apos;邮件标题测试&apos;, &apos;utf-8&apos;) #2.邮件标题，中文用Header编码</span><br><span class="line">msgroot[&apos;From&apos;] = Header(&apos;发件人的名称测试&apos;, &apos;utf-8&apos;) #3.发件人名称</span><br><span class="line">msgroot[&apos;To&apos;] = Header(&apos;收件人名称测试&apos;, &apos;utf-8&apos;) #4.收件人名称</span><br><span class="line"></span><br><span class="line">#二、构建超文本实例</span><br><span class="line">msgAlternative = MIMEMultipart(&apos;alternative&apos;) #1.arternative邮件可以同时存在纯文本和超文本内容</span><br><span class="line">msgRoot.attach(msgAlternative) #2.添加到附件实例</span><br><span class="line"></span><br><span class="line">#三、超文本实例添加html内容</span><br><span class="line">#html内容，图片cid定义image1</span><br><span class="line">msg_html = &quot;&quot;&quot;</span><br><span class="line">&lt;p&gt;邮件正文测试...此处省略一万字&lt;/p&gt;</span><br><span class="line">&lt;p&gt;图片展示:&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;img src=&quot;cid:image1&quot;&gt;&lt;/p&gt;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">msgAlternative.attach(MIMEText(msg_html, &apos;html&apos;, &apos;utf-8&apos;)) #添加html内容到超文本实例</span><br><span class="line"></span><br><span class="line">#四、附件实例添加邮件正文内容</span><br><span class="line">msgRoot.attach(MIMEText(&apos;邮件正文测试...此处省略一万字&apos;, &apos;plain&apos;, &apos;utf-8&apos;)) #1.邮件正文，plain表示普通文本</span><br><span class="line"></span><br><span class="line">#五、添加图片附件</span><br><span class="line">with open(&apos;/Users/tester/Downloads/test.png&apos;, &apos;rb&apos;) as imagepart: #1.用with打开，防止不能关闭文件</span><br><span class="line">	att = MIMEImage(imagepart.read(), &apos;base64&apos;, &apos;utf-8&apos;) #2.定义附件</span><br><span class="line">	att.add_header(&apos;Content-Disposition&apos;, &apos;attachment&apos;, filename=&apos;test.png&apos;) #3.添加必要的头信息</span><br><span class="line">	att.add_header(&apos;Content-ID&apos;, &apos;&lt;image1&gt;&apos;) #4.头信息添加图片cid</span><br><span class="line">	msgRoot.attach(att) #5.添加附件</span><br><span class="line"></span><br><span class="line">#六.定义邮件服务器信息</span><br><span class="line">mail_host = &apos;smpt.xxx.com&apos; #1.邮件服务器</span><br><span class="line">mail_user = &apos;username&apos; #2.登录服务器的用户名</span><br><span class="line">mail_pass = &apos;password&apos; #3.登录服务器的密码</span><br><span class="line"></span><br><span class="line">#七.定义发件人和收件人</span><br><span class="line">sender = &apos;me@163.com&apos; #1.发件人邮箱</span><br><span class="line">receivers = [&apos;friend@126.com&apos;] #2.收件人邮箱，注意可以是列表</span><br><span class="line"></span><br><span class="line">#八.邮件服务器发送邮件</span><br><span class="line">smtp_server = smtplib.SMTP() #1.声明邮件服务器</span><br><span class="line">smtp_server.connect(mail_host, 25) #2.连接服务器，端口25</span><br><span class="line">smtp_server.login(mail_user, mail_pass) #3.登录服务器</span><br><span class="line">smtp_server.sendmail(sender, receivers, msgRoot.as_string()) #4.服务器发送邮件</span><br><span class="line">smtp_server.quit() #5.退出服务器</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 14:45</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/30/python发送邮件/" title="python发送邮件">http://pythonfood.github.io/2017/12/30/python发送邮件/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/30/python发送邮件/&title=《python发送邮件》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/30/python发送邮件/&title=《python发送邮件》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/30/python发送邮件/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python发送邮件》 — PythonFood&url=http://pythonfood.github.io/2017/12/30/python发送邮件/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/30/python发送邮件/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/30/python发送邮件/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、email模块"><span class="post-toc-text">一、email模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、smtplib模块"><span class="post-toc-text">二、smtplib模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、发送邮件"><span class="post-toc-text">三、发送邮件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、发送文本邮件"><span class="post-toc-text">1、发送文本邮件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、发送html邮件"><span class="post-toc-text">2、发送html邮件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、发送带附件邮件"><span class="post-toc-text">3、发送带附件邮件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、发送带图片邮件"><span class="post-toc-text">4、发送带图片邮件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/30/python数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python数据库
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/30/python多进程/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python多进程</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python发送邮件" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>

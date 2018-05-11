@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mysql | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="mysql常用命令笔记。">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/29/mysql/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="mysql常用命令笔记。">
+<meta property="og:updated_time" content="2018-05-11T06:38:31.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql">
+<meta name="twitter:description" content="mysql常用命令笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      mysql
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/mysql/">mysql</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-29
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>mysql常用命令笔记。<br><a id="more"></a></p>
+<h2 id="一、mysql安装"><a href="#一、mysql安装" class="headerlink" title="一、mysql安装"></a>一、mysql安装</h2><p><strong>1、mysql官网下载安装：</strong><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a><br><strong>2、mysql目录结构：</strong></p>
+<blockquote>
+<ul>
+<li>bin目录：存储可执行文件</li>
+<li>data目录：存储数据文件</li>
+<li>lib目录：存储库文件</li>
+<li>include目录：存储包含的头文件</li>
+<li>share目录：错误消息和字符集文件</li>
+<li>docs目录：文档</li>
+</ul>
+</blockquote>
+<p><strong>3、启动/停止mysql服务：</strong></p>
+<blockquote>
+<p>(1)在windows服务列表里启动/停止mysql服务。<br>(2)通过cmd命令启动/停止mysql服务：</p>
+<ul>
+<li>启动mysql：<code>net start mysql</code></li>
+<li>停止mysql：<code>net stop mysql</code></li>
+</ul>
+</blockquote>
+<h2 id="二、mysql操作"><a href="#二、mysql操作" class="headerlink" title="二、mysql操作"></a>二、mysql操作</h2><p><strong>1、查看数据库版本：</strong><code>mysql -V</code> </p>
+<p><strong>2、登录数据库：</strong><code>mysql -uroot -p123456 -P3306 -h127.0.0.1</code> </p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-D, –database=name</td>
+<td style="text-align:left">打开指定数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–delimiter = name</td>
+<td style="text-align:left">指定分隔符</td>
+</tr>
+<tr>
+<td style="text-align:left">-h, –host=name</td>
+<td style="text-align:left">服务器名称</td>
+</tr>
+<tr>
+<td style="text-align:left">-p, –password[=name]</td>
+<td style="text-align:left">密码</td>
+</tr>
+<tr>
+<td style="text-align:left">-P, –port=#</td>
+<td style="text-align:left">端口号</td>
+</tr>
+<tr>
+<td style="text-align:left">–prompt=name</td>
+<td style="text-align:left">设置提示符</td>
+</tr>
+<tr>
+<td style="text-align:left">-u, –user=name</td>
+<td style="text-align:left">用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">-V, –version</td>
+<td style="text-align:left">输出版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>3、退出数据库：</strong></p>
+<blockquote>
+<ul>
+<li><code>exit;</code></li>
+<li><code>quit;</code></li>
+<li><code>\q;</code></li>
+</ul>
+</blockquote>
+<p><strong>4、修改mysql提示符：</strong></p>
+<blockquote>
+<ul>
+<li>连接客户端时通过参数指定：<code>mysql -uroot -p123456 --prompt 提示符</code> </li>
+<li>连接上客户端后通过命令修改：<code>prompt 提示符</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">完整的日期</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">当前数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">\h</td>
+<td style="text-align:left">服务器名称</td>
+</tr>
+<tr>
+<td style="text-align:left">\u</td>
+<td style="text-align:left">当前用户</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>5、显示当前服务器版本：</strong><code>SELECT VERSION();</code><br><strong>6、显示当前日期时间：</strong><code>SELECT NOW();</code><br><strong>7、显示当前用户：</strong><code>SELECT USER();</code></p>
+<h2 id="三、数据库操作"><a href="#三、数据库操作" class="headerlink" title="三、数据库操作"></a>三、数据库操作</h2><p><strong><em>注意，本文的命令格式中：</em></strong></p>
+<ul>
+<li><code>{}</code>是必选项</li>
+<li><code>|</code>是选项中做选择</li>
+<li><code>[]</code>是可选项</li>
+</ul>
+<p><strong>1、创建数据库：</strong><br><code>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE test;</span><br><span class="line">CREATE DATABASE test1 IF NOT EXISTS CHARACTER SET gbk;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、查看数据库列表：</strong><br><code>SHOW {DATABASES | SCHEMAS} [LIKE &#39;pattern&#39; | WHERE expr]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、显示数据库创建时所使用的指令：</strong><code>SHOW CREATE DATABASE test</code></p>
+<p><strong>4、打开数据库：</strong><code>USE db_name</code></p>
+<p><strong>5、查看当前数据库：</strong><code>SELECT DATABASE()</code></p>
+<p><strong>6、修改数据库：</strong><code>ALTER {DATABASE | SCHEMA} db_name [DEFAULT] CHARACTER SET [=] charset_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER DATABASE test1 CHARACTER SET utf8;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>7、删除数据库：</strong><code>DROP {DATABASE | SCHEMA} [IF EXISTS] db_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE test1;</span><br><span class="line">DROP DATABASE IF EXISTS test1;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>8、查看警告：</strong><code>SHOW WARNINGS;</code></p>
+<h2 id="四、数据表操作"><a href="#四、数据表操作" class="headerlink" title="四、数据表操作"></a>四、数据表操作</h2><p><strong>1、数据类型:</strong></p>
+<blockquote>
+<p>(1)数值类型</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">范围（有符号）</th>
+<th style="text-align:left">范围（无符号）</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">TINYINT</td>
+<td style="text-align:left">1 字节</td>
+<td style="text-align:left">(-128，127)</td>
+<td style="text-align:left">(0，255)</td>
+<td style="text-align:left">小整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">SMALLINT</td>
+<td style="text-align:left">2 字节</td>
+<td style="text-align:left">(-32 768，32 767)</td>
+<td style="text-align:left">(0，65 535)</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMINT</td>
+<td style="text-align:left">3 字节</td>
+<td style="text-align:left">(-8 388 608，8 388 607)</td>
+<td style="text-align:left">(0，16 777 215)</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">INT或INTEGER</td>
+<td style="text-align:left">4 字节</td>
+<td style="text-align:left">(-2 147 483 648，2 147 483 647)</td>
+<td style="text-align:left">(0，4 294 967 295)</td>
+<td style="text-align:left">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">BIGINT</td>
+<td style="text-align:left">8 字节</td>
+<td style="text-align:left">(-9 233 372 036 854 775 808，9 223 372 036 854 775 807)</td>
+<td style="text-align:left">(0，18 446 744 073 709 551 615)</td>
+<td style="text-align:left">极大整数值</td>
+</tr>
+<tr>
+<td style="text-align:left">FLOAT</td>
+<td style="text-align:left">4 字节</td>
+<td style="text-align:left">(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td style="text-align:left">0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td style="text-align:left">单精度，浮点数值            </td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLE</td>
+<td style="text-align:left">8 字节</td>
+<td style="text-align:left">(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td style="text-align:left">0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td style="text-align:left">双精度，浮点数值                </td>
+</tr>
+<tr>
+<td style="text-align:left">DECIMAL</td>
+<td style="text-align:left">对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td style="text-align:left">依赖于M和D的值</td>
+<td style="text-align:left">依赖于M和D的值</td>
+<td style="text-align:left">小数值</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>(2)字符串类型</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CHAR</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">定长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">VARCHAR</td>
+<td style="text-align:left">0-65535 字节</td>
+<td style="text-align:left">变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYBLOB</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">不超过255个字符的二进制字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">TINYTEXT</td>
+<td style="text-align:left">0-255字节</td>
+<td style="text-align:left">短文本字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">BLOB</td>
+<td style="text-align:left">0-65 535字节</td>
+<td style="text-align:left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">TEXT</td>
+<td style="text-align:left">0-65 535字节</td>
+<td style="text-align:left">长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMBLOB</td>
+<td style="text-align:left">0-16 777 215字节</td>
+<td style="text-align:left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MEDIUMTEXT</td>
+<td style="text-align:left">0-16 777 215字节</td>
+<td style="text-align:left">中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGBLOB</td>
+<td style="text-align:left">0-4 294 967 295字节</td>
+<td style="text-align:left">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">LONGTEXT</td>
+<td style="text-align:left">0-4 294 967 295字节</td>
+<td style="text-align:left">极大文本数据</td>
+</tr>
+<tr>
+<td style="text-align:left">ENUM(‘value1’,’value2’,…)</td>
+<td style="text-align:left">1或2个字节，取决于枚举值的个数(最多65535个值)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">SET(‘value1’,’value2’,…)</td>
+<td style="text-align:left">1、2、3、4或8个字节，取决于set成员的数目(最多64个)</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>(3)日期类型</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">大小</th>
+<th style="text-align:left">范围</th>
+<th style="text-align:left">格式</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DATE</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1000-01-01/9999-12-31</td>
+<td style="text-align:left">YYYY-MM-DD</td>
+<td style="text-align:left">日期值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIME</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">‘-838:59:59’/‘838:59:59’</td>
+<td style="text-align:left">HH:MM:SS</td>
+<td style="text-align:left">时间值或持续时间</td>
+</tr>
+<tr>
+<td style="text-align:left">YEAR</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1901/2155</td>
+<td style="text-align:left">YYYY</td>
+<td style="text-align:left">年份值</td>
+</tr>
+<tr>
+<td style="text-align:left">DATETIME</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td style="text-align:left">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:left">混合日期和时间值</td>
+</tr>
+<tr>
+<td style="text-align:left">TIMESTAMP</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">1970-01-01 00:00:00/2037-12-31 23:59:59</td>
+<td style="text-align:left">YYYYMMDD HHMMSS</td>
+<td style="text-align:left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</blockquote>
+<p><strong>2、创建数据表：</strong><code>CREATE TABLE [IF NOT EXISTS] table_name(column_name data_type, ...)</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tb1( username VARCHAR(20),age TINYINT UNSIGNED,salary FLOAT(8,2) UNSIGNED);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、查看数据表列表：</strong><code>SHOW TABLES [FROM db_name] [LINK &#39;pattern&#39; | WHERE expr]</code></p>
+<p><strong>4、查看数据表结构：</strong><code>SHOW COLUMNS FROM table_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW COLUMNS FROM test;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、约束条件：</strong><br>约束保证数据的完整性、唯一性。约束分为表级约束和列级约束。</p>
+<ul>
+<li>主键约束：<code>PRIMARY KEY</code></li>
+<li>空与非空：<code>NULL/NOT NULL</code></li>
+<li>唯一约束：<code>UNIQUE</code></li>
+<li>默认值：<code>DEFAULT</code></li>
+<li>自动增加：<code>AUTO_INCREMENT</code></li>
+<li>外键约束：<code>FOREIGN KEY</code></li>
+</ul>
+<blockquote>
+<p>(1)主键约束：<code>PRIMARY KEY</code><br>主键约束不允许重复，也不允许为空。每个表只允许存在一个主键。<br>主键约束可以在列级别创建，也可以在表级别创建。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 基本模式</span><br><span class="line">CREATE TABLE test(id SMALLINT UNSIGNED PRIMARY KEY, username VARCHAR(30) NOT NULL;</span><br><span class="line"># 组合模式</span><br><span class="line">CREATE TABLE test1(id INT, name VARCHAR(20), pwd VARCHAR(20), primary key(id, name));</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)空与非空：<code>NULL/NOT NULL</code><br>非空约束保证当前列的值不为空值。非空约束只能列级别创建。<br>空约束是代表字段值可以为空，一般省略不写。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test(username VARCHAR(20) NOT NULL, age TINYINT UNSIGNED);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)唯一约束：<code>UNIQUE</code><br>唯一约束保证记录的唯一性。唯一约束的字段可以为空。每个表可以许存在多个唯一约束。<br>唯一约束可以在列级别创建，也可以在表级别创建。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 基本模式</span><br><span class="line">CREATE TABLE test(id SMALLINT UNSIGNED, username VARCHAR(20) UNIQUE KEY, age TINYINT UNSIGNED);</span><br><span class="line">#组合模式</span><br><span class="line">CREATE TABLE test1(id INT NOT NULL, name VARCHAR(20), password VARCHAR(10), UNIQUE(name,password));</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(4)默认值：<code>DEFAULT</code><br>插入记录时，如果没有为字段赋值，则自动赋值默认值。默认值只能列级别创建。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test(id SMALLINT UNSIGNED, username VARCHAR(30), age TINYINT DEFAULT 0);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)自动增加：<code>AUTO_INCREMENT</code><br>自动编号须与主键配合，只能在数值类型中使用。默认起始值为1，每次增量为1。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test(id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(20) NOT NULL);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(6)外键约束：<code>FOREIGN KEY</code><br>外键约束保证一个或两个表之间的参照完整性。实现一对一或一对多的关系。<br>外键约束可以在列级别创建，也可以在表级别创建。</p>
+<blockquote>
+<p>外键约束的要求：</p>
+<ul>
+<li>父表和子表必须使用相同的存储引擎，而且禁止使用临时表。</li>
+<li>数据表的存储引擎只能为InnoDB。(MySQL配置文件 default-storage-engine=INNODB)</li>
+<li>外键列和参照列必须具有相似的数据类型。而且数字的长度或是否有符号位必须相同；而字符的长度则可以不同。</li>
+<li>外键列和参照列必须创建索引，如果外键列不存在索引的话MySQL将自动创建索引。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 父表</span><br><span class="line">CREATE TABLE provinces(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, pname VARCHAR(20) NOT NULL);</span><br><span class="line"># 子表</span><br><span class="line">CREATE TABLE users(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, username VARCHAR(10) NOT NULL, pid SMALLINT UNSIGNED, FOREIGN KEY (pid) REFERENCES provinces(id));</span><br><span class="line"># 查看数据表索引</span><br><span class="line">SHOW INDEXES FROM provinces;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>外键约束的参照操作：</p>
+<ul>
+<li>CASCADE：从父表删除或更新且自动删除或更新子表中匹配的行。</li>
+<li>SET NULL：从父表删除或更新行，并设置子表中的外键列为NULL。如果使用该选项，必须保证子表列没有指定NOT NULL。</li>
+<li>RESTRICT：拒绝对父表的删除或更新操作。</li>
+<li>NO ACTION：标准SQL的关键字，在MySQL中与RESTRICT相同。</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 父表</span><br><span class="line">CREATE TABLE provinces(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, pname VARCHAR(20) NOT NULL);</span><br><span class="line"># 子表</span><br><span class="line">CREATE TABLE users(id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, username VARCHAR(10) NOT NULL, pid SMALLINT UNSIGNED, FOREIGN KEY (pid) REFERENCES provinces(id) ON DELETE CASCADE);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>6、修改数据表：</strong></p>
+<blockquote>
+<p>(1)数据表更名：<br>方法一：<code>ALTER TABLE table_name RENAME [TO | AS] new_table_name</code><br>方法二：<code>RENAME TABLE table_name TO new_table_name [,table_name1 TO new_table_name2,...]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test RENAME test1;</span><br><span class="line">RENAME TABLE test TO test1;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)添加单列：<br><code>ALTER TABLE table_name ADD [COLUMN] column_name column_definition [FIRST | AFTER column_name1]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test ADD age TINYINT UNSIGNED NOT NULL DEFAULT 10;</span><br><span class="line">ALTER TABLE test ADD password VARCHAR(32) NOT NULL AFTER username;</span><br><span class="line">ALTER TABLE test ADD truename VARCHAR(20) NOT NULL FIRST;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)添加多列：<br><code>ALTER TABLE table_name ADD [COLUMN] (column_name column_definition,...)</code></p>
+<p>(4)删除列：<br><code>ALTER TABLE table_name DROP [COLUMN] column_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test DROP truename;</span><br><span class="line">ALTER TABLE test DROP password, DROP age;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)修改列名称：<br><code>ALTER TABLE table_name CHANGE [COLUMN] column_name new_column_name column_definition [FIRST | AFTER column_name1]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test CHANGE pid p_id TINYINT UNSIGNED NOT NULL;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(6)修改列定义：<br><code>ALTER TABLE table_name MODIFY [COLUMN] column_name column_definition [FIRST | AFTER column_name1]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test MODIFY id SMALLINT UNSIGNED NOT NULL FIRST;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(7)添加主键约束：<br><code>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_column_name,...)</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test ADD CONSTRAINT PK_test_id PRIMARY KEY (id);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(8)删除主键约束：<br><code>ALTER TABLE table_name DROP PRIMARY KEY</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(9)添加唯一约束：<br><code>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] UNIQUE [INDEX | KEY] [index_name] [index_type] (index_column_name,...)</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test ADD UNIQUE (username);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(10)删除唯一约束：<br><code>ALTER TABLE table_name DROP {INDEX | KEY} index_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test DROP INDEX username;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(11)添加默认约束：<br><code>ALTER TABLE table_name ALTER [COLUMN] column_name SET DEFAULT literal</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test ALTER age SET DEFAULT 10;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(12)删除默认约束：<br><code>ALTER TABLE table_name ALTER [COLUMN] column_name DROP DEFAULT;</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE test ALTER age DROP DEFAULT;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(13)添加外键约束：<br><code>ALTER TABLE table_name ADD [CONSTRAINT [symbol]] FOREIGN KEY [index_name] (index_column_name,...) reference_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE user ADD FOREIGN KEY (pid) REFERENCES provinces (id);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(14)删除外键约束：<br><code>ALTER TABLE table_name DROP FOREIGN KEY fk_symbol</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#首先查看user表的外键约束的名称</span><br><span class="line">SHOW CREATE TABLE user;</span><br><span class="line">ALTER TABLE user DROP FOREIGN KEY user_ibfk_1;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="五、数据操作"><a href="#五、数据操作" class="headerlink" title="五、数据操作"></a>五、数据操作</h2><p><strong>1、插入记录:</strong><br>方法一：<code>INSERT [INTO] table_name [(column_name,...)] {VALUES | VALUE} ({expr | DEFAULT},...), (...), ...</code><br>方法二：<code>INSERT [INTO] table_name SET column_name={expr | DEFAULT}, ...</code></p>
+<ul>
+<li>说明：一次只能插入一行，此方法可以使用子查询(SubQuery)</li>
+</ul>
+<p>方法三：<code>INSERT [INTO] table_name [(column_name,...)] SELECT ...</code></p>
+<ul>
+<li>说明：此方法可以将查询结果插入到指定数据表</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 对于自动增加的主键id可以赋值NULL</span><br><span class="line">INSERT test VALUES(NULL,&apos;Tom&apos;,&apos;123&apos;,25,1);</span><br><span class="line"># 对于自动增加的主键id也可以赋值DEFAULT</span><br><span class="line">INSERT test VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,25,1);</span><br><span class="line"># 字段可以插入表达式</span><br><span class="line">INSERT test VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,3*7+4,1);</span><br><span class="line"># 字段有默认值的可以赋值DEAFULT</span><br><span class="line">INSERT test VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,DEFAULT,1);</span><br><span class="line"># 同时插入多行记录</span><br><span class="line">INSERT test VALUES(DEFAULT,&apos;Tom&apos;,&apos;123&apos;,3*7+4,1),(NULL,&apos;Rose&apos;,md5(&apos;123&apos;),DEFAULT,0);</span><br><span class="line"># 方法二插入记录</span><br><span class="line">INSERT test SET username=&apos;Ben&apos;,password=&apos;456&apos;;</span><br><span class="line"># 方法三插入记录</span><br><span class="line">INSERT test(username) SELECT username FROM user WHERE age&gt;=20;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、删除记录：</strong><br><code>DELETE FROM table_name [WHERE where_condition]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM users WHERE id=6;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、更新记录</strong><br><code>UPDATE [LOW_PRIORITY] [IGNORE] table_reference SET column_name1={expr1 | DEFAULT}, [,column_name2={expr2 | DEFAULT}], ... [WHERE where_condition]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 更新所有age字段增加5</span><br><span class="line">UPDATE user SET age=age+5;</span><br><span class="line"># 同时更新多个字段</span><br><span class="line">UPDATE user SET age=age-id, sex=0;</span><br><span class="line"># 根据条件更新字段</span><br><span class="line">UPDATE user SET age=age+5 WHERE id%2=0;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、查询记录：</strong><br><code>SELECT select_expr [select_expr1,...] [FROM table_references]</code></p>
+<ul>
+<li><code>[WHERE where_condition]</code></li>
+<li><code>[GROUP BY {column_name | position} [ASC | DESC],...]</code></li>
+<li><code>[HIVING where_condition]</code></li>
+<li><code>[ORDER BY {column_name | expr | position} [ASC | DESC],...]</code></li>
+<li><code>[LIMIT {[offset,] row_count | row_count OFFSET offset}]</code></li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查询所有字段</span><br><span class="line">SELECT * FROM test;</span><br><span class="line"># 查询部分字段，显示结果集的字段顺序可以和表中字段顺序不同</span><br><span class="line">SELECT username,id FROM user;</span><br><span class="line"># 查询某个表中某个字段</span><br><span class="line">SELECT user.id, user.username FROM USER;</span><br><span class="line"># 使用AS个查询字段取别名</span><br><span class="line">SELECT id AS uId,username AS uName FROM user;</span><br><span class="line"># WHERE条件</span><br><span class="line">SELECT id,username FROM user WHERE age&gt;10;</span><br><span class="line"># GROUP BY分组</span><br><span class="line">SELECT sex FROM user GROUP BY sex;</span><br><span class="line">SELECT sex FROM user GROUP BY 1;#按照位置分组</span><br><span class="line"># HIVING分组条件</span><br><span class="line">SELECT sex,age FROM user GROUP BY sex HIVING age&gt;20;#条件字段必须在查询字段列表里</span><br><span class="line">SELECT sex FROM user GROUP BY sex HIVING count(age)&gt;20;#聚合函数，条件字段可以不在查询字段列表里</span><br><span class="line"># ORDER BY排序</span><br><span class="line">SELECT * FROM user ORDER BY id DESC;</span><br><span class="line">SELECT * FROM user ORDER BY age,id DESC;#一个字段排序不能满足需求，可以再加字段排序</span><br><span class="line"># LIMIT显示查询数量</span><br><span class="line">SELECT * FROM user LIMIT 2;</span><br><span class="line">SELECT * FROM user LIMIT 3,2;#从第4条开始返回2条</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="六、子查询和连接"><a href="#六、子查询和连接" class="headerlink" title="六、子查询和连接"></a>六、子查询和连接</h2><p><strong>1、子查询：</strong><br>子查询(SubQuery)是指出现在其他SQL语句内的SELECT子句。<br>子查询必须在小括号()内。<br>ps:<code>SET NAMES gbk;</code>#设置客户端显示格式</p>
+<blockquote>
+<p>(1)使用比较运算符的子查询：<br>=、&gt;、&lt;、&gt;=、&lt;=、&lt;&gt;、!&gt;、&lt;=&gt;</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,goods_price FROM tdb_goods WHERE goods_price=(SELECT ROUND(AVG(goods_price),2) FROM tdb_goods);</span><br></pre></td></tr></table></figure>
+<p>使用ANY、SOME、ALL修饰比较运算符:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">ANY</th>
+<th style="text-align:left">SOME</th>
+<th style="text-align:left">ALL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&gt;、&gt;=</td>
+<td style="text-align:left">最小值</td>
+<td style="text-align:left">最小值</td>
+<td style="text-align:left">最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;、&lt;=</td>
+<td style="text-align:left">最大值</td>
+<td style="text-align:left">最大值</td>
+<td style="text-align:left">最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">=</td>
+<td style="text-align:left">任意值</td>
+<td style="text-align:left">任意值</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt;&gt;、!=</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">任意值</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,goods_price FROM tdb_goods WHERE goods_price &gt; ALL (SELECT goods_price FROM tdb_goods WHERE goods_cate = &apos;超极本&apos;);</span><br><span class="line">SELECT goods_id,goods_name,goods_price FROM tdb_goods WHERE goods_price &lt; ANY (SELECT goods_price FROM tdb_goods WHERE goods_cate = &apos;超极本&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)使用 [NOT] IN 的子查询：</p>
+<ul>
+<li>IN 与 ANY 等效</li>
+<li>NOT IN 与 !=ALL、&lt;&gt;ALL等效</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,goods_price FROM tdb_goods WHERE goods_price NOT IN (SELECT goods_price FROM tdb_goods WHERE goods_cate = &apos;超极本&apos;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)使用 [NOT] EXISTS 的子查询：<br>如果子查询返回任何行，EXISTS将返回TRUE,否则将返回FALSE。</p>
+</blockquote>
+<p><strong>2、连接：</strong><br><code>table_reference {[INNER | CROSS] JOIN | {LEFT | RIGHT} [OUTER] JOIN} table_reference ON conditional_expr</code></p>
+<ul>
+<li>内连接：INNER JOIN 和 CROSS JOIN 和 JOIN 是等价的。</li>
+<li>外连接：LEFT JOIN 是左外连接; RIGHT JOIN 是右外连接。</li>
+</ul>
+<blockquote>
+<p>(1)内连接 INNER JOIN：<br>显示左表及右表符合连接条件的记录。(交集)</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,cate_name FROM tdb_goods INNER JOIN tdb_goods_cates ON tdb_goods.cate_id = tdb_goods_cates.cate_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)左外连接 LEFT JOIN:<br>显示左表的全部记录及右表符合连接条件的记录。(右表以左表为准)</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,cate_name FROM tdb_goods LEFT JOIN tdb_goods_cates ON tdb_goods.cate_id = tdb_goods_cates.cate_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)右外连接 RIGHT JOIN:<br>显示右表的全部记录及左表符合连接条件的记录。(左表以右表为准)</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT goods_id,goods_name,cate_name FROM tdb_goods RIGHT JOIN tdb_goods_cates ON tdb_goods.cate_id = tdb_goods_cates.cate_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p><strong>3、多表连接：</strong><br>连续使用<code>INNER JOIN ... ON ...</code>进行多表连接</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 当不同表中字段名称相同时，需使用AS给表取别名</span><br><span class="line"># \G以表格美化显示</span><br><span class="line">SELECT goods_id,goods_name,cate_name,brand_name,goods_price FROM tdb_goods AS g INNER JOIN tdb_goods_cates AS c ON g.cate_id = c.cate_id INNER JOIN tdb_goods_brands AS b ON g.brand_id = b.brand_id\G;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、自身连接：</strong><br>同一个数据表对其自身进行连接。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#无限分类的数据表设计</span><br><span class="line">CREATE TABLE tdb_goods_types(type_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,type_name VARCHAR(20) NOT NULL,parent_id SMALLINT UNSIGNED NOT NULL DEFAULT 0); </span><br><span class="line">#查找所有分类及其父类</span><br><span class="line">SELECT s.type_id,s.type_name,p.type_name FROM tdb_goods_types AS s LEFT JOIN tdb_goods_types AS p ON s.parent_id = p.type_id;</span><br><span class="line">#查找所有分类及其子类</span><br><span class="line">SELECT p.type_id,p.type_name,s.type_name FROM tdb_goods_types AS p LEFT JOIN tdb_goods_types AS s ON s.parent_id = p.type_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、多表更新：</strong><br><code>UPDATE table_references SET column_name1={expr1 | DEFAULT} [,column_name2={expr2 | DEFAULT}],... [WHERE where_condition]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE tdb_goods INNER JOIN tdb_goods_cates ON goods_cate = cate_name SET goods_cate = cate_id;</span><br></pre></td></tr></table></figure>
+<p>注意：多表更新需要一步到位：<br>ps：创建数据表的同时将查询结果写入到数据表：<br><code>CREATE TABLE [IF NOT EXISTS] table_name [(create_definition,...)] SELECT select_statement</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 1.查询结果创建表</span><br><span class="line">CREATE TABLE tdb_goods_brands(brand_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,brand_name VARCHAR(40) NOT NULL) SELECT brand_name FROM tdb_goods GROUP BY brand_name;</span><br><span class="line"># 2.连表更新</span><br><span class="line">UPDATE tdb_goods AS g INNER JOIN tdb_goods_brands AS b ON g.brand_name = b.brand_name SET g.brand_name = b.brand_id;</span><br><span class="line"># 3.修改字段名称和字段类型</span><br><span class="line">ALTER TABLE tdb_goods CHANGE goods_cate cate_id SMALLINT UNSIGNED NOT NULL, CHANGE brand_name brand_id SMALLINT UNSIGNED NOT NULL;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>6、多表删除：</strong><br><code>DELETE table_name[.*] [,table_name1[.*]]... FROM table_references [WHERE where_condition]</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE t1 FROM tdb_goods AS t1 LEFT JOIN (SELECT goods_id,goods_name FROM tdb_goods GROUP BY goods_name HIVING COUNT(goods_name) &gt;= 2) AS t2 ON t1.goods_name = t2.goods_name WHERE t1.goods_id &gt; t2.goods_id;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="七、mysql函数"><a href="#七、mysql函数" class="headerlink" title="七、mysql函数"></a>七、mysql函数</h2><p><strong>1、字符函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CONCAT()</td>
+<td style="text-align:left">字符连接</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCAT_WS()</td>
+<td style="text-align:left">使用指定的分隔符进行字符连接</td>
+</tr>
+<tr>
+<td style="text-align:left">FORMAT()</td>
+<td style="text-align:left">数字格式化</td>
+</tr>
+<tr>
+<td style="text-align:left">LOWER()</td>
+<td style="text-align:left">转换成小写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">UPPER()</td>
+<td style="text-align:left">转换成大写字母</td>
+</tr>
+<tr>
+<td style="text-align:left">LEFT()</td>
+<td style="text-align:left">获取左侧字符</td>
+</tr>
+<tr>
+<td style="text-align:left">RIGHT()</td>
+<td style="text-align:left">获取右侧字符</td>
+</tr>
+<tr>
+<td style="text-align:left">LENGTH()</td>
+<td style="text-align:left">获取字符串长度</td>
+</tr>
+<tr>
+<td style="text-align:left">RIGHT()</td>
+<td style="text-align:left">获取右侧字符</td>
+</tr>
+<tr>
+<td style="text-align:left">LTRIM()</td>
+<td style="text-align:left">删除前导空格</td>
+</tr>
+<tr>
+<td style="text-align:left">RTRIM()</td>
+<td style="text-align:left">删除后续空格</td>
+</tr>
+<tr>
+<td style="text-align:left">TRIM()</td>
+<td style="text-align:left">删除前导和后续</td>
+</tr>
+<tr>
+<td style="text-align:left">SUBSTRING()</td>
+<td style="text-align:left">字符串截取</td>
+</tr>
+<tr>
+<td style="text-align:left">[NOT]LIKE()</td>
+<td style="text-align:left">模式匹配</td>
+</tr>
+<tr>
+<td style="text-align:left">REPLACE()</td>
+<td style="text-align:left">字符串替换</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#CONCAT()连接用户名&apos;Tom&apos;和密码&apos;123&apos;，输出&apos;Tom123&apos;</span><br><span class="line">SELECT CONCAT(username,password) AS usinfo FROM user;</span><br><span class="line"></span><br><span class="line">#CONCAT_WS()指定分隔符&apos;_&apos;连接用户名&apos;Tom&apos;和密码&apos;123&apos;，输出&apos;Tom_123&apos;</span><br><span class="line">SELECT CONCAT_WS(&apos;_&apos;,username,password) AS usinfo FROM user;</span><br><span class="line"></span><br><span class="line">#FORMAT()格式化数字保留一位小数，输出&apos;1234.6&apos;</span><br><span class="line">SELECT FORMAT(1234.56,1);</span><br><span class="line"></span><br><span class="line">#LOWER()大写变小写，输出&apos;mysql&apos;</span><br><span class="line">SELECT LOWER(&apos;Mysql&apos;);</span><br><span class="line"></span><br><span class="line">#LEFT()取左侧2位字符，输出&apos;My&apos;</span><br><span class="line">SELECT LEFT(&apos;Mysql&apos;,2);</span><br><span class="line"></span><br><span class="line">#LENGTH()获取字符串长度包含空格，输出&apos;7&apos;</span><br><span class="line">SELECT LENGTH(&apos;Mysql  &apos;);</span><br><span class="line"></span><br><span class="line">#LTRIM()删除前导空格，输出&apos;Mysql  &apos;</span><br><span class="line">SELECT LTRIM(&apos;  Mysql  &apos;);</span><br><span class="line"></span><br><span class="line">#TRIM()删除前导和后续空格，输出&apos;Mysql&apos;</span><br><span class="line">SELECT TRIM(&apos;  Mysql  &apos;);</span><br><span class="line"></span><br><span class="line">#TRIM()可以使用LEADING删除前导字符，输出&apos;Mysql!!&apos;</span><br><span class="line">SELECT TRIM(LEADING &apos;!&apos; FROM &apos;!!Mysql!!&apos;);</span><br><span class="line"></span><br><span class="line">#TRIM()可以使用TRAILING删除后续字符，输出&apos;!!Mysql&apos;</span><br><span class="line">SELECT TRIM(TRAILING &apos;!&apos; FROM &apos;!!Mysql!!&apos;);</span><br><span class="line"></span><br><span class="line">#TRIM()可以使用BOTH删除前导和后续字符，输出&apos;Mysql&apos;</span><br><span class="line">SELECT TRIM(BOTH &apos;!&apos; FROM &apos;!!Mysql!!&apos;);</span><br><span class="line"></span><br><span class="line">#REPLACE()替换指定字符，输出&apos;Mysql&apos;</span><br><span class="line">SELECT REPLACE(&apos;!!My!!sql!!&apos;, &apos;!&apos;, &apos;&apos;);</span><br><span class="line"></span><br><span class="line">#SUBSTRING()截取字符串，注意索引第一位是1，不是0。输出&apos;My&apos;</span><br><span class="line">SELECT SUBSTRING(&apos;Mysql&apos;, 1, 2);</span><br><span class="line"></span><br><span class="line">#SUBSTRING()截取字符串可以从倒数开始，但截取长度不能为负数。输出&apos;l&apos;</span><br><span class="line">SELECT SUBSTRING(&apos;Mysql&apos;,-1);</span><br><span class="line"></span><br><span class="line">#LIKE匹配，%代表通配符，/代表任意一个字符。输出&apos;Tom&apos;</span><br><span class="line">SELECT * FROM user WHERE first_name LIKE &apos;%o%&apos;;</span><br><span class="line"></span><br><span class="line">#如果匹配的字符是%，则需要在%任意放置一个字符，用ESCAPE表述忽略字符后面的%。输出&apos;To%m&apos;</span><br><span class="line">SELECT * FROM user WHERE first_name LIKE &apos;%1%%&apos; ESCAPE &apos;1&apos;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>2、数值运算符与函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CEIL()</td>
+<td style="text-align:left">进一取整，向上取整</td>
+</tr>
+<tr>
+<td style="text-align:left">DIV</td>
+<td style="text-align:left">整数除法</td>
+</tr>
+<tr>
+<td style="text-align:left">FLOOR()</td>
+<td style="text-align:left">舍一取整，向下取整</td>
+</tr>
+<tr>
+<td style="text-align:left">MOD</td>
+<td style="text-align:left">取余数（取模）</td>
+</tr>
+<tr>
+<td style="text-align:left">POWER()</td>
+<td style="text-align:left">幂运算</td>
+</tr>
+<tr>
+<td style="text-align:left">ROUND()</td>
+<td style="text-align:left">四舍五入</td>
+</tr>
+<tr>
+<td style="text-align:left">TRUNCATE()</td>
+<td style="text-align:left">数字截取</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT CEIL(3.01); # 向上取整,输出&apos;4&apos;</span><br><span class="line">SELECT FLOOR(3.99); # 向下取整,输出&apos;3&apos;</span><br><span class="line">SELECT 3 DIV 4; # 整数除法,输出&apos;0&apos;</span><br><span class="line">SELECT 5 MOD 3; # 取余，输出&apos;2&apos;</span><br><span class="line">SELECT POWER(3,3); # 幂运算,输出&apos;27&apos;</span><br><span class="line">SELECT ROUND(3.652,2); # 四舍五入，输出&apos;3.65&apos;</span><br><span class="line">SELECT truncate(123.45,0); #数字截断，到小数点后0位，输出&apos;123&apos;</span><br><span class="line">SELECT truncate(123.45,-1); # 数字截取，把那一位整个去掉.输出&apos;120&apos;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>3、比较运算符与函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[NOT] BETWEEN…AND..</td>
+<td style="text-align:left">【不】在范围之内</td>
+</tr>
+<tr>
+<td style="text-align:left">[NOT] IN()</td>
+<td style="text-align:left">【不】在列出值范围内</td>
+</tr>
+<tr>
+<td style="text-align:left">IS [NOT] NULL</td>
+<td style="text-align:left">【不】为空</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT 15 BETWEEN 10 AND 20; # 返回1，TRUE</span><br><span class="line">SELECT 15 NOT BETWEEN 10 AND 20; # 返回0，FALSE</span><br><span class="line">SELECT 15 IN (10,15,20,25); # 返回1，TRUE</span><br><span class="line">SELECT 5 IN (10,15,20,25); # 返回0，FALSE</span><br><span class="line">SELECT * FROM user WHERE username IS NULL; # 返回用户名为空的用户</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、日期时间函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">NOW()</td>
+<td style="text-align:left">当前日期和时间</td>
+</tr>
+<tr>
+<td style="text-align:left">CURDATE()</td>
+<td style="text-align:left">当前日期</td>
+</tr>
+<tr>
+<td style="text-align:left">CURTIME()</td>
+<td style="text-align:left">当前时间</td>
+</tr>
+<tr>
+<td style="text-align:left">DATE_ADD()</td>
+<td style="text-align:left">日期变化</td>
+</tr>
+<tr>
+<td style="text-align:left">DATEDIFF()</td>
+<td style="text-align:left">日期差值</td>
+</tr>
+<tr>
+<td style="text-align:left">DATE_FORMAT()</td>
+<td style="text-align:left">日期格式化</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT NOW();</span><br><span class="line">SELECT CURDATE();</span><br><span class="line">SELECT CURTIME;</span><br><span class="line">SELECT DATE_ADD(&apos;2017-12-27&apos;, INTERVAL 365 DAY); # 日期增加365天</span><br><span class="line">SELECT DATE_ADD(&apos;2017-12-27&apos;, INTERVAL 1 YEAR); # 日期增加1年</span><br><span class="line">SELECT DATE_ADD(&apos;2017-12-27&apos;, INTERVAL -3 WEEK); # 日期减少3周</span><br><span class="line">SELECT DATEDIFF(&apos;2016-12-27&apos;,&apos;2017-12-27&apos;); # 查看两个日期之间相差多少天</span><br><span class="line">SELECT DATE_FORMAT(&apos;2017-2-3&apos;,&apos;%m/%d/%Y&apos;); # 格式化为&apos;02/03/2017&apos;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、信息函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CONNECTION_ID()</td>
+<td style="text-align:left">连接ID</td>
+</tr>
+<tr>
+<td style="text-align:left">DATABASE()</td>
+<td style="text-align:left">当前数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">LAST_INSERT_ID()</td>
+<td style="text-align:left">最后插入记录的id号</td>
+</tr>
+<tr>
+<td style="text-align:left">USER()</td>
+<td style="text-align:left">当前用户</td>
+</tr>
+<tr>
+<td style="text-align:left">VERSION()</td>
+<td style="text-align:left">版本信息</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT CONNECTION_ID(); # 查看当前连接ID</span><br><span class="line">SELECT DATABASES(); # 查看当前数据库</span><br><span class="line">DESC test_table; # 查看数据表，看看是否有id字段</span><br><span class="line">SELECT LAST_INSERT_ID(); # 可以查看最后写入的id号，同时写入多条记录时只显示第一条记录的id号</span><br><span class="line">SELECT USER(); # 当前登录的用户</span><br><span class="line">SELECT VERSION(); # 当前数据库版本</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>6、聚合函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AVG()</td>
+<td style="text-align:left">平均值</td>
+</tr>
+<tr>
+<td style="text-align:left">COUNT()</td>
+<td style="text-align:left">计数</td>
+</tr>
+<tr>
+<td style="text-align:left">MAX()</td>
+<td style="text-align:left">最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">MIN()</td>
+<td style="text-align:left">最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">SUM()</td>
+<td style="text-align:left">求和</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(age) FROM user;</span><br><span class="line">SELECT COUNT(id) AS counts FROM user;</span><br><span class="line">SELECT MAX(age) FROM user;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>7、加密函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MD5()</td>
+<td style="text-align:left">信息摘要算法</td>
+</tr>
+<tr>
+<td style="text-align:left">PASSWORD()</td>
+<td style="text-align:left">密码算法</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT MD5(&apos;admin&apos;); # 信息摘要算法，如果为web页面做准备，推荐MD5</span><br><span class="line">SET PASSWORD = PASSWORD(&apos;654321&apos;); # 主要用来修改用户密码</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong> 8、自定义函数：</strong><br><code>CREATE FUNCTION function_name RETURNS {STRING|INTEGER|REAL|DECIMAL} rourine_body</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 不带参数的函数</span><br><span class="line">CREATE FUNCTION f1() RETURNS VARCHAR(30) RETURN DATE_FORMAT(NOW(),&apos;%Y年%m月%d日 %h点：%i分：%s秒&apos;);</span><br><span class="line">SELECT f1();</span><br><span class="line"></span><br><span class="line"># 带参数的函数</span><br><span class="line">CREATE FUNCTION f2(num1 SMALLINT UNSIGNED, num2 SMALLINT UNSIGNED) RETURNS FLOAT(10,2) UNSIGNED RETURN (num1 + num2)/2;</span><br><span class="line">SELECT f2(10,20);</span><br><span class="line"></span><br><span class="line"># 有复合结构函数体的函数</span><br><span class="line">DELIMITER // # 重定义结束符，所有命令都以//结束。因为函数体中有的语句末尾带有;会导致函数结束。</span><br><span class="line">#符合函数结构体需要使用begin...end语句。</span><br><span class="line">CREATE FUNCTION adduser(username VARCHAR(20)) RETURNS INT UNSIGNED BEGIN INSERT user(username) values(username); RETURN LAST_INSERT_ID(); END //</span><br><span class="line"></span><br><span class="line">#删除函数</span><br><span class="line">DROP function adduser;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="八、存储过程"><a href="#八、存储过程" class="headerlink" title="八、存储过程"></a>八、存储过程</h2><p>mysql执行过程：SQL命令——&gt;Mysql引擎——&gt;(分析)语法正确——&gt;可识别命令——&gt;(执行)执行结果——&gt;(返回)客户端</p>
+<p><strong>1、存储过程：</strong><br>存储过程是SQL语句和控制语句的预编译集合，以一个名称存储并作为一个单元处理。<br>存储过程是预编译的，只在第一次执行时执行mysql执行过程，后续的执行会大大提高效率。</p>
+<ul>
+<li>增强SQL语句的功能和灵活性</li>
+<li>实现较快的执行速度</li>
+<li>减少网络流量 </li>
+</ul>
+<p><strong>2、创建存储过程：</strong><br><code>CREATE [DEFINER = {user | CURRENT_USER}] PROCEDURE sp_name ([proc_parameter[,…]]) [characteristic…] routine_body</code></p>
+<blockquote>
+<p>(1)参数：</p>
+<ul>
+<li>proc_parameter: <code>[IN| OUT |INOUT] parameter_name type</code></li>
+<li>IN，表示该参数的值必须在调用存储过程时指定</li>
+<li>OUT，表示该参数的值可以被存储过程改变，并且可以返回</li>
+<li>INOUT，表示该参数的值调用时指定，并可以被改变和返回 </li>
+</ul>
+<p>(2)特性：</p>
+<ul>
+<li>COMMENT:注释</li>
+<li>CONTAINS SQL:包含SQL语句，但不包含读或写数据的语句</li>
+<li>NO SQL：不包含SQL语句</li>
+<li>READS SQL DATA：包含读数据的语句</li>
+<li>MODIFIES SQL DATA：包含写数据的语句</li>
+<li>SQL SECURITY{DEFINER|INVOKER}指明谁有权限来执行</li>
+</ul>
+<p>(3)过程体:</p>
+<ul>
+<li>由合法的SQL语句构成（记录的增删改查和多表连接，不能创建数据库或数据表）</li>
+<li>复合结构：BEGIN…END</li>
+<li>可包含声明，循环，控制结构</li>
+</ul>
+<p>(4)调用存储过程：</p>
+<ul>
+<li><code>CALL sp_name([parameter[,…]])</code></li>
+<li><code>CALL sp_name[()]</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 创建不带参数的存储过程</span><br><span class="line">CREATE PROCEDURE sp1() SELECT VERSION();</span><br><span class="line">CALL sp1;</span><br><span class="line">CALL SP1();</span><br><span class="line"></span><br><span class="line"># 创建带有IN类型参数的存储过程</span><br><span class="line">DELIMITER // # 修改当前定界符为//</span><br><span class="line">CREATE PROCEDURE removeUserById(IN id INT UNSIGNED) BEGIN DELETE FROM users WHERE id = id; END //</span><br><span class="line">DELIMITER ; # 修改当前定界符回;</span><br><span class="line">CALL removeUserById(3);</span><br><span class="line">SELECT * FROM users; # 返回空集是因为where id = id,所以参数不能和数据表的字段相同。</span><br><span class="line">DROP PROCEDURE removeUserById; # 存储过程不能修改过程体，只能先删除</span><br><span class="line"># 重新创建一遍</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE removeUserById(IN p_id INT UNSIGNED) BEGIN DELETE FROM users WHERE id = p_id; END //</span><br><span class="line">DELIMITER ;</span><br><span class="line">CALL removeUserById(22);</span><br><span class="line">SELECT * FROM users WHERE id=22;</span><br><span class="line"></span><br><span class="line"># 创建带有IN类型和OUT类型参数的存储过程</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE removeAndReturnNums(IN p_id INT UNSIGNED, OUT countNum  INT UNSIGNED) BEGIN DELETE FROM users WHERE id =p_id; SELETE COUNT(id) FROM users INTO countNum; END //</span><br><span class="line">DELIMITER ;</span><br><span class="line">CALL removeAndReturnNums(27,@nums); # @的是用户变量,用于接受返回信息，只对当前mysql客户端生效</span><br><span class="line">SELECT @nums;</span><br><span class="line"></span><br><span class="line"># 创建带有多个OUT类型参数的存储过程</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE removeUserByAgeAndReturnInfos(IN p_age SMALLINT UNSIGNED,OUT deleteNums INT UNSIGNED, OUT userCount SMALLINT UNSIGNED) BEGIN DELETE FROM users WHERE age = p_age; SELECT ROW_COUNT() INTO deleteNums; SELECT COUNT(id) FROM users INTO userCount; END //</span><br><span class="line">DELIMITER ;</span><br><span class="line">CALL  removeUserByAgeAndReturnInfos(23, @a, @b);</span><br><span class="line">SELECT @a,@b;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="九、存储引擎"><a href="#九、存储引擎" class="headerlink" title="九、存储引擎"></a>九、存储引擎</h2><p><strong>1、存储引擎：</strong><br>Mysql可以将数据以不同的技术存储在文件（内存）中，这种技术称为存储引擎。</p>
+<ul>
+<li>MyISAM：</li>
+<li>INNODB：</li>
+<li>Memory：</li>
+<li>CSV：</li>
+<li>Archive：</li>
+</ul>
+<p><strong>2、相关概念：</strong></p>
+<blockquote>
+<p>(1)并发控制：多个连接对记录进行修改时保证数据的一致性和完整性。</p>
+<p>(2)锁：</p>
+<ul>
+<li>共享锁(读锁)：在同一时间段内，多个用户可以读取同一个资源，读取过程中数据不会发生变化。</li>
+<li>排他锁(写锁)：在任何时候只能有一个用户写入资源，当进行写锁时会阻塞其他读锁或写锁操作。</li>
+</ul>
+<p>(3)锁颗粒：</p>
+<ul>
+<li>表锁，是一种开销最小的锁策略。</li>
+<li>行锁，是一种开销最大的锁策略。</li>
+</ul>
+<p>(4)事务：事务用于保证事务的完整性。</p>
+<p>(5)外键：保证数据一致性的策略。</p>
+<p>(6)索引：是对数据表中的一列或多列的值进行排序的一种结构</p>
+</blockquote>
+<p><strong>3、各种存储引擎的特点：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特点</th>
+<th style="text-align:left">MyISAM</th>
+<th style="text-align:left">INNODB</th>
+<th style="text-align:left">Memory</th>
+<th style="text-align:left">Archive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">存储限制</td>
+<td style="text-align:left">256TB</td>
+<td style="text-align:left">64TB</td>
+<td style="text-align:left">有</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">事务安全</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left">支持索引</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">支持</td>
+</tr>
+<tr>
+<td style="text-align:left">颗粒度</td>
+<td style="text-align:left">表锁</td>
+<td style="text-align:left">行锁</td>
+<td style="text-align:left">表锁</td>
+<td style="text-align:left">行锁</td>
+</tr>
+<tr>
+<td style="text-align:left">数据压缩</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">支持</td>
+</tr>
+<tr>
+<td style="text-align:left">支持外键</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4、修改存储引擎的方法：</strong><br>方法一：通过修改Mysql配置文件<br><code>default-storage-engine = engine</code><br>方法二：通过创建数据表命令<br><code>CREATE TABLE table_name(... ...) ENGINE = engine_name</code><br>方法三：通过修改数据表命令<br><code>ALTER TABLE table_name ENGINE [=] engine_name</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#通过创建数据表命令修改存储引擎</span><br><span class="line">CREATE TABLE test(name VARCHAR(20)) ENGINE = MyISAM;</span><br><span class="line">SHOW CREATE TABLE test;</span><br><span class="line"></span><br><span class="line">#通过修改数据表命令修改存储引擎</span><br><span class="line">ALTER TABLE test ENGINE = InnoDB;</span><br><span class="line">SHOW CREATE TABLE test;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="十、事务"><a href="#十、事务" class="headerlink" title="十、事务"></a>十、事务</h2><p>Mysql事务主要用于处理操作量大，复杂度高的数据。</p>
+<ul>
+<li>在Mysql中只有使用了Innodb数据库引擎的数据库或表才支持事务。</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的SQL语句要么全部执行，要么全部不执行。</li>
+<li>事务用来管理insert,update,delete语句</li>
+</ul>
+<p><strong>1、事务是必须满足4个条件：</strong></p>
+<ul>
+<li>原子性(Atomicity，或称不可分割性)：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</li>
+<li>一致性(Consistency)：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。</li>
+<li>隔离性(Isolation，又称独立性)：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。</li>
+<li>持久性(Durability)：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</li>
+</ul>
+<p><strong>2、事务控制语句：</strong></p>
+<ul>
+<li><code>BEGIN</code>或<code>START TRANSACTION</code>：显式地开启一个事务。</li>
+<li><code>COMMIT</code>或<code>COMMIT WORK</code>：COMMIT会提交事务，并使已对数据库进行的所有修改称为永久性的。</li>
+<li><code>ROLLBACK</code>或<code>ROLLBACK WORK</code>：回滚会结束用户的事务，并撤销正在进行的所有未提交的修改。</li>
+<li><code>SAVEPOINT identifier</code>：SAVEPOINT允许在事务中创建一个保存点，一个事务中可以有多个SAVEPOINT。</li>
+<li><code>RELEASE SAVEPOINT identifier</code>；删除一个事务的保存点，当没有指定的保存点时，执行该语句会抛出一个异常。</li>
+<li><code>ROLLBACK TO identifier</code>；把事务回滚到标记点。</li>
+<li><code>SET TRANSACTION</code>；用来设置事务的隔离级别。InnoDB存储引擎提供事务的隔离级别有READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ和SERIALIZABLE。</li>
+</ul>
+<p><strong>3、事务处理方法：</strong><br>方法一：用BEGIN, ROLLBACK, COMMIT来实现</p>
+<ul>
+<li><code>BEGIN</code>：开始一个事务</li>
+<li><code>ROLLBACK</code>：事务回滚</li>
+<li><code>COMMIT</code>：事务确认</li>
+</ul>
+<p>方法二：直接用 SET 来改变 MySQL 的自动提交模式:</p>
+<ul>
+<li><code>SET AUTOCOMMIT=0</code>：禁止自动提交</li>
+<li><code>SET AUTOCOMMIT=1</code>：开启自动提交</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test(id INT(5)) ENGINE=innodb;</span><br><span class="line"></span><br><span class="line">BEGIN; # 开始事务</span><br><span class="line">INSERT INTO test VALUE(5);</span><br><span class="line">COMMIT; # 提交事务</span><br><span class="line">SELECT * FROM test;</span><br><span class="line"></span><br><span class="line">BEGIN; # 开始事务</span><br><span class="line">INSERT INTO test VALUE(6);</span><br><span class="line">ROLLBACK; # 回滚</span><br><span class="line">SELECT * FROM test;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月11日 14:38</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/29/mysql/" title="mysql">http://pythonfood.github.io/2017/12/29/mysql/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/29/mysql/&title=《mysql》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/29/mysql/&title=《mysql》 — PythonFood&source=mysql常用命令笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/29/mysql/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql》 — PythonFood&url=http://pythonfood.github.io/2017/12/29/mysql/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/29/mysql/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/29/mysql/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/mysql/" class="color1">mysql</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、mysql安装"><span class="post-toc-text">一、mysql安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、mysql操作"><span class="post-toc-text">二、mysql操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、数据库操作"><span class="post-toc-text">三、数据库操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、数据表操作"><span class="post-toc-text">四、数据表操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、数据操作"><span class="post-toc-text">五、数据操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、子查询和连接"><span class="post-toc-text">六、子查询和连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、mysql函数"><span class="post-toc-text">七、mysql函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、存储过程"><span class="post-toc-text">八、存储过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、存储引擎"><span class="post-toc-text">九、存储引擎</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、事务"><span class="post-toc-text">十、事务</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/linux/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          linux
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/28/monkey/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">monkey</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="mysql" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
