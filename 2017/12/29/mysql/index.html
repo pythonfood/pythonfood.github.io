@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/29/mysql/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="mysql常用命令笔记。">
-<meta property="og:updated_time" content="2018-05-11T06:38:31.652Z">
+<meta property="og:updated_time" content="2018-05-21T08:07:48.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="mysql常用命令笔记。">
@@ -1143,10 +1143,44 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE test(id INT(5)) ENGINE=innodb;</span><br><span class="line"></span><br><span class="line">BEGIN; # 开始事务</span><br><span class="line">INSERT INTO test VALUE(5);</span><br><span class="line">COMMIT; # 提交事务</span><br><span class="line">SELECT * FROM test;</span><br><span class="line"></span><br><span class="line">BEGIN; # 开始事务</span><br><span class="line">INSERT INTO test VALUE(6);</span><br><span class="line">ROLLBACK; # 回滚</span><br><span class="line">SELECT * FROM test;</span><br></pre></td></tr></table></figure>
 </blockquote>
+<h2 id="十一、备份还原"><a href="#十一、备份还原" class="headerlink" title="十一、备份还原"></a>十一、备份还原</h2><p><strong>1、mysqldump参数</strong></p>
+<blockquote>
+<p>(1)参数详解</p>
+<ul>
+<li><code>-d</code> 结构(–no-data:不导出任何数据，只导出数据库表结构)</li>
+<li><code>-t</code> 数据(–no-create-info:只导出数据，而不添加CREATE TABLE 语句)</li>
+<li><code>-n</code> (–no-create-db:只导出数据，而不添加CREATE DATABASE 语句）</li>
+<li><code>-B</code> (–databases:导出数据库列表，单个库时可省略）</li>
+<li><code>-R</code> (–routines:导出存储过程以及自定义函数)</li>
+<li><code>-E</code> (–events:导出事件)</li>
+<li><code>--triggers</code> (默认导出触发器，使用–skip-triggers屏蔽导出)</li>
+<li><code>--tables</code> 表列表（单个表时可省略）</li>
+</ul>
+<p>(2)参数组合</p>
+<ul>
+<li>同时导出结构以及数据时可同时省略-d和-t</li>
+<li>同时不导出结构和数据可使用-ntd</li>
+<li>只导出存储过程和函数可使用-R -ntd</li>
+<li>导出所有(结构&amp;数据&amp;存储过程&amp;函数&amp;事件&amp;触发器)使用-R -E</li>
+<li>只导出结构&amp;函数&amp;事件&amp;触发器使用-R -E -d</li>
+</ul>
+</blockquote>
+<p><strong>2、导出数据库(备份)</strong></p>
+<blockquote>
+<p>(1)导出一个数据库的结构：<br><code>mysqldump -d dbname -uroot -p &gt; dbname.sql</code><br>(2)导出多个数据库的结构：<br><code>mysqldump -d -B dbname1 dbname2 -uroot -p &gt; dbname.sql</code><br>(3)导出一个数据库中数据（不包含结构）：<br><code>mysqldump -t dbname -uroot -p &gt; dbname.sql</code><br>(4)导出多个数据库中数据（不包含结构）：<br><code>mysqldump -t -B dbname1 dbname2 -uroot -p &gt; dbname.sql</code><br>(5)导出一个数据库的结构以及数据：<br><code>mysqldump dbname -uroot -p &gt; dbname.sql</code><br>(6)导出多个数据库的结构以及数据：<br><code>mysqldump -B dbname1 dbname2 -uroot -p &gt; dbname.sql</code><br>(7)导出一个数据库中一个表的结构：<br><code>mysqldump -d dbname1 tablename -uroot -p &gt; tablename.sql</code><br>(8)导出一个数据库中多个表的结构：<br><code>mysqldump -d -B dbname1 --tables tablename1 tablename2 -uroot -p &gt; tablename.sql</code><br>(9)导出一个数据库中一个表的数据（不包含结构）：<br><code>mysqldump -t dbname1 tablename -uroot -p &gt; tablename.sql</code><br>(10)导出一个数据库中多个表的数据（不包含结构）：<br><code>mysqldump -t -B dbname1 --tables tablename1 tablename2 -uroot -p &gt; tablename.sql</code><br>(11)导出一个数据库中一个表的结构以及数据：<br><code>mysqldump dbname1 tablename -uroot -p &gt; tablename.sql</code><br>(12)导出一个数据库中多个表的结构以及数据：<br><code>mysqldump -B dbname1 --tables tablename1 tablename2 -uroot -p &gt; tablename.sql</code></p>
+</blockquote>
+<p><strong>3、导出存储过程和函数操作</strong></p>
+<blockquote>
+<p>(1)只导出存储过程和函数(不导出结构和数据，要同时导出结构的话，需要同时使用-d)：<br><code>mysqldump -R -ndt dbname -u root -p &gt; dbname.sql</code><br>(2)只导出事件：<br><code>mysqldump -E -ndt dbname -u root -p &gt; dbname.sql</code><br>(3)不导出触发器（触发器是默认导出的–triggers，使用–skip-triggers屏蔽导出触发器）：<br><code>mysqldump --skip-triggers dbname1 -u root -p &gt; dbname.sql</code></p>
+</blockquote>
+<p><strong>4、导入数据库(还原)</strong></p>
+<blockquote>
+<p>方法一：<br><code>mysql -uroot -p123456 -h127.0.0.1 -P3306 dbname &lt; dbname.sql</code><br>方法二：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 1.登录数据库</span><br><span class="line">mysql -uroot -p -hlocalhost -P3306</span><br><span class="line"># 2.选择数据库</span><br><span class="line">use dbname;</span><br><span class="line"># 3.设置数据库编码(根据需要)</span><br><span class="line">set names utf8;</span><br><span class="line"># 4、导入数据（注意sql文件的路径）</span><br><span class="line">source /home/tester/dbname.sql;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月11日 14:38</p>
+        <p>最后更新： 2018年05月21日 16:07</p>
         <p>原始链接： <a class="post-url" href="/2017/12/29/mysql/" title="mysql">http://pythonfood.github.io/2017/12/29/mysql/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
@@ -1264,7 +1298,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、mysql安装"><span class="post-toc-text">一、mysql安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、mysql操作"><span class="post-toc-text">二、mysql操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、数据库操作"><span class="post-toc-text">三、数据库操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、数据表操作"><span class="post-toc-text">四、数据表操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、数据操作"><span class="post-toc-text">五、数据操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、子查询和连接"><span class="post-toc-text">六、子查询和连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、mysql函数"><span class="post-toc-text">七、mysql函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、存储过程"><span class="post-toc-text">八、存储过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、存储引擎"><span class="post-toc-text">九、存储引擎</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、事务"><span class="post-toc-text">十、事务</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、mysql安装"><span class="post-toc-text">一、mysql安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、mysql操作"><span class="post-toc-text">二、mysql操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、数据库操作"><span class="post-toc-text">三、数据库操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、数据表操作"><span class="post-toc-text">四、数据表操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、数据操作"><span class="post-toc-text">五、数据操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、子查询和连接"><span class="post-toc-text">六、子查询和连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、mysql函数"><span class="post-toc-text">七、mysql函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、存储过程"><span class="post-toc-text">八、存储过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、存储引擎"><span class="post-toc-text">九、存储引擎</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十、事务"><span class="post-toc-text">十、事务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#十一、备份还原"><span class="post-toc-text">十一、备份还原</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
