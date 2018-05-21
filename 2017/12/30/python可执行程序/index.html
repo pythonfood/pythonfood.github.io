@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>安卓专项测试 | PythonFood</title>
+  <title>python可执行程序 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta name="keywords" content="安卓性能">
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安卓专项测试">
-<meta property="og:url" content="http://pythonfood.github.io/2018/01/01/安卓专项测试/index.html">
+<meta property="og:title" content="python可执行程序">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/30/python可执行程序/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
-<meta property="og:updated_time" content="2018-05-11T06:52:03.053Z">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-05-21T07:12:38.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安卓专项测试">
-<meta name="twitter:description" content="安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。">
+<meta name="twitter:title" content="python可执行程序">
+<meta name="twitter:description" content="人生苦短，我用python。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-安卓专项测试" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-python可执行程序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      安卓专项测试
+      python可执行程序
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -118,12 +118,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/app测试/">app测试</a>
+                      <a href="/categories/python/">python</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-01-01
+          <i class="fa fa-calendar"></i>  2017-12-30
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -139,82 +139,38 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。<br><a id="more"></a></p>
-<h2 id="一、响应时间"><a href="#一、响应时间" class="headerlink" title="一、响应时间"></a>一、响应时间</h2><blockquote>
-<p>1.安装：普通安装、覆盖安装<br>2.启动：冷启动、热启动</p>
-<blockquote>
-<p>(1)adb命令：adb logcat、adb shell am start、adb shell screenrecord等。</p>
-<blockquote>
-<p>小示例：<br>1)adb shell screenrecord /sdcard/demo.mp4<br>2)adb pull /sdcard/demo.mp4 d:\record<br>3)用按帧播放的视频软件播放分析，比如KMplayer。</p>
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、pyinstaller模块"><a href="#一、pyinstaller模块" class="headerlink" title="一、pyinstaller模块"></a>一、pyinstaller模块</h2><h3 id="1、安装模块"><a href="#1、安装模块" class="headerlink" title="1、安装模块"></a>1、安装模块</h3><blockquote>
+<p>cmd输入命令<code>pip installer pyinstaller</code>即可。<br>pip会自动安装这个第三方包需要的依赖模块，比如pypiwin32这个依赖。</p>
 </blockquote>
-<p>(2)代码里打点（埋点）。<br>(3)高速相机。<br>(4)秒表。<br>(5)第三方工具或云测平台。</p>
+<h3 id="2、打包过程"><a href="#2、打包过程" class="headerlink" title="2、打包过程"></a>2、打包过程</h3><blockquote>
+<p>(1)新建项目路径，路径自定义。<br>(2)将打包文件复制到项目路径下。<br>(3)打开cmd窗口，cd到项目路径。<br>(4)执行命令<code>pyinstaller -F filename.py</code><br>ps:将需要的第三方库也复制到路径下，不过site-packages目录下的都可以自动识别。</p>
 </blockquote>
-<p>3.跳转：页面之间、控件之间</p>
+<h3 id="3、详细参数"><a href="#3、详细参数" class="headerlink" title="3、详细参数"></a>3、详细参数</h3><blockquote>
+<ul>
+<li><code>-F, –onefile</code> 产生一个文件用于部署，只生成一个可执行文件。</li>
+<li><code>-D, –onedir</code> 产生一个目录用于部署 (默认)。</li>
+<li><code>-K, –tk</code> 在部署时包含 TCL/TK。</li>
+<li><code>-c, –nowindowed,–console</code> 使用控制台子系统执行，无界面(默认)(只对Windows有效)。</li>
+<li><code>-w, –windowed,–noconsole</code> 使用Windows子系统执行，当程序启动的时候不会打开命令行，需要有界面(只对Windows有效)。</li>
+<li><code>-p DIR, –path=DIR</code> 设置导入路径(和使用PYTHONPATH效果相似)，可以用路径分割符(Windows使用分号,Linux使用冒号)分割，指定多个目录。也可以使用多个-p参数来设置多个导入路径。</li>
+<li><code>-n NAME, –name=NAME</code> 可选的项目(产生的spec的)名字.如果省略,第一个脚本的主文件名将作为spec的名字。</li>
+<li><code>-i file.ico, –icon=&lt;FILE.ICO&gt;</code> 将file.ico添加为可执行文件的资源(只对Windows系统有效)。</li>
+<li><code>–icon=&lt;FILE.EXE,N&gt;</code> 将file.exe的第n个图标添加为可执行文件的资源(只对Windows系统有效)。</li>
+<li><code>-v FILE, –version=FILE</code> 将verfile作为可执行文件的版本资源(只对Windows系统有效)。</li>
+<li><code>-a, –ascii</code> 不包含编码，在支持Unicode的python版本上默认包含所有的编码。</li>
+<li><code>-d, –debug</code> 产生debug版本的可执行文件。</li>
+<li><code>-s, –strip</code> 可执行文件和共享库将run through strip，注意Cygwin的strip往往使普通的win32 Dll无法使用。</li>
+<li><code>-X, –upx</code> 如果有UPX安装(执行Configure.py时检测)，会压缩执行文件(Windows系统中的DLL也会)。</li>
+<li><code>-o DIR, –out=DIR</code> 指定spec文件的生成目录，如果没有指定，而且当前目录是PyInstaller的根目录,会自动创建一个用于输出(spec和生成的可执行文件)的目录。如果没有指定,而当前目录不是PyInstaller的根目录,则会输出到当前的目录下。</li>
+</ul>
+<p>PS:详细参数见官网<a href="https://pyinstaller.readthedocs.io/en/v3.3.1/usage.html" target="_blank" rel="noopener">https://pyinstaller.readthedocs.io/en/v3.3.1/usage.html</a></p>
 </blockquote>
-<h2 id="二、cpu"><a href="#二、cpu" class="headerlink" title="二、cpu"></a>二、cpu</h2><blockquote>
-<p>1.活动状态<br>2.静默状态</p>
-<blockquote>
-<p>(1)第三方工具：腾讯GT、网易Emmagee、阿里易测等。（小白首选）。<br>(2)dumpsys命令：adb shell dumpsys cpuinfo | grep {PackageName}。<br>(3)top命令：adb shell top | grep {PackageName}。</p>
-<blockquote>
-<p>小示例：<br>1)adb shell<br>2)top | grep com.peng.cloudp.tv</p>
-<blockquote>
-<p>第一列PID:进度ID<br>第二列PR:优先级<br>第三列CPU:瞬时CPU占用率<br>第四列进程状态:R=运行，S=睡眠，T=跟踪/停止，Z=僵尸进程<br>第五列THR:当前应用所用的线程数<br>第六列VSS:虚拟消耗内存<br>第七列RSS:实际使用物理内存<br>第八列UID:进程所有者的用户ID<br>第九列PR:进程名称</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="三、内存"><a href="#三、内存" class="headerlink" title="三、内存"></a>三、内存</h2><blockquote>
-<p>1.命令查看内存数据</p>
-<blockquote>
-<p>(1)adb shell dumpsys meminfo {PackageName}查看内存是否是一味上涨的趋势，不会回收或者部分回收。<br>(2)/system/build.prop 查看每个应用分配的最高内存值。<br>adb shell procrank (没有可以从网上下载procrank文件)。</p>
-<blockquote>
-<p>PID:进程ID<br>VSS:虚拟消耗内存<br>RSS:实际使用物理内存，是共享内存+私有内存。<br>PSS:占用私有内存加上平均分配的的共享内存。<br>USS:私有内存，如果应用终止了，这部分内存会释放。如果这个值超过应用被分配的最大值，就会闪退。</p>
-</blockquote>
-</blockquote>
-<p>2.Memory Monitor查看内存风险<br>3.MAT分析内存泄漏<br>4.Zombie辅助检查内存占用</p>
-</blockquote>
-<h2 id="四、电量"><a href="#四、电量" class="headerlink" title="四、电量"></a>四、电量</h2><blockquote>
-<p>1.待机：无网络待机、wifi待机、3G待机等。<br>2.活动状态：不断地进行某些场景操作、看视频、灭屏下载、唤醒等。<br>3.静默状态：打开app后不操作，后台运行。</p>
-<blockquote>
-<p>(1)通过硬件测试：耗电量测试仪、腾讯的电量宝等<br>(2)通过adb shell dumpsys batterystats命令。（android5.0以上使用）<br>(3)第三方工具或云测平台。<br>(4)android自带的电量统计。</p>
-</blockquote>
-</blockquote>
-<h2 id="五、流量"><a href="#五、流量" class="headerlink" title="五、流量"></a>五、流量</h2><blockquote>
-<p>1.活动状态<br>2.静默状态</p>
-<blockquote>
-<p>(1)通过Tcpdump抓包，然后用Wireshark分析。如果想更自动化，可以用FildderCore二次开发。<br>(2)查看Linux流量统计文件。</p>
-<blockquote>
-<p>小示例：<br>1)ps | grep com.peng.cloudp.tv （获取的pid为9696）<br>2)cat /proc/9696/status （通过pid值获取uid为10035）<br>3)cat /proc/uid_stat/10035/tcp_snd （通过uid获取发送的流量byte,为15584）<br>4)cat /proc/uid_stat/10035/tcp_rcv （通过uid获取接收的流量byte,为16778）</p>
-</blockquote>
-<p>(3)利用类似DDMS的工具查看流量。（小白首选）<br>(4)通过Android API 的 TrafficStats类来统计。<br>(5)第三方工具或云测平台。</p>
-</blockquote>
-</blockquote>
-<h2 id="六、FPS"><a href="#六、FPS" class="headerlink" title="六、FPS"></a>六、FPS</h2><blockquote>
-<p>1.adb shell dumpsys gfxinfo</p>
-<blockquote>
-<p>小示例：<br>1)adb shell dumpsys gfxinfo com.peng.cloudp.tv &gt; com.peng.cloudp.tv.txt<br>2)抓取数据后用表格进行分析</p>
-</blockquote>
-<p>2.monitor.bat进行测试</p>
-<p>3.打开【设置-开发者选项-GPU呈现模式分析-在屏幕上显示为条形图】，开启后点击应用，可以看到条形图。</p>
-<blockquote>
-<p>测试应用流畅度：<br>(1)条形图高于绿线，说明出现卡顿<br>(2)条形图低于绿线，说明比较流畅</p>
-</blockquote>
-</blockquote>
-<h2 id="七、过度渲染"><a href="#七、过度渲染" class="headerlink" title="七、过度渲染"></a>七、过度渲染</h2><blockquote>
-<p>1.打开【设置-开发者选项-调试GPU过度绘制-显示过度绘制区域】，开启后点击应用，可以看到各种颜色的区域。</p>
-<blockquote>
-<p>颜色的标识：<br>(1)蓝色1x过度绘制<br>(2)绿色2x过度绘制<br>(3)淡红色3x过度绘制<br>(4)红色超过4x过度绘制</p>
-</blockquote>
-<p>2.颜色越浅越好:蓝-绿-淡红-红。最理想的是一个像素只绘制一次，合格的页面是白色、蓝色为主，绿色以上区域不能超过整个的三分之一。</p>
-<blockquote>
-<p>验收标准：<br>(1)控制过度绘制为2x<br>(2)不允许存在4x过度绘制<br>(3)不允许存在面积超过屏幕1/4区域的3x过度绘制（淡红色区域）</p>
-</blockquote>
-</blockquote>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月11日 14:52</p>
-        <p>原始链接： <a class="post-url" href="/2018/01/01/安卓专项测试/" title="安卓专项测试">http://pythonfood.github.io/2018/01/01/安卓专项测试/</a></p>
+        <p>最后更新： 2018年05月21日 15:12</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/30/python可执行程序/" title="python可执行程序">http://pythonfood.github.io/2017/12/30/python可执行程序/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -271,7 +227,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/01/01/安卓专项测试/&title=《安卓专项测试》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/30/python可执行程序/&title=《python可执行程序》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -281,22 +237,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/01/01/安卓专项测试/&title=《安卓专项测试》 — PythonFood&source=安卓专项测试主要包括：响应时间、cpu、内存、电量、流量、FPS、过度渲染。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/30/python可执行程序/&title=《python可执行程序》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/01/01/安卓专项测试/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/30/python可执行程序/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《安卓专项测试》 — PythonFood&url=http://pythonfood.github.io/2018/01/01/安卓专项测试/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python可执行程序》 — PythonFood&url=http://pythonfood.github.io/2017/12/30/python可执行程序/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/01/01/安卓专项测试/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/30/python可执行程序/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -306,7 +262,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/01/01/安卓专项测试/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/30/python可执行程序/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -318,7 +274,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/安卓性能/" class="color5">安卓性能</a>
+    <a href="/tags/python/" class="color2">python</a>
       
   </li>
 
@@ -331,26 +287,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、响应时间"><span class="post-toc-text">一、响应时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、cpu"><span class="post-toc-text">二、cpu</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、内存"><span class="post-toc-text">三、内存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、电量"><span class="post-toc-text">四、电量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、流量"><span class="post-toc-text">五、流量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、FPS"><span class="post-toc-text">六、FPS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、过度渲染"><span class="post-toc-text">七、过度渲染</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、pyinstaller模块"><span class="post-toc-text">一、pyinstaller模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、安装模块"><span class="post-toc-text">1、安装模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、打包过程"><span class="post-toc-text">2、打包过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、详细参数"><span class="post-toc-text">3、详细参数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/01/01/安卓专项测试-启动时间/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/01/安卓专项测试/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          安卓专项测试-启动时间
+          安卓专项测试
         
       </span>
     </a>
   
   
-    <a href="/2017/12/30/python可执行程序/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">python可执行程序</span>
+    <a href="/2017/12/30/python内置函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">python内置函数</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -359,7 +315,7 @@
 
 
     
-        <div id="SOHUCS" sid="安卓专项测试" ></div>
+        <div id="SOHUCS" sid="python可执行程序" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
