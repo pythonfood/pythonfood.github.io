@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/30/python函数/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="人生苦短，我用python。">
-<meta property="og:updated_time" content="2018-05-11T06:42:21.328Z">
+<meta property="og:updated_time" content="2018-05-22T07:16:25.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python函数">
 <meta name="twitter:description" content="人生苦短，我用python。">
@@ -179,7 +179,7 @@
 </blockquote>
 <p>5)参数组合<br>它们在使用的时候是有顺序的，依次是必选参数、默认参数、可变参数、关键字参数。</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def func(x, y, z=0, *args, **kwargs):</span><br><span class="line">    print &apos;x =&apos;, x</span><br><span class="line">    print &apos;y =&apos;, y</span><br><span class="line">    print &apos;z =&apos;, z</span><br><span class="line">    print &apos;args =&apos;, args</span><br><span class="line">    print &apos;kwargs =&apos;, kwargs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def func(x, y, z=0, *args, **kwargs):</span><br><span class="line">    print(&apos;x =&apos;, x)</span><br><span class="line">    print(&apos;y =&apos;, y)</span><br><span class="line">    print(&apos;z =&apos;, z)</span><br><span class="line">    print(&apos;args =&apos;, args)</span><br><span class="line">    print(&apos;kwargs =&apos;, kwargs)</span><br></pre></td></tr></table></figure>
 </blockquote>
 </blockquote>
 <h3 id="4、return语句"><a href="#4、return语句" class="headerlink" title="4、return语句"></a>4、return语句</h3><p>return [表达式] 语句用于退出函数，选择性地向调用方返回一个tuple表达式。</p>
@@ -197,10 +197,11 @@
 <p>3、global和nonlocal关键字<br>(1)当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = 1</span><br><span class="line">def fun1():</span><br><span class="line">    global num  # 需要使用 global 关键字声明</span><br><span class="line">    print(num) </span><br><span class="line">    num = 123</span><br><span class="line">    print(num)</span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure></p>
 <p>(2)如果要修改嵌套作用域（enclosing 作用域，外层非全局作用域）中的变量则需要nonlocal关键字了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def outer():</span><br><span class="line">    num = 10</span><br><span class="line">    def inner():</span><br><span class="line">        nonlocal num   # nonlocal关键字声明</span><br><span class="line">        num = 100</span><br><span class="line">        print(num)</span><br><span class="line">    inner()</span><br><span class="line">    print(num)</span><br><span class="line">outer()</span><br></pre></td></tr></table></figure></p>
 <h2 id="三、匿名函数"><a href="#三、匿名函数" class="headerlink" title="三、匿名函数"></a>三、匿名函数</h2><p>使用lambda来创建匿名函数。<br><code>lambda [arg1 [,arg2,.....argn]]:expression</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum = lambda arg1, arg2: arg1 + arg2</span><br><span class="line">print (sum( 10, 20 ))</span><br></pre></td></tr></table></figure></p>
+<p>python中有几个定义好的全局函数方便使用：map、filter、reduce。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce </span><br><span class="line">foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]</span><br><span class="line"></span><br><span class="line"># map 遍历序列，对序列中每个元素进行操作，最终获取新的序列。</span><br><span class="line">print (list(map(lambda x: x * 2 + 10, foo)))</span><br><span class="line"># [14, 46, 28, 54, 44, 58, 26, 34, 64]</span><br><span class="line"></span><br><span class="line"># filter 对于序列中的元素进行筛选，最终获取符合条件的序列。</span><br><span class="line">print (list(filter(lambda x: x % 3 == 0, foo)))</span><br><span class="line"># [18, 9, 24, 12, 27]</span><br><span class="line"> </span><br><span class="line"># reduce 对于序列内所有元素进行累计操作</span><br><span class="line">print (reduce(lambda x, y: x + y, foo))</span><br><span class="line"># 139</span><br></pre></td></tr></table></figure></p>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月11日 14:42</p>
+        <p>最后更新： 2018年05月22日 15:16</p>
         <p>原始链接： <a class="post-url" href="/2017/12/30/python函数/" title="python函数">http://pythonfood.github.io/2017/12/30/python函数/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
