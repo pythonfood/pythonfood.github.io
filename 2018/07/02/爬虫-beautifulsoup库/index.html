@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>爬虫-beautifulsoup库 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="崔庆才老师爬虫的学习笔记。">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫-beautifulsoup库">
+<meta property="og:url" content="http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="崔庆才老师爬虫的学习笔记。">
+<meta property="og:updated_time" content="2018-08-14T09:43:09.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬虫-beautifulsoup库">
+<meta name="twitter:description" content="崔庆才老师爬虫的学习笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-爬虫-beautifulsoup库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      爬虫-beautifulsoup库
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/爬虫/">爬虫</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-07-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>崔庆才老师爬虫的学习笔记。<br><a id="more"></a></p>
+<h2 id="一、BeautifulSoup库详解"><a href="#一、BeautifulSoup库详解" class="headerlink" title="一、BeautifulSoup库详解"></a>一、BeautifulSoup库详解</h2><h3 id="1、什么是BeautifulSoup"><a href="#1、什么是BeautifulSoup" class="headerlink" title="1、什么是BeautifulSoup"></a>1、什么是BeautifulSoup</h3><p>Beautiful Soup就是Python的一个HTML或XML的解析库，可以用它来方便地从网页中提取数据。利用它不用编写正则表达式即可方便实现网页信息的提取。</p>
+<h3 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h3><p><code>pip install beautifulsoup4</code></p>
+<h3 id="3、解析器"><a href="#3、解析器" class="headerlink" title="3、解析器"></a>3、解析器</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">解析器</th>
+<th style="text-align:left">使用方法</th>
+<th style="text-align:left">优势</th>
+<th style="text-align:left">劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Python标准库</td>
+<td style="text-align:left">BeautifulSoup(markup, “html.parser”)</td>
+<td style="text-align:left">Python的内置标准库、执行速度适中、文档容错能力强</td>
+<td style="text-align:left">Python 2.7.3及Python 3.2.2之前的版本文档容错能力差</td>
+</tr>
+<tr>
+<td style="text-align:left">lxml HTML解析器</td>
+<td style="text-align:left">BeautifulSoup(markup, “lxml”)</td>
+<td style="text-align:left">速度快、文档容错能力强</td>
+<td style="text-align:left">需要安装C语言库</td>
+</tr>
+<tr>
+<td style="text-align:left">lxml XML解析器</td>
+<td style="text-align:left">BeautifulSoup(markup, “xml”)</td>
+<td style="text-align:left">速度快、唯一支持XML的解析器</td>
+<td style="text-align:left">需要安装C语言库</td>
+</tr>
+<tr>
+<td style="text-align:left">html5lib</td>
+<td style="text-align:left">BeautifulSoup(markup, “html5lib”)</td>
+<td style="text-align:left">最好的容错性、以浏览器的方式解析文档、生成HTML5格式的文档</td>
+<td style="text-align:left">速度慢、不依赖外部扩展</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4、基本用法"><a href="#4、基本用法" class="headerlink" title="4、基本用法"></a>4、基本用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">''''' </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt; </span></span><br><span class="line"><span class="string">&lt;body&gt; </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt; </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt; </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt; </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt; </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.title.string) <span class="comment">#打印标题</span></span><br><span class="line">print(soup.prettify()) <span class="comment">#格式化代码</span></span><br></pre></td></tr></table></figure>
+<h3 id="5、标签选择器"><a href="#5、标签选择器" class="headerlink" title="5、标签选择器"></a>5、标签选择器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择元素</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''  </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt;  </span></span><br><span class="line"><span class="string">&lt;body&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were  </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt;  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt;  </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;  </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.title)</span><br><span class="line">print(type(soup.title))</span><br><span class="line">print(soup.head)</span><br><span class="line">print(soup.p) <span class="comment">#只能返回第一个标签</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取名称</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''  </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt;  </span></span><br><span class="line"><span class="string">&lt;body&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were  </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt;  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt;  </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;  </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.title.name) <span class="comment">#打印标签名称</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取属性</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''  </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt;  </span></span><br><span class="line"><span class="string">&lt;body&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were  </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt;  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt;  </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;  </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.p.attrs[<span class="string">'name'</span>])</span><br><span class="line">print(soup.p[<span class="string">'name'</span>]) <span class="comment">#两种方式都可以获取标签属性</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取内容</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''  </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt;  </span></span><br><span class="line"><span class="string">&lt;body&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were  </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt;  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt;  </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;  </span></span><br><span class="line"><span class="string">'''</span> </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.p.string)</span><br></pre></td></tr></table></figure>
+<h3 id="6、嵌套选择"><a href="#6、嵌套选择" class="headerlink" title="6、嵌套选择"></a>6、嵌套选择</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''  </span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Domouse's story&lt;/title&gt;&lt;/head&gt;  </span></span><br><span class="line"><span class="string">&lt;body&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="title"name="dromouse"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were little sisters;and their names were  </span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie"class="sister"id="link1"&gt;&lt;!--Elsie--&gt;&lt;/a&gt;  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/lacle"class="sister"id="link2"&gt;Lacle&lt;/a&gt;and  </span></span><br><span class="line"><span class="string">&lt;a hred="http://example.com/tilie"class="sister"id="link3"&gt;Tillie&lt;/a&gt;  </span></span><br><span class="line"><span class="string">and they lived at bottom of a well.&lt;/p&gt;  </span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;  </span></span><br><span class="line"><span class="string">'''</span> </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.head.title.string)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#子节点和子孙节点</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;html&gt; </span></span><br><span class="line"><span class="string">    &lt;head&gt; </span></span><br><span class="line"><span class="string">        &lt;title&gt;The Domouse's story&lt;/title&gt; </span></span><br><span class="line"><span class="string">    &lt;/head&gt; </span></span><br><span class="line"><span class="string">    &lt;body&gt; </span></span><br><span class="line"><span class="string">    &lt;p class="story"&gt; </span></span><br><span class="line"><span class="string">        Once upon a time there were little sisters;and their names were </span></span><br><span class="line"><span class="string">        &lt;a href="http://example.com/elsie" class="sister"id="link1"&gt; </span></span><br><span class="line"><span class="string">        &lt;span&gt;Elsle&lt;/span&gt; </span></span><br><span class="line"><span class="string">        &lt;/a&gt; </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/lacle"class="sister" id="link2"&gt;Lacle&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/tilie"class="sister" id="link3"&gt;Tillie&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and they lived at bottom of a well. </span></span><br><span class="line"><span class="string">        &lt;/p&gt; </span></span><br><span class="line"><span class="string">        &lt;p class="story"&gt;...&lt;/p&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.p.contents) <span class="comment">#子节点以列表形式返回</span></span><br><span class="line"></span><br><span class="line">print(soup.p.children) <span class="comment">#不同之处：children实际上是一个迭代器，需要用循环的方式才能将内容取出</span></span><br><span class="line"><span class="keyword">for</span> i,child <span class="keyword">in</span> enumerate(soup.p.children):</span><br><span class="line">    print(i,child)</span><br><span class="line"></span><br><span class="line">print(soup.p.descendants) <span class="comment">#获取所有的子孙节点，也是一个迭代器</span></span><br><span class="line"><span class="keyword">for</span> l,child1 <span class="keyword">in</span> enumerate(soup.p.descendants):</span><br><span class="line">    print(l,child1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#父节点和祖先节点</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;html&gt; </span></span><br><span class="line"><span class="string">    &lt;head&gt; </span></span><br><span class="line"><span class="string">        &lt;title&gt;The Domouse's story&lt;/title&gt; </span></span><br><span class="line"><span class="string">    &lt;/head&gt; </span></span><br><span class="line"><span class="string">    &lt;body&gt; </span></span><br><span class="line"><span class="string">    &lt;p class="story"&gt; </span></span><br><span class="line"><span class="string">        Once upon a time there were little sisters;and their names were </span></span><br><span class="line"><span class="string">        &lt;a href="http://example.com/elsie" class="sister"id="link1"&gt; </span></span><br><span class="line"><span class="string">        &lt;span&gt;Elsle&lt;/span&gt; </span></span><br><span class="line"><span class="string">        &lt;/a&gt; </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/lacle"class="sister" id="link2"&gt;Lacle&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/tilie"class="sister" id="link3"&gt;Tillie&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and they lived at bottom of a well. </span></span><br><span class="line"><span class="string">        &lt;/p&gt; </span></span><br><span class="line"><span class="string">        &lt;p class="story"&gt;...&lt;/p&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.a.parent) <span class="comment">#返回父标签的整个内容</span></span><br><span class="line"></span><br><span class="line">print(list(enumerate(soup.a.parents))) <span class="comment">#所有祖先节点（包括父标签）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#兄弟节点</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;html&gt; </span></span><br><span class="line"><span class="string">    &lt;head&gt; </span></span><br><span class="line"><span class="string">        &lt;title&gt;The Domouse's story&lt;/title&gt; </span></span><br><span class="line"><span class="string">    &lt;/head&gt; </span></span><br><span class="line"><span class="string">    &lt;body&gt; </span></span><br><span class="line"><span class="string">    &lt;p class="story"&gt; </span></span><br><span class="line"><span class="string">        Once upon a time there were little sisters;and their names were </span></span><br><span class="line"><span class="string">        &lt;a href="http://example.com/elsie" class="sister"id="link1"&gt; </span></span><br><span class="line"><span class="string">        &lt;span&gt;Elsle&lt;/span&gt; </span></span><br><span class="line"><span class="string">        &lt;/a&gt; </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/lacle"class="sister" id="link2"&gt;Lacle&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and </span></span><br><span class="line"><span class="string">        &lt;a hred="http://example.com/tilie"class="sister" id="link3"&gt;Tillie&lt;/a&gt; </span></span><br><span class="line"><span class="string">        and they lived at bottom of a well. </span></span><br><span class="line"><span class="string">        &lt;/p&gt; </span></span><br><span class="line"><span class="string">        &lt;p class="story"&gt;...&lt;/p&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line">print(list(enumerate(soup.a.next_siblings))) <span class="comment">#后面的兄弟节点 </span></span><br><span class="line">print(list(enumerate(soup.a.previous_siblings))) <span class="comment">#前面的兄弟节点</span></span><br></pre></td></tr></table></figure>
+<h3 id="7、标准选择器"><a href="#7、标准选择器" class="headerlink" title="7、标准选择器"></a>7、标准选择器</h3><p><code>find_all(name,attrs,recursive,text,**kargs)</code> </p>
+<p>可根据签名、属性、内容查找文档  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#name</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup  </span><br><span class="line">  </span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"name="elements"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.find_all(<span class="string">'ul'</span>)) <span class="comment">#返回列表类型</span></span><br><span class="line">print(soup.find_all(<span class="string">'ul'</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.find_all(<span class="string">'ul'</span>):</span><br><span class="line">    print(ul.find_all(<span class="string">'li'</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#attrs</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup  </span><br><span class="line">  </span><br><span class="line">html=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list" id="list-1" name="elements"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small" id="list-2"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">"id"</span>:<span class="string">"list-1"</span>&#125;))</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">"name"</span>:<span class="string">"elements"</span>&#125;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#常用属性</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup  </span><br><span class="line">  </span><br><span class="line">html=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list" id="list-1" name="elements"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small" id="list-2"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.find_all(id=<span class="string">'list-1'</span>))</span><br><span class="line">print(soup.find_all(class_=<span class="string">'element'</span>)) <span class="comment">#注意：由于class在Python里是一个关键字，所以后面需要加一个下划线</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#text</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup  </span><br><span class="line">  </span><br><span class="line">html=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list" id="list-1" name="elements"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small" id="list-2"&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.find_all(text=<span class="string">'Foo'</span>))</span><br></pre></td></tr></table></figure>
+<p><code>find(name，attrs，recursive，text，**kwargs)</code></p>
+<p>find返回单个元素，find_all返回所有元素 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup  </span><br><span class="line"></span><br><span class="line">html = <span class="string">''''' </span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"name="elelments"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">print(soup.find(<span class="string">'ul'</span>))</span><br><span class="line">print(type(soup.find(<span class="string">'ul'</span>)))</span><br><span class="line">print(soup.find(<span class="string">'page'</span>))</span><br></pre></td></tr></table></figure>
+<p>其他常用方法：</p>
+<ul>
+<li><code>find_parents()</code>：返回所有祖先节点和find_parent()返回直接父节点</li>
+<li><code>find_next_siblings()</code>：返回所有兄弟节点和find_next_sibling()返回后面第一个兄弟节点</li>
+<li><code>find_previous_siblings()</code>：返回前面的所有兄弟节点和find_previous_sibling()：返回前面第一个兄弟节点</li>
+<li><code>find_all_next()</code>：返回节点后所有符合条件的节点和find_next()：返回第一个符合条件的节点</li>
+<li><code>find_all_previous()</code>：返回节点前所有符合条件的节点和find_previous()：返回节点前第一个符合条件的节点</li>
+</ul>
+<h3 id="8、CSS选择器"><a href="#8、CSS选择器" class="headerlink" title="8、CSS选择器"></a>8、CSS选择器</h3><p>通过select()直接传入CSS选择器即可完成选择</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup </span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"name="elelments"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span> </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>) </span><br><span class="line">print(soup.select(<span class="string">'.panel .panel-heading'</span>)) <span class="comment">#传入css选择器</span></span><br><span class="line">print(soup.select(<span class="string">'ul li'</span>)) <span class="comment"># 传入标签</span></span><br><span class="line">print(soup.select(<span class="string">'#list-2 .element'</span>)) <span class="comment">#传入id</span></span><br><span class="line">print(type(soup.select(<span class="string">'ul'</span>)[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#嵌套选择</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup </span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"name="elelments"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span> </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>) </span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.select(<span class="string">'ul'</span>):</span><br><span class="line">    print(ul.select(<span class="string">'li'</span>))</span><br><span class="line"><span class="comment">#可以直接传入选择器实现嵌套比这种方式更方便</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取属性</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup </span><br><span class="line"></span><br><span class="line">html = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"name="elelments"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span> </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>) </span><br><span class="line"><span class="keyword">for</span> ul <span class="keyword">in</span> soup.select(<span class="string">'ul'</span>):</span><br><span class="line">    print(ul[<span class="string">'id'</span>]) <span class="comment">#直接传入中括号和属性名</span></span><br><span class="line">    print(ul.attrs[<span class="string">'id'</span>]) <span class="comment">#通过attrs属性获取属性值,两种方式都可以</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取内容</span></span><br><span class="line">html = <span class="string">''''' </span></span><br><span class="line"><span class="string">&lt;div class="panel"&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-heading"&gt; </span></span><br><span class="line"><span class="string">        &lt;h4&gt;Hello&lt;/h4&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">    &lt;div class="panel-body"name="elelments"&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list"Id="list-1"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Jay&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">        &lt;ul class="list list-small"Id="list-2"&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Foo&lt;/li&gt; </span></span><br><span class="line"><span class="string">            &lt;li class="element"&gt;Bar&lt;/li&gt; </span></span><br><span class="line"><span class="string">        &lt;/ul&gt; </span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&lt;div&gt; </span></span><br><span class="line"><span class="string">'''</span>  </span><br><span class="line">soup = BeautifulSoup(html,<span class="string">'lxml'</span>) </span><br><span class="line"><span class="keyword">for</span> li <span class="keyword">in</span> soup.select(<span class="string">'li'</span>):</span><br><span class="line">    print(li.string) <span class="comment">#string属性获取文本</span></span><br><span class="line">    print(li.get_text()) <span class="comment">#get_text()方法获取文本，两种都行</span></span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>(1)推荐使用’lxml’解析库，必要时使用html.parser</p>
+<p>(2)标签选择器筛选功能但速度快</p>
+<p>(3)建议使用find()，find_all()查询匹配单个结果或者多个结果</p>
+<p>(4)如果对CSS选择器熟悉建议选用select()</p>
+<p>(5)记住常用的获取属性和文本值得方法</p>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月14日 17:43</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/02/爬虫-beautifulsoup库/" title="爬虫-beautifulsoup库">http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/&title=《爬虫-beautifulsoup库》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/&title=《爬虫-beautifulsoup库》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《爬虫-beautifulsoup库》 — PythonFood&url=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/02/爬虫-beautifulsoup库/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/爬虫/" class="color3">爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、BeautifulSoup库详解"><span class="post-toc-text">一、BeautifulSoup库详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、什么是BeautifulSoup"><span class="post-toc-text">1、什么是BeautifulSoup</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、安装"><span class="post-toc-text">2、安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、解析器"><span class="post-toc-text">3、解析器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、基本用法"><span class="post-toc-text">4、基本用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、标签选择器"><span class="post-toc-text">5、标签选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、嵌套选择"><span class="post-toc-text">6、嵌套选择</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、标准选择器"><span class="post-toc-text">7、标准选择器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、CSS选择器"><span class="post-toc-text">8、CSS选择器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/07/02/爬虫-pyquery库/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          爬虫-pyquery库
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/07/02/爬虫-re库/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">爬虫-re库</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="爬虫-beautifulsoup库" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
