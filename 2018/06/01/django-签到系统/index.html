@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>django-虫师-笔记 | PythonFood</title>
+  <title>django-签到系统 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
@@ -11,13 +11,13 @@
   <meta name="description" content="虫师所写django签到系统的学习笔记。">
 <meta name="keywords" content="django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django-虫师-笔记">
-<meta property="og:url" content="http://pythonfood.github.io/2018/06/01/django-虫师-笔记/index.html">
+<meta property="og:title" content="django-签到系统">
+<meta property="og:url" content="http://pythonfood.github.io/2018/06/01/django-签到系统/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="虫师所写django签到系统的学习笔记。">
-<meta property="og:updated_time" content="2018-08-11T07:57:20.461Z">
+<meta property="og:updated_time" content="2018-08-14T07:38:53.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="django-虫师-笔记">
+<meta name="twitter:title" content="django-签到系统">
 <meta name="twitter:description" content="虫师所写django签到系统的学习笔记。">
   
   
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-django-虫师-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-django-签到系统" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      django-虫师-笔记
+      django-签到系统
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -487,11 +487,12 @@
 <p>guest/api/models.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布会</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Event</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">	limit = models.IntegerField()</span><br><span class="line">	status = models.BooleanField()</span><br><span class="line">	address = models.CharField(max_length=<span class="number">200</span>)</span><br><span class="line">	start_time = models.DateTimeField(<span class="string">'events time'</span>)</span><br><span class="line">	create_time = models.DateTimeField(auto_now=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 嘉宾</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Guest</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">	event = models.ForeignKey(Event, on_delete=models.CASCADE)</span><br><span class="line">	realname = models.CharField(max_length=<span class="number">64</span>)</span><br><span class="line">	phone = models.CharField(max_length=<span class="number">16</span>)</span><br><span class="line">	email = models.EmailField() </span><br><span class="line">	sign = models.BooleanField() </span><br><span class="line">	create_time = models.DateTimeField(auto_now=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">		unique_together = (<span class="string">'phone'</span>, <span class="string">'event'</span>)</span><br><span class="line">		</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">return</span> self.realname</span><br></pre></td></tr></table></figure></p>
 <p>guest/api/serializers.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User, Group</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> api.models <span class="keyword">import</span> Event, Guest</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">使用的是 HyperlinkedModelSerializer，也可以使用主键或者其他关系。</span></span><br><span class="line"><span class="string">但使用 HyperlinkedModelSerializer 是一个好的 RESTful 设计</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserSerializer</span><span class="params">(serializers.HyperlinkedModelSerializer)</span>:</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">		model = User</span><br><span class="line">		fields = (<span class="string">'url'</span>, <span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'groups'</span>)</span><br><span class="line">		</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GroupSerializer</span><span class="params">(serializers.HyperlinkedModelSerializer)</span>:</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">		model = Group</span><br><span class="line">		fields = (<span class="string">'url'</span>, <span class="string">'name'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventSerializer</span><span class="params">(serializers.HyperlinkedModelSerializer)</span>:</span> </span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span> </span><br><span class="line">		model = Event </span><br><span class="line">		fields = (<span class="string">'url'</span>,<span class="string">'name'</span>,<span class="string">'address'</span>,<span class="string">'start_time'</span>,<span class="string">'limit'</span>,<span class="string">'status'</span>)</span><br><span class="line">		</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuestSerializer</span><span class="params">(serializers.HyperlinkedModelSerializer)</span>:</span> </span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span> </span><br><span class="line">		model = Guest </span><br><span class="line">		fields = (<span class="string">'url'</span>,<span class="string">'realname'</span>,<span class="string">'phone'</span>,<span class="string">'email'</span>,<span class="string">'sign'</span>,<span class="string">'event'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>guest/api/views.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User, Group</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> viewsets</span><br><span class="line"><span class="keyword">from</span> api.serializers <span class="keyword">import</span> UserSerializer, GroupSerializer</span><br><span class="line"><span class="keyword">from</span> api.serializers <span class="keyword">import</span> EventSerializer, GuestSerializer </span><br><span class="line"><span class="keyword">from</span> api.models <span class="keyword">import</span> Event, Guest</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">在 django RESTframework 中，所有常见的行为都被归到 ViewSets 中。</span></span><br><span class="line"><span class="string">当然我们可以将这些行为分拆出 来，但使用 ViewSets，使 view 的逻辑更为清楚。</span></span><br><span class="line"><span class="string">使用 queryset 和 serializer_class 使我们能更好的控制 API 行为，这也是我们推荐的使用方式。</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ViewSets define the view behavior.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserViewSet</span><span class="params">(viewsets.ModelViewSet)</span>:</span></span><br><span class="line">	<span class="string">""" </span></span><br><span class="line"><span class="string">	API endpoint that allows users to be viewed or edited. </span></span><br><span class="line"><span class="string">	"""</span> </span><br><span class="line">	queryset = User.objects.all().order_by(<span class="string">'-date_joined'</span>)</span><br><span class="line">	serializer_class = UserSerializer</span><br><span class="line">	</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GroupViewSet</span><span class="params">(viewsets.ModelViewSet)</span>:</span> </span><br><span class="line">	<span class="string">""" </span></span><br><span class="line"><span class="string">	API endpoint that allows groups to be viewed or edited. </span></span><br><span class="line"><span class="string">	"""</span> </span><br><span class="line">	queryset = Group.objects.all()</span><br><span class="line">	serializer_class = GroupSerializer</span><br><span class="line">	</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventViewSet</span><span class="params">(viewsets.ModelViewSet)</span>:</span> </span><br><span class="line">	<span class="string">""" </span></span><br><span class="line"><span class="string">	API endpoint that allows events to be viewed or edited. </span></span><br><span class="line"><span class="string">	"""</span></span><br><span class="line">	queryset = Event.objects.all()</span><br><span class="line">	serializer_class = EventSerializer</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuestViewSet</span><span class="params">(viewsets.ModelViewSet)</span>:</span></span><br><span class="line">	<span class="string">""" </span></span><br><span class="line"><span class="string">	API endpoint that allows guests to be viewed or edited. </span></span><br><span class="line"><span class="string">	"""</span></span><br><span class="line">	queryset = Guest.objects.all()</span><br><span class="line">	serializer_class = GuestSerializer</span><br></pre></td></tr></table></figure></p>
-<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+<h1 id="持续更新…—"><a href="#持续更新…—" class="headerlink" title="持续更新…—"></a><em>持续更新…</em>—</h1><p>title: django-签到系统<br>date: 2018-08-14 15:36:35</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月11日 15:57</p>
-        <p>原始链接： <a class="post-url" href="/2018/06/01/django-虫师-笔记/" title="django-虫师-笔记">http://pythonfood.github.io/2018/06/01/django-虫师-笔记/</a></p>
+        <p>最后更新： 2018年08月14日 15:38</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/01/django-签到系统/" title="django-签到系统">http://pythonfood.github.io/2018/06/01/django-签到系统/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -548,7 +549,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/&title=《django-虫师-笔记》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/06/01/django-签到系统/&title=《django-签到系统》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -558,22 +559,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/&title=《django-虫师-笔记》 — PythonFood&source=虫师所写django签到系统的学习笔记。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/06/01/django-签到系统/&title=《django-签到系统》 — PythonFood&source=虫师所写django签到系统的学习笔记。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/06/01/django-签到系统/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《django-虫师-笔记》 — PythonFood&url=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《django-签到系统》 — PythonFood&url=http://pythonfood.github.io/2018/06/01/django-签到系统/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/06/01/django-签到系统/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -583,7 +584,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/06/01/django-虫师-笔记/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/06/01/django-签到系统/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -608,12 +609,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Hello-Django"><span class="post-toc-text">一、Hello Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Views-视图"><span class="post-toc-text">二、Views 视图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Model-模型"><span class="post-toc-text">三、Model 模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Template-模板"><span class="post-toc-text">四、Template 模板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、开发-Web-接口"><span class="post-toc-text">五、开发 Web 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、接口的安全机制"><span class="post-toc-text">六、接口的安全机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、REST-API"><span class="post-toc-text">七、REST API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、项目代码"><span class="post-toc-text">八、项目代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、guest项目"><span class="post-toc-text">1、guest项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、django-rest项目"><span class="post-toc-text">2、django_rest项目</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Hello-Django"><span class="post-toc-text">一、Hello Django</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、Views-视图"><span class="post-toc-text">二、Views 视图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、Model-模型"><span class="post-toc-text">三、Model 模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Template-模板"><span class="post-toc-text">四、Template 模板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、开发-Web-接口"><span class="post-toc-text">五、开发 Web 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、接口的安全机制"><span class="post-toc-text">六、接口的安全机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、REST-API"><span class="post-toc-text">七、REST API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、项目代码"><span class="post-toc-text">八、项目代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、guest项目"><span class="post-toc-text">1、guest项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、django-rest项目"><span class="post-toc-text">2、django_rest项目</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…—"><span class="post-toc-text">持续更新…—</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tags"><span class="post-toc-text">tags:</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/2018/07/01/爬虫-anaconda配置/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          爬虫-anaconda配置
+        
+      </span>
+    </a>
   
   
     <a href="/2018/05/01/持续集成-jenkins/" id="article-nav-older" class="article-nav-link-wrap">
@@ -626,7 +637,7 @@
 
 
     
-        <div id="SOHUCS" sid="django-虫师-笔记" ></div>
+        <div id="SOHUCS" sid="django-签到系统" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
@@ -688,10 +699,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a>
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16.67px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -724,7 +735,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 14px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 12px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 18px;">测试用例</a>
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 16.67px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 18.33px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a>
         </div>
     </div>
 </div>
