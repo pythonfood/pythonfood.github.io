@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Requests+正则表达式爬取猫眼电影TOP100 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="崔庆才老师爬虫的学习笔记。">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Requests+正则表达式爬取猫眼电影TOP100">
+<meta property="og:url" content="http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="崔庆才老师爬虫的学习笔记。">
+<meta property="og:updated_time" content="2018-08-15T03:30:35.985Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Requests+正则表达式爬取猫眼电影TOP100">
+<meta name="twitter:description" content="崔庆才老师爬虫的学习笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Requests-正则表达式爬取猫眼电影TOP100" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Requests+正则表达式爬取猫眼电影TOP100
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/爬虫/">爬虫</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-07-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>崔庆才老师爬虫的学习笔记。<br><a id="more"></a></p>
+<h2 id="一、爬取实战"><a href="#一、爬取实战" class="headerlink" title="一、爬取实战"></a>一、爬取实战</h2><h3 id="1、目标站点分析"><a href="#1、目标站点分析" class="headerlink" title="1、目标站点分析"></a>1、目标站点分析</h3><p>我们需要抓取的目标站点为<a href="http://maoyan.com/board/4" target="_blank" rel="noopener">http://maoyan.com/board/4</a> ，打开之后便可以查看到榜单信息。排名第一的电影是霸王别姬，页面中显示的有效信息有影片名称、主演、上映时间、上映地区、评分、图片等信息。</p>
+<p>将网页滚动到最下方，可以发现有分页的列表，直接点击第2页，观察页面的URL和内容发生了怎样的变化，可以发现页面的URL变成<a href="http://maoyan.com/board/4?offset=10" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=10</a> ，比之前的URL多了一个参数，那就是offset=10，而目前显示的结果是排行11~20名的电影，初步推断这是一个偏移量的参数。再点击下一页，发现页面的URL变成了<a href="http://maoyan.com/board/4?offset=20" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=20</a> ，参数offset变成了20，而显示的结果是排行21~30的电影。</p>
+<p>由此可以总结出规律，offset代表偏移量值，如果偏移量为n，则显示的电影序号就是n+1到n+10，每页显示10个。所以，如果想获取TOP100电影，只需要分开请求10次，而10次的offset参数分别设置为0、10、20、…90即可，这样获取不同的页面之后，再用正则表达式提取出相关信息，就可以得到TOP100的所有电影信息了。</p>
+<h3 id="2、流程框架"><a href="#2、流程框架" class="headerlink" title="2、流程框架"></a>2、流程框架</h3><p>(1)抓取单页内容： 利用requests请求目标站点得到单个网页的HTML代码，返回结果。</p>
+<p>(2)正则表达式分析： 根据HTML代码分析得到电影名称、主演、上映时间、评分、图片链接等信息。</p>
+<p>(3)保存至文件： 通过文件的形式将结果保存，每一部电影一个结果一行Json字符串。</p>
+<p>(4)开启循环及多线程： 对多项内容遍历，开启多线程提高抓取速度。</p>
+<h3 id="3、爬虫实战"><a href="#3、爬虫实战" class="headerlink" title="3、爬虫实战"></a>3、爬虫实战</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0Safari/537.36'</span>&#125; <span class="comment">#设定自己的headers</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    response = requests.get(url,headers=headers) <span class="comment">#添加头部信息,不然会被禁</span></span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">return</span> response.text</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_one_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    <span class="comment">#匹配过程保证起始符和终止符存在</span></span><br><span class="line">    pattern = re.compile(<span class="string">'&lt;dd&gt;.*?board-index.*?&gt;(\d+)&lt;/i&gt;.*?data-src="(.*?)".*?name"&gt;&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?star"&gt;(.*?)&lt;/p&gt;.*?releasetime"&gt;(.*?)&lt;/p&gt;.*?integer"&gt;(.*?)&lt;/i&gt;.*?fraction"&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;'</span>,re.S)</span><br><span class="line">    items = re.findall(pattern,html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        <span class="keyword">yield</span>&#123;</span><br><span class="line">            <span class="string">'index'</span>:item[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'image'</span>:item[<span class="number">1</span>],</span><br><span class="line">            <span class="string">'title'</span>:item[<span class="number">2</span>],</span><br><span class="line">            <span class="string">'actor'</span>:item[<span class="number">3</span>].strip()[<span class="number">3</span>:],</span><br><span class="line">            <span class="string">'time'</span>:item[<span class="number">4</span>].strip()[<span class="number">5</span>:],</span><br><span class="line">            <span class="string">'score'</span>:item[<span class="number">5</span>]+item[<span class="number">6</span>]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'猫眼电影TOP100.txt'</span>,<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(json.dumps(content,ensure_ascii=<span class="keyword">False</span>) + <span class="string">'\n'</span>)</span><br><span class="line">        f.close</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(offset)</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4?offset'</span> + str(offset) <span class="comment">#url设置偏移量</span></span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    <span class="comment">#print(html)</span></span><br><span class="line">    items = parse_one_page(html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        print(item)</span><br><span class="line">        write_to_file(item)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):  </span><br><span class="line">        main(offset=i * <span class="number">10</span>)  </span><br><span class="line">    <span class="comment">#pool = Pool() # 使用进程池，提高抓取效率（使用多进程需要屏蔽for循环）</span></span><br><span class="line">    <span class="comment">#pool.map(main,[i*10 for i in range(10)])</span></span><br></pre></td></tr></table></figure>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月15日 11:30</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" title="Requests+正则表达式爬取猫眼电影TOP100">http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&title=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&title=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/爬虫/" class="color3">爬虫</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、爬取实战"><span class="post-toc-text">一、爬取实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、目标站点分析"><span class="post-toc-text">1、目标站点分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、流程框架"><span class="post-toc-text">2、流程框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、爬虫实战"><span class="post-toc-text">3、爬虫实战</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/07/03/分析Ajax爬取今日头条街拍美图/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          分析Ajax爬取今日头条街拍美图
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/07/02/爬虫-selenium库/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">爬虫-selenium库</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Requests-正则表达式爬取猫眼电影TOP100" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
