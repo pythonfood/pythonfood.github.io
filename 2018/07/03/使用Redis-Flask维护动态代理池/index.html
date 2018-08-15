@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Requests+正则表达式爬取猫眼电影TOP100 | PythonFood</title>
+  <title>使用Redis+Flask维护动态代理池 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
@@ -11,13 +11,13 @@
   <meta name="description" content="崔庆才老师爬虫的学习笔记。">
 <meta name="keywords" content="爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Requests+正则表达式爬取猫眼电影TOP100">
-<meta property="og:url" content="http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/index.html">
+<meta property="og:title" content="使用Redis+Flask维护动态代理池">
+<meta property="og:url" content="http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="崔庆才老师爬虫的学习笔记。">
-<meta property="og:updated_time" content="2018-08-15T03:30:35.985Z">
+<meta property="og:updated_time" content="2018-08-15T12:04:00.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Requests+正则表达式爬取猫眼电影TOP100">
+<meta name="twitter:title" content="使用Redis+Flask维护动态代理池">
 <meta name="twitter:description" content="崔庆才老师爬虫的学习笔记。">
   
   
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Requests-正则表达式爬取猫眼电影TOP100" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-使用Redis-Flask维护动态代理池" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Requests+正则表达式爬取猫眼电影TOP100
+      使用Redis+Flask维护动态代理池
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -140,19 +140,43 @@
       
             
             <p>崔庆才老师爬虫的学习笔记。<br><a id="more"></a></p>
-<h2 id="一、爬取实战"><a href="#一、爬取实战" class="headerlink" title="一、爬取实战"></a>一、爬取实战</h2><h3 id="1、目标站点分析"><a href="#1、目标站点分析" class="headerlink" title="1、目标站点分析"></a>1、目标站点分析</h3><p>我们需要抓取的目标站点为<a href="http://maoyan.com/board/4" target="_blank" rel="noopener">http://maoyan.com/board/4</a> ，打开之后便可以查看到榜单信息。排名第一的电影是霸王别姬，页面中显示的有效信息有影片名称、主演、上映时间、上映地区、评分、图片等信息。</p>
-<p>将网页滚动到最下方，可以发现有分页的列表，直接点击第2页，观察页面的URL和内容发生了怎样的变化，可以发现页面的URL变成<a href="http://maoyan.com/board/4?offset=10" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=10</a> ，比之前的URL多了一个参数，那就是offset=10，而目前显示的结果是排行11~20名的电影，初步推断这是一个偏移量的参数。再点击下一页，发现页面的URL变成了<a href="http://maoyan.com/board/4?offset=20" target="_blank" rel="noopener">http://maoyan.com/board/4?offset=20</a> ，参数offset变成了20，而显示的结果是排行21~30的电影。</p>
-<p>由此可以总结出规律，offset代表偏移量值，如果偏移量为n，则显示的电影序号就是n+1到n+10，每页显示10个。所以，如果想获取TOP100电影，只需要分开请求10次，而10次的offset参数分别设置为0、10、20、…90即可，这样获取不同的页面之后，再用正则表达式提取出相关信息，就可以得到TOP100的所有电影信息了。</p>
-<h3 id="2、流程框架"><a href="#2、流程框架" class="headerlink" title="2、流程框架"></a>2、流程框架</h3><p>(1)抓取单页内容： 利用requests请求目标站点得到单个网页的HTML代码，返回结果。</p>
-<p>(2)正则表达式分析： 根据HTML代码分析得到电影名称、主演、上映时间、评分、图片链接等信息。</p>
-<p>(3)保存至文件： 通过文件的形式将结果保存，每一部电影一个结果一行Json字符串。</p>
-<p>(4)开启循环及多线程： 对多项内容遍历，开启多线程提高抓取速度。</p>
-<h3 id="3、爬虫实战"><a href="#3、爬虫实战" class="headerlink" title="3、爬虫实战"></a>3、爬虫实战</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re </span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pool</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0Safari/537.36'</span>&#125; <span class="comment">#设定自己的headers</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    response = requests.get(url,headers=headers) <span class="comment">#添加头部信息,不然会被禁</span></span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="keyword">return</span> response.text</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_one_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    <span class="comment">#匹配过程保证起始符和终止符存在</span></span><br><span class="line">    pattern = re.compile(<span class="string">'&lt;dd&gt;.*?board-index.*?&gt;(\d+)&lt;/i&gt;.*?data-src="(.*?)".*?name"&gt;&lt;a.*?&gt;(.*?)&lt;/a&gt;.*?star"&gt;(.*?)&lt;/p&gt;.*?releasetime"&gt;(.*?)&lt;/p&gt;.*?integer"&gt;(.*?)&lt;/i&gt;.*?fraction"&gt;(.*?)&lt;/i&gt;.*?&lt;/dd&gt;'</span>,re.S)</span><br><span class="line">    items = re.findall(pattern,html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        <span class="keyword">yield</span>&#123;</span><br><span class="line">            <span class="string">'index'</span>:item[<span class="number">0</span>],</span><br><span class="line">            <span class="string">'image'</span>:item[<span class="number">1</span>],</span><br><span class="line">            <span class="string">'title'</span>:item[<span class="number">2</span>],</span><br><span class="line">            <span class="string">'actor'</span>:item[<span class="number">3</span>].strip()[<span class="number">3</span>:],</span><br><span class="line">            <span class="string">'time'</span>:item[<span class="number">4</span>].strip()[<span class="number">5</span>:],</span><br><span class="line">            <span class="string">'score'</span>:item[<span class="number">5</span>]+item[<span class="number">6</span>]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'猫眼电影TOP100.txt'</span>,<span class="string">'a'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(json.dumps(content,ensure_ascii=<span class="keyword">False</span>) + <span class="string">'\n'</span>)</span><br><span class="line">        f.close</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(offset)</span>:</span></span><br><span class="line">    url = <span class="string">'http://maoyan.com/board/4?offset'</span> + str(offset) <span class="comment">#url设置偏移量</span></span><br><span class="line">    html = get_one_page(url)</span><br><span class="line">    <span class="comment">#print(html)</span></span><br><span class="line">    items = parse_one_page(html)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        print(item)</span><br><span class="line">        write_to_file(item)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):  </span><br><span class="line">        main(offset=i * <span class="number">10</span>)  </span><br><span class="line">    <span class="comment">#pool = Pool() # 使用进程池，提高抓取效率（使用多进程需要屏蔽for循环）</span></span><br><span class="line">    <span class="comment">#pool.map(main,[i*10 for i in range(10)])</span></span><br></pre></td></tr></table></figure>
+<h2 id="一、代理池详解"><a href="#一、代理池详解" class="headerlink" title="一、代理池详解"></a>一、代理池详解</h2><h3 id="1、代理池的维护"><a href="#1、代理池的维护" class="headerlink" title="1、代理池的维护"></a>1、代理池的维护</h3><p>目前有很多网站提供免费代理，而且种类齐全，比如各个地区、各个匿名级别的都有，不过质量实在不敢恭维，毕竟都是免费公开的，可能一个代理无数个人在用也说不定。所以我们需要做的是大量抓取这些免费代理，然后筛选出其中可用的代理存储起来供我们使用，不可用的进行剔除。</p>
+<h3 id="2、获取代理途径"><a href="#2、获取代理途径" class="headerlink" title="2、获取代理途径"></a>2、获取代理途径</h3><p>维护一个代理池第一步就是要找到提供免费代理的站点，例如PROXY360。可以看到网页里提供了一些免费代理列表，包括服务器地址、端口、代理种类、地区、更新时间等等信息。</p>
+<p>当前我们需要的就是代理服务器和端口信息，将其爬取下来即可。</p>
+<h3 id="3、代理池的要求"><a href="#3、代理池的要求" class="headerlink" title="3、代理池的要求"></a>3、代理池的要求</h3><ul>
+<li>多占抓取，异步检测</li>
+<li>定时筛选，持续更新</li>
+<li>提供接口，易于获取</li>
+</ul>
+<h3 id="4、代理池的架构"><a href="#4、代理池的架构" class="headerlink" title="4、代理池的架构"></a>4、代理池的架构</h3><p>Internet  ===》  代理获取器  ===》  代理筛选器  ===》  代理调度器（对外提供API）  ===》  定时检测器</p>
+<h3 id="5、维护代理"><a href="#5、维护代理" class="headerlink" title="5、维护代理"></a>5、维护代理</h3><p>那么爬取下代理之后怎样保存呢？</p>
+<p>首先我们需要确保的目标是可以边取边存，另外还需要定时检查队列中不可用的代理将其剔除，所以需要易于存取。</p>
+<p>另外怎样区分哪些是最新的可用的，哪些是旧的，如果用修改时间来标注是可以的，不过更简单的方法就是维护一个队列，只从一端存入，例如右端，这样就能确保最新的代理在队列右端，而在左端则是存入时间较长的代理，如果要取一个可用代理，从队列右端取一个就好了。</p>
+<p>那么对于队列的左端，不能让它一直老化下去，还需要做的操作就是定时从队列左端取出代理，然后进行检测，如果可用，重新将其加入右端。</p>
+<p>通过以上操作，就保证了代理一直是最新可用的。</p>
+<p>所以目前来看，既能高效处理，又可以做到队列动态维护，合适的方法就是利用Redis数据库的队列。</p>
+<p>可以定义一个类来维护一个Redis队列，比如get方法是批量从左端取出代理，put方法是从右端放入可用代理，pop方法是从右端取出最新可用代理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">from</span> proxypool.error <span class="keyword">import</span> PoolEmptyError</span><br><span class="line"><span class="keyword">from</span> proxypool.setting <span class="keyword">import</span> HOST, PORT</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedisClient</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, host=HOST, port=PORT)</span>:</span></span><br><span class="line">        self._db = redis.Redis(host, port)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, count=<span class="number">1</span>)</span>:</span></span><br><span class="line">        proxies = self._db.lrange(<span class="string">"proxies"</span>, <span class="number">0</span>, count - <span class="number">1</span>)</span><br><span class="line">        self._db.ltrim(<span class="string">"proxies"</span>, count, <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> proxies</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, proxy)</span>:</span></span><br><span class="line">        self._db.rpush(<span class="string">"proxies"</span>, proxy)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> self._db.rpop(<span class="string">"proxies"</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">raise</span> PoolEmptyError</span><br></pre></td></tr></table></figure>
+<h3 id="6、检测代理"><a href="#6、检测代理" class="headerlink" title="6、检测代理"></a>6、检测代理</h3><p>那么如何来检测代理是否可用？可以使用这个代理来请求某个站点，比如百度，如果获得正常的返回结果，那证明代理可用，否则代理不可用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conn = RedisClient()</span><br><span class="line">proxies = &#123;<span class="string">'http'</span>: proxy&#125;</span><br><span class="line">r = requests.get(<span class="string">'https://www.baidu.com'</span>, proxies=proxies)</span><br><span class="line"><span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">    conn.put(proxy)</span><br></pre></td></tr></table></figure>
+<h3 id="7、获取可用代理"><a href="#7、获取可用代理" class="headerlink" title="7、获取可用代理"></a>7、获取可用代理</h3><p>现在我们维护了一个代理池，那么这个代理池需要是可以公用的。</p>
+<p>比如现在有多个爬虫项目都需要用到代理，而代理池的维护作为另外的一个项目，他们之间如果要建立连接，最恰当的方式就是接口。</p>
+<p>所以可以利用Web服务器来实现一个接口，其他的项目通过请求这个接口得到内容获取到一个可用代理，这样保证了代理池的通用性。</p>
+<p>所以要实现这个还需要一个Web服务器，例如Flask，Tornado等等。</p>
+<p>例如使用Flask，定义一个路由，然后调用的RedisClient的pop方法，返回结果即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_proxy</span><span class="params">()</span>:</span></span><br><span class="line">    conn = RedisClient()</span><br><span class="line">    <span class="keyword">return</span> conn.pop()</span><br></pre></td></tr></table></figure>
+<p>这样一来，整个程序运行起来后，浏览器输入localhost:5000，请求网页就可以看到一个可用代理了。</p>
+<h3 id="8、使用代理"><a href="#8、使用代理" class="headerlink" title="8、使用代理"></a>8、使用代理</h3><p>使用代理时只需要请求这个站点，就可以拿到可使用的代理了。</p>
+<p>可以定义一个简单的方法，返回网页内容即代理，然后在爬取方法里设置代理使用即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_proxy</span><span class="params">()</span>:</span></span><br><span class="line">    r = requests.get(<span class="string">'http://127.0.0.1:5000'</span>)</span><br><span class="line">    <span class="keyword">return</span> r.text</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">crawl</span><span class="params">(url, proxy)</span>:</span></span><br><span class="line">    proxies = &#123;<span class="string">'http'</span>: get_proxy()&#125;</span><br><span class="line">    r = requests.get(url, proxies=proxies)</span><br><span class="line">    <span class="comment"># do something</span></span><br></pre></td></tr></table></figure>
+<h3 id="9、github项目源代码"><a href="#9、github项目源代码" class="headerlink" title="9、github项目源代码"></a>9、github项目源代码</h3><p><a href="https://github.com/Germey/ProxyPool" target="_blank" rel="noopener">https://github.com/Germey/ProxyPool</a></p>
+<p>PS:项目requirements.txt文件中缺少一个依赖库fake-useragent，需要手动pip安装。</p>
+<p>还有如果报错’TypeError: expected string or bytes-like object’,找到对应的代码，是一个爬取代理网站的方法，删除或屏蔽掉就可以了。</p>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月15日 11:30</p>
-        <p>原始链接： <a class="post-url" href="/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" title="Requests+正则表达式爬取猫眼电影TOP100">http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/</a></p>
+        <p>最后更新： 2018年08月15日 20:04</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/03/使用Redis-Flask维护动态代理池/" title="使用Redis+Flask维护动态代理池">http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -209,7 +233,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&title=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/&title=《使用Redis+Flask维护动态代理池》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -219,22 +243,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&title=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/&title=《使用Redis+Flask维护动态代理池》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Requests+正则表达式爬取猫眼电影TOP100》 — PythonFood&url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Redis+Flask维护动态代理池》 — PythonFood&url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -244,7 +268,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/03/Requests-正则表达式爬取猫眼电影TOP100/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态代理池/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -269,26 +293,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、爬取实战"><span class="post-toc-text">一、爬取实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、目标站点分析"><span class="post-toc-text">1、目标站点分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、流程框架"><span class="post-toc-text">2、流程框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、爬虫实战"><span class="post-toc-text">3、爬虫实战</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、代理池详解"><span class="post-toc-text">一、代理池详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、代理池的维护"><span class="post-toc-text">1、代理池的维护</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、获取代理途径"><span class="post-toc-text">2、获取代理途径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、代理池的要求"><span class="post-toc-text">3、代理池的要求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、代理池的架构"><span class="post-toc-text">4、代理池的架构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、维护代理"><span class="post-toc-text">5、维护代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、检测代理"><span class="post-toc-text">6、检测代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、获取可用代理"><span class="post-toc-text">7、获取可用代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8、使用代理"><span class="post-toc-text">8、使用代理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9、github项目源代码"><span class="post-toc-text">9、github项目源代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/07/03/使用Selenium模拟浏览器抓取淘宝商品美食信息/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/03/使用代理处理反爬抓取微信文章/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          使用Selenium模拟浏览器抓取淘宝商品美食信息
+          使用代理处理反爬抓取微信文章
         
       </span>
     </a>
   
   
-    <a href="/2018/07/02/爬虫-selenium库/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">爬虫-selenium库</span>
+    <a href="/2018/07/03/分析Ajax爬取今日头条街拍美图/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">分析Ajax爬取今日头条街拍美图</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -297,7 +321,7 @@
 
 
     
-        <div id="SOHUCS" sid="Requests-正则表达式爬取猫眼电影TOP100" ></div>
+        <div id="SOHUCS" sid="使用Redis-Flask维护动态代理池" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
