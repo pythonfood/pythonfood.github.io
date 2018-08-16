@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用Redis+Flask维护动态Cookies池 | PythonFood</title>
+  <title>PySpider框架基本使用及抓取TripAdvisor实战 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
@@ -11,13 +11,13 @@
   <meta name="description" content="崔庆才老师爬虫的学习笔记。">
 <meta name="keywords" content="爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Redis+Flask维护动态Cookies池">
-<meta property="og:url" content="http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/index.html">
+<meta property="og:title" content="PySpider框架基本使用及抓取TripAdvisor实战">
+<meta property="og:url" content="http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="崔庆才老师爬虫的学习笔记。">
-<meta property="og:updated_time" content="2018-08-15T12:27:01.678Z">
+<meta property="og:updated_time" content="2018-08-16T02:26:36.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Redis+Flask维护动态Cookies池">
+<meta name="twitter:title" content="PySpider框架基本使用及抓取TripAdvisor实战">
 <meta name="twitter:description" content="崔庆才老师爬虫的学习笔记。">
   
   
@@ -103,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-使用Redis-Flask维护动态Cookies池" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-PySpider框架基本使用及抓取TripAdvisor实战" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      使用Redis+Flask维护动态Cookies池
+      PySpider框架基本使用及抓取TripAdvisor实战
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -123,7 +123,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-07-03
+          <i class="fa fa-calendar"></i>  2018-07-04
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -140,21 +140,25 @@
       
             
             <p>崔庆才老师爬虫的学习笔记。<br><a id="more"></a></p>
-<h2 id="一、Cookies池详解"><a href="#一、Cookies池详解" class="headerlink" title="一、Cookies池详解"></a>一、Cookies池详解</h2><h3 id="1、为什么要维护cookie池"><a href="#1、为什么要维护cookie池" class="headerlink" title="1、为什么要维护cookie池"></a>1、为什么要维护cookie池</h3><p>有的网站需要登录后才能爬取，如新浪微博</p>
-<p>爬取过程中如果频率过高会导致封号，那么如果想要获得非常多的数据，则需要非常多的账号</p>
-<h3 id="2、cookie池的要求"><a href="#2、cookie池的要求" class="headerlink" title="2、cookie池的要求"></a>2、cookie池的要求</h3><ul>
-<li>自动登录更新</li>
-<li>定时验证筛选</li>
-<li>提供外部接口（可将池架在远程的服务器上，实现远程部署</li>
+<h2 id="一、爬取实战"><a href="#一、爬取实战" class="headerlink" title="一、爬取实战"></a>一、爬取实战</h2><h3 id="1、PySpider框架"><a href="#1、PySpider框架" class="headerlink" title="1、PySpider框架"></a>1、PySpider框架</h3><ul>
+<li>去重处理</li>
+<li>结果监控</li>
+<li>多进程处理</li>
+<li>PyQuery提取</li>
+<li>错误重试</li>
+<li>WebUI管理</li>
+<li>代码简洁</li>
+<li>JavaScript渲染</li>
 </ul>
-<h3 id="3、cookie池的架构"><a href="#3、cookie池的架构" class="headerlink" title="3、cookie池的架构"></a>3、cookie池的架构</h3><p>账号队列 ===》 生成器 ===》 cookies队列（对外提供API） ===》 定时检测器</p>
-<h3 id="4、cookie池的实现"><a href="#4、cookie池的实现" class="headerlink" title="4、cookie池的实现"></a>4、cookie池的实现</h3><p>需要先将一定量的账号密码之类的cookie存进Redis数据库，然后利用python调用并维护。</p>
-<p>关于cookies池的维护，有以下开源项目案例可供参考：<a href="https://github.com/Germey/CookiesPool" target="_blank" rel="noopener">https://github.com/Germey/CookiesPool</a></p>
+<h3 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h3><p>cmd管理员身份运行，执行命令<code>pip install pyspider</code></p>
+<h3 id="3、运行"><a href="#3、运行" class="headerlink" title="3、运行"></a>3、运行</h3><p>cmd输入命令<code>pyspider</code>。浏览器输入地址：<a href="http://localhost:5000/" target="_blank" rel="noopener">http://localhost:5000/</a></p>
+<p>ps:需要安装过phantomjs</p>
+<h3 id="4、实战"><a href="#4、实战" class="headerlink" title="4、实战"></a>4、实战</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- encoding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Created on 2018-06-07 22:43:08</span></span><br><span class="line"><span class="comment"># Project: TripAdvisor</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyspider.libs.base_handler <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> pymongo</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Handler</span><span class="params">(BaseHandler)</span>:</span></span><br><span class="line">    crawl_config = &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    client = pymongo.MongoClient(<span class="string">'localhost'</span>)</span><br><span class="line">    db = client[<span class="string">'trip'</span>]</span><br><span class="line"><span class="meta">    @every(minutes=24 * 60)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_start</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.crawl(<span class="string">'http://www.tripadvisor.cn/Attractions-g186338-Activities-c47-t163-London_England.html#ATTRACTION_LIST'</span>, callback=self.index_page, validate_cert=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @config(age=10 * 24 * 60 * 60)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> response.doc(<span class="string">'.listing_title &gt; a'</span>).items():</span><br><span class="line">            self.crawl(each.attr.href, callback=self.detail_page, validate_cert=<span class="keyword">False</span>)</span><br><span class="line">            next = response.doc(<span class="string">'.pagination .nav.next'</span>).attr.href</span><br><span class="line">            self.crawl(next, callback=self.index_page, validate_cert=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @config(priority=2)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detail_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        name = response.doc(<span class="string">'.heading_title'</span>).text()</span><br><span class="line">        rating = response.doc(<span class="string">'div &gt; .more'</span>).text()</span><br><span class="line">        adress = response.doc(<span class="string">'.location &gt; .address'</span>).text()</span><br><span class="line">        phone = response.doc(<span class="string">'.phone &gt; div'</span>).text()</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="string">"url"</span>:response.url,</span><br><span class="line">            <span class="string">"name"</span>:name,</span><br><span class="line">            <span class="string">"rating"</span>:rating,</span><br><span class="line">            <span class="string">"adress"</span>:adress,</span><br><span class="line">            <span class="string">"phone"</span>:phone</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_result</span><span class="params">(self,result)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> result:</span><br><span class="line">            self.save_to_mongo(result)</span><br><span class="line">            </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_to_mongo</span><span class="params">(self,result)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.db[<span class="string">'london'</span>].insert(result):</span><br><span class="line">            print(<span class="string">'save to mongodb:'</span>,result)</span><br></pre></td></tr></table></figure>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月15日 20:27</p>
-        <p>原始链接： <a class="post-url" href="/2018/07/03/使用Redis-Flask维护动态Cookies池/" title="使用Redis+Flask维护动态Cookies池">http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/</a></p>
+        <p>最后更新： 2018年08月16日 10:26</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/" title="PySpider框架基本使用及抓取TripAdvisor实战">http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -211,7 +215,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/&title=《使用Redis+Flask维护动态Cookies池》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/&title=《PySpider框架基本使用及抓取TripAdvisor实战》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -221,22 +225,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/&title=《使用Redis+Flask维护动态Cookies池》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/&title=《PySpider框架基本使用及抓取TripAdvisor实战》 — PythonFood&source=崔庆才老师爬虫的学习笔记。" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用Redis+Flask维护动态Cookies池》 — PythonFood&url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PySpider框架基本使用及抓取TripAdvisor实战》 — PythonFood&url=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -246,7 +250,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/03/使用Redis-Flask维护动态Cookies池/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -271,26 +275,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、Cookies池详解"><span class="post-toc-text">一、Cookies池详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、为什么要维护cookie池"><span class="post-toc-text">1、为什么要维护cookie池</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、cookie池的要求"><span class="post-toc-text">2、cookie池的要求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、cookie池的架构"><span class="post-toc-text">3、cookie池的架构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、cookie池的实现"><span class="post-toc-text">4、cookie池的实现</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、爬取实战"><span class="post-toc-text">一、爬取实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、PySpider框架"><span class="post-toc-text">1、PySpider框架</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、安装"><span class="post-toc-text">2、安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、运行"><span class="post-toc-text">3、运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、实战"><span class="post-toc-text">4、实战</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/07/04/PySpider框架基本使用及抓取TripAdvisor实战/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/04/Pyspider架构概述及用法详解/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          PySpider框架基本使用及抓取TripAdvisor实战
+          Pyspider架构概述及用法详解
         
       </span>
     </a>
   
   
-    <a href="/2018/07/03/使用代理处理反爬抓取微信文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">使用代理处理反爬抓取微信文章</span>
+    <a href="/2018/07/03/使用Redis-Flask维护动态Cookies池/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">使用Redis+Flask维护动态Cookies池</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -299,7 +303,7 @@
 
 
     
-        <div id="SOHUCS" sid="使用Redis-Flask维护动态Cookies池" ></div>
+        <div id="SOHUCS" sid="PySpider框架基本使用及抓取TripAdvisor实战" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
