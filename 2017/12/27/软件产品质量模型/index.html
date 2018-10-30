@@ -3,26 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>等价类 | PythonFood</title>
+  <title>软件产品质量模型 | PythonFood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="python food,Python Food," />
   
-  <meta name="description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
+  <meta name="description" content="软件产品质量模型将一个软件产品需要满足的质量划分为六大属性（功能性、可靠性、易用性、效率、可维护性和可移植性），每类属性又细分出了很多“子属性”">
 <meta name="keywords" content="测试用例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="等价类">
-<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/等价类/index.html">
+<meta property="og:title" content="软件产品质量模型">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/27/软件产品质量模型/index.html">
 <meta property="og:site_name" content="PythonFood">
-<meta property="og:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png">
-<meta property="og:image" content="http://pythonfood.github.io/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png">
-<meta property="og:updated_time" content="2018-05-11T06:32:17.201Z">
+<meta property="og:description" content="软件产品质量模型将一个软件产品需要满足的质量划分为六大属性（功能性、可靠性、易用性、效率、可维护性和可移植性），每类属性又细分出了很多“子属性”">
+<meta property="og:updated_time" content="2018-10-30T08:49:07.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="等价类">
-<meta name="twitter:description" content="等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。">
-<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png">
+<meta name="twitter:title" content="软件产品质量模型">
+<meta name="twitter:description" content="软件产品质量模型将一个软件产品需要满足的质量划分为六大属性（功能性、可靠性、易用性、效率、可维护性和可移植性），每类属性又细分出了很多“子属性”">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -107,14 +103,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-等价类" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-软件产品质量模型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      等价类
+      软件产品质量模型
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -143,22 +139,97 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。<br><a id="more"></a></p>
-<h2 id="一、等价类划分规则"><a href="#一、等价类划分规则" class="headerlink" title="一、等价类划分规则"></a>一、等价类划分规则</h2><blockquote>
-<p>1.如果输入条件规定了一个取值范围，那么就应该确定一个有效等价类以及两个无效等价类。<br>如月份取值在1~12之间，由此可确定一个有效等价类即月份在1~12之间，和两个无效等价类，即月份取值小于1及月份取值大于12.<br>2.规定了输入条件必须如何的情况下可以确定一个有效等价类和一个无效等价类。<br>如输入值必须大于0，则有效等价类为输入值大于0 ，无效等价类为输入值小于或者等于0.<br>3.在输入数据是一个bool常量的情况下，可以确定一个有效等价类和一个无效等价类。<br>4.在规定了输入数据由n个值构成的情况下，并要求定其中的每个值进行测试时，可以确定n个有效等价类和一个无效等价类。<br>如交通工具类型为公共汽车、卡车、出租车、火车或者摩托车，那么就应该为每一个输入值确定一个有效等价类和一个无效等价类例如拖车。<br>5.在规定了输入数据冰箱最受的规则的情况下，可以确定一个有效等价类和若干个无效等价类（从不同角度违反规则）。<br>如输入值必须是数字类型的字符，则可确定一个有效等价类，及输入值为数字类型得字符，和多个无效等价类，即输入值为字母、为专用字符（如+、*、@等）以及为非打印字符（如回车、空格等）。<br>6.在确知已划分的等价类中各元素在程序处理中的方式不同的情况下,则应再将该等价类进一步的划分为更小的等价类。<br>划分等价类之后，应建立等价类表，列出与每一个输入条件对于的有效等价类和无效等价类。</p>
-</blockquote>
-<h2 id="二、等价类设计测试用例"><a href="#二、等价类设计测试用例" class="headerlink" title="二、等价类设计测试用例"></a>二、等价类设计测试用例</h2><blockquote>
-<p>1.根据需求，划分有效等价类和无效等价类，有效等价类统一编号，无效等价类统一编号。<br>2.设计一个新的测试用例,使其尽可能多地覆盖尚未被覆盖地有效等价类,重复这一步，直到所有的有效等价类都被覆盖为止。<br>3.设计一个新的测试用例,使其仅覆盖一个尚未被覆盖的无效等价类,重复这一步，直到所有的无效等价类都被覆盖为止。</p>
-</blockquote>
-<h2 id="三、等价类四则运算法"><a href="#三、等价类四则运算法" class="headerlink" title="三、等价类四则运算法"></a>三、等价类四则运算法</h2><blockquote>
-<p>1.不考虑需求其他子项，细致分解当期测试点及详细需求，做累加。<br>2.根据业务规则减少，排除相关不可能出现的规则，减少不可能出现的组合。<br>3.如果有效等价类中具有互斥条件的需求时，可运用乘得到用例个数。<br>4.排除所有具有重复特性的等价类，尽可能做到有效等价类之间交集为空。</p>
-</blockquote>
-<h2 id="四、小示例"><a href="#四、小示例" class="headerlink" title="四、小示例"></a>四、小示例</h2><p>1.有效等价类一条用例尽量覆盖所有有效等价类<br><img src="/2017/12/27/等价类/1.有效等价类一条用例尽量覆盖所有有效等价类.png" alt="1.有效等价类一条用例尽量覆盖所有有效等价类"><br>2.无效等价类一条用例覆盖一个无效等价类<br><img src="/2017/12/27/等价类/2.无效等价类一条用例覆盖一个无效等价类.png" alt="2.无效等价类一条用例覆盖一个无效等价类"><br>3.根据覆盖条件编写等价类测试用例<br><img src="/2017/12/27/等价类/3.根据覆盖条件编写等价类测试用例.png" alt="3.根据覆盖条件编写等价类测试用例"></p>
+            <p>软件产品质量模型将一个软件产品需要满足的质量划分为六大属性（功能性、可靠性、易用性、效率、可维护性和可移植性），每类属性又细分出了很多“子属性”<br><a id="more"></a></p>
+<h2 id="一、软件产品质量模型"><a href="#一、软件产品质量模型" class="headerlink" title="一、软件产品质量模型"></a>一、软件产品质量模型</h2><p><strong>1、功能性：</strong>是指软件产品在指定条件下使用时，提供满足明确和隐含要求的功能的能力。</p>
+<ul>
+<li>适合性：软件产品为特定的任务和用户目标提供一组合适功能的能力</li>
+<li>准确性：软件产品提供具有所需精度的正确或相符的结果及效果的能力</li>
+<li>互操作性：软件产品与一个或多个特征、系统相互配合的能力</li>
+<li>安全性：软件产品保护信息和数据的能力，以保证未受权的用户或系统不能阅读和修改这些信息与数据，而合法用户或系统不会被拒绝访问</li>
+<li>功能顺从性：软件产品符合和该功能相关的标准、规范、规则或特定的能力（如对于一款计算器，计算规则要和数学中相关规则保持一致）</li>
+</ul>
+<p><strong>2、可靠性：</strong>是指在特定条件下使用时，软件产品维持规定的性能级别能力。</p>
+<p>下面三个层层递进的句子，可以帮助我们来理解用户可靠性方面的要求：</p>
+<ul>
+<li>第一层：设备最好不要出故障；</li>
+<li>第二层：设备出现故障了不要影响主要的功能和业务；</li>
+<li>第三层：如果影响了主要功能和业务，系统可以尽快定位并恢复。</li>
+</ul>
+<p>4个子属性如下：</p>
+<ul>
+<li>成熟性：软件产品为避免因软件故障而导致失效的能力</li>
+<li>容错性：软件产品在软件发生故障或者违反指定接口的情况下，维持规定的性能级别的能力</li>
+<li>可恢复性：软件产品在失效发生的情况下，重建规定的性能级别并恢复直接影响的数据的能力</li>
+<li>可靠性顺从性：软件产品遵循与可靠性相关的标准、约定或规定的能力（如对于通信类产品，系统的故障率不能高干多少、故障恢复时间不能长于多少等）</li>
+</ul>
+<p><strong>3、易用性：</strong>是指用户在指定条件下使用软件产品时，产品被用户理解、学习、使用和吸引用户的能力。简单10个字：易懂、易学、易用、漂亮好看。</p>
+<ul>
+<li>易理解性：软件产品使用户能理解软件是否适合以及如何能将软件用于特定的任务和使用环境的能力</li>
+<li>易学性：软件产品使用户能学习其应用的能力</li>
+<li>易操作性：软件产品使用户能够操作的控制它的能力</li>
+<li>吸引性：软件产品吸引用户的能力</li>
+<li>易用性的依从性：软件产品遵循与易用性相关的标准、约定、风格指南或法规的能力（如对Windows的计算器来说，在界面设计上模仿实体计算器是易用性依从性的一个体现）</li>
+</ul>
+<p><strong>4、效率：</strong>是指在规定条件下，相对于所用资源的数量，软件产品可提供适当的性能的能力。通常，效率就是我们常说的产品性能。</p>
+<ul>
+<li>时间特性：在规定条件下，软件产品执行其功能时，提供适当的响应和处理时间以及流量（吞吐量）的能力</li>
+<li>资源利用率：在规定条件下，软件产品执行其功能时，使用合适数量和类别的资源的能力</li>
+<li>效率依从性：软件产品遵循与效率相关的标准或约定的能力（如对系统资源的占有率又不能高于多少）</li>
+</ul>
+<p><strong>5、可维持性：</strong>是指产品可被修改的能力。这里的修改是指纠正、改进软件产品和软件产品对环境、功能规格变化的适应性</p>
+<ul>
+<li>可分析性：软件产品诊断软件中的缺陷、失效原因或识别待修改部分的能力</li>
+<li>可修改性：软件产品能够被修改的能力</li>
+<li>稳定性：软件产品不会因为修改而造成意外结果的能力</li>
+<li>可测试性：软件产品已修改的部分能够被确认修复的能力</li>
+<li>可维护性的依从性：软件产品遵循与维护相关的标准或约定的能力（如软件出现故障时会弹出“XXX遇到问题要关闭”之类的提示）</li>
+</ul>
+<p><strong>6、可移植性：</strong>是指软件产品从一种环境迁移到另外一种环境的能力。这里的环境，可以理解为硬件、软件或组织等不同的环境。</p>
+<ul>
+<li>适应性：软件产品无须采用额外的活动或手段就可适应不同指定环境的能力</li>
+<li>可安装性：软件产品在指定环境中被安装的能力</li>
+<li>共存性：软件产品在公共环境中同与分享公共资源的其他独立件共存的能力</li>
+<li>易替换性：软件产品在同样的环境下，替换另一个相同用途的指定软件产品的能力</li>
+<li>可移植性的依从性：软件产品遵循与可移植性相关的标准或约定的能力（如产品不是针对某款特定的操作系统开发的，需要支持Windows所有操作系统）</li>
+</ul>
+<h2 id="二、软件产品测试车轮图"><a href="#二、软件产品测试车轮图" class="headerlink" title="二、软件产品测试车轮图"></a>二、软件产品测试车轮图</h2><p><strong>1、功能测试：</strong></p>
+<ul>
+<li>单运行正常值输入法</li>
+<li>单运行边界值输入法</li>
+<li>多运行顺序执行法</li>
+<li>多运行相互作用法</li>
+</ul>
+<p><strong>2、可靠性测试：</strong></p>
+<ul>
+<li>异常值输入法：异常值输入法是一种使用系统不允许用户输入的数值（即异常值）作为测试输入的可靠性测试方法。</li>
+<li>故障植入法：故障植入法是把系统放在有问题的环境中进行测试的一种可靠性测试法，主要能够测试到的质量属性是容错性和成熟性。</li>
+<li>稳定性测试法：稳定性测试法是在一段时间里，长时间大容量运行某种业务的一种可靠性测试法，它能够非常有效地测试到系统的“成熟性”，是非常重要的一种可靠性测试法。（“四字诀”——多、并、复、异）</li>
+<li>压力测试法：压力测试法是在一段时间内持续使用超过系统规格的负载进行测试的一种可靠性测试方法。</li>
+<li>恢复测试法：恢复测试法是指使用持续超过规格的负载进行了测试后，再将负载降到规格以内的测试方法。</li>
+</ul>
+<p><strong>3、易用性测试：</strong></p>
+<ul>
+<li>一致性测试法：一致性测试法在测试中关注的是产品的用户界面（风格、布局、元素上是否一致、统一；布局的合理性、操作的合理性、提示等是否符合UI设计规范。）</li>
+<li>可用性测试法：可用性测试法的测试对象也是用户界面，但在可用性测试中，我们关注的是产品提供的功能，对用户来说是否易于学习理解、易于使用，所以可用性测试需要和功能测试结合起来，以场景作为测试粒度，以用户的视角进行测试。</li>
+</ul>
+<p><strong>4、性能测试：</strong></p>
+<p><strong>5、可维护性测试：</strong></p>
+<p><strong>6、可移植性测试：</strong></p>
+<h2 id="三、四步测试设计法"><a href="#三、四步测试设计法" class="headerlink" title="三、四步测试设计法"></a>三、四步测试设计法</h2><p><strong>第一步：建模</strong></p>
+<ul>
+<li>流程类：流程图</li>
+<li>参数类：输入输出表</li>
+<li>数据类：等价类边界值</li>
+<li>组合类：因子表</li>
+</ul>
+<p><strong>第二步：设计基础测试用例</strong><br>对1中模型覆盖，得到一些测试条件</p>
+<p><strong>第三步：补充测试数据</strong><br>对2中确定测试输入，补充测试数据</p>
+<p><strong>第四步：扩展</strong><br>根据经验和对系统容易发生缺陷的认识，补充测试用例</p>
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月11日 14:32</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/27/等价类/" title="等价类">http://pythonfood.github.io/2017/12/27/等价类/</a></p>
+        <p>最后更新： 2018年10月30日 16:49</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/27/软件产品质量模型/" title="软件产品质量模型">http://pythonfood.github.io/2017/12/27/软件产品质量模型/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
                 <img src="/images/logo.png" alt="Python Food">
@@ -215,7 +286,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/27/软件产品质量模型/&title=《软件产品质量模型》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -225,22 +296,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/等价类/&title=《等价类》 — PythonFood&source=等价类是把所有可能的输入数据,即程序的输入域划分成若干部分（子集）,然后从每一个子集中选取少数具有代表性的数据作为测试用例。" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/27/软件产品质量模型/&title=《软件产品质量模型》 — PythonFood&source=软件产品质量模型将一个软件产品需要满足的质量划分为六大属性（功能性、可靠性、易用性、效率、可维护性和可移植性），每类属性又细分出了很多“子属性”" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/27/软件产品质量模型/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《等价类》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/等价类/&via=http://pythonfood.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《软件产品质量模型》 — PythonFood&url=http://pythonfood.github.io/2017/12/27/软件产品质量模型/&via=http://pythonfood.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/等价类/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/27/软件产品质量模型/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -250,7 +321,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/等价类/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/27/软件产品质量模型/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -275,26 +346,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、等价类划分规则"><span class="post-toc-text">一、等价类划分规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、等价类设计测试用例"><span class="post-toc-text">二、等价类设计测试用例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、等价类四则运算法"><span class="post-toc-text">三、等价类四则运算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、小示例"><span class="post-toc-text">四、小示例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、软件产品质量模型"><span class="post-toc-text">一、软件产品质量模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、软件产品测试车轮图"><span class="post-toc-text">二、软件产品测试车轮图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、四步测试设计法"><span class="post-toc-text">三、四步测试设计法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2017/12/27/边界值/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/27/等价类/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          边界值
+          等价类
         
       </span>
     </a>
   
   
-    <a href="/2017/12/27/软件产品质量模型/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">软件产品质量模型</span>
+    <a href="/2017/12/26/github/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">github</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -303,7 +374,7 @@
 
 
     
-        <div id="SOHUCS" sid="等价类" ></div>
+        <div id="SOHUCS" sid="软件产品质量模型" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytnRgqDg';
