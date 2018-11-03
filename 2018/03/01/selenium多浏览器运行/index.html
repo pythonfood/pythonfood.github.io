@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>selenium多浏览器运行 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="selenium常用API笔记。">
+<meta name="keywords" content="selenium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="selenium多浏览器运行">
+<meta property="og:url" content="http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="selenium常用API笔记。">
+<meta property="og:updated_time" content="2018-11-03T08:38:46.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="selenium多浏览器运行">
+<meta name="twitter:description" content="selenium常用API笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-selenium多浏览器运行" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      selenium多浏览器运行
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/web测试/">web测试</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-03-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>selenium常用API笔记。<br><a id="more"></a></p>
+<h2 id="一、selenium分布式"><a href="#一、selenium分布式" class="headerlink" title="一、selenium分布式"></a>一、selenium分布式</h2><p><strong>1、下载运行 selenium server</strong></p>
+<p>(1)下载地址：<a href="https://code.google.com/p/selenium/" target="_blank" rel="noopener">https://code.google.com/p/selenium/</a> ，在页面中找到 selenium-server-standalone-XXX.jar 进行下载。</p>
+<p>(2)下载完成可以放到任意路径，在命令提示符下启动 Selenium Server：<code>&gt; java -jar selenium-server-standalone-XXX.jar</code></p>
+<p><strong>2、Selenium Grid</strong></p>
+<p>Selenium Grid 是用于设计帮助我们进行分布式测试的工具，其整个结构是由一个 hub 节点和若干个代理节点组成。hub 用来管理各个代理节点的注册和状态信息，并且接受远程客户端代码的请求调用，然后把请求的命令再转发给代理节点来执行。</p>
+<p>(1)启动一个 hub 和一个 node，hub 默认端口号为 4444，node 默认端口号为 5555</p>
+<ul>
+<li><code>&gt; java -jar selenium-server-standalone-x.xx.x.jar -role hub</code></li>
+<li><code>&gt; java -jar selenium-server-standalone-x.xx.x.jar -role node</code></li>
+</ul>
+<p>(2)若是同一台机器要启动多个 node 则要注意端口分配问题，可以这样来启动多个 node：</p>
+<ul>
+<li><code>&gt; java -jar selenium-server-standalone-x.xx.x.jar -role node -port 5555</code></li>
+<li><code>&gt; java -jar selenium-server-standalone-x.xx.x.jar -role node -port 5556</code></li>
+<li><code>&gt; java -jar selenium-server-standalone-x.xx.x.jar -role node -port 5557</code></li>
+</ul>
+<p>(3)通过浏览器访问 gird 的控制台：<a href="http://127.0.0.1:4444/grid/console" target="_blank" rel="noopener">http://127.0.0.1:4444/grid/console</a></p>
+<p><strong>3、Remote 驱动</strong></p>
+<p>(1)WebDriver 提供了 Remote 可以发送指令到远程服务器控制浏览器，先看下 Remote 的格式：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> Remote</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.desired_capabilities <span class="keyword">import</span> DesiredCapabilities</span><br><span class="line"></span><br><span class="line">driver = Remote(command_executor=<span class="string">'http://127.0.0.1:4444/wd/hub'</span>,</span><br><span class="line">		desired_capabilities=DesiredCapabilities.CHROME</span><br><span class="line">		)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>command_executor 为命令执行器器，它用于指定脚本执行的主机及端口。</li>
+<li>desired_capabilities 都包含了{‘platform’: ‘ANY’, ‘browserName’: ‘chrome’, ‘version’: ‘’, ‘javascriptEnabled’:True}</li>
+</ul>
+<p>(2)根据 Desired Capabilities 所包含的信息，在创建驱动（driver）时,可以这样来描述运行的环境：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> Remote</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.desired_capabilities <span class="keyword">import</span> DesiredCapabilities</span><br><span class="line"></span><br><span class="line">driver = Remote(command_executor=<span class="string">'http://127.0.0.1:4444/wd/hub'</span>,</span><br><span class="line">		desired_capabilities=&#123;<span class="string">'platform'</span>: <span class="string">'ANY'</span>,</span><br><span class="line">				      <span class="string">'browserName'</span>:<span class="string">'chrome'</span>,</span><br><span class="line">				      <span class="string">'version'</span>: <span class="string">''</span>,</span><br><span class="line">				      <span class="string">'javascriptEnabled'</span>: <span class="keyword">True</span></span><br><span class="line">				      &#125;</span><br><span class="line">		)</span><br><span class="line">driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、分布式小示例</strong></p>
+<p>(1)本地主机启动一个 hub ，默认端口 4444 ，ip 地址为 172.16.10.66：</p>
+<ul>
+<li><code>&gt;java -jar selenium-server-standalone-2.39.0.jar -role hub</code></li>
+</ul>
+<p>(2)本地主机启动一个本地 node 节点：</p>
+<ul>
+<li><code>&gt;java -jar selenium-server-standalone-2.39.0.jar -role node -port 5555</code></li>
+</ul>
+<p>(3)远程主机启动一个远程 node 节点，设置的端口号为：5555 ，指向本地 hub ip 为 172.16.10.66：</p>
+<ul>
+<li><code>$ java -jar selenium-server-standalone-2.39.0ar -role node -port 5555 -hub http://172.16.10.66:4444/grid/register</code></li>
+</ul>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> Remote</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.desired_capabilities <span class="keyword">import</span> DesiredCapabilities</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义主机与浏览器</span></span><br><span class="line">lists=&#123;<span class="string">'http://127.0.0.1:4444/wd/hub'</span>:<span class="string">'chrome'</span>,</span><br><span class="line">       <span class="string">'http://127.0.0.1:5555/wd/hub'</span>:<span class="string">'internet explorer'</span>,</span><br><span class="line">       <span class="string">'http://172.16.10.66:5555/wd/hub'</span>:<span class="string">'firefox'</span></span><br><span class="line">       &#125;</span><br><span class="line">	  </span><br><span class="line"><span class="comment"># 通过不同的浏览器执行脚本</span></span><br><span class="line"><span class="keyword">for</span> host,browser <span class="keyword">in</span> lists.items():</span><br><span class="line">	driver = Remote(command_executor=host,</span><br><span class="line">			desired_capabilities=&#123;<span class="string">'platform'</span>: <span class="string">'ANY'</span>,</span><br><span class="line">					      <span class="string">'browserName'</span>:<span class="string">'chrome'</span>,</span><br><span class="line">					      <span class="string">'version'</span>: <span class="string">''</span>,</span><br><span class="line">					      <span class="string">'javascriptEnabled'</span>: <span class="keyword">True</span></span><br><span class="line">					      &#125;</span><br><span class="line">			)</span><br><span class="line">	driver.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line">	driver.quit()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="二、selenium多进程"><a href="#二、selenium多进程" class="headerlink" title="二、selenium多进程"></a>二、selenium多进程</h2><p><strong>1、分布式和多进程应用区别</strong></p>
+<p>(1)分布式：分布式只负责将一个测试脚本可调用不同的远程环境来执行</p>
+<p>(2)并行：行强调“同时”的概念，它可以借助多线程或多进程技术并行的来执行测试脚本，从而缩短测试脚本的运行时间。</p>
+<p><strong>2、多进程小示例</strong></p>
+<p>(1)本地主机启动一个 hub ，默认端口 4444 ，ip 地址为 172.16.10.66 ：</p>
+<ul>
+<li><code>&gt;java -jar selenium-server-standalone-2.39.0.jar -role hub</code></li>
+</ul>
+<p>(2)本地主机启动一个本地 node 节点：</p>
+<ul>
+<li><code>&gt;java -jar selenium-server-standalone-2.39.0.jar -role node -port 5555</code></li>
+</ul>
+<p>(3)远程主机启动一个远程 node 节点，设置的端口号为 5555 ，ip 为 172.16.10.34 ：</p>
+<ul>
+<li><code>$ java -jar selenium-server-standalone-2.39.0ar -role node -port 5555 -hub http://172.16.10.66:4444/grid/register</code></li>
+</ul>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动参数（指定运行主机与浏览器）</span></span><br><span class="line">list = &#123;<span class="string">'http://127.0.0.1:4444/wd/hub'</span>:<span class="string">'chrome'</span>,</span><br><span class="line">	<span class="string">'http://127.0.0.1:5555/wd/hub'</span>:<span class="string">'internet explorer'</span>,</span><br><span class="line">	<span class="string">'http://172.16.10.34:5555/wd/hub'</span>: <span class="string">'firefox'</span></span><br><span class="line">	&#125;</span><br><span class="line">	   </span><br><span class="line"><span class="comment"># 测试用例</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_baidu</span><span class="params">(host,browser)</span>:</span></span><br><span class="line">	driver = webdriver.Remote(command_executor=host,</span><br><span class="line">				  desired_capabilities=&#123;<span class="string">'platform'</span>: <span class="string">'ANY'</span>,</span><br><span class="line">							<span class="string">'browserName'</span>:browser,</span><br><span class="line">							<span class="string">'version'</span>: <span class="string">''</span>,</span><br><span class="line">							<span class="string">'javascriptEnabled'</span>: <span class="keyword">True</span></span><br><span class="line">							&#125;</span><br><span class="line">				  )</span><br><span class="line">	driver.get(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">	driver.find_element_by_id(<span class="string">"kw"</span>).send_keys(browser)</span><br><span class="line">	driver.find_element_by_id(<span class="string">"su"</span>).click()</span><br><span class="line">	driver.quit()</span><br><span class="line">	</span><br><span class="line">threads = []</span><br><span class="line">files = range(len(list))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建线程</span></span><br><span class="line"><span class="keyword">for</span> host,browser <span class="keyword">in</span> list.items():</span><br><span class="line">	t = threading.Thread(target=test_baidu,args=(host,browser))</span><br><span class="line">	threads.append(t)</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">	<span class="comment"># 启动线程</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">		threads[i].start()</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">		threads[i].join()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月03日 16:38</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/01/selenium多浏览器运行/" title="selenium多浏览器运行">http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/&title=《selenium多浏览器运行》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/&title=《selenium多浏览器运行》 — PythonFood&source=selenium常用API笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《selenium多浏览器运行》 — PythonFood&url=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2018/03/01/selenium多浏览器运行/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/selenium/" class="color4">selenium</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、selenium分布式"><span class="post-toc-text">一、selenium分布式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、selenium多进程"><span class="post-toc-text">二、selenium多进程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/04/01/接口测试-fiddler/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          接口测试-fiddler
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/03/01/selenium常用API/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">selenium常用API</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="selenium多浏览器运行" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
