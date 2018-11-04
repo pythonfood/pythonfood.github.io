@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://pythonfood.github.io/2017/12/29/mysql/index.html">
 <meta property="og:site_name" content="PythonFood">
 <meta property="og:description" content="mysql常用命令笔记。">
-<meta property="og:updated_time" content="2018-05-21T08:07:48.760Z">
+<meta property="og:updated_time" content="2018-11-04T08:22:09.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="mysql常用命令笔记。">
@@ -140,7 +140,12 @@
       
             
             <p>mysql常用命令笔记。<br><a id="more"></a></p>
-<h2 id="一、mysql安装"><a href="#一、mysql安装" class="headerlink" title="一、mysql安装"></a>一、mysql安装</h2><p><strong>1、mysql官网下载安装：</strong><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a><br><strong>2、mysql目录结构：</strong></p>
+<h2 id="一、mysql安装"><a href="#一、mysql安装" class="headerlink" title="一、mysql安装"></a>一、mysql安装</h2><p><strong>1、mysql官网下载：</strong><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+<p><strong>2、mysql安装：</strong></p>
+<blockquote>
+<p>(1)windows端根据提示安装即可<br>(2)linux端输入命令<code>sudo apt-get install mysql-server mysql-client</code>，然后按照提示输入</p>
+</blockquote>
+<p><strong>3、mysql目录结构：</strong></p>
 <blockquote>
 <ul>
 <li>bin目录：存储可执行文件</li>
@@ -151,13 +156,36 @@
 <li>docs目录：文档</li>
 </ul>
 </blockquote>
-<p><strong>3、启动/停止mysql服务：</strong></p>
+<p><strong>4、启动/停止mysql服务：</strong></p>
 <blockquote>
-<p>(1)在windows服务列表里启动/停止mysql服务。<br>(2)通过cmd命令启动/停止mysql服务：</p>
+<p>(1) windows端:</p>
 <ul>
+<li>在windows服务列表里启动/停止mysql服务。</li>
+<li>通过cmd命令启动/停止mysql服务：<ul>
 <li>启动mysql：<code>net start mysql</code></li>
 <li>停止mysql：<code>net stop mysql</code></li>
 </ul>
+</li>
+</ul>
+<p>(2)linux端:</p>
+<ul>
+<li>启动：<code>service mysql start</code></li>
+<li>停止：<code>service mysql stop</code></li>
+<li>重启：<code>service mysql restart</code></li>
+</ul>
+</blockquote>
+<p><strong>5、允许远程连接</strong></p>
+<blockquote>
+<p>(1)找到找到mysql配置文件并修改</p>
+<ul>
+<li><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf</code>，将bind-address=127.0.0.1注释</li>
+</ul>
+<p>(2)登录mysql，运行命令</p>
+<ul>
+<li><code>grant all privileges on *.* to &#39;root&#39;@&#39;%&#39; identified by &#39;mysql&#39; with grant option;</code></li>
+<li><code>flush privileges;</code></li>
+</ul>
+<p>(3)重启mysql</p>
 </blockquote>
 <h2 id="二、mysql操作"><a href="#二、mysql操作" class="headerlink" title="二、mysql操作"></a>二、mysql操作</h2><p><strong>1、查看数据库版本：</strong><code>mysql -V</code> </p>
 <p><strong>2、登录数据库：</strong><code>mysql -uroot -p123456 -P3306 -h127.0.0.1</code> </p>
@@ -1180,7 +1208,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月21日 16:07</p>
+        <p>最后更新： 2018年11月04日 16:22</p>
         <p>原始链接： <a class="post-url" href="/2017/12/29/mysql/" title="mysql">http://pythonfood.github.io/2017/12/29/mysql/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
