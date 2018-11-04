@@ -17,7 +17,7 @@
 <meta property="og:description" content="linux常用命令笔记。">
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/29/linux/vi-vim键盘图.png">
 <meta property="og:image" content="http://pythonfood.github.io/2017/12/29/linux/vi-vim工作模式.png">
-<meta property="og:updated_time" content="2018-05-11T06:38:52.973Z">
+<meta property="og:updated_time" content="2018-11-04T09:23:10.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
 <meta name="twitter:description" content="linux常用命令笔记。">
@@ -544,6 +544,10 @@
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln ott.txt /cache/test21/ott1.txt # 硬连接，绝对路径，相当于copy备份</span><br><span class="line">ln  -s ott.txt /cache/test21/ott1.txt # 软连接，绝对路径，相当于快捷方式</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p><strong>8、查看命令位置</strong><br>(1)which</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which ls  # 如果找到就显示这个命令的路径</span><br></pre></td></tr></table></figure>
+</blockquote>
 <h2 id="六、文件压缩"><a href="#六、文件压缩" class="headerlink" title="六、文件压缩"></a>六、文件压缩</h2><p><strong>1、tar打包</strong><br><code>tar [选项] 文件或目录</code></p>
 <ul>
 <li>-A或–catenate：新增文件到以存在的备份文件</li>
@@ -671,6 +675,27 @@
 <p>(3)/etc/group文件<br><code>组名:口令:组标识号:组内用户列表</code></p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root::0:root</span><br><span class="line">bin::2:root,bin</span><br><span class="line">sys::3:root,uucp</span><br><span class="line">adm::4:root,adm</span><br><span class="line">daemon::5:root,daemon</span><br><span class="line">lp::7:root,lp</span><br><span class="line">users::20:root,sam</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>4、查看当前用户</strong><br>whoami该命令用户查看当前系统当前账号的用户名。可通过cat /etc/passwd查看系统用户信息。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、查看登录用户</strong><br>who命令用于查看当前所有登录系统的用户信息。</p>
+<ul>
+<li>-m或am I : 只显示运行who命令的用户名、登录终端和登录时间</li>
+<li>-q或–count : 只显示用户的登录账号和登录用户的数量</li>
+<li>-u或–heading : 显示列标题</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">who</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>5、退出登录账户</strong><br>exit，如果是图形界面，退出当前终端；如果是使用ssh远程登录，退出登陆账户；如果是切换后的登陆用户，退出则返回上一个登陆账号。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>6、切换用户</strong><br>可以通过su命令切换用户，su后面可以加“-”。su和su –命令不同之处在于，su -切换到对应的用户时会将当前的工作目录自动转换到切换后的用户主目录：<br>注意：如果是ubuntu平台，需要在命令前加“sudo”，如果在某些操作需要管理员才能操作，ubuntu无需切换到root用户即可操作，只需加“sudo”即可。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su		# 切换到root用户</span><br><span class="line">su root		# 切换到root用户</span><br><span class="line">su -		# 切换到root用户，同时切换目录到/root</span><br><span class="line">su - root	# 切换到root用户，同时切换目录到/root</span><br><span class="line">su 普通用户	# 切换到普通用户</span><br><span class="line">su - 普通用户	# 切换到普通用户，同时切换普通用户所在的目录</span><br><span class="line">sudo -s		# ubuntu平台</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="八、磁盘管理"><a href="#八、磁盘管理" class="headerlink" title="八、磁盘管理"></a>八、磁盘管理</h2><p><strong>1、df检查文件系统的磁盘空间占用情况</strong><br>利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。<br><code>df [-ahikHTm] [目录或文件名]</code></p>
 <ul>
@@ -938,7 +963,7 @@
 <li>check：检验是否有损坏的依赖 </li>
 </ul>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-get install packagename # 安装一个新软件包</span><br><span class="line">apt-get remove packagename # 卸载一个已安装的软件包（保留配置文件）</span><br><span class="line">apt-get –purge remove packagename # 卸载一个已安装的软件包（删除配置文件）</span><br><span class="line">apt-get autoclean apt # 把已装或已卸的软件都备份在硬盘上,删除你已经删掉的软件</span><br><span class="line">apt-get clean # 把安装的软件的备份也删除</span><br><span class="line">apt-get upgrade # 更新所有已安装的软件包</span><br><span class="line">apt-get dist-upgrade # 将系统升级到新版本</span><br><span class="line">apt-get autoclean # 定期运行这个命令来清除那些已经卸载的软件包的.deb文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">apt-get update  # 更新源</span><br><span class="line">apt-get install packagename # 安装一个新软件包</span><br><span class="line">apt-get remove packagename # 卸载一个已安装的软件包（保留配置文件）</span><br><span class="line">apt-get –purge remove packagename # 卸载一个已安装的软件包（删除配置文件）</span><br><span class="line">apt-get autoclean apt # 把已装或已卸的软件都备份在硬盘上,删除你已经删掉的软件</span><br><span class="line">apt-get clean # 把安装的软件的备份也删除</span><br><span class="line">apt-get upgrade # 更新所有已安装的软件包</span><br><span class="line">apt-get dist-upgrade # 将系统升级到新版本</span><br><span class="line">apt-get autoclean # 定期运行这个命令来清除那些已经卸载的软件包的.deb文件</span><br><span class="line">apt-get install package --reinstall   # 重新安装包</span><br><span class="line">apt-get -f install   # 修复安装</span><br><span class="line">apt-get build-dep package  # 安装相关的编译环境</span><br><span class="line">apt-get source package  # 下载该包的源代码</span><br><span class="line">apt-get check  # 检查是否有损坏的依赖</span><br><span class="line">apt-cache search package # 搜索软件包</span><br><span class="line">apt-cache show package  # 获取包的相关信息，如说明、大小、版本等</span><br><span class="line">apt-cache depends package # 了解使用该包依赖那些包</span><br><span class="line">apt-cache rdepends package  #查看该包被哪些包依赖</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>(2)国内apt-get源</p>
 <blockquote>
@@ -1679,7 +1704,7 @@
 <h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月11日 14:38</p>
+        <p>最后更新： 2018年11月04日 17:23</p>
         <p>原始链接： <a class="post-url" href="/2017/12/29/linux/" title="linux">http://pythonfood.github.io/2017/12/29/linux/</a></p>
         <footer>
             <a href="http://pythonfood.github.io">
