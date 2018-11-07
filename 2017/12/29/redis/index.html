@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>redis | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="redis常用命令笔记。">
+<meta name="keywords" content="redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/29/redis/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="redis常用命令笔记。">
+<meta property="og:updated_time" content="2018-11-07T09:31:15.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redis">
+<meta name="twitter:description" content="redis常用命令笔记。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      redis
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/redis/">redis</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-29
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>redis常用命令笔记。<br><a id="more"></a></p>
+<h2 id="一、redis安装"><a href="#一、redis安装" class="headerlink" title="一、redis安装"></a>一、redis安装</h2><p><strong>1、redis官网下载：</strong><a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io/</a> </p>
+<ul>
+<li>推荐下载稳定版本(stable)</li>
+</ul>
+<p><strong>2、redis安装</strong></p>
+<p>(1)解压</p>
+<p><code>tar zxvf redis-3.2.5.tar.gz</code></p>
+<p>(2)复制：推荐放到usr/local目录下</p>
+<p><code>sudo mv -r redis-3.2.3/* /usr/local/redis/</code></p>
+<p>(3)进入redis目录</p>
+<p><code>cd /usr/local/redis/</code></p>
+<p>(4)生成<br><code>sudo make</code></p>
+<p>(5)测试</p>
+<p><code>sudo make test</code>  # 这段运行时间会较长</p>
+<p>(6)安装</p>
+<p><code>sudo make install</code>  # 将redis的命令安装到/usr/bin/目录</p>
+<p><strong>3、redis运行</strong></p>
+<p>(1)启动服务器：在桌面目录</p>
+<p><code>redis-server</code>  # 按ctrl+c停止</p>
+<p>(2)启动客户端：在新终端中</p>
+<p><code>redis-cli</code></p>
+<p>(3)运行命令</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ping</span><br><span class="line">set &apos;a&apos; &apos;123&apos;</span><br><span class="line"># 当添加键值后，发现在当前运行的目录下，创建了一个文件：dump.rdb，这个文件用于将数据持久化存储</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="二、redis配置"><a href="#二、redis配置" class="headerlink" title="二、redis配置"></a>二、redis配置</h2><p><strong>1、基本配置</strong></p>
+<p>在源文件/usr/local/redis目录下，文件redis.conf为配置文件</p>
+<p>(1)绑定地址：如果需要远程访问，可将此行注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind 127.0.0.1</span><br></pre></td></tr></table></figure>
+<p>(2)端口，默认为6379</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">port 6379</span><br></pre></td></tr></table></figure>
+<p>(3)是否以守护进程运行</p>
+<ul>
+<li>如果以守护进程运行，则不会在命令行阻塞，类似于服务</li>
+<li>如果以非守护进程运行，则当前终端被阻塞，无法使用</li>
+<li>推荐改为yes，以守护进程运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">daemonize no|yes</span><br></pre></td></tr></table></figure>
+<p>(4)数据文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb</span><br></pre></td></tr></table></figure>
+<p>(5)数据文件存储路径</p>
+<ul>
+<li>dir的默认值为./，表示当前目录</li>
+<li>推荐改为：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir /var/lib/redis</span><br></pre></td></tr></table></figure>
+<p><strong>2、使用配置文件方式启动</strong></p>
+<p>直接运行redis-server会直接运行，阻塞当前终端</p>
+<p>(1)一般配置文件都放在/etc/目录下</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /usr/local/redis/redis.conf /etc/redis/</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(2)推荐指定配置文件启动</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(3)停止redis服务</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps ajx|grep redis</span><br><span class="line">sudo kill -9 redis的进程id</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="三、数据操作"><a href="#三、数据操作" class="headerlink" title="三、数据操作"></a>三、数据操作</h2><p>redis是key-value的数据，所以每个数据都是一个键值对</p>
+<ul>
+<li>键的类型是字符串</li>
+<li>值的类型分为五种：<ul>
+<li>字符串string</li>
+<li>哈希hash</li>
+<li>列表list</li>
+<li>集合set</li>
+<li>有序集合zset</li>
+</ul>
+</li>
+</ul>
+<p>数据操作的全部命令，可以查看redis中文网站：<a href="http://redis.cn/commands.html" target="_blank" rel="noopener">http://redis.cn/commands.html</a></p>
+<p><strong>1、键命令</strong></p>
+<p>(1)查找键，参数支持正则</p>
+<p><code>KEYS pattern</code></p>
+<p>(2)判断键是否存在，如果存在返回1，不存在返回0</p>
+<p><code>EXISTS key [key ...]</code></p>
+<p>(3)查看键对应的value的类型</p>
+<p><code>TYPE key</code></p>
+<p>(4)删除键及对应的值</p>
+<p><code>DEL key [key ...]</code></p>
+<p>(5)设置过期时间，以秒为单位</p>
+<p><code>EXPIRE key seconds</code></p>
+<p>(6)查看有效时间，以秒为单位</p>
+<p><code>TTL key</code></p>
+<p>(7)删除当前选择数据库中的所有key</p>
+<p><code>FLUSHDB</code></p>
+<p>(8)删除所有数据库中的所有key</p>
+<p><code>FLUSHALL</code></p>
+<p><strong>2、string</strong></p>
+<ul>
+<li>string是redis最基本的类型</li>
+<li>最大能存储512MB数据</li>
+<li>string类型是二进制安全的，即可以为任何数据，比如数字、图片、序列化对象等</li>
+</ul>
+<p>(1)设置键值</p>
+<p><code>set key value</code></p>
+<p>(2)设置键值及过期时间，以秒为单位</p>
+<p><code>SETEX key seconds value</code></p>
+<p>(3)设置多个键值</p>
+<p><code>MSET key value [key value ...]</code></p>
+<p>(4)根据键获取值</p>
+<p><code>GET key</code></p>
+<p>(5)根据多个键获取多个值</p>
+<p><code>MGET key [key ...]</code></p>
+<p>(6)将key对应的value加1</p>
+<p><code>INCR key</code></p>
+<p>(7)将key对应的value加整数</p>
+<p><code>INCRBY key increment</code></p>
+<p>(8)将key对应的value减1</p>
+<p><code>DECR key</code></p>
+<p>(9)将key对应的value减整数</p>
+<p><code>DECRBY key decrement</code></p>
+<p>(10)追加值</p>
+<p><code>APPEND key value</code></p>
+<p>(11)获取值长度</p>
+<p><code>STRLEN key</code></p>
+<p><strong>3、hash</strong></p>
+<p>hash用于存储对象，对象的格式为键值对</p>
+<p>(1)设置单个属性</p>
+<p><code>HSET key field value</code></p>
+<p>(2)设置多个属性</p>
+<p><code>HMSET key field value [field value ...]</code></p>
+<p>(3)获取一个属性的值</p>
+<p><code>HGET key field</code></p>
+<p>(4)获取多个属性的值</p>
+<p><code>HMGET key field [field ...]</code></p>
+<p>(5)获取所有属性和值</p>
+<p><code>HGETALL key</code></p>
+<p>(6)获取所有的属性</p>
+<p><code>HKEYS key</code></p>
+<p>(7)返回包含属性的个数</p>
+<p><code>HLEN key</code></p>
+<p>(8)获取所有值</p>
+<p><code>HVALS key</code></p>
+<p>(9)判断属性是否存在</p>
+<p><code>HEXISTS key field</code></p>
+<p>(10)删除属性及值</p>
+<p><code>HDEL key [field ...]</code></p>
+<p>(11)返回值的字符串长度</p>
+<p><code>HSTRLEN key field</code></p>
+<p><strong>4、list</strong></p>
+<ul>
+<li>列表的元素类型为string</li>
+<li>按照插入顺序排序</li>
+<li>在列表的头部或者尾部添加元素</li>
+</ul>
+<p>(1)在头部插入数据</p>
+<p><code>LPUSH key value [value ...]</code></p>
+<p>(2)在尾部插入数据</p>
+<p><code>RPUSH key value [value ...]</code></p>
+<p>(3)在一个元素的前|后插入新元素</p>
+<p><code>LINSERT key BEFORE|AFTER povit value</code></p>
+<p>(4)设置指定索引的元素值</p>
+<p><code>LSET key index value</code></p>
+<ul>
+<li>索引是基于0的下标</li>
+<li>索引可以是负数，表示偏移量是从list尾部开始计数，如-1表示列表的最后一个元素</li>
+</ul>
+<p>(5)移除并且返回 key 对应的 list 的第一个元素</p>
+<p><code>LPOP key</code></p>
+<p>(6)移除并返回存于 key 的 list 的最后一个元素</p>
+<p><code>RPOP key</code></p>
+<p>(7)返回存储在 key 的列表里指定范围内的元素</p>
+<p><code>LRANGE key start stop</code></p>
+<ul>
+<li>start 和 end 偏移量都是基于0的下标</li>
+<li>偏移量也可以是负数，表示偏移量是从list尾部开始计数，如-1表示列表的最后一个元素</li>
+</ul>
+<p>(8)裁剪列表，改为原集合的一个子集</p>
+<p><code>LTRIM key start stop</code></p>
+<ul>
+<li>start 和 end 偏移量都是基于0的下标</li>
+<li>偏移量也可以是负数，表示偏移量是从list尾部开始计数，如-1表示列表的最后一个元素</li>
+</ul>
+<p>(9)返回存储在 key 里的list的长度</p>
+<p><code>LLEN key</code></p>
+<p>(10)返回列表里索引对应的元素</p>
+<p><code>LINDEX key index</code></p>
+<p><strong>5、set</strong></p>
+<ul>
+<li>无序集合</li>
+<li>元素为string类型</li>
+<li>元素具有唯一性，不重复</li>
+</ul>
+<p>(1)添加元素</p>
+<p><code>SADD key memeber [memeber ...]</code></p>
+<p>(2)返回key集合所有的元素</p>
+<p><code>SMEMBERS keys</code></p>
+<p>(3)返回集合元素个数</p>
+<p><code>SCARD key</code></p>
+<p>(4)求多个集合的交集</p>
+<p><code>SINTER key [key ...]</code></p>
+<p>(5)求某集合与其它集合的差集</p>
+<p><code>SDIFF key [key ...]</code></p>
+<p>(6)求多个集合的合集</p>
+<p><code>SUNION key [key ...]</code></p>
+<p>(7)判断元素是否在集合中</p>
+<p><code>SISMEMBER key member</code></p>
+<p><strong>6、zset</strong></p>
+<ul>
+<li>sorted set，有序集合</li>
+<li>元素为string类型</li>
+<li>元素具有唯一性，不重复</li>
+<li>每个元素都会关联一个double类型的score，表示权重，通过权重将元素从小到大排序</li>
+<li>元素的score可以相同</li>
+</ul>
+<p>(1)添加元素</p>
+<p><code>ZADD key score memeber [score memeber ...]</code></p>
+<p>(2)返回指定范围内的元素</p>
+<p><code>ZRANGE key start stop</code></p>
+<p>(3)返回元素个数</p>
+<p><code>ZCARD key</code></p>
+<p>(4)返回有序集key中，score值在min和max之间的成员</p>
+<p><code>ZCOUNT key min max</code></p>
+<p>(5)返回有序集key中，成员member的score值</p>
+<p><code>ZSCROE key memeber</code></p>
+<h2 id="四、发布订阅"><a href="#四、发布订阅" class="headerlink" title="四、发布订阅"></a>四、发布订阅</h2><ul>
+<li>发布者不是计划发送消息给特定的接收者（订阅者），而是发布的消息分到不同的频道，不需要知道什么样的订阅者订阅</li>
+<li>订阅者对一个或多个频道感兴趣，只需接收感兴趣的消息，不需要知道什么样的发布者发布的</li>
+<li>发布者和订阅者的解耦合可以带来更大的扩展性和更加动态的网络拓扑</li>
+<li>客户端发到频道的消息，将会被推送到所有订阅此频道的客户端</li>
+<li>客户端不需要主动去获取消息，只需要订阅频道，这个频道的内容就会被推送过来</li>
+</ul>
+<p><strong>1、消息的格式</strong></p>
+<p>推送消息的格式包含三部分：</p>
+<ul>
+<li>part1:消息类型，包含三种类型<ul>
+<li>subscribe，表示订阅成功</li>
+<li>unsubscribe，表示取消订阅成功</li>
+<li>message，表示其它终端发布消息</li>
+</ul>
+</li>
+<li>如果第一部分的值为subscribe，则第二部分是频道，第三部分是现在订阅的频道的数量</li>
+<li>如果第一部分的值为unsubscribe，则第二部分是频道，第三部分是现在订阅的频道的数量，如果为0则表示当前没有订阅任何频道，当在Pub/Sub以外状态，客户端可以发出任何redis命令</li>
+<li>如果第一部分的值为message，则第二部分是来源频道的名称，第三部分是消息的内容</li>
+</ul>
+<p><strong>2、基本命令</strong></p>
+<p>(1)订阅</p>
+<p><code>SUBSCRIBE 频道名称 [频道名称 ...]</code></p>
+<p>(2)取消订阅</p>
+<ul>
+<li>如果不写参数，表示取消所有订阅</li>
+</ul>
+<p><code>UNSUBSCRIBE 频道名称 [频道名称 ...]</code></p>
+<p>(3)发布</p>
+<p><code>PUBLISH 频道 消息</code></p>
+<h2 id="五、主从配置"><a href="#五、主从配置" class="headerlink" title="五、主从配置"></a>五、主从配置</h2><p>一个master可以拥有多个slave，一个slave又可以拥有多个slave，如此下去，形成了强大的多级服务器集群架构</p>
+<p>比如，将ip为192.168.1.10的机器作为主服务器，将ip为192.168.1.11的机器作为从服务器</p>
+<p>(1)设置主服务器的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bind 192.168.1.10</span><br></pre></td></tr></table></figure>
+<p>(2)设置从服务器的配置</p>
+<ul>
+<li>注意：在slaveof后面写主机ip，再写端口，而且端口必须写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bind 192.168.1.11</span><br><span class="line">slaveof 192.168.1.10 6379</span><br></pre></td></tr></table></figure>
+<p>(3)在master和slave分别执行info命令，查看输出信息</p>
+<p>(4)在master上写数据</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set hello world</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>(5)在slave上读数据</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get hello</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a><em>持续更新…</em></h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月07日 17:31</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/29/redis/" title="redis">http://pythonfood.github.io/2017/12/29/redis/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/29/redis/&title=《redis》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/29/redis/&title=《redis》 — PythonFood&source=redis常用命令笔记。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/29/redis/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《redis》 — PythonFood&url=http://pythonfood.github.io/2017/12/29/redis/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/29/redis/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/29/redis/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/redis/" class="color1">redis</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、redis安装"><span class="post-toc-text">一、redis安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、redis配置"><span class="post-toc-text">二、redis配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、数据操作"><span class="post-toc-text">三、数据操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、发布订阅"><span class="post-toc-text">四、发布订阅</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、主从配置"><span class="post-toc-text">五、主从配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/29/linux/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          linux
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/29/mongodb/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">mongodb</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="redis" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/redis/">redis</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
