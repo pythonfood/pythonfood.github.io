@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网络 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/31/网络/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/OSI七层参考模型.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/TCP／IP五层网络模型.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/TCP／IP五层网络模型协议.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/TCP／IP协议族.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/PacketTracer.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/两台电脑组网.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/两台电脑ping通.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/两台电脑组网数据包.gif">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/通过集线器组网.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/通过交换机组网.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/通过交换机组网arp缓存表.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/通过路由器组网.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/通过路由器组网路由表.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/交换机、路由器、服务器组网.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/家庭上网解析.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/IP地址.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/udp网络通信过程.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/创建一个udp客户端程序的简单流程.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/创建一个udp客户端程序的简单流程运行结果.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/创建一个udp客户端程序的简单流程服务端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/echo客户端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/echo服务器.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/TFTP下载过程.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/TFTP数据包的格式.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/三次握手、四次挥手.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp／ip在数据收发的过程.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp的报文格式.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp三次握手.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp四次挥手.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/创建一个tcp客户端和服务器的简单流程.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp服务器服务端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp服务器客户端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp客户端客户端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp客户端服务端.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/客户端请求消息.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/服务器响应消息.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp正常链接.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/tcp半链接攻击.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/dns劫持.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/dns欺骗.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/nslookup.png">
+<meta property="og:image" content="http://pythonfood.github.io/2017/12/31/网络/arp攻击.png">
+<meta property="og:updated_time" content="2018-11-29T01:52:26.748Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络">
+<meta name="twitter:description" content="人生苦短，我用python。">
+<meta name="twitter:image" content="http://pythonfood.github.io/2017/12/31/网络/OSI七层参考模型.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-网络" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      网络
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/网络/">网络</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、网络"><a href="#一、网络" class="headerlink" title="一、网络"></a>一、网络</h2><p><strong>1、网络模型</strong></p>
+<ul>
+<li>使用网络能够把多方链接在一起，然后可以进行数据传递</li>
+<li>所谓的网络编程就是，让在不同的电脑上的软件能够进行数据传递，即进程之间的通信</li>
+</ul>
+<p>(1)OSI七层参考模型</p>
+<p>OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），每一层都有自己相应的功能和协议，并且与相邻层的接口通信。</p>
+<p><img src="/2017/12/31/网络/OSI七层参考模型.png" alt="OSI七层参考模型"></p>
+<ul>
+<li><strong>应用层</strong>：OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。</li>
+<li><strong>表示层</strong>：表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。数据压缩和加密也是表示层可提供的转换功能之一。</li>
+<li><strong>会话层</strong>：会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。通过传输层建立数据传输的通路。</li>
+<li><strong>传输层</strong>：传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP、UDP就是在这一层。端口号既是这里的“端”。常把这一层的数据叫做“段”。</li>
+<li><strong>网络层</strong>：本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。常把这一层的数据叫做“数据包”。</li>
+<li><strong>数据链路层</strong>：将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址，即网卡地址)来访问介质,并进行差错检测。数据链路层又分为2个子层：逻辑链路控制子层（LLC）和媒体访问控制子层（MAC）。常把这一层的数据叫做“帧”。</li>
+<li><strong>物理层</strong>：实际最终信号的传输是通过物理层实现的。将数据最终编码为用 0、1 标识的比特流，通过物理介质传输。主要定义物理设备标准，如网线的接口类型、光纤的接口类型、各种传输介质的传输速率等。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。这一层的数据叫做“比特”。</li>
+</ul>
+<p>(2)TCP/IP五层网络模型</p>
+<p>在每一层都工作着不同的设备。</p>
+<p><img src="/2017/12/31/网络/TCP／IP五层网络模型.png" alt="TCP／IP五层网络模型"></p>
+<p>每一层实现的协议也各不同，即每一层的服务也不同。为了提供这种业务功能，下一层将上一层中的数据并入到本层的数据域中，然后通过加入报头或报尾来实现该层业务功能，该过程叫做数据封装。用户的数据要经过一次次包装，最后转化成可以在网络上传输的信号，发送到网络上。当到达目标计算机后，再执行相反的数据拆包过程。</p>
+<p><img src="/2017/12/31/网络/TCP／IP五层网络模型协议.png" alt="TCP／IP五层网络模型协议"></p>
+<p><strong>2、协议</strong></p>
+<p>早期的计算机网络，都是由各厂商自己规定一套协议，IBM、Apple和Microsoft都有各自的网络协议，互不兼容。为了把全世界的所有不同类型的计算机都连接起来，就必须规定一套全球通用的协议，为了实现互联网这个目标，互联网协议簇（Internet Protocol Suite）就是通用协议标准。</p>
+<p>因为互联网协议包含了上百种协议标准，但是最重要的两个协议是TCP和IP协议，所以，大家把互联网的协议简称TCP/IP协议。</p>
+<p>常用的网络协议如下：</p>
+<p><img src="/2017/12/31/网络/TCP／IP协议族.png" alt="TCP／IP协议族"></p>
+<p><strong>3、通信过程练习</strong></p>
+<p>(1)Packet Tracer 网络模拟环境</p>
+<blockquote>
+<p>Packet Tracer 是由Cisco(著名网络公司，思科)公司发布的一个辅助学习工具，为学习思科网络课程的初学者去设计、配置、排除网络故障提供了网络模拟环境。</p>
+<p>用户可以在软件的图形用户界面上直接使用拖曳方法建立网络拓扑，并可提供数据包在网络中行进的详细处理过程，观察网络实时运行情况。</p>
+<p><img src="/2017/12/31/网络/PacketTracer.png" alt="PacketTracer"></p>
+</blockquote>
+<p>(2)两台电脑组网</p>
+<blockquote>
+<p><img src="/2017/12/31/网络/两台电脑组网.png" alt="两台电脑组网"></p>
+<p><img src="/2017/12/31/网络/两台电脑ping通.png" alt="两台电脑ping通"></p>
+<p><img src="/2017/12/31/网络/两台电脑组网数据包.gif" alt="两台电脑组网数据包"></p>
+</blockquote>
+<p>(3)通过集线器组网</p>
+<blockquote>
+<p>过程：</p>
+<ul>
+<li>hub（集线器）能够完成多个电脑的链接</li>
+<li>每个数据包的发送都是以广播的形式进行的，容易堵塞网络</li>
+</ul>
+<p><img src="/2017/12/31/网络/通过集线器组网.png" alt="通过集线器组网"></p>
+</blockquote>
+<p>(4)通过交换机组网</p>
+<blockquote>
+<p>网络交换机（又称“网络交换器”），是一个扩大网络的器材，能为子网络中提供更多的连接端口，以便连接更多的计算机 具有性能价格比高、高度灵活、相对简单、易于实现等特点 以太网技术已成为当今最重要的一种局域网组网技术，网络交换机也就成为了最普及的交换机</p>
+<p>交换机的作用：</p>
+<ul>
+<li>转发过滤：当一个数据帧的目的地址在MAC地址表中有映射时，它被转发到连接目的节点的端口而不是所有端口（如该数据帧为广播帧则转发至所有端口）</li>
+<li>学习功能：以太网交换机了解每一端口相连设备的MAC地址，并将地址同相应的端口映射起来存放在交换机缓存中的MAC地址表中</li>
+</ul>
+<p>过程：</p>
+<ul>
+<li>交换机能够完成多个电脑的链接</li>
+<li>每个数据包的发送都是以广播的形式进行的，容易堵塞网络</li>
+<li>如果PC不知目标IP所对应的的MAC，那么可以看出，pc会先发送arp广播，得到对方的MAC然后，在进行数据的传送</li>
+<li>当switch第一次收到arp广播数据，会把arp广播数据包转发给所有端口（除来源端口）；如果以后还有pc询问此IP的MAC，那么只是向目标的端口进行转发数据</li>
+</ul>
+<p><img src="/2017/12/31/网络/通过交换机组网.png" alt="通过交换机组网"></p>
+<ul>
+<li><p>注意：每台pc必须手动设置IP、netmask</p>
+<ul>
+<li>192.168.1.1/255.255.255.0 …… 192.168.1.8/255.255.255.0</li>
+</ul>
+</li>
+<li><p>台pc都会有一个arp缓存表，用来记录IP所对应的的MAC</p>
+</li>
+</ul>
+<p><img src="/2017/12/31/网络/通过交换机组网arp缓存表.png" alt="通过交换机组网arp缓存表"></p>
+</blockquote>
+<p>(5)通过路由器组网</p>
+<blockquote>
+<p>路由器（Router）又称网关设备（Gateway）是用于连接多个逻辑上分开的网络。所谓逻辑网络是代表一个单独的网络或者一个子网。当数据从一个子网传输到另一个子网时，可通过路由器的路由功能来完成。</p>
+<p>路由器的作用：</p>
+<ul>
+<li>具有判断网络地址和选择IP路径的功能</li>
+</ul>
+<p>过程：</p>
+<ul>
+<li>不在同一网段的pc，需要设置默认网关才能把数据传送过去 通常情况下，都会把路由器默认网关</li>
+<li>当路由器收到一个其它网段的数据包时，会根据“路由表”来决定，把此数据包发送到哪个端口；路由表的设定有静态和动态方法</li>
+<li>每经过一次路由器，那么TTL值就会减一</li>
+</ul>
+<p>通过2个router，2个switch，4台pc组成的网络，如下：</p>
+<p><img src="/2017/12/31/网络/通过路由器组网.png" alt="通过路由器组网"></p>
+<ul>
+<li><p>配置所有pc的IP、netmask</p>
+<ul>
+<li>pc0（192.168.1.1/24） pc1（192.168.1.2/24） pc2（192.168.3.1/24） pc3（192.168.3.2/24）</li>
+</ul>
+</li>
+<li><p>配置router（每个router有2个IP）</p>
+<ul>
+<li>router0(192.168.1.254/24,192.168.2.1/24) router1(192.168.3.254/24,192.168.2.2/24)</li>
+</ul>
+</li>
+<li><p>在dos控制端下，可通过输入命令查看路由表：</p>
+</li>
+</ul>
+<p><img src="/2017/12/31/网络/通过路由器组网路由表.png" alt="通过路由器组网路由表"></p>
+</blockquote>
+<p>(6)交换机、路由器、服务器组网</p>
+<blockquote>
+<p>过程：</p>
+<ul>
+<li>DNS服务器用来解析出IP（类似电话簿）</li>
+<li>DFGATEWAY（默认网关）用来对顶，当发送的数据包的目的ip不是当前网络时，此数据包包转发的目的ip</li>
+<li>在路由器中路由表指定数据包的”下一跳”的地址</li>
+</ul>
+<p><img src="/2017/12/31/网络/交换机、路由器、服务器组网.png" alt="交换机、路由器、服务器组网"></p>
+<p>注意，一定要配置：</p>
+<ul>
+<li>PC：IP、NETMASK、DFGATEWAY、DNS</li>
+<li>ROUTER：IP、NETMASK、路由表</li>
+</ul>
+</blockquote>
+<h2 id="二、端口"><a href="#二、端口" class="headerlink" title="二、端口"></a>二、端口</h2><p>端口就好一个房子的门，是出入这间房子的必经之路。如果一个进程需要收发网络数据，那么就需要有这样的端口。</p>
+<p><strong>1、端口号</strong></p>
+<p>在linux系统中，端口可以有65536（2的16次方）个之多，操作系统为了统一管理，所以进行了编号，这就是端口号。</p>
+<p>端口是通过端口号来标记的，端口号只有整数，范围是从0到65535。</p>
+<p><strong>2、端口分配</strong></p>
+<p>端口号不是随意使用的，而是按照一定的规定进行分配。</p>
+<p>(1)知名端口（Well Known Ports）</p>
+<ul>
+<li><strong>80</strong>：    <strong>http</strong>，    超文本传输协议，传输Web页面</li>
+<li><strong>443</strong>：    <strong>https</strong>，    经过加密的http</li>
+<li><strong>21</strong>：    <strong>ftp</strong>，    文件传输协议</li>
+<li><strong>53</strong>：    <strong>dns</strong>，    域名系统，用于域名解析</li>
+<li><strong>25</strong>：    <strong>smtp</strong>，    简单邮件传输协议，用于发送邮件</li>
+<li><strong>110</strong>：    <strong>pop3</strong>，    邮局协议，用于接收邮件</li>
+<li><strong>22</strong>：    <strong>ssh</strong>，    经过加密的远程安全Shell</li>
+<li><strong>23</strong>：    <strong>telnet</strong>，明文方式连接的远程终端服务</li>
+</ul>
+<p>(2)动态端口（Dynamic Ports）</p>
+<p>动态端口的范围是从1024到65535，之所以称为动态端口，是因为它一般不固定分配某种服务，而是动态分配。</p>
+<p>动态分配是指当一个系统进程或应用程序进程需要网络通信时，它向主机申请一个端口，主机从可用的端口号中分配一个供它使用。当这个进程关闭时，同时也就释放了所占用的端口号。</p>
+<p><strong>3、查看端口</strong></p>
+<p><code>netstat -an</code>查看端口状态</p>
+<h2 id="三、IP"><a href="#三、IP" class="headerlink" title="三、IP"></a>三、IP</h2><p><strong>1、IP地址</strong></p>
+<p>ip地址：用来在网络中标记一台电脑的一串数字，比如192.168.1.1；在本地局域网上是惟一的。</p>
+<p>家庭上网解析：</p>
+<p><img src="/2017/12/31/网络/家庭上网解析.png" alt="家庭上网解析"></p>
+<p><strong>2、IP地址的分类</strong></p>
+<p>每一个IP地址包括两部分：网络地址和主机地址</p>
+<p><img src="/2017/12/31/网络/IP地址.png" alt="IP地址"></p>
+<p>(1)A类IP地址</p>
+<ul>
+<li>一个A类IP地址由1字节的网络地址和3字节主机地址组成，网络地址的最高位必须是“0”</li>
+<li>地址范围：1.0.0.1-126.255.255.254</li>
+<li>二进制表示为：00000001 00000000 00000000 00000001 - 01111110 11111111 11111111 11111110</li>
+<li>可用的A类网络有126个，每个网络能容纳1677214个主机</li>
+</ul>
+<p>(2)B类IP地址</p>
+<ul>
+<li>一个B类IP地址由2个字节的网络地址和2个字节的主机地址组成，网络地址的最高位必须是“10”，</li>
+<li>地址范围：128.1.0.1-191.255.255.254</li>
+<li>二进制表示为：10000000 00000001 00000000 00000001 - 10111111 11111111 11111111 11111110</li>
+<li>可用的B类网络有16384个，每个网络能容纳65534主机</li>
+</ul>
+<p>(3)C类IP地址</p>
+<ul>
+<li>一个C类IP地址由3字节的网络地址和1字节的主机地址组成，网络地址的最高位必须是“110”</li>
+<li>地址范围：192.0.1.1-223.255.255.254</li>
+<li>二进制表示为: 11000000 00000000 00000001 00000001 - 11011111 11111111 11111110 11111110</li>
+<li>C类网络可达2097152个，每个网络能容纳254个主机</li>
+</ul>
+<p>(4)D类IP地址</p>
+<ul>
+<li>D类IP地址第一个字节以“1110”开始，它是一个专门保留的地址。</li>
+<li>地址范围224.0.0.1-239.255.255.254</li>
+<li>它并不指向特定的网络，目前这一类地址被用在多点广播（Multicast）中</li>
+<li>多点广播地址用来一次寻址一组计算机</li>
+</ul>
+<p>(5)E类IP地址</p>
+<ul>
+<li>以“1111”开始，为将来使用保留</li>
+<li>E类地址保留，仅作实验和开发用</li>
+</ul>
+<p>(6)私有IP地址</p>
+<p>在这么多网络IP中，国际规定有一部分IP地址是用于我们的局域网使用，也就是属于私网IP，不在公网中使用的，它们的范围是：</p>
+<ul>
+<li>10.0.0.0～10.255.255.255</li>
+<li>172.16.0.0～172.31.255.255</li>
+<li>192.168.0.0～192.168.255.255</li>
+</ul>
+<p>(7)本机IP地址</p>
+<ul>
+<li>IP地址127．0．0．1~127．255．255．255用于回路测试</li>
+<li>如：127.0.0.1可以代表本机IP地址，用 <a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a> 就可以测试本机中配置的Web服务器</li>
+</ul>
+<p><strong>3、子网掩码</strong></p>
+<p>(1)什么是子网掩码？</p>
+<p>互联网是由许多小型网络构成的，每个网络上都有许多主机，这样便构成了一个有层次的结构。IP地址在设计时就考虑到地址分配的层次特点，将每个IP地址都分割成网络号和主机号两部分，以便于IP地址的寻址操作。</p>
+<p>IP地址的网络号和主机号各是多少位呢？如果不指定，就不知道哪些位是网络号、哪些是主机号，这就需要通过子网掩码来实现。子网掩码只有一个作用，就是将某个IP地址划分成网络地址和主机地址两部分子网掩码的设定必须遵循一定的规则。</p>
+<p>(2)子网掩码的格式</p>
+<ul>
+<li>子网掩码不能单独存在，它必须结合IP地址一起使用。</li>
+<li>与IP地址相同，子网掩码的长度也是32位：<ul>
+<li>左边是网络位，用二进制数字“1”表示。</li>
+<li>右边是主机位，用二进制数字“0”表示。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>假设IP地址为“192.168.1.1”子网掩码为“255.255.255.0”。<br>1) 其中，“1”有24个，代表与此相对应的IP地址左边24位是网络号；<br>2) “0”有8个，代表与此相对应的IP地址右边8位是主机号。<br>3) 这样，子网掩码就确定了一个IP地址的32位二进制数字中哪些是网络号、哪些是主机号。<br>4) 这对于采用TCP/IP协议的网络来说非常重要，只有通过子网掩码，才能表明一台主机所在的子网与其他子网的关系，使网络正常工作。    </p>
+</blockquote>
+<p>(3)常用的子网掩码</p>
+<ul>
+<li>子网掩码是“255.255.255.0”的网络：<ul>
+<li>最后面一个数字可以在0~255范围内任意变化，因此可以提供256个IP地址。</li>
+<li>但是实际可用的IP地址数量是256-2，即254个，因为主机号不能全是“0”或全是“1”。</li>
+</ul>
+</li>
+<li>主机号全为0，表示网络号</li>
+<li>主机号全为1，表示网络广播    </li>
+</ul>
+<blockquote>
+<p>注意:<br>如果将子网掩码设置过大，也就是说子网范围扩大，那么，根据子网寻径规则，很可能发往和本地主机不在同一子网内的目标主机的数据，会因为错误的判断而认为目标主机是在同一子网内，那么，数据包将在本子网内循环，直到超时并抛弃，使数据不能正确到达目标主机，导致网络传输错误；如果将子网掩码设置得过小，那么就会将本来属于同一子网内的机器之间的通信当做是跨子网传输，数据包都交给缺省网关处理，这样势必增加缺省网关(文章下方有解释)的负担，造成网络效率下降。因此，子网掩码应该根据网络的规模进行设置。如果一个网络的规模不超过254台电脑，采用“255.255.255.0”作为子网掩码就可以了，现在大多数局域网都不会超过这个数字，因此“255.255.255.0”是最常用的IP地址子网掩码；假如在一所大学具有1500多台电脑，这种规模的局域网可以使用“255.255.0.0”。</p>
+</blockquote>
+<p><strong>4、手动配置IP</strong></p>
+<p>(1)设置IP和掩码</p>
+<p><code>ifconfig eth0 192.168.5.40 netmask 255.255.255.0</code></p>
+<p>(2)设置网关</p>
+<p><code>route add default gw 192.168.5.1</code>    </p>
+<h2 id="四、Socket"><a href="#四、Socket" class="headerlink" title="四、Socket"></a>四、Socket</h2><p><strong>1、socket简介</strong></p>
+<p>同一台机器的本地进程间通信（IPC）有很多种方式，例如：队列、同步（互斥锁、条件变量等）。</p>
+<p>那么，网络中进程之间如何通信呢？首要解决的问题是如何唯一标识一个进程。在本地可以通过进程PID来唯一标识一个进程，但是在网络中这是行不通的。</p>
+<p>其实TCP/IP协议族已经帮我们解决了这个问题，网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。</p>
+<p>这样利用“ip地址、协议、端口”就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。</p>
+<p>socket(简称 套接字) 是进程间通信的一种方式，它与其他进程间通信的一个主要不同是：它能实现不同主机间的进程间通信，我们网络上各种各样的服务大多都是基于 Socket 来完成通信的。</p>
+<p><strong>2、创建socket</strong></p>
+<p>在 Python 中 使用socket 模块的函数 socket 就可以完成：</p>
+<p><code>socket.socket(AddressFamily, Type)</code></p>
+<ul>
+<li>Address Family：<ul>
+<li>‘AF_INET’（用于 Internet 进程间通信）,实际工作中常用AF_INET</li>
+<li>‘AF_UNIX’（用于同一台机器进程间通信）</li>
+</ul>
+</li>
+<li>Type：套接字类型<ul>
+<li>‘SOCK_STREAM’（流式套接字，主要用于 TCP 协议）</li>
+<li>‘SOCK_DGRAM’（数据报套接字，主要用于 UDP 协议）</li>
+</ul>
+</li>
+</ul>
+<p>(1)创建 tcp socket（tcp套接字）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br></pre></td></tr></table></figure>
+<p>(2)创建 udp socket（udp套接字）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br></pre></td></tr></table></figure>
+<h2 id="五、UDP"><a href="#五、UDP" class="headerlink" title="五、UDP"></a>五、UDP</h2><p><strong>1、UDP简介</strong></p>
+<p>UDP — 用户数据报协议，是一个无连接的简单的面向数据报的运输层协议。UDP不提供可靠性，它只是把应用程序传给IP层的数据报发送出去，但是并不能保证它们能到达目的地。由于UDP在传输数据报前不用在客户和服务器之间建立一个连接，且没有超时重发等机制，故而传输速度很快。</p>
+<p>(1)UDP特点</p>
+<p>UDP是面向无连接的通讯协议，UDP数据包括目的端口号和源端口号信息，由于通讯不需要连接，所以可以实现广播发送。 UDP传输数据时有大小限制，每个被传输的数据报必须限定在64KB之内。 UDP是一个不可靠的协议，发送方所发送的数据报并不一定以相同的次序到达接收方。</p>
+<p>(2)UDP适用情况</p>
+<p>UDP是面向消息的协议，通信时不需要建立连接，数据的传输自然是不可靠的，UDP一般用于多点通信和实时的数据业务：</p>
+<ul>
+<li>语音广播</li>
+<li>视频</li>
+<li>QQ</li>
+<li>TFTP(简单文件传送）</li>
+<li>SNMP（简单网络管理协议）</li>
+<li>RIP（路由信息协议，如报告股票市场，航空信息）</li>
+<li>DNS(域名解释）</li>
+</ul>
+<p>(3)UDP网络通信过程</p>
+<p><img src="/2017/12/31/网络/udp网络通信过程.png" alt="udp网络通信过程"></p>
+<p><strong>2、udp网络程序-发送、接收数据</strong></p>
+<p>创建一个udp客户端程序的简单流程：</p>
+<ul>
+<li>创建客户端套接字</li>
+<li>发送/接收数据</li>
+<li>关闭套接字</li>
+</ul>
+<p><img src="/2017/12/31/网络/创建一个udp客户端程序的简单流程.png" alt="创建一个udp客户端程序的简单流程"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 创建套接字</span></span><br><span class="line">udpSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 准备接收方的地址</span></span><br><span class="line">sendAddr = (<span class="string">'192.168.1.103'</span>, <span class="number">8080</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3. 从键盘获取数据</span></span><br><span class="line">sendData = input(<span class="string">"请输入要发送的数据:"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 发送数据到指定的电脑上</span></span><br><span class="line">udpSocket.sendto(sendData.encode(), sendAddr)  <span class="comment"># str需要encode变为bytes进行发送，返过来接收需要decode</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#5. 等待接收对方发送的数据</span></span><br><span class="line">recvData = udpSocket.recvfrom(<span class="number">1024</span>)  <span class="comment"># 1024表示本次接收的最大字节数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#6. 显示对方发送的数据</span></span><br><span class="line">print(recvData)</span><br><span class="line"></span><br><span class="line"><span class="comment">#7. 关闭套接字</span></span><br><span class="line">udpSocket.close()</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="/2017/12/31/网络/创建一个udp客户端程序的简单流程运行结果.png" alt="创建一个udp客户端程序的简单流程运行结果"></p>
+<p>在windows中运行“网络调试助手”作为服务端：</p>
+<p><img src="/2017/12/31/网络/创建一个udp客户端程序的简单流程服务端.png" alt="创建一个udp客户端程序的简单流程服务端"></p>
+<p>注意，重新运行多次脚本，然后在“网络调试助手”中，会看到会变的端口号：</p>
+<ul>
+<li>每重新运行一次网络程序，目标端口号都会变，不一样的原因在于，这个数字标识这个网络程序，当重新运行时，如果没有确定到底用哪个，系统默认会随机分配。</li>
+<li>记住一点：这个网络程序在运行的过程中，这个就唯一标识这个程序，所以如果其他电脑上的网络程序如果想要向此程序发送数据，那么就需要向这个数字（即端口）标识的程序发送即可。</li>
+</ul>
+<p><strong>2、udp网络程序-绑定信息</strong></p>
+<p>一般，一个电脑上运行的网络程序有很多，而各自用的端口号很多情况下不知道，为了不与其他的网络程序占用同一个端口号，往往在编程中，udp的端口号一般不绑定。但是如果需要做成一个服务器端的程序的话，是需要绑定的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 创建套接字</span></span><br><span class="line">udpSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 绑定本地的相关信息，如果一个网络程序不绑定，则系统会随机分配</span></span><br><span class="line">bindAddr = (<span class="string">''</span>, <span class="number">7788</span>)  <span class="comment"># ip地址和端口号，ip一般不用写，表示本机的任何一个ip</span></span><br><span class="line">udpSocket.bind(bindAddr)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3. 等待接收对方发送的数据</span></span><br><span class="line">recvData = udpSocket.recvfrom(<span class="number">1024</span>)  <span class="comment"># 1024表示本次接收的最大字节数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#4. 显示对方发送的数据</span></span><br><span class="line">print(recvData)</span><br><span class="line"></span><br><span class="line"><span class="comment">#5. 关闭套接字</span></span><br><span class="line">udpSocket.close()</span><br></pre></td></tr></table></figure>
+<p>使用“网络调试助手”给目标端口“7788”发送消息，进行验证。</p>
+<p><strong>3、udp服务程序-示例</strong></p>
+<p>udp服务器、客户端：</p>
+<ul>
+<li>udp的服务器和客户端的区分：往往是通过请求服务和提供服务来进行区分<ul>
+<li>请求服务的一方称为：客户端</li>
+<li>提供服务的一方称为：服务器</li>
+</ul>
+</li>
+</ul>
+<p>udp绑定问题：</p>
+<ul>
+<li>一般情况下，服务器端，需要绑定端口，目的是为了让其他的客户端能够正确发送到此进程</li>
+<li>客户端，一般不需要绑定，而是让操作系统随机分配，这样就不会因为需要绑定的端口被占用而导致程序无法运行的情况</li>
+</ul>
+<p>(1)echo服务器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 创建套接字</span></span><br><span class="line">udpSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 绑定本地的相关信息，如果一个网络程序不绑定，则系统会随机分配</span></span><br><span class="line">bindAddr = (<span class="string">''</span>, <span class="number">7788</span>)  <span class="comment"># ip地址和端口号，ip一般不用写，表示本机的任何一个ip</span></span><br><span class="line">udpSocket.bind(bindAddr)</span><br><span class="line"></span><br><span class="line">num = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"></span><br><span class="line">	<span class="comment">#3. 等待接收对方发送的数据</span></span><br><span class="line">	recvData = udpSocket.recvfrom(<span class="number">1024</span>)  <span class="comment"># 1024表示本次接收的最大字节数</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">#4. 将接收到的数据再发送给对方</span></span><br><span class="line">	udpSocket.sendto(recvData[<span class="number">0</span>], recvData[<span class="number">1</span>])</span><br><span class="line">	</span><br><span class="line">	<span class="comment">#5. 统计信息</span></span><br><span class="line">	print(<span class="string">'已经将接收到的第%d个数据返回给对方,内容为:%s'</span>%(num,recvData[<span class="number">0</span>]))</span><br><span class="line">	num += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#6. 关闭套接字</span></span><br><span class="line">udpSocket.close()</span><br></pre></td></tr></table></figure>
+<p>1)用“网络调试助手”做echo客户端测试：</p>
+<p><img src="/2017/12/31/网络/echo客户端.png" alt="echo客户端"></p>
+<p>2)echo服务端：<br><img src="/2017/12/31/网络/echo服务器.png" alt="echo服务器"></p>
+<p>(2)聊天室</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#1. 创建套接字</span></span><br><span class="line">udpSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. 绑定本地的相关信息</span></span><br><span class="line">bindAddr = (<span class="string">''</span>, <span class="number">7788</span>) <span class="comment"># ip地址和端口号，ip一般不用写，表示本机的任何一个ip</span></span><br><span class="line">udpSocket.bind(bindAddr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">#3. 等待接收对方发送的数据</span></span><br><span class="line">    recvData = udpSocket.recvfrom(<span class="number">1024</span>) <span class="comment"># 1024表示本次接收的最大字节数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#4. 打印信息</span></span><br><span class="line">    print(<span class="string">'【%s】%s:%s'</span>%(time.ctime(), recvData[<span class="number">1</span>][<span class="number">0</span>], recvData[<span class="number">0</span>]))  <span class="comment"># 显示客户端发来的消息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#5. 关闭套接字</span></span><br><span class="line">udpSocket.close()</span><br></pre></td></tr></table></figure>
+<p>用“网络调试助手”做聊天室客户端发送消息，进行测试。如果双工通信可以用多线程实现。</p>
+<p>(3)udp广播</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">dest = (<span class="string">'&lt;broadcast&gt;'</span>, <span class="number">7788</span>)</span><br><span class="line"><span class="comment"># 创建udp套接字</span></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line"><span class="comment"># 对这个需要发送广播数据的套接字进行修改设置，否则不能发送广播数据</span></span><br><span class="line">s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># 以广播的形式发送数据到本网络的所有电脑中</span></span><br><span class="line">s.sendto(<span class="string">b'Hi'</span>, dest)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'等待对方回复（按ctrl+c退出）'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	(buf, adress) = s.recvfrom(<span class="number">2048</span>)</span><br><span class="line">	print(<span class="string">'Received from %s: %s" % (address, buf)'</span>)</span><br></pre></td></tr></table></figure>
+<p>(4)TFTP客户端</p>
+<p>TFTP（Trivial File Transfer Protocol,简单文件传输协议）,是TCP/IP协议族中的一个用来在客户端与服务器之间进行简单文件传输的协议:</p>
+<ul>
+<li>简单</li>
+<li>占用资源小</li>
+<li>适合传递小文件</li>
+<li>适合在局域网进行传递</li>
+<li>端口号为69</li>
+<li>基于UDP实现</li>
+</ul>
+<p>TFTP下载过程：</p>
+<p><img src="/2017/12/31/网络/TFTP下载过程.png" alt="TFTP下载过程"></p>
+<blockquote>
+<p>1)TFTP服务器默认监听69号端口，当客户端发送“下载”请求（即读请求）时，需要向服务器的69端口发送。</p>
+<p>2)服务器若批准此请求,则使用一个新的、临时的 端口进行数据传输。</p>
+<p>3)当服务器找到需要现在的文件后，会立刻打开文件，把文件中的数据通过TFTP协议发送给客户端。</p>
+<p>4)如果文件的总大小较大（比如3M），那么服务器分多次发送，每次会从文件中读取512个字节的数据发送过来。</p>
+<p>5)因为发送的次数有可能会很多，所以为了让客户端对接收到的数据进行排序，所以在服务器发送那512个字节数据的时候，会多发2个字节的数据，用来存放序号，并且放在512个字节数据的前面，序号是从1开始的。</p>
+<p>6)因为需要从服务器上下载文件时，文件可能不存在，那么此时服务器就会发送一个错误的信息过来，为了区分服务发送的是文件内容还是错误的提示信息，所以又用了2个字节 来表示这个数据包的功能（称为操作码），并且在序号的前面。</p>
+<ul>
+<li>操作码：<ul>
+<li>1    读请求，即下载</li>
+<li>2    写请求，即上传</li>
+<li>3    表示数据包，即DATA</li>
+<li>4    确认码，即ACK</li>
+<li>5    错误</li>
+</ul>
+</li>
+</ul>
+<p>7)因为udp的数据包不安全，即发送方发送是否成功不能确定，所以TFTP协议中规定，为了让服务器知道客户端已经接收到了刚刚发送的那个数据包，所以当客户端接收到一个数据包的时候需要向服务器进行发送确认信息，即发送收到了，这样的包成为ACK(应答包)。</p>
+<p>8)为了标记数据已经发送完毕，所以规定，当客户端接收到的数据小于516（2字节操作码+2个字节的序号+512字节数据）时，就意味着服务器发送完毕了。</p>
+<p>TFTP数据包的格式如下:<br><img src="/2017/12/31/网络/TFTP数据包的格式.png" alt="TFTP数据包的格式"></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> len(sys.argv) != <span class="number">2</span>:</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">30</span>)</span><br><span class="line">    print(<span class="string">"tips:"</span>)</span><br><span class="line">    print(<span class="string">"python xxxx.py 192.168.1.1"</span>)</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">30</span>)</span><br><span class="line">    exit()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    ip = sys.argv[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建udp套接字</span></span><br><span class="line">udpSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"></span><br><span class="line"><span class="comment">#构造下载请求数据</span></span><br><span class="line">cmd_buf = struct.pack(<span class="string">"!H8sb5sb"</span>,<span class="number">1</span>,<span class="string">"test.jpg"</span>,<span class="number">0</span>,<span class="string">"octet"</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#发送下载文件请求数据到指定服务器</span></span><br><span class="line">sendAddr = (ip, <span class="number">69</span>)</span><br><span class="line">udpSocket.sendto(cmd_buf, sendAddr)</span><br><span class="line"></span><br><span class="line">p_num = <span class="number">0</span></span><br><span class="line">recvFile = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    recvData,recvAddr = udpSocket.recvfrom(<span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">    recvDataLen = len(recvData)</span><br><span class="line"></span><br><span class="line">    cmdTuple = struct.unpack(<span class="string">"!HH"</span>, recvData[:<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">    cmd = cmdTuple[<span class="number">0</span>]</span><br><span class="line">    currentPackNum = cmdTuple[<span class="number">1</span>]        </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> cmd == <span class="number">3</span>: <span class="comment">#是否为数据包</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果是第一次接收到数据，那么就创建文件</span></span><br><span class="line">        <span class="keyword">if</span> currentPackNum == <span class="number">1</span>:</span><br><span class="line">            recvFile = open(<span class="string">"test.jpg"</span>, <span class="string">"a"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 包编号是否和上次相等</span></span><br><span class="line">        <span class="keyword">if</span> p_num+<span class="number">1</span> == currentPackNum:</span><br><span class="line">            recvFile.write(recvData[<span class="number">4</span>:]);</span><br><span class="line">            p_num +=<span class="number">1</span></span><br><span class="line">            print(<span class="string">'(%d)次接收到的数据'</span>%(p_num))</span><br><span class="line"></span><br><span class="line">            ackBuf = struct.pack(<span class="string">"!HH"</span>,<span class="number">4</span>,p_num)</span><br><span class="line"></span><br><span class="line">            udpSocket.sendto(ackBuf, recvAddr)</span><br><span class="line">        <span class="comment"># 如果收到的数据小于516则认为出错</span></span><br><span class="line">        <span class="keyword">if</span> recvDataLen&lt;<span class="number">516</span>:</span><br><span class="line">            recvFile.close()</span><br><span class="line">            print(<span class="string">'已经成功下载！！！'</span>) </span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> cmd == <span class="number">5</span>: <span class="comment">#是否为错误应答</span></span><br><span class="line">        print(<span class="string">"error num:%d"</span>%currentPackNum)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">udpSocket.close()</span><br></pre></td></tr></table></figure>
+<h2 id="六、TCP"><a href="#六、TCP" class="headerlink" title="六、TCP"></a>六、TCP</h2><p><strong>1、tcp简介</strong></p>
+<p>TCP在真正的读写操作之前，server与client之间必须建立一个连接，当读写操作完成后，双方不再需要这个连接时它们可以释放这个连接，连接的建立通过三次握手，释放则需要四次握手，所以说每个连接的建立都是需要资源消耗和时间消耗的。</p>
+<p><img src="/2017/12/31/网络/三次握手、四次挥手.png" alt="三次握手、四次挥手"></p>
+<p>tcp/ip在数据收发的过程就是不断的封包和解包的过程:</p>
+<p><img src="/2017/12/31/网络/tcp／ip在数据收发的过程.png" alt="tcp／ip在数据收发的过程"></p>
+<p>tcp/ip在通信过程中通过数据包报文的方式进行通信，tcp的报文格式：</p>
+<p><img src="/2017/12/31/网络/tcp的报文格式.png" alt="tcp的报文格式"></p>
+<p>tcp报文中比较重要的信息:</p>
+<ul>
+<li>序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。</li>
+<li>确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，Ack=Seq+1。</li>
+<li>标志位：共6个，即URG、ACK、PSH、RST、SYN、FIN等，具体含义如下：<ul>
+<li>URG：紧急指针（urgent pointer）有效。</li>
+<li>ACK：确认序号有效。</li>
+<li>PSH：接收方应该尽快将这个报文交给应用层。</li>
+<li>RST：重置连接。</li>
+<li>SYN：发起一个新连接。</li>
+<li>FIN：释放一个连接。</li>
+</ul>
+</li>
+</ul>
+<p>需要注意的是：</p>
+<ul>
+<li>（A）不要将确认序号Ack与标志位中的ACK搞混。</li>
+<li>（B）确认方Ack=发起方Req+1，两端配对。</li>
+</ul>
+<p><strong>2、tcp三次握手</strong></p>
+<p>所谓三次握手即建立TCP连接，就是指建立一个TCP连接时，需要客户端和服务端总共发送3个包以确认连接的建立。在socket编程中，这一过程由客户端执行connect来触发，整个流程：</p>
+<p><img src="/2017/12/31/网络/tcp三次握手.png" alt="tcp三次握手"></p>
+<blockquote>
+<p>1) 最开始的时候客户端和服务器都是处于CLOSED状态。主动打开连接的为客户端，被动打开连接的是服务器。</p>
+<p>2) TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态：</p>
+<p>3) TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文：Client将标志位SYN置为1，随机产生一个值seq=x，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。</p>
+<p>4) Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=x+1，随机产生一个值seq=y，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。</p>
+<p>5) Client收到确认后，检查ack是否为x+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=y+1，并向服务端发出确认信息，Server检查ack是否为y+1，ACK是否为1，序列号seq=x+1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。</p>
+</blockquote>
+<p><strong>3、tcp四次挥手</strong></p>
+<p>所谓四次挥手即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发，整个流程:</p>
+<p><img src="/2017/12/31/网络/tcp四次挥手.png" alt="tcp四次挥手"></p>
+<blockquote>
+<p>1) 由于TCP连接时全双工的，因此，每个方向都必须要单独进行关闭，这一原则是当一方完成数据发送任务后，发送一个FIN来终止这一方向的连接，收到一个FIN只是意味着这一方向上没有数据流动了，即不会再收到数据了，但是在这个TCP连接上仍然能够发送数据，直到这一方向也发送了FIN。首先进行关闭的一方将执行主动关闭，而另一方则执行被动关闭。</p>
+<p>2) 客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。</p>
+<p>3) 服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。</p>
+<p>4) 客户端进入FIN-WAIT-2</p>
+<p>4) 客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。</p>
+<p>5) 服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。</p>
+<p>6) 客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。</p>
+<p>7) 服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</p>
+<p>8) 客户端等待2MSL后进入CLOSED状态。</p>
+</blockquote>
+<p>注意，tcp的2MSL问题：</p>
+<ul>
+<li>2MSL即两倍的MSL，TCP的TIME_WAIT状态也称为2MSL等待状态。当TCP的一端发起主动关闭，在发出最后一个ACK包后，即第3次握 手完成后发送了第四次握手的ACK包后就进入了TIME_WAIT状态，必须在此状态上停留两倍的MSL时间。</li>
+<li>等待2MSL时间主要目的是怕最后一个 ACK包对方没收到，那么对方在超时后将重发第三次握手的FIN包，主动关闭端接到重发的FIN包后可以再发一个ACK应答包。</li>
+<li>在TIME_WAIT状态 时两端的端口不能使用，要等到2MSL时间结束才可继续使用。当连接处于2MSL等待阶段时任何迟到的报文段都将被丢弃。</li>
+<li>不过在实际应用中可以通过设置 SO_REUSEADDR选项达到不必等待2MSL时间结束再使用此端口。</li>
+</ul>
+<p><strong>4、tcp长连接和短连接</strong></p>
+<p>(1)短连接</p>
+<p>短连接的操作步骤是: 建立连接——数据传输——关闭连接…建立连接——数据传输——关闭连接</p>
+<p>模拟一种短连接:</p>
+<ul>
+<li>client 向 server 发起连接请求</li>
+<li>server 接到请求，双方建立连接</li>
+<li>client 向 server 发送消息</li>
+<li>server 回应 client</li>
+<li>一次读写完成，此时双方任何一个都可以发起 close 操作，一般都是 client 先发起 close 操作。当然也不排除有特殊的情况。</li>
+</ul>
+<p>(2)长连接</p>
+<p>长连接的操作步骤是：建立连接——数据传输…（保持连接）…数据传输——关闭连接</p>
+<p>模拟一种长连接：</p>
+<ul>
+<li>client 向 server 发起连接</li>
+<li>server 接到请求，双方建立连接</li>
+<li>client 向 server 发送消息</li>
+<li>server 回应 client</li>
+<li>一次读写完成，连接不关闭</li>
+<li>后续读写操作…</li>
+<li>长时间操作之后client发起关闭请求</li>
+</ul>
+<p>(3)长/短连接的优缺点</p>
+<ul>
+<li>长连接可以省去较多的TCP建立和关闭的操作，减少浪费，节约时间。对于频繁请求资源的客户来说，较适用长连接。</li>
+<li>client与server之间的连接如果一直不关闭的话，会存在一个问题，随着客户端连接越来越多，server早晚有扛不住的时候，这时候server端需要采取一些策略，如关闭一些长时间没有读写事件发生的连接，这样可以避免一些恶意连接导致server端服务受损；如果条件再允许就可以以客户端机器为颗粒度，限制每个客户端的最大长连接数，这样可以完全避免某个蛋疼的客户端连累后端服务。</li>
+<li>短连接对于服务器来说管理较为简单，存在的连接都是有用的连接，不需要额外的控制手段。</li>
+<li>但如果客户请求频繁，将在TCP的建立和关闭操作上浪费时间和带宽。</li>
+</ul>
+<p>(4)长/短连接的应用场景</p>
+<ul>
+<li>长连接多用于操作频繁，点对点的通讯，而且连接数不能太多情况。例如：数据库的连接用长连接，如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。</li>
+<li>而像WEB网站的http服务一般都用短链接，因为长连接对于服务端来说会耗费一定的资源，WEB网站这么频繁的成千上万甚至上亿客户端的连接用短连接会更省一些资源。</li>
+</ul>
+<p><strong>5、tcp服务器和客户端</strong></p>
+<p>创建一个tcp客户端和服务器的简单流程：</p>
+<p><img src="/2017/12/31/网络/创建一个tcp客户端和服务器的简单流程.png" alt="创建一个tcp客户端和服务器的简单流程"></p>
+<p>(1)tcp服务器</p>
+<p>在程序中，想要完成一个tcp服务器的功能，需要的流程如下：</p>
+<ul>
+<li>socket创建一个套接字</li>
+<li>bind绑定ip和port</li>
+<li>listen使套接字变为可以被动链接</li>
+<li>accept等待客户端的链接</li>
+<li>recv/send接收发送数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建socket</span></span><br><span class="line">tcpSerSocket = socket(AF_INET, SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定本地信息</span></span><br><span class="line">address = (<span class="string">''</span>, <span class="number">7788</span>)</span><br><span class="line">tcpSerSocket.bind(address)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用socket创建的套接字默认的属性是主动的，使用listen将其变为被动的，这样就可以接收别人的链接了</span></span><br><span class="line">tcpSerSocket.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有新的客户端来链接服务器，那么就产生一个新的套接字专门为这个客户端服务器</span></span><br><span class="line"><span class="comment"># newSocket用来为这个客户端服务</span></span><br><span class="line"><span class="comment"># tcpSerSocket就可以省下来专门等待其他新客户端的链接</span></span><br><span class="line">newSocket, clientAddr = tcpSerSocket.accept()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收对方发送过来的数据，最大接收1024个字节</span></span><br><span class="line">recvData = newSocket.recv(<span class="number">1024</span>)</span><br><span class="line">print(<span class="string">'接收到的数据为:'</span>,recvData) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送一些数据到客户端</span></span><br><span class="line">newSocket.send(<span class="string">'thank you !'</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭为这个客户端服务的套接字，只要关闭了，就意味着为不能再为这个客户端服务了，如果还需要服务，只能再次重新连接</span></span><br><span class="line">newSocket.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭监听套接字，只要这个套接字关闭了，就意味着整个程序不能再接收任何新的客户端的连接</span></span><br><span class="line">tcpSerSocket.close()</span><br></pre></td></tr></table></figure>
+<p>tcp服务端：</p>
+<p><img src="/2017/12/31/网络/tcp服务器服务端.png" alt="tcp服务器服务端"></p>
+<p>用“网络调试助手”作为tcp客户端：</p>
+<p><img src="/2017/12/31/网络/tcp服务器客户端.png" alt="tcp服务器客户端"></p>
+<p>(2)tcp客户端</p>
+<p>tcp的客户端要比服务器端简单很多</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建socket</span></span><br><span class="line">tcpClientSocket = socket(AF_INET, SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 链接服务器</span></span><br><span class="line">serAddr = (<span class="string">'192.168.1.102'</span>, <span class="number">7788</span>)</span><br><span class="line">tcpClientSocket.connect(serAddr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提示用户输入数据</span></span><br><span class="line">sendData = input(<span class="string">"请输入要发送的数据："</span>)</span><br><span class="line"><span class="comment"># 向服务器发送数据</span></span><br><span class="line">tcpClientSocket.send(sendData.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收对方发送过来的数据，最大接收1024个字节</span></span><br><span class="line">recvData = tcpClientSocket.recv(<span class="number">1024</span>)</span><br><span class="line">print(<span class="string">'接收到的数据为:'</span>,recvData)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭套接字</span></span><br><span class="line">tcpClientSocket.close()</span><br></pre></td></tr></table></figure>
+<p>tcp客户端：</p>
+<p><img src="/2017/12/31/网络/tcp客户端客户端.png" alt="tcp客户端客户端"></p>
+<p>用“网络调试助手”作为tcp服务端：</p>
+<p><img src="/2017/12/31/网络/tcp客户端服务端.png" alt="tcp客户端服务端"></p>
+<p>注意：</p>
+<ul>
+<li>listen中的black表示已经建立链接和半链接的总数</li>
+<li>如果当前已建立链接数和半链接数以达到设定值，那么新客户端就不会connect成功，而是等待服务器</li>
+</ul>
+<p><strong>6、tcp应用示例</strong></p>
+<p>(1)模拟QQ聊天</p>
+<p>客户端：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建socket</span></span><br><span class="line">tcpClientSocket = socket(AF_INET, SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 链接服务器</span></span><br><span class="line">serAddr = (<span class="string">'172.17.17.248'</span>, <span class="number">7788</span>)</span><br><span class="line">tcpClientSocket.connect(serAddr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	<span class="comment"># 提示用户输入数据</span></span><br><span class="line">	sendData = input(<span class="string">'send：'</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> len(sendData)&gt;<span class="number">0</span>:</span><br><span class="line">		tcpClientSocket.send(sendData.encode())</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 接收对方发送过来的数据，最大接收1024个字节</span></span><br><span class="line">	recvData = tcpClientSocket.recv(<span class="number">1024</span>)</span><br><span class="line">	print(<span class="string">'recv'</span>, recvData)</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 关闭套接字</span></span><br><span class="line">tcpClientSocket.close()</span><br></pre></td></tr></table></figure>
+<p>服务端：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建socket</span></span><br><span class="line">tcpSerSocket = socket(AF_INET, SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定本地信息</span></span><br><span class="line">address = (<span class="string">''</span>, <span class="number">7788</span>)</span><br><span class="line">tcpSerSocket.bind(address)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用socket创建的套接字默认的属性是主动的，使用listen将其变为被动的，这样就可以接收别人的链接了</span></span><br><span class="line">tcpSerSocket.listen(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">	<span class="comment"># 如果有新的客户端来链接服务器，那么就产生一个信心的套接字专门为这个客户端服务器</span></span><br><span class="line">    <span class="comment"># newSocket用来为这个客户端服务</span></span><br><span class="line">    <span class="comment"># tcpSerSocket就可以省下来专门等待其他新客户端的链接</span></span><br><span class="line">	newSocket, clientAddr = tcpSerSocket.accept()</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">		<span class="comment"># 接收对方发送过来的数据，最大接收1024个字节</span></span><br><span class="line">		recvData = newSocket.recv(<span class="number">1024</span>)</span><br><span class="line">		</span><br><span class="line">		<span class="comment"># 如果接收的数据的长度为0，则意味着客户端关闭了链接</span></span><br><span class="line">		<span class="keyword">if</span> len(recvData)&gt;<span class="number">0</span>:</span><br><span class="line">			print(<span class="string">'recv:'</span>,recvData)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">			</span><br><span class="line">		sendData = input(<span class="string">'send:'</span>)</span><br><span class="line">		newSocket.send(sendData.encode())</span><br><span class="line">		</span><br><span class="line">	<span class="comment"># 关闭为这个客户端服务的套接字，只要关闭了，就意味着为不能再为这个客户端服务了，如果还需要服务，只能再次重新连接</span></span><br><span class="line">	newSocket.close()</span><br><span class="line">	</span><br><span class="line"><span class="comment"># 关闭监听套接字，只要这个套接字关闭了，就意味着整个程序不能再接收任何新的客户端的连接</span></span><br><span class="line">tcpSerSocket.close()</span><br></pre></td></tr></table></figure>
+<h2 id="七、HTTP"><a href="#七、HTTP" class="headerlink" title="七、HTTP"></a>七、HTTP</h2><p>HTTP协议是Hyper Text Transfer Protocol（超文本传输协议）的缩写，是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+<p>HTTP是基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
+<p><strong>1、HTTP 工作原理</strong></p>
+<p>HTTP协议工作于客户端-服务端架构上。浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。</p>
+<p>HTTP默认端口号为80，但是你也可以改为8080或者其他端口。</p>
+<p>HTTP的特点：</p>
+<ul>
+<li><strong>HTTP是无连接</strong>：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</li>
+<li><strong>HTTP是媒体独立的</strong>：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</li>
+<li><strong>HTTP是无状态</strong>：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</li>
+</ul>
+<p><strong>2、HTTP 消息结构</strong></p>
+<p>HTTP是基于客户端/服务端（C/S）的架构模型，通过一个可靠的链接来交换信息，是一个无状态的请求/响应协议。</p>
+<ul>
+<li>一个HTTP”客户端”是一个应用程序（Web浏览器或其他任何客户端），通过连接到服务器达到向服务器发送一个或多个HTTP的请求的目的。</li>
+<li>一个HTTP”服务器”同样也是一个应用程序（通常是一个Web服务，如Apache Web服务器或IIS服务器等），通过接收客户端的请求并向客户端发送HTTP响应数据。</li>
+</ul>
+<p>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。</p>
+<p>一旦建立连接后，数据消息就通过类似Internet邮件所使用的格式[RFC5322]和多用途Internet邮件扩展（MIME）[RFC2045]来传送。</p>
+<p>(1)客户端请求消息</p>
+<p>http请求消息包括四个部分：请求行（request line）、请求头部（header）、空行、请求数据。</p>
+<p><img src="/2017/12/31/网络/客户端请求消息.png" alt="客户端请求消息"></p>
+<p>(2)服务器响应消息</p>
+<p>http响应消息也由四个部分组成：状态行、消息报头、空行、响应正文。</p>
+<p><img src="/2017/12/31/网络/服务器响应消息.png" alt="服务器响应消息"></p>
+<p><strong>3、HTTP 请求方法</strong></p>
+<p>HTTP1.0定义了三种请求方法：GET、POST、HEAD</p>
+<p>HTTP1.1新增了五种请求方法：OPTIONS、PUT、DELETE、TRACE、CONNECT </p>
+<ul>
+<li><strong>GET</strong>：        请求指定的页面信息，并返回实体主体。</li>
+<li><strong>POST</strong>：    向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</li>
+<li><strong>HEAD</strong>：    类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</li>
+<li><strong>PUT</strong>：        从客户端向服务器传送的数据取代指定的文档的内容。</li>
+<li><strong>DELETE</strong>：    请求服务器删除指定的页面。请求服务器删除 Request-URI 所标识的资源。</li>
+<li><strong>CONNECT</strong>：    HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</li>
+<li><strong>OPTIONS</strong>：    允许客户端查看服务器的性能。返回服务器针对特定资源所支持的HTTP请求方法。也可以利用向Web服务器发送’*’的请求来测试服务器的功能性。</li>
+<li><strong>TRACE</strong>：    回显服务器收到的请求，主要用于测试或诊断。</li>
+</ul>
+<p><strong>4、HTTP 响应头信息</strong></p>
+<ul>
+<li><strong>Allow</strong>：                服务器支持哪些请求方法（如GET、POST等）。</li>
+<li><strong>Content-Encoding</strong>：    文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。</li>
+<li><strong>Content-Length</strong>：        表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入 ByteArrayOutputStream，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。</li>
+<li><strong>Content-Type</strong>：        表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType。</li>
+<li><strong>Date</strong>：                当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦。</li>
+<li><strong>Expires</strong>：                应该在什么时候认为文档已经过期，从而不再缓存它？</li>
+<li><strong>Last-Modified</strong>：        文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置。</li>
+<li><strong>Location</strong>：            表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302。</li>
+<li><strong>Refresh</strong>：                表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过setHeader( “Refresh”, “5; URL=<a href="http://host/path" target="_blank" rel="noopener">http://host/path</a>“ )让浏览器读取指定的页面。 <ul>
+<li>注意这种功能通常是通过设置HTML页面HEAD区的＜ META HTTP-EQUIV=”Refresh” CONTENT=”5;URL=<a href="http://host/path" target="_blank" rel="noopener">http://host/path</a>“ ＞实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。 </li>
+<li>注意Refresh的意义是”N秒之后刷新本页面或访问指定页面”，而不是”每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是＜META HTTP-EQUIV=”Refresh” …＞。 </li>
+<li>注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</li>
+</ul>
+</li>
+<li><strong>Server</strong>：                服务器名字。Servlet一般不设置这个值，而是由Web服务器自己设置。</li>
+<li><strong>Set-Cookie</strong>：            设置和页面关联的Cookie。Servlet不应使用response.setHeader(“Set-Cookie”, …)，而是应使用HttpServletResponse提供的专用方法addCookie。参见下文有关Cookie设置的讨论。</li>
+<li><strong>WWW-Authenticate</strong>：    客户应该在Authorization头中提供什么类型的授权信息？在包含401（Unauthorized）状态行的应答中这个头是必需的。例如，response.setHeader(“WWW-Authenticate”, “BASIC realm=＼”executives＼””)。 <ul>
+<li>注意Servlet一般不进行这方面的处理，而是让Web服务器的专门机制来控制受密码保护页面的访问（例如.htaccess）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>5、HTTP 状态码</strong></p>
+<p>HTTP状态码的英文为HTTP Status Code。</p>
+<p>HTTP状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP状态码共分为5种类型：</p>
+<ul>
+<li><strong>1xx</strong>    信息，服务器收到请求，需要请求者继续执行操作</li>
+<li><strong>2xx</strong>    成功，操作被成功接收并处理</li>
+<li><strong>3xx</strong>    重定向，需要进一步的操作以完成请求</li>
+<li><strong>4xx</strong>    客户端错误，请求包含语法错误或无法完成请求</li>
+<li><strong>5xx</strong>    服务器错误，服务器在处理请求的过程中发生了错误</li>
+</ul>
+<p>HTTP状态码列表：</p>
+<ul>
+<li>100    Continue                    继续。客户端应继续其请求</li>
+<li>101    Switching Protocols            切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</li>
+<li>200    OK                            请求成功。一般用于GET与POST请求</li>
+<li>201    Created                        已创建。成功请求并创建了新的资源</li>
+<li>202    Accepted                    已接受。已经接受请求，但未处理完成</li>
+<li>203    Non-Authoritative Information    非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</li>
+<li>204    No Content                    无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</li>
+<li>205    Reset Content                重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</li>
+<li>206    Partial Content                部分内容。服务器成功处理了部分GET请求</li>
+<li>300    Multiple Choices            多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</li>
+<li>301    Moved Permanently            永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</li>
+<li>302    Found                        临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li>
+<li>303    See Other                    查看其它地址。与301类似。使用GET和POST请求查看</li>
+<li>304    Not Modified                未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</li>
+<li>305    Use Proxy                    使用代理。所请求的资源必须通过代理访问</li>
+<li>306    Unused                        已经被废弃的HTTP状态码</li>
+<li>307    Temporary Redirect            临时重定向。与302类似。使用GET请求重定向</li>
+<li>400    Bad Request                    客户端请求的语法错误，服务器无法理解</li>
+<li>401    Unauthorized                请求要求用户的身份认证</li>
+<li>402    Payment Required            保留，将来使用</li>
+<li>403    Forbidden                    服务器理解请求客户端的请求，但是拒绝执行此请求</li>
+<li>404    Not Found                    服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</li>
+<li>405    Method Not Allowed            客户端请求中的方法被禁止</li>
+<li>406    Not Acceptable                服务器无法根据客户端请求的内容特性完成请求</li>
+<li>407    Proxy Authentication Required    请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</li>
+<li>408    Request Time-out            服务器等待客户端发送的请求时间过长，超时</li>
+<li>409    Conflict                    服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突</li>
+<li>410    Gone                        客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</li>
+<li>411    Length Required                服务器无法处理客户端发送的不带Content-Length的请求信息</li>
+<li>412    Precondition Failed            客户端请求信息的先决条件错误</li>
+<li>413    Request Entity Too Large    由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</li>
+<li>414    Request-URI Too Large        请求的URI过长（URI通常为网址），服务器无法处理</li>
+<li>415    Unsupported Media Type        服务器无法处理请求附带的媒体格式</li>
+<li>416    Requested range not satisfiable    客户端请求的范围无效</li>
+<li>417    Expectation Failed            服务器无法满足Expect的请求头信息</li>
+<li>500    Internal Server Error        服务器内部错误，无法完成请求</li>
+<li>501    Not Implemented                服务器不支持请求的功能，无法完成请求</li>
+<li>502    Bad Gateway                    作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应</li>
+<li>503    Service Unavailable            由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</li>
+<li>504    Gateway Time-out            充当网关或代理的服务器，未及时从远端服务器获取请求</li>
+<li>505    HTTP Version not supported    服务器不支持请求的HTTP协议的版本，无法完成处理</li>
+</ul>
+<p><strong>6、HTTP content-type</strong></p>
+<p>Content-Type，内容类型，一般是指网页中存在的Content-Type，用于定义网络文件的类型和网页的编码，决定浏览器将以什么形式、什么编码读取这个文件，这就是经常看到一些Asp网页点击的结果却是下载到的一个文件或一张图片的原因。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">文件扩展名</th>
+<th style="text-align:left">Content-Type(Mime-Type)</th>
+<th style="text-align:left">文件扩展名</th>
+<th style="text-align:left">Content-Type(Mime-Type)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.*（二进制流）</td>
+<td style="text-align:left">application/octet-stream</td>
+<td style="text-align:left">.tif</td>
+<td style="text-align:left">image/tiff</td>
+</tr>
+<tr>
+<td style="text-align:left">0.001</td>
+<td style="text-align:left">application/x-001</td>
+<td style="text-align:left">0.301</td>
+<td style="text-align:left">application/x-301</td>
+</tr>
+<tr>
+<td style="text-align:left">0.323</td>
+<td style="text-align:left">text/h323</td>
+<td style="text-align:left">0.906</td>
+<td style="text-align:left">application/x-906</td>
+</tr>
+<tr>
+<td style="text-align:left">0.907</td>
+<td style="text-align:left">drawing/907</td>
+<td style="text-align:left">.a11</td>
+<td style="text-align:left">application/x-a11</td>
+</tr>
+<tr>
+<td style="text-align:left">.acp</td>
+<td style="text-align:left">audio/x-mei-aac</td>
+<td style="text-align:left">.ai</td>
+<td style="text-align:left">application/postscript</td>
+</tr>
+<tr>
+<td style="text-align:left">.aif</td>
+<td style="text-align:left">audio/aiff</td>
+<td style="text-align:left">.aifc</td>
+<td style="text-align:left">audio/aiff</td>
+</tr>
+<tr>
+<td style="text-align:left">.aiff</td>
+<td style="text-align:left">audio/aiff</td>
+<td style="text-align:left">.anv</td>
+<td style="text-align:left">application/x-anv</td>
+</tr>
+<tr>
+<td style="text-align:left">.asa</td>
+<td style="text-align:left">text/asa</td>
+<td style="text-align:left">.asf</td>
+<td style="text-align:left">video/x-ms-asf</td>
+</tr>
+<tr>
+<td style="text-align:left">.asp</td>
+<td style="text-align:left">text/asp</td>
+<td style="text-align:left">.asx</td>
+<td style="text-align:left">video/x-ms-asf</td>
+</tr>
+<tr>
+<td style="text-align:left">.au</td>
+<td style="text-align:left">audio/basic</td>
+<td style="text-align:left">.avi</td>
+<td style="text-align:left">video/avi</td>
+</tr>
+<tr>
+<td style="text-align:left">.awf</td>
+<td style="text-align:left">application/vnd.adobe.workflow</td>
+<td style="text-align:left">.biz</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.bmp</td>
+<td style="text-align:left">application/x-bmp</td>
+<td style="text-align:left">.bot</td>
+<td style="text-align:left">application/x-bot</td>
+</tr>
+<tr>
+<td style="text-align:left">.c4t</td>
+<td style="text-align:left">application/x-c4t</td>
+<td style="text-align:left">.c90</td>
+<td style="text-align:left">application/x-c90</td>
+</tr>
+<tr>
+<td style="text-align:left">.cal</td>
+<td style="text-align:left">application/x-cals</td>
+<td style="text-align:left">.cat</td>
+<td style="text-align:left">application/vnd.ms-pki.seccat</td>
+</tr>
+<tr>
+<td style="text-align:left">.cdf</td>
+<td style="text-align:left">application/x-netcdf</td>
+<td style="text-align:left">.cdr</td>
+<td style="text-align:left">application/x-cdr</td>
+</tr>
+<tr>
+<td style="text-align:left">.cel</td>
+<td style="text-align:left">application/x-cel</td>
+<td style="text-align:left">.cer</td>
+<td style="text-align:left">application/x-x509-ca-cert</td>
+</tr>
+<tr>
+<td style="text-align:left">.cg4</td>
+<td style="text-align:left">application/x-g4</td>
+<td style="text-align:left">.cgm</td>
+<td style="text-align:left">application/x-cgm</td>
+</tr>
+<tr>
+<td style="text-align:left">.cit</td>
+<td style="text-align:left">application/x-cit</td>
+<td style="text-align:left">.class</td>
+<td style="text-align:left">java/*</td>
+</tr>
+<tr>
+<td style="text-align:left">.cml</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.cmp</td>
+<td style="text-align:left">application/x-cmp</td>
+</tr>
+<tr>
+<td style="text-align:left">.cmx</td>
+<td style="text-align:left">application/x-cmx</td>
+<td style="text-align:left">.cot</td>
+<td style="text-align:left">application/x-cot</td>
+</tr>
+<tr>
+<td style="text-align:left">.crl</td>
+<td style="text-align:left">application/pkix-crl</td>
+<td style="text-align:left">.crt</td>
+<td style="text-align:left">application/x-x509-ca-cert</td>
+</tr>
+<tr>
+<td style="text-align:left">.csi</td>
+<td style="text-align:left">application/x-csi</td>
+<td style="text-align:left">.css</td>
+<td style="text-align:left">text/css</td>
+</tr>
+<tr>
+<td style="text-align:left">.cut</td>
+<td style="text-align:left">application/x-cut</td>
+<td style="text-align:left">.dbf</td>
+<td style="text-align:left">application/x-dbf</td>
+</tr>
+<tr>
+<td style="text-align:left">.dbm</td>
+<td style="text-align:left">application/x-dbm</td>
+<td style="text-align:left">.dbx</td>
+<td style="text-align:left">application/x-dbx</td>
+</tr>
+<tr>
+<td style="text-align:left">.dcd</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.dcx</td>
+<td style="text-align:left">application/x-dcx</td>
+</tr>
+<tr>
+<td style="text-align:left">.der</td>
+<td style="text-align:left">application/x-x509-ca-cert</td>
+<td style="text-align:left">.dgn</td>
+<td style="text-align:left">application/x-dgn</td>
+</tr>
+<tr>
+<td style="text-align:left">.dib</td>
+<td style="text-align:left">application/x-dib</td>
+<td style="text-align:left">.dll</td>
+<td style="text-align:left">application/x-msdownload</td>
+</tr>
+<tr>
+<td style="text-align:left">.doc</td>
+<td style="text-align:left">application/msword</td>
+<td style="text-align:left">.dot</td>
+<td style="text-align:left">application/msword</td>
+</tr>
+<tr>
+<td style="text-align:left">.drw</td>
+<td style="text-align:left">application/x-drw</td>
+<td style="text-align:left">.dtd</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.dwf</td>
+<td style="text-align:left">Model/vnd.dwf</td>
+<td style="text-align:left">.dwf</td>
+<td style="text-align:left">application/x-dwf</td>
+</tr>
+<tr>
+<td style="text-align:left">.dwg</td>
+<td style="text-align:left">application/x-dwg</td>
+<td style="text-align:left">.dxb</td>
+<td style="text-align:left">application/x-dxb</td>
+</tr>
+<tr>
+<td style="text-align:left">.dxf</td>
+<td style="text-align:left">application/x-dxf</td>
+<td style="text-align:left">.edn</td>
+<td style="text-align:left">application/vnd.adobe.edn</td>
+</tr>
+<tr>
+<td style="text-align:left">.emf</td>
+<td style="text-align:left">application/x-emf</td>
+<td style="text-align:left">.eml</td>
+<td style="text-align:left">message/rfc822</td>
+</tr>
+<tr>
+<td style="text-align:left">.ent</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.epi</td>
+<td style="text-align:left">application/x-epi</td>
+</tr>
+<tr>
+<td style="text-align:left">.eps</td>
+<td style="text-align:left">application/x-ps</td>
+<td style="text-align:left">.eps</td>
+<td style="text-align:left">application/postscript</td>
+</tr>
+<tr>
+<td style="text-align:left">.etd</td>
+<td style="text-align:left">application/x-ebx</td>
+<td style="text-align:left">.exe</td>
+<td style="text-align:left">application/x-msdownload</td>
+</tr>
+<tr>
+<td style="text-align:left">.fax</td>
+<td style="text-align:left">image/fax</td>
+<td style="text-align:left">.fdf</td>
+<td style="text-align:left">application/vnd.fdf</td>
+</tr>
+<tr>
+<td style="text-align:left">.fif</td>
+<td style="text-align:left">application/fractals</td>
+<td style="text-align:left">.fo</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.frm</td>
+<td style="text-align:left">application/x-frm</td>
+<td style="text-align:left">.g4</td>
+<td style="text-align:left">application/x-g4</td>
+</tr>
+<tr>
+<td style="text-align:left">.gbr</td>
+<td style="text-align:left">application/x-gbr</td>
+<td style="text-align:left">.</td>
+<td style="text-align:left">application/x-</td>
+</tr>
+<tr>
+<td style="text-align:left">.gif</td>
+<td style="text-align:left">image/gif</td>
+<td style="text-align:left">.gl2</td>
+<td style="text-align:left">application/x-gl2</td>
+</tr>
+<tr>
+<td style="text-align:left">.gp4</td>
+<td style="text-align:left">application/x-gp4</td>
+<td style="text-align:left">.hgl</td>
+<td style="text-align:left">application/x-hgl</td>
+</tr>
+<tr>
+<td style="text-align:left">.hmr</td>
+<td style="text-align:left">application/x-hmr</td>
+<td style="text-align:left">.hpg</td>
+<td style="text-align:left">application/x-hpgl</td>
+</tr>
+<tr>
+<td style="text-align:left">.hpl</td>
+<td style="text-align:left">application/x-hpl</td>
+<td style="text-align:left">.hqx</td>
+<td style="text-align:left">application/mac-binhex40</td>
+</tr>
+<tr>
+<td style="text-align:left">.hrf</td>
+<td style="text-align:left">application/x-hrf</td>
+<td style="text-align:left">.hta</td>
+<td style="text-align:left">application/hta</td>
+</tr>
+<tr>
+<td style="text-align:left">.htc</td>
+<td style="text-align:left">text/x-component</td>
+<td style="text-align:left">.htm</td>
+<td style="text-align:left">text/html</td>
+</tr>
+<tr>
+<td style="text-align:left">.html</td>
+<td style="text-align:left">text/html</td>
+<td style="text-align:left">.htt</td>
+<td style="text-align:left">text/webviewhtml</td>
+</tr>
+<tr>
+<td style="text-align:left">.htx</td>
+<td style="text-align:left">text/html</td>
+<td style="text-align:left">.icb</td>
+<td style="text-align:left">application/x-icb</td>
+</tr>
+<tr>
+<td style="text-align:left">.ico</td>
+<td style="text-align:left">image/x-icon</td>
+<td style="text-align:left">.ico</td>
+<td style="text-align:left">application/x-ico</td>
+</tr>
+<tr>
+<td style="text-align:left">.iff</td>
+<td style="text-align:left">application/x-iff</td>
+<td style="text-align:left">.ig4</td>
+<td style="text-align:left">application/x-g4</td>
+</tr>
+<tr>
+<td style="text-align:left">.igs</td>
+<td style="text-align:left">application/x-igs</td>
+<td style="text-align:left">.iii</td>
+<td style="text-align:left">application/x-iphone</td>
+</tr>
+<tr>
+<td style="text-align:left">.img</td>
+<td style="text-align:left">application/x-img</td>
+<td style="text-align:left">.ins</td>
+<td style="text-align:left">application/x-internet-signup</td>
+</tr>
+<tr>
+<td style="text-align:left">.isp</td>
+<td style="text-align:left">application/x-internet-signup</td>
+<td style="text-align:left">.IVF</td>
+<td style="text-align:left">video/x-ivf</td>
+</tr>
+<tr>
+<td style="text-align:left">.java</td>
+<td style="text-align:left">java/*</td>
+<td style="text-align:left">.jfif</td>
+<td style="text-align:left">image/jpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">.jpe</td>
+<td style="text-align:left">image/jpeg</td>
+<td style="text-align:left">.jpe</td>
+<td style="text-align:left">application/x-jpe</td>
+</tr>
+<tr>
+<td style="text-align:left">.jpeg</td>
+<td style="text-align:left">image/jpeg</td>
+<td style="text-align:left">.jpg</td>
+<td style="text-align:left">image/jpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">.jpg</td>
+<td style="text-align:left">application/x-jpg</td>
+<td style="text-align:left">.js</td>
+<td style="text-align:left">application/x-javascript</td>
+</tr>
+<tr>
+<td style="text-align:left">.jsp</td>
+<td style="text-align:left">text/html</td>
+<td style="text-align:left">.la1</td>
+<td style="text-align:left">audio/x-liquid-file</td>
+</tr>
+<tr>
+<td style="text-align:left">.lar</td>
+<td style="text-align:left">application/x-laplayer-reg</td>
+<td style="text-align:left">.latex</td>
+<td style="text-align:left">application/x-latex</td>
+</tr>
+<tr>
+<td style="text-align:left">.lavs</td>
+<td style="text-align:left">audio/x-liquid-secure</td>
+<td style="text-align:left">.lbm</td>
+<td style="text-align:left">application/x-lbm</td>
+</tr>
+<tr>
+<td style="text-align:left">.lmsff</td>
+<td style="text-align:left">audio/x-la-lms</td>
+<td style="text-align:left">.ls</td>
+<td style="text-align:left">application/x-javascript</td>
+</tr>
+<tr>
+<td style="text-align:left">.ltr</td>
+<td style="text-align:left">application/x-ltr</td>
+<td style="text-align:left">.m1v</td>
+<td style="text-align:left">video/x-mpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">.m2v</td>
+<td style="text-align:left">video/x-mpeg</td>
+<td style="text-align:left">.m3u</td>
+<td style="text-align:left">audio/mpegurl</td>
+</tr>
+<tr>
+<td style="text-align:left">.m4e</td>
+<td style="text-align:left">video/mpeg4</td>
+<td style="text-align:left">.mac</td>
+<td style="text-align:left">application/x-mac</td>
+</tr>
+<tr>
+<td style="text-align:left">.man</td>
+<td style="text-align:left">application/x-troff-man</td>
+<td style="text-align:left">.math</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.mdb</td>
+<td style="text-align:left">application/msaccess</td>
+<td style="text-align:left">.mdb</td>
+<td style="text-align:left">application/x-mdb</td>
+</tr>
+<tr>
+<td style="text-align:left">.mfp</td>
+<td style="text-align:left">application/x-shockwave-flash</td>
+<td style="text-align:left">.mht</td>
+<td style="text-align:left">message/rfc822</td>
+</tr>
+<tr>
+<td style="text-align:left">.mhtml</td>
+<td style="text-align:left">message/rfc822</td>
+<td style="text-align:left">.mi</td>
+<td style="text-align:left">application/x-mi</td>
+</tr>
+<tr>
+<td style="text-align:left">.mid</td>
+<td style="text-align:left">audio/mid</td>
+<td style="text-align:left">.midi</td>
+<td style="text-align:left">audio/mid</td>
+</tr>
+<tr>
+<td style="text-align:left">.mil</td>
+<td style="text-align:left">application/x-mil</td>
+<td style="text-align:left">.mml</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.mnd</td>
+<td style="text-align:left">audio/x-musicnet-download</td>
+<td style="text-align:left">.mns</td>
+<td style="text-align:left">audio/x-musicnet-stream</td>
+</tr>
+<tr>
+<td style="text-align:left">.mocha</td>
+<td style="text-align:left">application/x-javascript</td>
+<td style="text-align:left">.movie</td>
+<td style="text-align:left">video/x-sgi-movie</td>
+</tr>
+<tr>
+<td style="text-align:left">.mp1</td>
+<td style="text-align:left">audio/mp1</td>
+<td style="text-align:left">.mp2</td>
+<td style="text-align:left">audio/mp2</td>
+</tr>
+<tr>
+<td style="text-align:left">.mp2v</td>
+<td style="text-align:left">video/mpeg</td>
+<td style="text-align:left">.mp3</td>
+<td style="text-align:left">audio/mp3</td>
+</tr>
+<tr>
+<td style="text-align:left">.mp4</td>
+<td style="text-align:left">video/mpeg4</td>
+<td style="text-align:left">.mpa</td>
+<td style="text-align:left">video/x-mpg</td>
+</tr>
+<tr>
+<td style="text-align:left">.mpd</td>
+<td style="text-align:left">application/vnd.ms-project</td>
+<td style="text-align:left">.mpe</td>
+<td style="text-align:left">video/x-mpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">.mpeg</td>
+<td style="text-align:left">video/mpg</td>
+<td style="text-align:left">.mpg</td>
+<td style="text-align:left">video/mpg</td>
+</tr>
+<tr>
+<td style="text-align:left">.mpga</td>
+<td style="text-align:left">audio/rn-mpeg</td>
+<td style="text-align:left">.mpp</td>
+<td style="text-align:left">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td style="text-align:left">.mps</td>
+<td style="text-align:left">video/x-mpeg</td>
+<td style="text-align:left">.mpt</td>
+<td style="text-align:left">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td style="text-align:left">.mpv</td>
+<td style="text-align:left">video/mpg</td>
+<td style="text-align:left">.mpv2</td>
+<td style="text-align:left">video/mpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">.mpw</td>
+<td style="text-align:left">application/vnd.ms-project</td>
+<td style="text-align:left">.mpx</td>
+<td style="text-align:left">application/vnd.ms-project</td>
+</tr>
+<tr>
+<td style="text-align:left">.mtx</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.mxp</td>
+<td style="text-align:left">application/x-mmxp</td>
+</tr>
+<tr>
+<td style="text-align:left">.net</td>
+<td style="text-align:left">image/pnetvue</td>
+<td style="text-align:left">.nrf</td>
+<td style="text-align:left">application/x-nrf</td>
+</tr>
+<tr>
+<td style="text-align:left">.nws</td>
+<td style="text-align:left">message/rfc822</td>
+<td style="text-align:left">.odc</td>
+<td style="text-align:left">text/x-ms-odc</td>
+</tr>
+<tr>
+<td style="text-align:left">.out</td>
+<td style="text-align:left">application/x-out</td>
+<td style="text-align:left">.p10</td>
+<td style="text-align:left">application/pkcs10</td>
+</tr>
+<tr>
+<td style="text-align:left">.p12</td>
+<td style="text-align:left">application/x-pkcs12</td>
+<td style="text-align:left">.p7b</td>
+<td style="text-align:left">application/x-pkcs7-certificates</td>
+</tr>
+<tr>
+<td style="text-align:left">.p7c</td>
+<td style="text-align:left">application/pkcs7-mime</td>
+<td style="text-align:left">.p7m</td>
+<td style="text-align:left">application/pkcs7-mime</td>
+</tr>
+<tr>
+<td style="text-align:left">.p7r</td>
+<td style="text-align:left">application/x-pkcs7-certreqresp</td>
+<td style="text-align:left">.p7s</td>
+<td style="text-align:left">application/pkcs7-signature</td>
+</tr>
+<tr>
+<td style="text-align:left">.pc5</td>
+<td style="text-align:left">application/x-pc5</td>
+<td style="text-align:left">.pci</td>
+<td style="text-align:left">application/x-pci</td>
+</tr>
+<tr>
+<td style="text-align:left">.pcl</td>
+<td style="text-align:left">application/x-pcl</td>
+<td style="text-align:left">.pcx</td>
+<td style="text-align:left">application/x-pcx</td>
+</tr>
+<tr>
+<td style="text-align:left">.pdf</td>
+<td style="text-align:left">application/pdf</td>
+<td style="text-align:left">.pdf</td>
+<td style="text-align:left">application/pdf</td>
+</tr>
+<tr>
+<td style="text-align:left">.pdx</td>
+<td style="text-align:left">application/vnd.adobe.pdx</td>
+<td style="text-align:left">.pfx</td>
+<td style="text-align:left">application/x-pkcs12</td>
+</tr>
+<tr>
+<td style="text-align:left">.pgl</td>
+<td style="text-align:left">application/x-pgl</td>
+<td style="text-align:left">.pic</td>
+<td style="text-align:left">application/x-pic</td>
+</tr>
+<tr>
+<td style="text-align:left">.pko</td>
+<td style="text-align:left">application/vnd.ms-pki.pko</td>
+<td style="text-align:left">.pl</td>
+<td style="text-align:left">application/x-perl</td>
+</tr>
+<tr>
+<td style="text-align:left">.plg</td>
+<td style="text-align:left">text/html</td>
+<td style="text-align:left">.pls</td>
+<td style="text-align:left">audio/scpls</td>
+</tr>
+<tr>
+<td style="text-align:left">.plt</td>
+<td style="text-align:left">application/x-plt</td>
+<td style="text-align:left">.png</td>
+<td style="text-align:left">image/png</td>
+</tr>
+<tr>
+<td style="text-align:left">.png</td>
+<td style="text-align:left">application/x-png</td>
+<td style="text-align:left">.pot</td>
+<td style="text-align:left">application/vnd.ms-powerpoint</td>
+</tr>
+<tr>
+<td style="text-align:left">.ppa</td>
+<td style="text-align:left">application/vnd.ms-powerpoint</td>
+<td style="text-align:left">.ppm</td>
+<td style="text-align:left">application/x-ppm</td>
+</tr>
+<tr>
+<td style="text-align:left">.pps</td>
+<td style="text-align:left">application/vnd.ms-powerpoint</td>
+<td style="text-align:left">.ppt</td>
+<td style="text-align:left">application/vnd.ms-powerpoint</td>
+</tr>
+<tr>
+<td style="text-align:left">.ppt</td>
+<td style="text-align:left">application/x-ppt</td>
+<td style="text-align:left">.pr</td>
+<td style="text-align:left">application/x-pr</td>
+</tr>
+<tr>
+<td style="text-align:left">.prf</td>
+<td style="text-align:left">application/pics-rules</td>
+<td style="text-align:left">.prn</td>
+<td style="text-align:left">application/x-prn</td>
+</tr>
+<tr>
+<td style="text-align:left">.prt</td>
+<td style="text-align:left">application/x-prt</td>
+<td style="text-align:left">.ps</td>
+<td style="text-align:left">application/x-ps</td>
+</tr>
+<tr>
+<td style="text-align:left">.ps</td>
+<td style="text-align:left">application/postscript</td>
+<td style="text-align:left">.ptn</td>
+<td style="text-align:left">application/x-ptn</td>
+</tr>
+<tr>
+<td style="text-align:left">.pwz</td>
+<td style="text-align:left">application/vnd.ms-powerpoint</td>
+<td style="text-align:left">.r3t</td>
+<td style="text-align:left">text/vnd.rn-realtext3d</td>
+</tr>
+<tr>
+<td style="text-align:left">.ra</td>
+<td style="text-align:left">audio/vnd.rn-realaudio</td>
+<td style="text-align:left">.ram</td>
+<td style="text-align:left">audio/x-pn-realaudio</td>
+</tr>
+<tr>
+<td style="text-align:left">.ras</td>
+<td style="text-align:left">application/x-ras</td>
+<td style="text-align:left">.rat</td>
+<td style="text-align:left">application/rat-file</td>
+</tr>
+<tr>
+<td style="text-align:left">.rdf</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.rec</td>
+<td style="text-align:left">application/vnd.rn-recording</td>
+</tr>
+<tr>
+<td style="text-align:left">.red</td>
+<td style="text-align:left">application/x-red</td>
+<td style="text-align:left">.rgb</td>
+<td style="text-align:left">application/x-rgb</td>
+</tr>
+<tr>
+<td style="text-align:left">.rjs</td>
+<td style="text-align:left">application/vnd.rn-realsystem-rjs</td>
+<td style="text-align:left">.rjt</td>
+<td style="text-align:left">application/vnd.rn-realsystem-rjt</td>
+</tr>
+<tr>
+<td style="text-align:left">.rlc</td>
+<td style="text-align:left">application/x-rlc</td>
+<td style="text-align:left">.rle</td>
+<td style="text-align:left">application/x-rle</td>
+</tr>
+<tr>
+<td style="text-align:left">.rm</td>
+<td style="text-align:left">application/vnd.rn-realmedia</td>
+<td style="text-align:left">.rmf</td>
+<td style="text-align:left">application/vnd.adobe.rmf</td>
+</tr>
+<tr>
+<td style="text-align:left">.rmi</td>
+<td style="text-align:left">audio/mid</td>
+<td style="text-align:left">.rmj</td>
+<td style="text-align:left">application/vnd.rn-realsystem-rmj</td>
+</tr>
+<tr>
+<td style="text-align:left">.rmm</td>
+<td style="text-align:left">audio/x-pn-realaudio</td>
+<td style="text-align:left">.rmp</td>
+<td style="text-align:left">application/vnd.rn-rn_music_package</td>
+</tr>
+<tr>
+<td style="text-align:left">.rms</td>
+<td style="text-align:left">application/vnd.rn-realmedia-secure</td>
+<td style="text-align:left">.rmvb</td>
+<td style="text-align:left">application/vnd.rn-realmedia-vbr</td>
+</tr>
+<tr>
+<td style="text-align:left">.rmx</td>
+<td style="text-align:left">application/vnd.rn-realsystem-rmx</td>
+<td style="text-align:left">.rnx</td>
+<td style="text-align:left">application/vnd.rn-realplayer</td>
+</tr>
+<tr>
+<td style="text-align:left">.rp</td>
+<td style="text-align:left">image/vnd.rn-realpix</td>
+<td style="text-align:left">.rpm</td>
+<td style="text-align:left">audio/x-pn-realaudio-plugin</td>
+</tr>
+<tr>
+<td style="text-align:left">.rsml</td>
+<td style="text-align:left">application/vnd.rn-rsml</td>
+<td style="text-align:left">.rt</td>
+<td style="text-align:left">text/vnd.rn-realtext</td>
+</tr>
+<tr>
+<td style="text-align:left">.rtf</td>
+<td style="text-align:left">application/msword</td>
+<td style="text-align:left">.rtf</td>
+<td style="text-align:left">application/x-rtf</td>
+</tr>
+<tr>
+<td style="text-align:left">.rv</td>
+<td style="text-align:left">video/vnd.rn-realvideo</td>
+<td style="text-align:left">.sam</td>
+<td style="text-align:left">application/x-sam</td>
+</tr>
+<tr>
+<td style="text-align:left">.sat</td>
+<td style="text-align:left">application/x-sat</td>
+<td style="text-align:left">.sdp</td>
+<td style="text-align:left">application/sdp</td>
+</tr>
+<tr>
+<td style="text-align:left">.sdw</td>
+<td style="text-align:left">application/x-sdw</td>
+<td style="text-align:left">.sit</td>
+<td style="text-align:left">application/x-stuffit</td>
+</tr>
+<tr>
+<td style="text-align:left">.slb</td>
+<td style="text-align:left">application/x-slb</td>
+<td style="text-align:left">.sld</td>
+<td style="text-align:left">application/x-sld</td>
+</tr>
+<tr>
+<td style="text-align:left">.slk</td>
+<td style="text-align:left">drawing/x-slk</td>
+<td style="text-align:left">.smi</td>
+<td style="text-align:left">application/smil</td>
+</tr>
+<tr>
+<td style="text-align:left">.smil</td>
+<td style="text-align:left">application/smil</td>
+<td style="text-align:left">.smk</td>
+<td style="text-align:left">application/x-smk</td>
+</tr>
+<tr>
+<td style="text-align:left">.snd</td>
+<td style="text-align:left">audio/basic</td>
+<td style="text-align:left">.sol</td>
+<td style="text-align:left">text/plain</td>
+</tr>
+<tr>
+<td style="text-align:left">.sor</td>
+<td style="text-align:left">text/plain</td>
+<td style="text-align:left">.spc</td>
+<td style="text-align:left">application/x-pkcs7-certificates</td>
+</tr>
+<tr>
+<td style="text-align:left">.spl</td>
+<td style="text-align:left">application/futuresplash</td>
+<td style="text-align:left">.spp</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.ssm</td>
+<td style="text-align:left">application/streamingmedia</td>
+<td style="text-align:left">.sst</td>
+<td style="text-align:left">application/vnd.ms-pki.certstore</td>
+</tr>
+<tr>
+<td style="text-align:left">.stl</td>
+<td style="text-align:left">application/vnd.ms-pki.stl</td>
+<td style="text-align:left">.stm</td>
+<td style="text-align:left">text/html</td>
+</tr>
+<tr>
+<td style="text-align:left">.sty</td>
+<td style="text-align:left">application/x-sty</td>
+<td style="text-align:left">.svg</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.swf</td>
+<td style="text-align:left">application/x-shockwave-flash</td>
+<td style="text-align:left">.tdf</td>
+<td style="text-align:left">application/x-tdf</td>
+</tr>
+<tr>
+<td style="text-align:left">.tg4</td>
+<td style="text-align:left">application/x-tg4</td>
+<td style="text-align:left">.tga</td>
+<td style="text-align:left">application/x-tga</td>
+</tr>
+<tr>
+<td style="text-align:left">.tif</td>
+<td style="text-align:left">image/tiff</td>
+<td style="text-align:left">.tif</td>
+<td style="text-align:left">application/x-tif</td>
+</tr>
+<tr>
+<td style="text-align:left">.tiff</td>
+<td style="text-align:left">image/tiff</td>
+<td style="text-align:left">.tld</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.top</td>
+<td style="text-align:left">drawing/x-top</td>
+<td style="text-align:left">.torrent</td>
+<td style="text-align:left">application/x-bittorrent</td>
+</tr>
+<tr>
+<td style="text-align:left">.tsd</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.txt</td>
+<td style="text-align:left">text/plain</td>
+</tr>
+<tr>
+<td style="text-align:left">.uin</td>
+<td style="text-align:left">application/x-icq</td>
+<td style="text-align:left">.uls</td>
+<td style="text-align:left">text/iuls</td>
+</tr>
+<tr>
+<td style="text-align:left">.vcf</td>
+<td style="text-align:left">text/x-vcard</td>
+<td style="text-align:left">.vda</td>
+<td style="text-align:left">application/x-vda</td>
+</tr>
+<tr>
+<td style="text-align:left">.vdx</td>
+<td style="text-align:left">application/vnd.visio</td>
+<td style="text-align:left">.vml</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.vpg</td>
+<td style="text-align:left">application/x-vpeg005</td>
+<td style="text-align:left">.vsd</td>
+<td style="text-align:left">application/vnd.visio</td>
+</tr>
+<tr>
+<td style="text-align:left">.vsd</td>
+<td style="text-align:left">application/x-vsd</td>
+<td style="text-align:left">.vss</td>
+<td style="text-align:left">application/vnd.visio</td>
+</tr>
+<tr>
+<td style="text-align:left">.vst</td>
+<td style="text-align:left">application/vnd.visio</td>
+<td style="text-align:left">.vst</td>
+<td style="text-align:left">application/x-vst</td>
+</tr>
+<tr>
+<td style="text-align:left">.vsw</td>
+<td style="text-align:left">application/vnd.visio</td>
+<td style="text-align:left">.vsx</td>
+<td style="text-align:left">application/vnd.visio</td>
+</tr>
+<tr>
+<td style="text-align:left">.vtx</td>
+<td style="text-align:left">application/vnd.visio</td>
+<td style="text-align:left">.vxml</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.wav</td>
+<td style="text-align:left">audio/wav</td>
+<td style="text-align:left">.wax</td>
+<td style="text-align:left">audio/x-ms-wax</td>
+</tr>
+<tr>
+<td style="text-align:left">.wb1</td>
+<td style="text-align:left">application/x-wb1</td>
+<td style="text-align:left">.wb2</td>
+<td style="text-align:left">application/x-wb2</td>
+</tr>
+<tr>
+<td style="text-align:left">.wb3</td>
+<td style="text-align:left">application/x-wb3</td>
+<td style="text-align:left">.wbmp</td>
+<td style="text-align:left">image/vnd.wap.wbmp</td>
+</tr>
+<tr>
+<td style="text-align:left">.wiz</td>
+<td style="text-align:left">application/msword</td>
+<td style="text-align:left">.wk3</td>
+<td style="text-align:left">application/x-wk3</td>
+</tr>
+<tr>
+<td style="text-align:left">.wk4</td>
+<td style="text-align:left">application/x-wk4</td>
+<td style="text-align:left">.wkq</td>
+<td style="text-align:left">application/x-wkq</td>
+</tr>
+<tr>
+<td style="text-align:left">.wks</td>
+<td style="text-align:left">application/x-wks</td>
+<td style="text-align:left">.wm</td>
+<td style="text-align:left">video/x-ms-wm</td>
+</tr>
+<tr>
+<td style="text-align:left">.wma</td>
+<td style="text-align:left">audio/x-ms-wma</td>
+<td style="text-align:left">.wmd</td>
+<td style="text-align:left">application/x-ms-wmd</td>
+</tr>
+<tr>
+<td style="text-align:left">.wmf</td>
+<td style="text-align:left">application/x-wmf</td>
+<td style="text-align:left">.wml</td>
+<td style="text-align:left">text/vnd.wap.wml</td>
+</tr>
+<tr>
+<td style="text-align:left">.wmv</td>
+<td style="text-align:left">video/x-ms-wmv</td>
+<td style="text-align:left">.wmx</td>
+<td style="text-align:left">video/x-ms-wmx</td>
+</tr>
+<tr>
+<td style="text-align:left">.wmz</td>
+<td style="text-align:left">application/x-ms-wmz</td>
+<td style="text-align:left">.wp6</td>
+<td style="text-align:left">application/x-wp6</td>
+</tr>
+<tr>
+<td style="text-align:left">.wpd</td>
+<td style="text-align:left">application/x-wpd</td>
+<td style="text-align:left">.wpg</td>
+<td style="text-align:left">application/x-wpg</td>
+</tr>
+<tr>
+<td style="text-align:left">.wpl</td>
+<td style="text-align:left">application/vnd.ms-wpl</td>
+<td style="text-align:left">.wq1</td>
+<td style="text-align:left">application/x-wq1</td>
+</tr>
+<tr>
+<td style="text-align:left">.wr1</td>
+<td style="text-align:left">application/x-wr1</td>
+<td style="text-align:left">.wri</td>
+<td style="text-align:left">application/x-wri</td>
+</tr>
+<tr>
+<td style="text-align:left">.wrk</td>
+<td style="text-align:left">application/x-wrk</td>
+<td style="text-align:left">.ws</td>
+<td style="text-align:left">application/x-ws</td>
+</tr>
+<tr>
+<td style="text-align:left">.ws2</td>
+<td style="text-align:left">application/x-ws</td>
+<td style="text-align:left">.wsc</td>
+<td style="text-align:left">text/scriptlet</td>
+</tr>
+<tr>
+<td style="text-align:left">.wsdl</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.wvx</td>
+<td style="text-align:left">video/x-ms-wvx</td>
+</tr>
+<tr>
+<td style="text-align:left">.xdp</td>
+<td style="text-align:left">application/vnd.adobe.xdp</td>
+<td style="text-align:left">.xdr</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.xfd</td>
+<td style="text-align:left">application/vnd.adobe.xfd</td>
+<td style="text-align:left">.xfdf</td>
+<td style="text-align:left">application/vnd.adobe.xfdf</td>
+</tr>
+<tr>
+<td style="text-align:left">.xhtml</td>
+<td style="text-align:left">text/html</td>
+<td style="text-align:left">.xls</td>
+<td style="text-align:left">application/vnd.ms-excel</td>
+</tr>
+<tr>
+<td style="text-align:left">.xls</td>
+<td style="text-align:left">application/x-xls</td>
+<td style="text-align:left">.xlw</td>
+<td style="text-align:left">application/x-xlw</td>
+</tr>
+<tr>
+<td style="text-align:left">.xml</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.xpl</td>
+<td style="text-align:left">audio/scpls</td>
+</tr>
+<tr>
+<td style="text-align:left">.xq</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.xql</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.xquery</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.xsd</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.xsl</td>
+<td style="text-align:left">text/xml</td>
+<td style="text-align:left">.xslt</td>
+<td style="text-align:left">text/xml</td>
+</tr>
+<tr>
+<td style="text-align:left">.xwd</td>
+<td style="text-align:left">application/x-xwd</td>
+<td style="text-align:left">.x_b</td>
+<td style="text-align:left">application/x-x_b</td>
+</tr>
+<tr>
+<td style="text-align:left">.sis</td>
+<td style="text-align:left">application/vnd.symbian.install</td>
+<td style="text-align:left">.sisx</td>
+<td style="text-align:left">application/vnd.symbian.install</td>
+</tr>
+<tr>
+<td style="text-align:left">.x_t</td>
+<td style="text-align:left">application/x-x_t</td>
+<td style="text-align:left">.ipa</td>
+<td style="text-align:left">application/vnd.iphone</td>
+</tr>
+<tr>
+<td style="text-align:left">.apk</td>
+<td style="text-align:left">application/vnd.android.package-archive</td>
+<td style="text-align:left">.xap</td>
+<td style="text-align:left">application/x-silverlight-app</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八、网络攻击"><a href="#八、网络攻击" class="headerlink" title="八、网络攻击"></a>八、网络攻击</h2><p><strong>1、tcp半链接攻击</strong></p>
+<p>tcp半链接攻击也称为：SYN Flood (SYN洪水)。是种典型的DoS (Denial of Service，拒绝服务) 攻击。效果就是服务器TCP连接资源耗尽，停止响应正常的TCP连接请求</p>
+<p>(1)正常链接时的情况</p>
+<p><img src="/2017/12/31/网络/tcp正常链接.png" alt="tcp正常链接"></p>
+<p>(2)半链接攻击时的情况</p>
+<p><img src="/2017/12/31/网络/tcp半链接攻击.png" alt="tcp半链接攻击"></p>
+<p><strong>2、dns攻击</strong></p>
+<p>(1)dns服务器被劫持</p>
+<p>我们知道一个域名服务器对其区域内的用户解析请求负责，但是并没有一个机制去监督它有没有真地负责。于是有些流氓的域名服务器故意更改一些域名的解析结果，将用户引向一个错误的目标地址。这就叫作 DNS 劫持，主要用来阻止用户访问某些特定的网站，或者是将用户引导到广告页面。</p>
+<p><img src="/2017/12/31/网络/dns劫持.png" alt="dns劫持"></p>
+<p>(2)dns欺骗</p>
+<p>DNS 欺骗简单来说就是用一个假的 DNS 应答来欺骗用户计算机，让其相信这个假的地址，并且抛弃真正的 DNS 应答。在一台主机发出 DNS 请求后，它就开始等待应答，如果此时有一个看起来正确（拥有和DNS请求一样的序列号）的应答包，它就会信以为真，并且丢弃稍晚一点到达的应答。</p>
+<p><img src="/2017/12/31/网络/dns欺骗.png" alt="dns欺骗"></p>
+<p>(3)查看域名解析的ip地址方法</p>
+<p><code>nslookup 域名</code></p>
+<p>例如：nslookup baidu.com</p>
+<p><img src="/2017/12/31/网络/nslookup.png" alt="nslookup"></p>
+<p><strong>3、arp攻击</strong></p>
+<p><img src="/2017/12/31/网络/arp攻击.png" alt="arp攻击"></p>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月29日 09:52</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/31/网络/" title="网络">http://pythonfood.github.io/2017/12/31/网络/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/31/网络/&title=《网络》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/31/网络/&title=《网络》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/31/网络/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《网络》 — PythonFood&url=http://pythonfood.github.io/2017/12/31/网络/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/31/网络/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/31/网络/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、网络"><span class="post-toc-text">一、网络</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、端口"><span class="post-toc-text">二、端口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、IP"><span class="post-toc-text">三、IP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Socket"><span class="post-toc-text">四、Socket</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、UDP"><span class="post-toc-text">五、UDP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、TCP"><span class="post-toc-text">六、TCP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、HTTP"><span class="post-toc-text">七、HTTP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、网络攻击"><span class="post-toc-text">八、网络攻击</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/01/01/安卓专项测试/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          安卓专项测试
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/31/数据结构与算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">数据结构与算法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="网络" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/redis/">redis</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a><a class="category-link" href="/categories/网络/">网络</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 18.33px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
