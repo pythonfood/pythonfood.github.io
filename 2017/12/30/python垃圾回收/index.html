@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>python垃圾回收 | PythonFood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="python food,Python Food," />
+  
+  <meta name="description" content="人生苦短，我用python。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python垃圾回收">
+<meta property="og:url" content="http://pythonfood.github.io/2017/12/30/python垃圾回收/index.html">
+<meta property="og:site_name" content="PythonFood">
+<meta property="og:description" content="人生苦短，我用python。">
+<meta property="og:updated_time" content="2018-12-04T09:30:07.792Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python垃圾回收">
+<meta name="twitter:description" content="人生苦短，我用python。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Python Food</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Python Food
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        A snake that grows up slowly
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//pythonfood.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/pythonfood">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-python垃圾回收" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      python垃圾回收
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>人生苦短，我用python。<br><a id="more"></a></p>
+<h2 id="一、垃圾回收"><a href="#一、垃圾回收" class="headerlink" title="一、垃圾回收"></a>一、垃圾回收</h2><h3 id="1、内存对象池"><a href="#1、内存对象池" class="headerlink" title="1、内存对象池"></a>1、内存对象池</h3><p>(1)小整数对象池：</p>
+<ul>
+<li>小整数对象[-5,257)，为常驻内存， 免为整数频繁申请和销毁内存空间。在一个 Python 的程序中，所有位于这个范围内的整数使用的都是同一个对象。</li>
+<li>单个字母也共用对象，为常驻内存，不会被垃圾回收。</li>
+</ul>
+<p>(2)大整数对象池：</p>
+<ul>
+<li>每一个大整数，均创建一个新的对象。</li>
+<li>大整数不共用内存，引用计数为0，销毁 </li>
+</ul>
+<p>(3)intern机制：</p>
+<ul>
+<li>所有相同单个单词只占用一个内存空间，靠引用计数去维护何时释放。</li>
+<li>单个单词，不可修改，默认开启intern机制，共用对象，引用计数为0，则销毁</li>
+<li>含空格的字符串，不可修改，没开启intern机制，不共用对象，引用计数为0，销毁</li>
+</ul>
+<h3 id="2、GC垃圾回收"><a href="#2、GC垃圾回收" class="headerlink" title="2、GC垃圾回收"></a>2、GC垃圾回收</h3><p>Garbage collection(GC垃圾回收)：python采用的是<strong>引用计数机制</strong>为主，<strong>标记-清除</strong>和<strong>分代收集</strong>两种机制为辅的策略。</p>
+<p>GC系统负责三个重要任务：</p>
+<ul>
+<li>为新生成的对象分配内存</li>
+<li>识别那些垃圾对象，并且</li>
+<li>从垃圾对象那回收内存。</li>
+</ul>
+<p>(1)引用计数机制：</p>
+<blockquote>
+<p>python里每一个东西都是对象，它们的核心就是一个结构体：PyObject。其中ob_refcnt就是做为引用计数。当一个对象有新的引用时，它的ob_refcnt就会增加，当引用它的对象被删除，它的ob_refcnt就会减少，当引用计数为0时，该对象生命就结束了。</p>
+<p>引用计数机制的优点：</p>
+<ul>
+<li>简单</li>
+<li>实时性：一旦没有引用，内存就直接释放了。不用像其他机制等到特定时机。实时性还带来一个好处：处理回收内存的时间分摊到了平时。</li>
+</ul>
+<p>引用计数机制的缺点：</p>
+<ul>
+<li>维护引用计数消耗资源</li>
+<li>循环引用，所占用的内存永远无法被回收，导致内存泄露，注定python还将引入新的回收机制。(标记清除和分代收集)。</li>
+</ul>
+</blockquote>
+<p>(2)标记-清除：</p>
+<blockquote>
+<p>是一种基于追踪回收（tracing GC）技术实现的垃圾回收算法。它分为两个阶段：</p>
+<ul>
+<li>第一阶段是标记阶段，GC会把所有的『活动对象』打上标记</li>
+<li>第二阶段是把那些没有标记的对象『非活动对象』进行回收</li>
+</ul>
+<p>如何判断哪些对象是活动的呢？</p>
+<p>对象之间通过引用（指针）连在一起，构成一个有向图，对象构成这个有向图的节点，而引用关系构成这个有向图的边。从根对象（root object）出发，沿着有向边遍历对象，可达的（reachable）对象标记为活动对象，不可达的对象就是要被清除的非活动对象。根对象就是全局变量、调用栈、寄存器。</p>
+<p>标记清除算法作为Python的辅助垃圾收集技术主要处理的是一些容器对象，比如list、dict、tuple，instance等，因为对于字符串、数值对象是不可能造成循环引用问题。</p>
+</blockquote>
+<p>(3)分代回收：</p>
+<blockquote>
+<p>1) Python将内存根据对象的存活时间划分为不同的集合，每个集合称为一个代，Python将内存分为了3“代”，分别为年轻代（第0代）、中年代（第1代）、老年代（第2代），他们对应的是3个链表，它们的垃圾收集频率与对象的存活时间的增大而减小。</p>
+<p>2) 新创建的对象都会分配在年轻代，年轻代链表的总数达到上限时，Python垃圾收集机制就会被触发，把那些可以被回收的对象回收掉，而那些不会回收的对象就会被移到中年代去，依此类推，老年代中的对象是存活时间最久的对象，甚至是存活于整个系统的生命周期内。</p>
+<p>分代回收是建立在标记清除技术基础之上。分代回收同样作为Python的辅助垃圾收集技术处理那些容器对象。</p>
+</blockquote>
+<h3 id="3、gc模块"><a href="#3、gc模块" class="headerlink" title="3、gc模块"></a>3、gc模块</h3><p>导致引用计数+1的情况：</p>
+<ul>
+<li>对象被创建，例如a=23</li>
+<li>对象被引用，例如b=a</li>
+<li>对象被作为参数，传入到一个函数中，例如func(a)</li>
+<li>对象作为一个元素，存储在容器中，例如list1=[a,a]</li>
+</ul>
+<p>导致引用计数-1的情况:</p>
+<ul>
+<li>对象的别名被显式销毁，例如del a</li>
+<li>对象的别名被赋予新的对象，例如a=24</li>
+<li>一个对象离开它的作用域，例如f函数执行完毕时，func函数中的局部变量（全局变量不会）</li>
+<li>对象所在的容器被销毁，或从容器中删除对象</li>
+</ul>
+<p>(1)查看一个对象的引用计数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看一个对象的引用计数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">a = <span class="string">'hello world'</span></span><br><span class="line">sys.getrefcount(a) <span class="comment"># 对象的引用计数比正常计数大1,因为调用函数时传入a,会让a的引用计数+1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> gc</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassA</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'object born,id:%s'</span>%str(hex(id(self))))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f3</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"-----0------"</span>)</span><br><span class="line">    c1 = ClassA()</span><br><span class="line">    c2 = ClassA()</span><br><span class="line">    c1.t = c2</span><br><span class="line">    c2.t = c1</span><br><span class="line">    print(<span class="string">"-----1------"</span>)</span><br><span class="line">    <span class="keyword">del</span> c1</span><br><span class="line">    <span class="keyword">del</span> c2</span><br><span class="line">    print(<span class="string">"-----2------"</span>)</span><br><span class="line">    print(gc.garbage)  <span class="comment"># 垃圾回收后的对象会放在gc.garbage列表里面</span></span><br><span class="line">    print(<span class="string">"-----3------"</span>)</span><br><span class="line">    print(gc.collect()) <span class="comment"># 显式执行垃圾回收，gc.collect()会返回不可达的对象数目，4等于两个对象以及它们对应的dict</span></span><br><span class="line">    print(<span class="string">"-----4------"</span>)</span><br><span class="line">    print(gc.garbage)</span><br><span class="line">    print(<span class="string">"-----5------"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    gc.set_debug(gc.DEBUG_LEAK) <span class="comment">#设置gc模块的日志</span></span><br><span class="line">    f3()</span><br></pre></td></tr></table></figure></p>
+<p>(2)有三种情况会触发垃圾回收：</p>
+<ul>
+<li>调用gc.collect(),</li>
+<li>当gc模块的计数器达到阀值的时候。</li>
+<li>程序退出的时候</li>
+</ul>
+<p>(3)gc模块常用功能解析：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gc.set_debug(flags)  <span class="comment"># 设置gc的debug日志，一般设置为gc.DEBUG_LEAK</span></span><br><span class="line">gc.collect([generation])  <span class="comment"># 显式进行垃圾回收，可以输入参数，0代表只检查第一代的对象，1代表检查一，二代的对象，2代表检查一，二，三代的对象，如果不传参数，执行一个full collection，也就是等于传2。 返回不可达（unreachable objects）对象的数目</span></span><br><span class="line">gc.get_threshold()  <span class="comment"># 获取的gc模块中自动执行垃圾回收的频率。(700,10,10)</span></span><br><span class="line">gc.set_threshold(threshold0[, threshold1[, threshold2])  <span class="comment"># 设置自动执行垃圾回收的频率。</span></span><br><span class="line">gc.get_count()  <span class="comment"># 获取当前自动执行垃圾回收的计数器，返回一个长度为3的列表.(124,5,3)</span></span><br></pre></td></tr></table></figure></p>
+<p>(4)gc模块的自动垃圾回收机制：</p>
+<blockquote>
+<p>必须要import gc模块，并且is_enable()=True才会启动自动垃圾回收。</p>
+<p>这个机制的主要作用就是发现并处理不可达的垃圾对象。</p>
+<p>gc模块里面会有一个长度为3的列表的计数器，可以通过gc.get_count()获取：</p>
+<blockquote>
+<p>1) 例如(488,3,0)，其中488是指距离上一次一代垃圾检查，Python分配内存的数目减去释放内存的数目，注意是内存分配，而不是引用计数的增加。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print gc.get_count() # (590, 8, 0)</span><br><span class="line">a = ClassA()</span><br><span class="line">print gc.get_count() # (591, 8, 0)</span><br><span class="line">del a</span><br><span class="line">print gc.get_count() # (590, 8, 0)</span><br></pre></td></tr></table></figure></p>
+<p>2) 3是指距离上一次二代垃圾检查，一代垃圾检查的次数，同理，0是指距离上一次三代垃圾检查，二代垃圾检查的次数。 </p>
+</blockquote>
+<p>gc模快有一个自动垃圾回收的阀值，即通过gc.get_threshold函数获取到的长度为3的元组：</p>
+<blockquote>
+<p>例如(700,10,10) 每一次计数器的增加，gc模块就会检查增加后的计数是否达到阀值的数目，如果是，就会执行对应的代数的垃圾检查，然后重置计数器,例如，假设阀值是(700,10,10)：                            </p>
+<p>1) 当计数器从(699,3,0)增加到(700,3,0)，gc模块就会执行gc.collect(0),即检查一代对象的垃圾，并重置计数器为(0,4,0)</p>
+<p>2) 当计数器从(699,9,0)增加到(700,9,0)，gc模块就会执行gc.collect(1),即检查一、二代对象的垃圾，并重置计数器为(0,0,1)</p>
+<p>3) 当计数器从(699,9,9)增加到(700,9,9)，gc模块就会执行gc.collect(2),即检查一、二、三代对象的垃圾，并重置计数器为(0,0,0)                            </p>
+</blockquote>
+<p>注意：gc模块唯一处理不了的是循环引用的类都有<strong>del</strong>方法，所以项目中要避免定义<strong>del</strong>方法</p>
+</blockquote>
+<h1 id="持续更新…"><a href="#持续更新…" class="headerlink" title="持续更新…"></a>持续更新…</h1>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月04日 17:30</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/30/python垃圾回收/" title="python垃圾回收">http://pythonfood.github.io/2017/12/30/python垃圾回收/</a></p>
+        <footer>
+            <a href="http://pythonfood.github.io">
+                <img src="/images/logo.png" alt="Python Food">
+                Python Food
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        多少都行~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://pythonfood.github.io/2017/12/30/python垃圾回收/&title=《python垃圾回收》 — PythonFood&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://pythonfood.github.io/2017/12/30/python垃圾回收/&title=《python垃圾回收》 — PythonFood&source=人生苦短，我用python。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://pythonfood.github.io/2017/12/30/python垃圾回收/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python垃圾回收》 — PythonFood&url=http://pythonfood.github.io/2017/12/30/python垃圾回收/&via=http://pythonfood.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://pythonfood.github.io/2017/12/30/python垃圾回收/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://pythonfood.github.io/2017/12/30/python垃圾回收/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、垃圾回收"><span class="post-toc-text">一、垃圾回收</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、内存对象池"><span class="post-toc-text">1、内存对象池</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、GC垃圾回收"><span class="post-toc-text">2、GC垃圾回收</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、gc模块"><span class="post-toc-text">3、gc模块</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#持续更新…"><span class="post-toc-text">持续更新…</span></a>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/30/python日期时间/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          python日期时间
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/30/pythonFunctools模块/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">pythonFunctools模块</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="python垃圾回收" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytnRgqDg';
+        var conf = '61714297a608dcad6779ec4ea0059b2a';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Python Food<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://pythonfood.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/app测试/">app测试</a><a class="category-link" href="/categories/django/">django</a><a class="category-link" href="/categories/github/">github</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/linux/">linux</a><a class="category-link" href="/categories/markdown/">markdown</a><a class="category-link" href="/categories/mongodb/">mongodb</a><a class="category-link" href="/categories/mysql/">mysql</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/redis/">redis</a><a class="category-link" href="/categories/web测试/">web测试</a><a class="category-link" href="/categories/持续集成/">持续集成</a><a class="category-link" href="/categories/接口测试/">接口测试</a><a class="category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="category-link" href="/categories/服务器/">服务器</a><a class="category-link" href="/categories/测试框架/">测试框架</a><a class="category-link" href="/categories/测试用例/">测试用例</a><a class="category-link" href="/categories/爬虫/">爬虫</a><a class="category-link" href="/categories/网络/">网络</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/appium/" style="font-size: 13.33px;">appium</a> <a href="/tags/app测试/" style="font-size: 10px;">app测试</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jenkins/" style="font-size: 10px;">jenkins</a> <a href="/tags/jmeter/" style="font-size: 10px;">jmeter</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 11.67px;">selenium</a> <a href="/tags/unittest/" style="font-size: 10px;">unittest</a> <a href="/tags/web测试/" style="font-size: 10px;">web测试</a> <a href="/tags/安卓性能/" style="font-size: 15px;">安卓性能</a> <a href="/tags/接口测试/" style="font-size: 10px;">接口测试</a> <a href="/tags/接口脚本/" style="font-size: 10px;">接口脚本</a> <a href="/tags/测试用例/" style="font-size: 16.67px;">测试用例</a> <a href="/tags/爬虫/" style="font-size: 18.33px;">爬虫</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+  </div>
+</body>
+</html>
